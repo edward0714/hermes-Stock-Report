@@ -4,20 +4,40 @@
     <meta charset="UTF-8">
     <title>財經新聞總覽</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
-        h1 { color: #2c3e50; }
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            line-height: 1.6; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            background-image: url('https://v3b.fal.media/files/b/0a9efae3/imX07v8lIP-neSj3CtSCT_2yuAV6KC.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
         ul { list-style-type: none; padding: 0; }
-        li { margin-bottom: 10px; }
-        a { text-decoration: none; color: #3498db; }
-        a:hover { text-decoration: underline; }
+        li { margin-bottom: 15px; font-size: 1.1em; }
+        a { text-decoration: none; color: #2980b9; font-weight: 500; }
+        a:hover { color: #3498db; text-decoration: underline; }
+        .back-link { margin-top: 30px; font-size: 0.9em; color: #7f8c8d; }
     </style>
 </head>
 <body>
-    <h1>財經新聞總覽</h1>
-    <ul>
-        <li><a href="2026/06/2026-06-19.html">2026-06-19 財經晨報</a></li>
-        <li><a href="2026/06/2026-06-18.html">2026-06-18 財經晨報</a></li>
-    </ul>
-    <p><a href="../index.html">返回主頁</a></p>
+    <div class="container">
+        <h1>財經新聞總覽</h1>
+        <ul>
+            <li><a href="2026/06/2026-06-19.html">📄 2026-06-19 財經晨報</a></li>
+            <li><a href="2026/06/2026-06-18.html">📄 2026-06-18 財經晨報</a></li>
+        </ul>
+        <p class="back-link"><a href="../index.html">← 返回主頁</a></p>
+    </div>
 </body>
 </html>
