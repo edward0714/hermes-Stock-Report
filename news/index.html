@@ -25,21 +25,47 @@
             border: 1px solid #333;
         }
         h1 { color: #f0f0f0; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin-bottom: 15px; font-size: 1.1em; }
-        a { text-decoration: none; color: #5dade2; font-weight: 500; }
-        a:hover { color: #85c1e9; text-decoration: underline; }
+        .collapsible { cursor: pointer; color: #5dade2; font-weight: bold; margin-bottom: 5px; display: block; }
+        .collapsible:hover { color: #85c1e9; }
+        .content { display: none; padding-left: 20px; margin-bottom: 10px; }
+        .active { display: block; }
+        a { text-decoration: none; color: #5dade2; }
+        a:hover { text-decoration: underline; }
         .back-link { margin-top: 30px; font-size: 0.9em; color: #999; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>AI助理每日財經新聞總覽</h1>
-        <ul>
-            <li><a href="2026/06/2026-06-19.html">📄 2026-06-19 財經晨報</a></li>
-            <li><a href="2026/06/2026-06-18.html">📄 2026-06-18 財經晨報</a></li>
-        </ul>
+        
+        <!-- 2026 -->
+        <div class="collapsible" onclick="toggle(this)">▶ 2026年</div>
+        <div class="content">
+            <!-- 06 -->
+            <div class="collapsible" onclick="toggle(this)">▶ 06月</div>
+            <div class="content">
+                <ul>
+                    <li><a href="2026/06/2026-06-19.html">📄 2026-06-19 財經晨報</a></li>
+                    <li><a href="2026/06/2026-06-18.html">📄 2026-06-18 財經晨報</a></li>
+                </ul>
+            </div>
+        </div>
+
         <p class="back-link"><a href="../index.html">← 返回主頁</a></p>
     </div>
+
+    <script>
+        function toggle(el) {
+            el.classList.toggle("active-header");
+            var content = el.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                el.innerHTML = el.innerHTML.replace("▼", "▶");
+            } else {
+                content.style.display = "block";
+                el.innerHTML = el.innerHTML.replace("▶", "▼");
+            }
+        }
+    </script>
 </body>
 </html>
