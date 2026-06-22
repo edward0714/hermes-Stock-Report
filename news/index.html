@@ -23,53 +23,123 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             border: 1px solid #333;
-            /* 手機版設定 */
             width: 90%;
             margin: 0 auto;
         }
-        /* 電腦版設定 (寬度大於 768px) */
         @media (min-width: 768px) {
-            .container {
-                width: 60%;
-            }
+            .container { width: 60%; }
         }
-        h1 { color: #f0f0f0; border-bottom: 2px solid #3498db; padding-bottom: 10px; font-size: 1.5em; }
-        .collapsible { cursor: pointer; color: #5dade2; font-weight: bold; margin-bottom: 5px; display: block; padding: 10px 0; font-size: 1.1em; }
+        h1 { 
+            color: #f0f0f0; 
+            border-bottom: 2px solid #3498db; 
+            padding-bottom: 10px; 
+            font-size: 1.5em; 
+        }
+        .year-section {
+            margin-top: 20px;
+        }
+        .collapsible { 
+            cursor: pointer; 
+            color: #5dade2; 
+            font-weight: bold; 
+            margin-bottom: 5px; 
+            display: block; 
+            padding: 10px 0; 
+            font-size: 1.1em;
+            user-select: none;
+        }
         .collapsible:hover { color: #85c1e9; }
-        .content { display: none; padding-left: 20px; margin-bottom: 10px; }
-        a { text-decoration: none; color: #5dade2; }
-        a:hover { text-decoration: underline; }
+        .collapsible.year-header {
+            font-size: 1.15em;
+            margin-top: 10px;
+        }
+        .content { 
+            display: none; 
+            padding-left: 20px; 
+            margin-bottom: 10px; 
+        }
+        .content.show { 
+            display: block; 
+        }
+        .month-content {
+            display: none;
+            padding-left: 20px;
+        }
+        .month-content.show {
+            display: block;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li { 
+            margin: 8px 0; 
+        }
+        a { 
+            text-decoration: none; 
+            color: #5dade2; 
+        }
+        a:hover { 
+            text-decoration: underline; 
+            color: #85c1e9;
+        }
+        .back-link {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>📊 AI助理財經新聞總覽 📈</h1>
-        
-        <!-- 2026 -->
-        <div class="collapsible" onclick="toggle(this)">▶ 2026年</div>
-        <div class="content">
-            <!-- 06 -->
-            <div class="collapsible" onclick="toggle(this)">▶ 06月</div>
-            <div class="content">
+        <div class="collapsible year-header" onclick="toggleYear(this)">▼ 2026年</div>
+        <div class="content show">
+            <div class="collapsible" onclick="toggleMonth(this)">▼ 06月</div>
+            <div class="month-content show">
                 <ul>
+                    <li><a href="2026/06/2026-06-22.html">📄 2026-06-22 財經晨報</a></li>
                     <li><a href="2026/06/2026-06-19.html">📄 2026-06-19 財經晨報</a></li>
                     <li><a href="2026/06/2026-06-18.html">📄 2026-06-18 財經晨報</a></li>
                 </ul>
             </div>
         </div>
+        <div class="back-link">
+            <a href="../index.html">← 回到首頁</a>
+        </div>
     </div>
 
     <script>
-        function toggle(el) {
+        function toggleYear(el) {
             var content = el.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
                 el.innerHTML = el.innerHTML.replace("▼", "▶");
             } else {
-                content.style.display = "block";
+                content.classList.add('show');
                 el.innerHTML = el.innerHTML.replace("▶", "▼");
             }
         }
+        
+        function toggleMonth(el) {
+            var content = el.nextElementSibling;
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                el.innerHTML = el.innerHTML.replace("▼", "▶");
+            } else {
+                content.classList.add('show');
+                el.innerHTML = el.innerHTML.replace("▶", "▼");
+            }
+        }
+        
+        // 預設展開最新年份和月份
+        window.addEventListener('load', function() {
+            let years = document.querySelectorAll('.year-header');
+            if (years.length > 0) {
+                // 最新年份預設為展開狀態（已由 CSS 設定）
+            }
+        });
     </script>
 </body>
 </html>
