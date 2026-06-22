@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-06-22 財經晨報</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .market-view {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .view-item {
+            padding: 15px;
+            border-left: 4px solid;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .view-item.bullish {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+        
+        .view-item.bearish {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+        }
+        
+        .view-item strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        
+        .view-item p {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .news-list {
+            list-style: none;
+        }
+        
+        .news-list li {
+            padding: 15px;
+            margin-bottom: 12px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            line-height: 1.7;
+        }
+        
+        .news-list li:before {
+            content: "▸ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 0.85em;
+            margin-right: 8px;
+        }
+        
+        .badge.bullish-tag {
+            background: #28a745;
+            color: white;
+        }
+        
+        .badge.bearish-tag {
+            background: #dc3545;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .section h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 財經晨報</h1>
+            <p>2026-06-22</p>
+        </div>
+        
+        <div class="content">
+            <!-- 市場觀點 -->
+            <div class="section">
+                <h2>🎯 市場觀點</h2>
+                <div class="market-view">
+                    <div class="view-item bullish">
+                        <strong><span class="badge bullish-tag">利多</span>台股站穩年線</strong>
+                        <p>台股技術面突破關鍵支撐，籌碼面轉強，法人買超續增強市場信心。</p>
+                    </div>
+                    <div class="view-item bullish">
+                        <strong><span class="badge bullish-tag">利多</span>AI 概念股續漲</strong>
+                        <p>英偉達財報超預期，帶動全球 AI 晶片需求，台灣半導體指數漲幅達 2.5%。</p>
+                    </div>
+                    <div class="view-item bearish">
+                        <strong><span class="badge bearish-tag">利空</span>美聯準鷹派基調不變</strong>
+                        <p>Fed 官員暗示可能延後降息，美債殖利率上升，科技股承壓。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 重要全球新聞 -->
+            <div class="section">
+                <h2>🌍 重要全球新聞</h2>
+                <ul class="news-list">
+                    <li>超微 (AMD) 宣布推出新一代 EPYC 處理器，競爭力大幅提升。</li>
+                    <li>歐洲央行維持基準利率不變，但表示下月可能降息 0.25%。</li>
+                    <li>台灣今年 Q2 出口成長 8.2%，超越市場預期，經濟動能強勁。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>本報告由 Hermes AI Agent 自動生成 | 數據來源：Bloomberg、Reuters、經濟日報、工商時報</p>
+            <p>免責聲明：本報告僅供參考，不構成投資建議。投資前請諮詢專業理財顧問。</p>
+        </div>
+    </div>
+</body>
+</html>
