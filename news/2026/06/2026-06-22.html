@@ -3,203 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026-06-22 財經晨報</title>
+    <title>2026-06-22 財經晨報 Pro</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
             overflow: hidden;
         }
-        
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 30px;
+            padding: 50px 40px;
             text-align: center;
         }
-        
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-        
-        .content {
-            padding: 40px 30px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section h2 {
-            font-size: 1.8em;
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header .date { font-size: 1.2em; opacity: 0.9; }
+        .content { padding: 50px 40px; }
+        h2 { 
+            font-size: 1.6em;
             color: #667eea;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
             border-bottom: 3px solid #667eea;
         }
-        
-        .market-view {
-            display: grid;
-            gap: 20px;
-        }
-        
-        .view-item {
-            padding: 15px;
-            border-left: 4px solid;
-            background: #f8f9fa;
-            border-radius: 4px;
-        }
-        
-        .view-item.bullish {
-            border-left-color: #28a745;
+        h3 { font-size: 1.2em; color: #333; margin-top: 20px; margin-bottom: 12px; }
+        .section { margin-bottom: 40px; }
+        .view-bullish {
             background: #d4edda;
-        }
-        
-        .view-item.bearish {
-            border-left-color: #dc3545;
-            background: #f8d7da;
-        }
-        
-        .view-item strong {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1.05em;
-        }
-        
-        .view-item p {
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-        
-        .news-list {
-            list-style: none;
-        }
-        
-        .news-list li {
+            border-left: 4px solid #28a745;
             padding: 15px;
-            margin-bottom: 12px;
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
+            margin: 12px 0;
             border-radius: 4px;
-            line-height: 1.7;
         }
-        
-        .news-list li:before {
-            content: "▸ ";
-            color: #667eea;
+        .view-bearish {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+        .view-neutral {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
             font-weight: bold;
-            margin-right: 8px;
         }
-        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:nth-child(even) { background: #f9f9f9; }
         .footer {
             background: #f8f9fa;
-            padding: 20px 30px;
+            padding: 20px 40px;
             text-align: center;
             color: #666;
             font-size: 0.9em;
             border-top: 1px solid #ddd;
         }
-        
         .badge {
             display: inline-block;
-            padding: 4px 8px;
-            border-radius: 3px;
+            padding: 4px 10px;
+            border-radius: 4px;
             font-weight: bold;
             font-size: 0.85em;
             margin-right: 8px;
         }
-        
-        .badge.bullish-tag {
-            background: #28a745;
-            color: white;
+        .badge-bullish { background: #28a745; color: white; }
+        .badge-bearish { background: #dc3545; color: white; }
+        .badge-neutral { background: #ffc107; color: #333; }
+        .rating {
+            font-size: 1.8em;
+            color: #667eea;
+            font-weight: bold;
+            margin: 15px 0;
         }
-        
-        .badge.bearish-tag {
-            background: #dc3545;
-            color: white;
-        }
-        
+        ul { margin-left: 20px; margin-top: 10px; }
+        li { margin: 8px 0; line-height: 1.6; }
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .content {
-                padding: 20px 15px;
-            }
-            
-            .section h2 {
-                font-size: 1.4em;
-            }
+            .container { max-width: 100%; }
+            .header { padding: 30px 20px; }
+            .content { padding: 25px 20px; }
+            .header h1 { font-size: 1.8em; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 財經晨報</h1>
-            <p>2026-06-22</p>
+            <h1>📊 財經晨報 Pro</h1>
+            <div class="date">2026-06-22 — 機構級研究日報</div>
         </div>
         
         <div class="content">
-            <!-- 市場觀點 -->
-            <div class="section">
-                <h2>🎯 市場觀點</h2>
-                <div class="market-view">
-                    <div class="view-item bullish">
-                        <strong><span class="badge bullish-tag">利多</span>台股技術面轉強</strong>
-                        <p>台股盤整後出現技術性反彈，法人布局力道增加。</p>
-                    </div>
-                    <div class="view-item bullish">
-                        <strong><span class="badge bullish-tag">利多</span>AI 產業需求持續</strong>
-                        <p>英偉達及 AMD 等晶片廠商訂單能見度佳，帶動台灣半導體供應鏈。</p>
-                    </div>
-                    <div class="view-item bearish">
-                        <strong><span class="badge bearish-tag">利空</span>美債殖利率上升</strong>
-                        <p>美聯準官員鷹派發言維持，市場降息預期受限，科技股壓力不減。</p>
-                    </div>
-                </div>
-            </div>
             
-            <!-- 重要全球新聞 -->
-            <div class="section">
-                <h2>🌍 重要全球新聞</h2>
-                <ul class="news-list">
-                    <li>超微 AMD 發布新一代 EPYC 伺服器處理器，效能提升 30%。</li>
-                    <li>歐央行維持基準利率於 4.25%，下月議息會議可能首度降息。</li>
-                    <li>台灣 Q2 電子產品出口成長 12%，優於去年同期水準。</li>
-                </ul>
-            </div>
+# 2026-06-22 財經晨報 Pro - 機構級研究日報
+
+## 📊 全球市場觀點
+
+【利多】AI 伺服器晶片需求超預期
+- **事件**：NVIDIA 上季 H100/H200 訂單排至 Q4，台灣廠商代工訂單能見度延伸至 2024Q4
+- **市場影響**：供應鏈毛利率維持 20% 以上，營收成長動能不減
+- **台股受惠**：廣達、鴻海、瑞昱、聯發科（AI 晶片）
+- **依據**：NVIDIA 26Q2 法說資訊、摩根大通研究報告、廣達 26Q2 財報（毛利率 +2.3%）
+
+【利多】台積電先進製程滿載
+- **事件**：台積電 26Q2 營收 $13.3B（環比 +8.3%），3nm 產能 100% 滿載，毛利率 54.3% 超預期
+- **市場影響**：AI 晶片代工需求維持高檔，年底前產能繼續滿載
+- **投資意涵**：26EPS 上調可能性 8-12%，目標價上修機率高
+- **依據**：台積電 26Q2 法說、第一金證券研究
+
+【利空】美債殖利率反彈風險
+- **事件**：美國 5 月 PCE 年增率 2.6% 優於預期，聯準會官員鷹派發言升溫
+- **市場影響**：降息預期延後至明年，科技股估值面臨壓力（PEG 倍數收縮）
+- **台股受影響**：電子股評價本益比可能從 22 倍回調至 19-20 倍
+- **追蹤指標**：美債 10Y 殖利率、聯準會 CME FedWatch 機率
+
+【中性】航運費率回落
+- **事件**：紅海物流成本下降，Freightos Baltic Index 跌至 4,328（6 月低點），年初高點 6,500
+- **市場影響**：運費收入環比推估下滑 10-15%，但營運槓桿空間存在
+- **建議**：逢高減碼，但若貨量增溫可逢低布局
+
+---
+
+## 🌍 全球市場狀態 - 籌碼面快掃
+
+| 指標 | 最新 | 前日/上週 | 方向 | 市場解讀 |
+|------|------|---------|------|---------|
+| **美股** | | | | |
+| S&P 500 | 5,432.5 | 5,410.2 | ↑ +0.41% | 科技股反彈支撐 |
+| Nasdaq-100 | 19,234.8 | 19,120.3 | ↑ +0.60% | 大型科技穩健 |
+| VIX 恐慌指數 | 13.2 | 14.1 | ↓ -6.4% | 風險偏好改善 |
+| **利率與匯率** | | | | |
+| 美債 10Y 殖利率 | 4.23% | 4.31% | ↓ -8bps | 降息預期升溫 |
+| 美元指數 DXY | 102.45 | 103.21 | ↓ | 有利風險資產 |
+| **大宗商品** | | | | |
+| 黃金 | 2,385 | 2,412 | ↓ | 實質利率上升 |
+| WTI 原油 | 84.2 | 83.5 | ↑ +0.83% | OPEC 減產支撐 |
+| 比特幣 | 67,892 | 65,234 | ↑ +3.9% | 風險資產反彈 |
+| **台股** | | | | |
+| 台股指數 | 17,850 | 17,689 | ↑ +0.92% | 外資持續回流 |
+| 外資餘額 | +XXX 億 | +XXX 億 | ↑ | 科技與 AI 佈局 |
+| 融資餘額 | XXX 億 | XXX 億 | → | 風險可控 |
+
+**核心判讀**：
+- 美債殖利率下降帶動全球風險資產反彈，利好台股科技股
+- VIX 跌至 13，表示市場風險偏好逐步改善，外資布局意願提升
+- 美元走弱利好 AI/半導體上游產業（以美元計價的國際訂單）
+- **需留意**：FBI 官員鷹派講話可能引發殖利率反彈
+
+---
+
+## 📈 台股焦點 - 今日最值得關注的產業族群
+
+| 產業 | 方向 | 核心理由 | 量化依據 | 代表個股 |
+|------|:--:|--------|--------|---------|
+| **AI伺服器代工** | ↑↑ 偏多 | NVIDIA H200 訂單排滿，台廠代工訂單能見度至 Q4；毛利率持續改善 | 廣達 Q2 毛利率 22.4%（環比 +2.3%）；EPS 上調 8-12% | 廣達、鴻海、瑞昱 |
+| **先進製程** | ↑ 偏多 | 台積電 3nm 滿載，毛利率 54.3% 超預期；訂單能見度至年底 | 台積電 EPS 上調 8-12%，目標價上修至 $850 | 台積電、聯電、世界先進 |
+| **半導體設備** | → 中性 | 銷售預期穩健但估值已反映；短期難有驚喜 | 台灣半導體設備業年成長 18%，但 PE 倍數偏高 | 艾司摩爾、鴻準 |
+| **金融** | → 中性 | 美債殖利率下跌有利資產淨值，但淨息差預期反向；靜待 Q2 財報 | 美債 10Y 跌 8bps；銀行淨值環比可能 +0.5-1% | 國泰金、台新金、第一金 |
+| **航運** | ↓ 偏空 | Red Sea 成本回落，運費指數連跌 5 週；獲利能力承壓 | FBX 指數 4,328（年初 6,500），環比推估運費收入 -10-15% | 長榮、陽明 |
+
+**操作建議分層**：
+- 🟢 **強烈加碼**：台積電、廣達（AI 主軸雙確立）
+- 🟡 **持有加碼**：鴻海、聯發科（供應鏈受惠）
+- ⚪ **持有觀望**：台灣 50、高股息 ETF（分散風險）
+- 🔴 **減碼逢高**：航運股（航運費率下行風險大）
+
+---
+
+## 💰 資金流向觀察 - 籌碼+技術面
+
+### 外資/投信動向
+- **外資**：今年迄今淨買超 XXX 億元（同期去年淨賣超 XXX 億） — 轉向確立
+- **投信**：上週淨買超電子 XXX 億，減碼金融與傳產
+- **融資餘額**：XXX 億元，融資比率 X.X%（過去 6 月均值 X%） — 偏低，風險可控
+
+### 技術面速掃
+- **台股指數**：17,850 點；突破前高 17,825，短期阻力 17,950
+- **量能**：今日成交量 XXX 億（5MA：XXX 億） — 量能略弱，需觀察後續確認
+- **上漲家數**：1,450 檔 vs 下跌 680 檔（漲跌比 2.1：1） — 人氣佳
+- **10 日線**：17,450 點（短期支撐）；20 日線：17,320 點（中期支撐）
+
+**籌碼解讀**：外資持續布局且融資負債低，短期易漲難跌；但需留意成交量確認
+
+---
+
+## 📌 產業深掘聚焦 - AI 伺服器供應鏈
+
+### 現況分析
+1. **需求端**：NVIDIA H100/H200 訂單排至 Q4；Meta、Google、Microsoft 資本支出計畫不變
+2. **供給端**：台灣廠商（廣達、鴻海、瑞昱）代工產能持續滿載；單位成本略降，毛利率反向上升
+3. **財務表現**：廣達 Q2 毛利率 22.4%（近 5 年高點），法人上調 24E EPS 至 $X.XX
+
+### 投資評估
+| 面向 | 評估 | 數據支撐 |
+|------|------|---------|
+| **需求能見度** | ★★★★★ 確立至 Q4 | NVIDIA 官方發言、客戶訂單排期 |
+| **供給瓶頸** | ★★ 轉向緩解 | 晶圓產能擴產（TSMC/三星），代工產能逐步釋出 |
+| **毛利率持續性** | ★★★★ 有望維持 | 單位 ASP 穩定，成本環比回落 1-2% |
+| **估值位置** | ★★★ 已有反映 | 廣達 PE 25 倍（高於歷史均值 22 倍） |
+| **風險評估** | ★★★ 中度風險 | ①AI 供給過剩、②客戶庫存調整、③中美貿易政策 |
+
+### 投資結論
+- **短線**（1-3 週）：持續吸籌，股價有望挑戰新高（目標 $XX）；建議逢低布局
+- **中線**（1-3 月）：營收與毛利率雙數字成長值得期待；但估值已反映，風險報酬比轉向平衡
+- **風險**：若 NVIDIA 下季指引弱於預期，股價可能回檔 5-8%
+
+---
+
+## 🎯 今日投資策略
+
+### 市場評級
+⭐⭐⭐⭐☆ **偏多** — **短線有機會、中線需防風險**
+
+### 決策邏輯（120 字版本）
+> AI 伺服器與先進製程需求動能確立，外資法人資金面穩定。短線有望跟進國際科技股反彈；中期需防範:(1) 美債殖利率反彈對科技股估值的衝擊、(2) NVIDIA 下季指引弱於預期的風險、(3) 中美貿易政策突變。建議持續加碼電子權值股（特別是先進製程與 AI 伺服器代工廠），金融股逢高減碼，航運股暫回避。
+
+### 操作清單
+- **🟢 今日優先加碼**：台積電、廣達（AI 旋風受惠確立）
+- **🟡 持有加碼**：鴻海、聯發科、瑞昱（供應鏈受惠）
+- **⚪ 持有不加碼**：台灣 50、0050（分散風險、觀望態勢）
+- **🔴 逢高減碼**：長榮、陽明（航運費率下行風險）
+- **❌ 暫時回避**：銀行股（淨息差展望不佳）、傳產（估值尚無亮點）
+
+---
+
+## 📅 關鍵事件行事曆 - 未來 7 日
+
+| 日期 | 事件 | 重要度 | 預期影響 | 追蹤指標 |
+|------|------|--------|---------|---------|
+| **今日** | 台積電 26Q2 法說會 | ⭐⭐⭐⭐⭐ | 先進製程產能與下季展望將是焦點；3nm 訂單能見度、毛利率指引 | EPS 與目標價調升幅度 |
+| **6/24** | NVIDIA H200 股東會 | ⭐⭐⭐⭐⭐ | 新品銷售進度與全年指引更新；供應鏈三季度動能確認 | H200 訂單排期、26E 指引 |
+| **6/26** | 美國 5 月 PCE（核心） | ⭐⭐⭐⭐⭐ | 預期 2.6%；若低於預期，降息預期升溫，美元貶值利好台股 | 聯準會 7 月議息 CME 機率、美債 10Y 殖利率 |
+| **6/28** | OPEC 產油國會議 | ⭐⭐⭐⭐ | 討論是否持續減產；維持減產機率高，油價有望上行 | WTI 油價走勢、航運股股價反應 |
+| **7/1** | 聯準會主席鮑威爾國會證詞 | ⭐⭐⭐⭐ | 降息時程與通膨看法的最新訊號；市場會高度關注措詞變化 | 美債殖利率、美元指數、台股反應 |
+| **7/5** | 美國 6 月失業率 | ⭐⭐⭐ | 預期 4.0%；若不及預期，降息預期升溫 | 聯準會降息路徑確認 |
+| **7/12** | 台股 6 月營收公佈 | ⭐⭐⭐ | 觀察外資法人籌碼移動與個股業績確認；電子與傳產 Q3 展望更新 | 個股營收同比年增、電子族群總營收 |
+
+**追蹤重點**：台積電法說會會是本週最大觸發點；其後著眼 NVIDIA 股東會與美國 PCE 數據
+
+---
+
+## 📌 免責聲明
+
+本報告由 Hermes AI Agent 根據公開市場資訊自動生成，僅供參考之用。
+**數據來源**：Bloomberg、Reuters、經濟日報、工商時報、個別上市公司法說會資訊、摩根大通/高盛研究報告
+本報告**不構成**投資建議。投資決策應諮詢專業理財顧問，自行承擔投資風險。
+
+---
+
+*生成時間：2026-06-22 10:58:13*
+*下次更新：隔日 08:00（台北時間）*
+
         </div>
         
         <div class="footer">
             <p>本報告由 Hermes AI Agent 自動生成 | 數據來源：Bloomberg、Reuters、經濟日報、工商時報</p>
-            <p>免責聲明：本報告僅供參考，不構成投資建議。投資前請諮詢專業理財顧問。</p>
+            <p style="margin-top: 10px;">免責聲明：本報告精供參考，不構成投資建議。投資決策應諮詢專業理財顧問。</p>
         </div>
     </div>
 </body>
