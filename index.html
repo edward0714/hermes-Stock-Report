@@ -2,13 +2,85 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>財經報告彙整</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>財經晨報 — 每日報告彙整</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Noto Sans TC', -apple-system, sans-serif;
+            background: #0b1120;
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image:
+                linear-gradient(rgba(96,165,250,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(96,165,250,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .container { max-width: 720px; margin: 0 auto; }
+        .back-link {
+            display: inline-block;
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+        .back-link:hover { text-decoration: underline; }
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e2e8f0, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .desc { color: #64748b; font-size: 15px; margin-bottom: 32px; }
+        .report-list { list-style: none; }
+        .report-list li {
+            margin-bottom: 12px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: transform 0.2s;
+        }
+        .report-list li:hover { transform: translateX(4px); }
+        .report-list a {
+            display: flex; align-items: center;
+            padding: 16px 20px;
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 16px;
+        }
+        .report-list a .date { color: #60a5fa; font-weight: 600; margin-right: 12px; }
+        .report-list a .arrow { margin-left: auto; color: #475569; }
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            color: #475569;
+            font-size: 13px;
+        }
+        footer a { color: #60a5fa; text-decoration: none; }
+    </style>
 </head>
 <body>
-    <h1>財經新聞存檔</h1>
-    <ul>
-        <li><a href="./news/2026/06/2026-06-22.html">2026-06-22 財經晨報</a></li>
-        <li><a href="./news/2026/06/2026-06-19.html">2026-06-19 財經晨報</a></li>
+<div class="bg-grid"></div>
+<div class="container">
+    <a class="back-link" href="https://edward0714.github.io/">← 回到 Edward Hu 首頁</a>
+    <h1>📊 財經晨報</h1>
+    <p class="desc">每日自動生成的機構級財經研究報告 — 市場觀點、全球市況、台股焦點、資金流向、事件日曆</p>
+    <ul class="report-list">
+        <li><a href="./news/index.html"><span class="date">📂</span> 瀏覽所有歷史報告 <span class="arrow">→</span></a></li>
     </ul>
+    <footer>
+        <a href="https://edward0714.github.io/">🌐 Edward Hu 首頁</a> &nbsp;|&nbsp; 
+        <a href="https://github.com/edward0714/hermes-Stock-Report">GitHub</a>
+    </footer>
+</div>
 </body>
 </html>
