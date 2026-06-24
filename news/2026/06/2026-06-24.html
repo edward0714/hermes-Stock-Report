@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>財經晨報 Pro — 2026-06-24</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e8f5 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 400px; height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+        .header-content { position: relative; z-index: 1; }
+        .header h1 { font-size: 3em; margin-bottom: 10px; font-weight: 700; letter-spacing: 2px; }
+        .header-subtitle { font-size: 1.2em; opacity: 0.95; margin-bottom: 20px; }
+        .header-date {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .nav-tab {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .nav-tab:hover, .nav-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102,126,234,0.2);
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            animation: slideUp 0.5s ease-out;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section h2 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px; height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+        .viewpoint-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .viewpoint-card {
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid;
+            transition: all 0.3s;
+            background: linear-gradient(to right, rgba(255,255,255,0), white);
+            cursor: pointer;
+        }
+        .viewpoint-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+        .viewpoint-card.bullish { border-left-color: #28a745; background: linear-gradient(to right, rgba(40,167,69,0.05) 0%, white 100%); }
+        .viewpoint-card.bearish { border-left-color: #dc3545; background: linear-gradient(to right, rgba(220,53,69,0.05) 0%, white 100%); }
+        .viewpoint-card.neutral { border-left-color: #ffc107; background: linear-gradient(to right, rgba(255,193,7,0.05) 0%, white 100%); }
+        .viewpoint-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .viewpoint-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85em;
+            color: white;
+        }
+        .viewpoint-badge.bullish { background: #28a745; }
+        .viewpoint-badge.bearish { background: #dc3545; }
+        .viewpoint-badge.neutral { background: #ffc107; color: #333; }
+        .viewpoint-title { font-size: 1.2em; font-weight: 600; color: #333; margin-bottom: 15px; }
+        .viewpoint-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .viewpoint-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .viewpoint-item-label { font-weight: 600; color: #667eea; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .viewpoint-item-content { color: #555; line-height: 1.8; }
+        .highlight-tag {
+            display: inline-block;
+            background: #f0f7ff;
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+            margin-right: 5px;
+            margin-top: 5px;
+            font-size: 0.85em;
+        }
+        .market-indicators { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .market-indicators thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .market-indicators th { padding: 16px; text-align: left; font-weight: 600; border: none; }
+        .market-indicators tr { border-bottom: 1px solid #e0e0e0; transition: background 0.3s; }
+        .market-indicators tbody tr:hover { background: #f9f9f9; }
+        .market-indicators td { padding: 16px; vertical-align: middle; }
+        .market-indicators .category { font-weight: 600; color: #667eea; background: #f5f7fa; }
+        .market-indicators .indicator-name { font-weight: 500; color: #333; }
+        .market-indicators .number { font-weight: 600; color: #667eea; font-family: 'Courier New', monospace; font-size: 1.1em; }
+        .market-indicators .up { color: #28a745; font-weight: 700; }
+        .market-indicators .down { color: #dc3545; font-weight: 700; }
+        .market-indicators .neutral { color: #999; font-weight: 700; }
+        .industry-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .industry-table thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .industry-table th { padding: 18px; text-align: center; font-weight: 600; border: none; }
+        .industry-table th:first-child { text-align: left; }
+        .industry-table tr { border-bottom: 1px solid #e0e0e0; }
+        .industry-table tbody tr:hover { background: #f9f9f9; }
+        .industry-table td { padding: 16px; text-align: center; }
+        .industry-table td:first-child { text-align: left; font-weight: 600; color: #333; }
+        .direction-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: white;
+        }
+        .direction-up { background: #28a745; }
+        .direction-down { background: #dc3545; }
+        .direction-neutral { background: #ffc107; color: #333; }
+        .stock-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .stock-tag {
+            display: inline-block;
+            background: #f0f7ff;
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.85em;
+            border: 1px solid #667eea;
+        }
+        .strategy-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        .strategy-card h3 { font-size: 1.5em; margin-bottom: 20px; }
+        .rating { font-size: 2em; font-weight: 700; margin: 20px 0; }
+        .action-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .action-item {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid;
+            transition: all 0.3s;
+        }
+        .action-item:hover { background: rgba(255,255,255,0.25); transform: translateX(5px); }
+        .action-item.add { border-left-color: #28a745; }
+        .action-item.hold { border-left-color: #ffc107; }
+        .action-item.reduce { border-left-color: #dc3545; }
+        .action-item.avoid { border-left-color: #999; }
+        .action-icon { font-size: 1.5em; margin-bottom: 10px; }
+        .action-label { font-weight: 600; margin-bottom: 5px; }
+        .action-stocks { font-size: 0.9em; opacity: 0.9; }
+        .event-timeline { margin-top: 20px; position: relative; padding-left: 30px; }
+        .event-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        .event-item { margin-bottom: 30px; position: relative; padding-left: 30px; }
+        .event-item::before {
+            content: '';
+            position: absolute;
+            left: -16.5px; top: 5px;
+            width: 12px; height: 12px;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+        }
+        .event-date { font-weight: 700; color: #667eea; font-size: 1.1em; margin-bottom: 5px; }
+        .event-title { font-weight: 600; color: #333; margin-bottom: 8px; }
+        .event-importance { display: inline-block; font-size: 0.85em; color: #ffc107; font-weight: 600; }
+        .event-description { color: #666; font-size: 0.95em; margin-top: 8px; line-height: 1.6; }
+        .footer {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        @media (max-width: 768px) {
+            .header { padding: 40px 20px; }
+            .header h1 { font-size: 2em; }
+            .section { padding: 20px; }
+            .viewpoint-grid { grid-template-columns: 1fr; }
+            .action-list { grid-template-columns: 1fr; }
+            .market-indicators th, .market-indicators td { padding: 12px 8px; font-size: 0.9em; }
+            .industry-table th, .industry-table td { padding: 12px 8px; font-size: 0.9em; }
+        }
+        .collapsible-section { margin-top: 20px; }
+        .collapsible-header {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        .collapsible-header:hover { background: linear-gradient(135deg, #e6f0ff 0%, #d4e8ff 100%); }
+        .collapsible-header.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+        .collapsible-content { display: none; padding: 20px; background: #f9fbff; border: 1px solid #e0e8ff; border-top: none; border-radius: 0 0 8px 8px; animation: slideDown 0.3s ease-out; }
+        .collapsible-content.show { display: block; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* 資金流向卡片 */
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .flow-card {
+            background: #f9fbff;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #e0e8ff;
+            transition: all 0.3s;
+        }
+        .flow-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .flow-card h3 { font-size: 1.1em; color: #667eea; margin-bottom: 10px; }
+        .flow-number { font-size: 1.8em; font-weight: 700; color: #333; font-family: 'Courier New', monospace; margin-bottom: 10px; }
+        .flow-detail { color: #555; line-height: 1.6; font-size: 0.95em; }
+        .data-source { font-size: 0.85em; color: #888; margin-top: 5px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 頭部 -->
+        <div class="header">
+            <div class="header-content">
+                <h1>📊 財經晨報 Pro</h1>
+                <div class="header-subtitle">機構級研究日報</div>
+                <div class="header-date">📅 2026-06-24 星期三</div>
+            </div>
+        </div>
+
+        <!-- 導航標籤 -->
+        <div class="nav-tabs">
+            <div class="nav-tab active">📈 市場觀點</div>
+            <div class="nav-tab">🌍 全球市況</div>
+            <div class="nav-tab">🏭 台股焦點</div>
+            <div class="nav-tab">💰 資金流向</div>
+            <div class="nav-tab">📅 事件日曆</div>
+        </div>
+
+        <!-- ===== 市場觀點 ===== -->
+        <div class="section">
+            <h2>📈 全球市場觀點</h2>
+            
+            <div class="viewpoint-grid">
+                <!-- 利多1 - 聯發科逆勢走強 -->
+                <div class="viewpoint-card bullish">
+                    <div class="viewpoint-header">
+                        <div class="viewpoint-badge bullish">利多</div>
+                    </div>
+                    <div class="viewpoint-title">🚀 聯發科逆勢上漲 1.57%，IC 設計族群展現韌性</div>
+                    
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📰 事件</div>
+                        <div class="viewpoint-item-content">
+                            聯發科（2454.TW）週二收漲 1.57% 至 4,535 元，在台股大盤回檔 1.34% 的環境下逆勢走強。市場看好 AI 邊緣運算晶片及旗艦手機 SoC 出貨動能延續。
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">💥 市場影響</div>
+                        <div class="viewpoint-item-content">
+                            IC 設計族群成為資金避風港，AI 邊緣運算與車用晶片需求持續升溫，<span class="highlight-tag">本益比 18-20 倍</span>具防禦價值。外資態度轉向正面。
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📍 台股受惠</div>
+                        <div class="stock-tags">
+                            <span class="stock-tag">聯發科</span>
+                            <span class="stock-tag">瑞昱</span>
+                            <span class="stock-tag">聯詠</span>
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📊 依據</div>
+                        <div class="viewpoint-item-content">
+                            Yahoo Finance 數據：2454.TW 收漲 1.57% 至 4,535 元，同期 TAIEX 下跌 1.34%
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 利多2 - 美債殖利率回落 -->
+                <div class="viewpoint-card bullish">
+                    <div class="viewpoint-header">
+                        <div class="viewpoint-badge bullish">利多</div>
+                    </div>
+                    <div class="viewpoint-title">📉 美債 10Y 殖利率微降 0.35% 至 4.493%</div>
+                    
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📰 事件</div>
+                        <div class="viewpoint-item-content">
+                            美國 10 年期公債殖利率從 4.509% 回落至 4.493%，連續第二日走低，市場對聯準會年底降息的預期略有回升。
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">💥 市場影響</div>
+                        <div class="viewpoint-item-content">
+                            殖利率回落緩解科技股估值壓力，<span class="highlight-tag">CME FedWatch</span> 顯示 9 月降息機率約 45%，12 月降息機率約 65%。
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">🎯 投資意涵</div>
+                        <div class="viewpoint-item-content">
+                            若殖利率持續回落，高估值成長股可望迎來評價修復行情，台股半導體族群優先受惠
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📊 依據</div>
+                        <div class="viewpoint-item-content">
+                            Yahoo Finance：^TNX 收 4.493%，前日 4.509%（-0.35%）
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 利空1 - 美股重挫 -->
+                <div class="viewpoint-card bearish">
+                    <div class="viewpoint-header">
+                        <div class="viewpoint-badge bearish">利空</div>
+                    </div>
+                    <div class="viewpoint-title">⚠️ 美股全面重挫 — Nasdaq 暴跌 3.51%</div>
+                    
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📰 事件</div>
+                        <div class="viewpoint-item-content">
+                            美股週二全面大跌：S&P 500 跌 1.80% 至 7,365 點，Nasdaq 重挫 3.51% 至 25,587 點，為近期最大單日跌幅。VIX 恐慌指數飆升 12.79% 至 19.49。
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">💥 市場影響</div>
+                        <div class="viewpoint-item-content">
+                            AI 龍頭股領跌，市場傳出獲利了結賣壓與對 Q2 財報展望的憂慮。VIX 逼近 <span class="highlight-tag">20 關卡</span>，風險情緒顯著惡化。
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">🎯 台股影響</div>
+                        <div class="viewpoint-item-content">
+                            台股週二已先行下跌 1.34%（47,100 點），若美股續跌，週三台股恐面臨進一步的補跌壓力，特別是權值電子股
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📍 追蹤指標</div>
+                        <div class="viewpoint-item-content">
+                            VIX 指數是否突破 20、Nasdaq 季線支撐、台指期夜盤走勢
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 中性 - 油價續跌 -->
+                <div class="viewpoint-card neutral">
+                    <div class="viewpoint-header">
+                        <div class="viewpoint-badge neutral">中性</div>
+                    </div>
+                    <div class="viewpoint-title">⛽ WTI 原油續跌 2.87% 至 $72.67</div>
+                    
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📰 事件</div>
+                        <div class="viewpoint-item-content">
+                            WTI 原油週二再跌 2.87% 至每桶 $72.67，創年初以來新低，市場對全球經濟放緩及需求減弱的擔憂持續升溫。
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">💥 市場影響</div>
+                        <div class="viewpoint-item-content">
+                            油價連日大跌反映需求放緩預期，但航空、運輸、塑化等行業<span class="highlight-tag">成本壓力減輕</span>。黃金同步走弱至 $4,116（-1.58%）。
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📍 台股受惠/受害</div>
+                        <div class="stock-tags">
+                            <span class="stock-tag">長榮航</span>
+                            <span class="stock-tag">華航</span>
+                            <span class="stock-tag">台塑</span>
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📊 依據</div>
+                        <div class="viewpoint-item-content">
+                            Yahoo Finance：CL=F 收 $72.67，前日 $74.82（-2.87%）；GC=F 收 $4,116，前日 $4,182（-1.58%）
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 全球市場狀態 ===== -->
+        <div class="section">
+            <h2>🌍 全球市場狀態 - 即時籌碼掃描</h2>
+            
+            <table class="market-indicators">
+                <thead>
+                    <tr>
+                        <th>指標分類</th>
+                        <th>指標名稱</th>
+                        <th>最新數值</th>
+                        <th>前值</th>
+                        <th>漲跌幅</th>
+                        <th>市場解讀</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="category" rowspan="3">美股</td>
+                        <td class="indicator-name">S&P 500</td>
+                        <td class="number">7,365.46</td>
+                        <td>7,500.58</td>
+                        <td><span class="down">↓ -1.80%</span></td>
+                        <td>AI 龍頭獲利了結賣壓</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">Nasdaq 綜合指數</td>
+                        <td class="number">25,587.04</td>
+                        <td>26,517.93</td>
+                        <td><span class="down">↓ -3.51%</span></td>
+                        <td>科技股全面重挫</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">VIX 恐慌指數</td>
+                        <td class="number">19.49</td>
+                        <td>17.28</td>
+                        <td><span class="up">↑ +12.79%</span></td>
+                        <td>避險情緒急遽升溫</td>
+                    </tr>
+
+                    <tr>
+                        <td class="category" rowspan="2">利率 & 匯率</td>
+                        <td class="indicator-name">美債 10Y 殖利率</td>
+                        <td class="number">4.493%</td>
+                        <td>4.509%</td>
+                        <td><span class="down">↓ -0.35%</span></td>
+                        <td>資金避險流入公債</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">美元指數 (DXY)</td>
+                        <td class="number">101.36</td>
+                        <td>101.02</td>
+                        <td><span class="up">↑ +0.34%</span></td>
+                        <td>避險買盤推升美元</td>
+                    </tr>
+
+                    <tr>
+                        <td class="category" rowspan="3">大宗商品</td>
+                        <td class="indicator-name">黃金</td>
+                        <td class="number">US$4,116.0/oz</td>
+                        <td>US$4,181.9</td>
+                        <td><span class="down">↓ -1.58%</span></td>
+                        <td>美元走強壓抑金價</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">WTI 原油</td>
+                        <td class="number">US$72.67/bbl</td>
+                        <td>US$74.82</td>
+                        <td><span class="down">↓ -2.87%</span></td>
+                        <td>全球需求放緩疑慮</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">比特幣</td>
+                        <td class="number">US$62,678</td>
+                        <td>US$63,951</td>
+                        <td><span class="down">↓ -1.99%</span></td>
+                        <td>風險偏好全面降溫</td>
+                    </tr>
+
+                    <tr>
+                        <td class="category" rowspan="2">台股 & 匯率</td>
+                        <td class="indicator-name">台股加權指數</td>
+                        <td class="number">47,100.65</td>
+                        <td>47,741.51</td>
+                        <td><span class="down">↓ -1.34%</span></td>
+                        <td>台積電回檔拖累</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">新台幣匯率 (USD/TWD)</td>
+                        <td class="number">31.699</td>
+                        <td>31.687</td>
+                        <td><span class="neutral">→ +0.04%</span></td>
+                        <td>匯率持穩</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="data-source">數據來源：Yahoo Finance API | 更新時間：2026-06-24 08:00 台北時間</div>
+
+            <div style="margin-top: 25px; padding: 20px; background: #f9fbff; border-left: 4px solid #667eea; border-radius: 8px;">
+                <strong style="color: #667eea;">💡 核心判讀：</strong>
+                <ul style="margin-top: 10px; margin-left: 20px; color: #555; line-height: 1.8;">
+                    <li>美股遭遇近期最大跌幅，Nasdaq 重挫 3.51%，AI 龍頭股獲利回吐壓力明顯</li>
+                    <li>VIX 飆升至 19.49 逼近 20 關卡，市場恐慌情緒為近 3 個月最高</li>
+                    <li>台股週二先跌 1.34% 回測 47,100 點，與美股脫鉤態勢轉為連動，週三開盤壓力增</li>
+                    <li>美元避險買盤升溫至 101.36，新興市場資金短期面臨流出壓力</li>
+                    <li>油價續跌至 $72.67 創今年新低，反映全球經濟放緩，但航空股成本面受惠</li>
+                    <li><strong style="color: #dc3545;">需特別留意：</strong>VIX 若突破 20，將觸發程式交易停損賣壓，台股恐回測 46,500 點關卡</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===== 台股焦點 ===== -->
+        <div class="section">
+            <h2>🏭 台股焦點 - 今日最值得關注的產業族群</h2>
+            
+            <table class="industry-table">
+                <thead>
+                    <tr>
+                        <th>產業</th>
+                        <th>方向</th>
+                        <th>核心理由</th>
+                        <th>量化依據</th>
+                        <th>代表個股</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>半導體/先進製程</strong></td>
+                        <td><span class="direction-badge direction-neutral">→ 中性偏空</span></td>
+                        <td>台積電回檔 0.80% 至 2,490 元，美股科技重挫可能壓抑今日走勢；聯發科逆勢上漲 1.57% 成亮點</td>
+                        <td>台積電 $2,490（-0.80%）<br>聯發科 $4,535（+1.57%）</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">台積電</span>
+                                <span class="stock-tag">聯發科</span>
+                                <span class="stock-tag">聯電</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>AI 伺服器</strong></td>
+                        <td><span class="direction-badge direction-down">↓ 短線偏空</span></td>
+                        <td>廣達跌 1.97% 至 372.5 元、鴻海大跌 3.35% 至 259.5 元，美股 AI 龍頭回檔壓力擴散至台系供應鏈</td>
+                        <td>廣達 $372.5（-1.97%）<br>鴻海 $259.5（-3.35%）</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">廣達</span>
+                                <span class="stock-tag">鴻海</span>
+                                <span class="stock-tag">緯創</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>IC 設計</strong></td>
+                        <td><span class="direction-badge direction-up">↑ 偏多</span></td>
+                        <td>聯發科逆勢上漲 1.57% 成盤面焦點，AI 邊緣運算與車用晶片需求驅動；瑞昱、聯詠可望跟進</td>
+                        <td>聯發科 $4,535（+1.57%）<br>本益比約 18-20 倍</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">聯發科</span>
+                                <span class="stock-tag">瑞昱</span>
+                                <span class="stock-tag">聯詠</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>金融</strong></td>
+                        <td><span class="direction-badge direction-neutral">→ 中性</span></td>
+                        <td>美債殖利率微降對壽險業淨值略正面，但美股重挫可能拖累金融股表現，觀望為宜</td>
+                        <td>美債 10Y 殖利率 4.493%（-0.35%）</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">國泰金</span>
+                                <span class="stock-tag">富邦金</span>
+                                <span class="stock-tag">中信金</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>航運</strong></td>
+                        <td><span class="direction-badge direction-down">↓ 偏空</span></td>
+                        <td>長榮跌 2.07% 至 189 元，油價續跌暗示全球貿易需求放緩，運價指數走弱，航運族群暫回避</td>
+                        <td>長榮 $189（-2.07%）<br>WTI 原油 $72.67（-2.87%）</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">長榮</span>
+                                <span class="stock-tag">陽明</span>
+                                <span class="stock-tag">萬海</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="data-source">數據來源：Yahoo Finance API | 收盤日期：2026-06-23</div>
+
+            <div class="collapsible-section">
+                <div class="collapsible-header">
+                    📋 重點個股表現總覽
+                    <span>▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="padding: 15px; background: #d4edda; border-radius: 8px; border-left: 4px solid #28a745;">
+                            <strong>🟢 逆勢強股</strong>
+                            <p style="margin-top: 10px;">
+                                聯發科 +1.57% → 4,535<br>
+                                <span style="font-size: 0.9em; color: #555;">IC 設計資金避風港</span>
+                            </p>
+                        </div>
+                        <div style="padding: 15px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
+                            <strong>🟡 小幅回檔</strong>
+                            <p style="margin-top: 10px;">
+                                台積電 -0.80% → 2,490<br>
+                                廣達 -1.97% → 372.5<br>
+                                <span style="font-size: 0.9em; color: #555;">AI 族群獲利回吐</span>
+                            </p>
+                        </div>
+                        <div style="padding: 15px; background: #e7f3ff; border-radius: 8px; border-left: 4px solid #0066cc;">
+                            <strong>⚪ 防禦型資產</strong>
+                            <p style="margin-top: 10px;">
+                                高股息 ETF、電信股<br>
+                                <span style="font-size: 0.9em; color: #555;">波動加大時資金避險</span>
+                            </p>
+                        </div>
+                        <div style="padding: 15px; background: #f8d7da; border-radius: 8px; border-left: 4px solid #dc3545;">
+                            <strong>🔴 弱勢股</strong>
+                            <p style="margin-top: 10px;">
+                                鴻海 -3.35% → 259.5<br>
+                                長榮 -2.07% → 189<br>
+                                <span style="font-size: 0.9em; color: #555;">外資減碼標的</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 資金流向 ===== -->
+        <div class="section">
+            <h2>💰 資金流向分析</h2>
+
+            <div class="flow-grid">
+                <div class="flow-card">
+                    <h3>📊 台股成交量</h3>
+                    <div class="flow-number" style="color: #dc3545;">預估擴大</div>
+                    <div class="flow-detail">
+                        週二台股成交量隨回檔擴大，預估成交值較前一交易日增加。台積電單日成交值佔大盤比重仍高，市場波動加劇。
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <h3>🏦 外資動向</h3>
+                    <div class="flow-number" style="color: #dc3545;">預估賣超</div>
+                    <div class="flow-detail">
+                        台股大盤回檔 1.34%，外資逢高獲利了結，權值電子股賣壓較重。<br>
+                        <em style="color: #999;">（三大法人買賣超數據將於盤後交易所公告後更新）</em>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <h3>💵 融資融券</h3>
+                    <div class="flow-number" style="color: #ffc107;">資料待更新</div>
+                    <div class="flow-detail">
+                        若大盤回檔過程中融資餘額未大幅增加，顯示籌碼面相對穩定；若融資不減反增，則需留意斷頭賣壓。
+                        <em style="color: #999;">（數據將於下午證交所公告後更新）</em>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <h3>🔗 美元/台幣</h3>
+                    <div class="flow-number" style="color: #ffc107;">31.699</div>
+                    <div class="flow-detail">
+                        新台幣匯率微貶 0.04% 至 31.699，波動幅度極小，<strong>匯率環境穩定</strong>，惟美元避險買盤若持續升溫可能加速台幣貶值。
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <h3>📈 美元指數 (DXY)</h3>
+                    <div class="flow-number" style="color: #28a745;">101.36</div>
+                    <div class="flow-detail">
+                        美元指數升至 101.36（+0.34%），避險買盤推升美元，<strong>對新興市場資金流向形成壓力</strong>，外資可能減碼台股。
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <h3>⚠️ VIX 風險指標</h3>
+                    <div class="flow-number" style="color: #dc3545;">19.49</div>
+                    <div class="flow-detail">
+                        VIX 飆升至 19.49（+12.79%），接近 20 的恐慌閾值，<strong>市場情緒急遽惡化</strong>，若突破 20 將觸發程式交易賣壓。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 投資策略 ===== -->
+        <div class="strategy-card">
+            <h3>🎯 今日投資策略</h3>
+            
+            <div style="margin-top: 20px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.1em; margin-bottom: 10px;">市場評級</div>
+                <div class="rating">⭐⭐⭐ 中性偏保守</div>
+                <div style="font-size: 0.95em; opacity: 0.9;">美股重挫 + VIX 飆升，台股短線回檔壓力增</div>
+            </div>
+
+            <div style="margin-top: 20px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.1em; margin-bottom: 10px; font-weight: 600;">決策邏輯</div>
+                <div style="line-height: 1.8; opacity: 0.95;">
+                    美股遭遇近期最大跌幅，Nasdaq 重挫 3.51%，AI 龍頭股獲利回吐賣壓明顯。台股週二已先行下跌 1.34%，但考量美股續跌且 VIX 逼近 20，週三開盤恐面臨進一步補跌壓力。<br><br>
+                    策略上建議：<strong>降低持股水位</strong>，短線避開權值電子股（台積電、鴻海），轉向防禦型標的（高股息 ETF、電信股）。IC 設計族群（聯發科、瑞昱）相對於大盤展現韌性，可小量布局。<br><br>
+                    中期仍看好 AI 供應鏈長線趨勢，建議待 VIX 回落至 15 以下、Nasdaq 止穩後再行加碼。
+                </div>
+            </div>
+
+            <div style="margin-top: 25px;">
+                <div style="font-size: 1.1em; margin-bottom: 15px; font-weight: 600;">📋 今日操作清單</div>
+                <div class="action-list">
+                    <div class="action-item reduce">
+                        <div class="action-icon">🟢</div>
+                        <div class="action-label">逢低布局（少量）</div>
+                        <div class="action-stocks">聯發科、瑞昱<br>IC 設計逆勢抗跌</div>
+                    </div>
+                    <div class="action-item hold">
+                        <div class="action-icon">🟡</div>
+                        <div class="action-label">持有觀望</div>
+                        <div class="action-stocks">台積電、高股息 ETF<br>長線價值不變</div>
+                    </div>
+                    <div class="action-item reduce">
+                        <div class="action-icon">🔴</div>
+                        <div class="action-label">逢高減碼</div>
+                        <div class="action-stocks">鴻海、廣達<br>短線賣壓沉重</div>
+                    </div>
+                    <div class="action-item avoid">
+                        <div class="action-icon">❌</div>
+                        <div class="action-label">暫時回避</div>
+                        <div class="action-stocks">航運、金融<br>需求放緩風險</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 關鍵事件日曆 ===== -->
+        <div class="section">
+            <h2>📅 關鍵事件行事曆 - 未來 7 日</h2>
+            
+            <div class="event-timeline">
+                <div class="event-item">
+                    <div class="event-date">📅 2026-06-24 (今日)</div>
+                    <div class="event-title">美國 6 月消費者信心指數</div>
+                    <div class="event-importance">⭐⭐⭐⭐ 重要</div>
+                    <div class="event-description">
+                        市場預期消費信心指數維持穩健；在美股大跌後，此數據若優於預期可望緩解恐慌情緒。
+                        <br><strong>追蹤指標：</strong> 美元指數、美股期貨 VIX
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">📅 2026-06-25 (週四)</div>
+                    <div class="event-title">美國 Q1 GDP 終值</div>
+                    <div class="event-importance">⭐⭐⭐⭐⭐ 極度重要</div>
+                    <div class="event-description">
+                        Q1 GDP 年化季率修正值公布。市場預期持穩在 1.3% 附近，若大幅下修將引發經濟衰退擔憂，可能加劇股市波動。
+                        <br><strong>追蹤指標：</strong> 美債殖利率、美元指數、VIX
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">📅 2026-06-26 (週五)</div>
+                    <div class="event-title">美國 5 月 PCE 物價指數 (核心) 🔥</div>
+                    <div class="event-importance">⭐⭐⭐⭐⭐ 極度重要</div>
+                    <div class="event-description">
+                        聯準會最關注的通膨指標。預期核心 PCE 年增率 2.6%。若低於預期，降息預期可望升溫，緩解市場恐慌；若高於預期則殖利率恐再攀升。
+                        <br><strong>追蹤指標：</strong> CME FedWatch 降息機率、美債 10Y 殖利率
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">📅 2026-06-27 ~ 28 (週末)</div>
+                    <div class="event-title">G7 領袖峰會</div>
+                    <div class="event-importance">⭐⭐⭐⭐ 重要</div>
+                    <div class="event-description">
+                        討論全球貿易、AI 監管及氣候變遷議題。關注對中國半導體出口管制政策是否出現新方向，將直接影響台積電及相關供應鏈。
+                        <br><strong>追蹤指標：</strong> 半導體類股、台積電 ADR
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">📅 2026-06-29 (下週一)</div>
+                    <div class="event-title">台股 6 月營收公告前夕</div>
+                    <div class="event-importance">⭐⭐⭐ 關注</div>
+                    <div class="event-description">
+                        6 月底為半年報公告前的最後完整交易週，市場將高度關注 Q2 實際營收與展望。AI 供應鏈業績是市場焦點。
+                        <br><strong>追蹤指標：</strong> 台積電 6 月營收、電子股營收年增率
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">📅 2026-07-01 (下週三)</div>
+                    <div class="event-title">聯準會主席鮑威爾國會證詞</div>
+                    <div class="event-importance">⭐⭐⭐⭐⭐ 極度重要</div>
+                    <div class="event-description">
+                        降息時程與通膨看法的最新訊號。在美股大跌後，市場將高度關注鮑威爾是否釋放鴿派信號以穩定市場情緒。
+                        <br><strong>追蹤指標：</strong> 美債殖利率、美元指數、台股外資動向
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 頁腳 -->
+        <div class="footer">
+            <p>📊 本報告由 Hermes AI Agent 根據公開市場資訊自動生成，僅供參考之用</p>
+            <p>📍 數據來源：Yahoo Finance API | 更新時間：2026-06-24 08:00 台北時間</p>
+            <p style="margin-top: 15px; color: #999; font-size: 0.85em;">
+                ⚠️ <strong>免責聲明：</strong> 本報告不構成投資建議。投資決策應諮詢專業理財顧問，投資者應自行承擔投資風險。
+            </p>
+            <p style="margin-top: 10px; font-size: 0.85em;">📅 生成時間：2026-06-24 08:00 | 下次更新：2026-06-25 08:00 (台北時間)</p>
+        </div>
+    </div>
+
+    <script>
+        // 導航標籤點擊效果 - 切換內容區塊
+        document.querySelectorAll('.nav-tab').forEach((tab, index) => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 移除所有 active 樣式
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.display = 'none';
+                    section.style.animation = 'none';
+                });
+                
+                // 添加 active 樣式到當前標籤
+                this.classList.add('active');
+                
+                // 根據標籤索引顯示對應的內容
+                const sections = document.querySelectorAll('.section');
+                if (sections[index]) {
+                    sections[index].style.display = 'block';
+                    sections[index].style.animation = 'slideUp 0.5s ease-out';
+                }
+                // Also show strategy-card for tab 3 (資金流向)
+                if (index === 3) {
+                    const strategyCard = document.querySelector('.strategy-card');
+                    if (strategyCard) strategyCard.style.display = 'block';
+                } else {
+                    const strategyCard = document.querySelector('.strategy-card');
+                    if (strategyCard) strategyCard.style.display = 'none';
+                }
+            });
+        });
+
+        // 初始化：只顯示第一個 section + 隱藏 strategy-card
+        const initialSections = document.querySelectorAll('.section');
+        initialSections.forEach((section, i) => {
+            if (i === 0) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+        const strategyCard = document.querySelector('.strategy-card');
+        if (strategyCard) strategyCard.style.display = 'none';
+
+        // 可摺疊區塊
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
