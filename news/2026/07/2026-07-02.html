@@ -3,97 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Financial Report - 2026-07-02</title>
+<title>每日財經晨報 — 2026-07-02</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Segoe UI,"Noto Sans TC","Microsoft JhengHei",sans-serif;background:#0b1120;color:#e2e8f0;min-height:100vh;padding:30px 20px}
+body{font-family:"Segoe UI","Noto Sans TC",sans-serif;background:#0b1120;color:#e2e8f0;min-height:100vh;padding:30px 20px}
 .bg-grid{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(96,165,250,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(96,165,250,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:-1}
-.container{max-width:960px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto}
 .back-link{display:inline-block;color:#60a5fa;text-decoration:none;font-size:14px;margin-bottom:20px}
+.back-link:hover{color:#93c5fd;text-decoration:underline}
 .header{margin-bottom:30px;padding-bottom:20px;border-bottom:2px solid rgba(96,165,250,0.2)}
-.header h1{font-size:28px;font-weight:800;background:linear-gradient(135deg,#e2e8f0,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
-.header .subtitle{color:#64748b;font-size:14px;display:flex;gap:16px}
+.header h1{font-size:30px;font-weight:800;background:linear-gradient(135deg,#e2e8f0,#60a5fa,#4ade80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+.header .subtitle{color:#64748b;font-size:14px;display:flex;gap:16px;flex-wrap:wrap}
 .section{margin-bottom:28px}
 .section-title{font-size:18px;font-weight:700;color:#94a3b8;margin-bottom:14px;padding-left:10px;border-left:3px solid #60a5fa}
-.market-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.market-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 16px;transition:transform .2s}
+.market-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.market-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 16px;transition:all .2s}
 .market-card:hover{transform:translateY(-2px);border-color:rgba(96,165,250,0.3)}
-.market-card .name{font-size:12px;color:#64748b}
-.market-card .price{font-size:22px;font-weight:700}
+.market-card .name{font-size:12px;color:#64748b;text-transform:uppercase;letter-spacing:0.5px}
+.market-card .price{font-size:24px;font-weight:700;margin:4px 0}
 .market-card .change{font-size:13px;margin-top:2px}
+.market-card .extra{font-size:11px;color:#64748b;margin-top:6px}
 .up{color:#4ade80}.down{color:#f87171}.neutral{color:#94a3b8}
-.change-badge{display:inline-block;padding:1px 8px;border-radius:6px;font-size:12px;font-weight:600}
+.change-badge{display:inline-block;padding:2px 10px;border-radius:6px;font-size:12px;font-weight:600}
 .change-badge.up{background:rgba(74,222,128,0.15)}
 .change-badge.down{background:rgba(248,113,113,0.15)}
 .change-badge.neutral{background:rgba(148,163,184,0.15)}
-.stock-table{width:100%;border-collapse:collapse}
-.stock-table th{padding:8px 12px;font-size:12px;color:#64748b;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
-.stock-table td{padding:10px 12px;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.04)}
-.stock-table tr:hover{background:rgba(255,255,255,0.02)}
-.stock-table .stock-name{font-weight:600}
-.stock-table .stock-price{font-weight:700;text-align:right}
-.stock-table .stock-change{text-align:right;font-weight:600}
+.key-metrics{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:20px}
+.metric{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;text-align:center}
+.metric .label{font-size:11px;color:#64748b}
+.metric .value{font-size:18px;font-weight:700;margin:2px 0}
+.summary-box{background:linear-gradient(135deg,rgba(96,165,250,0.08),rgba(74,222,128,0.05));border:1px solid rgba(96,165,250,0.15);border-radius:12px;padding:18px 20px;margin-bottom:28px}
+.summary-box h3{font-size:16px;color:#60a5fa;margin-bottom:10px}
+.summary-box p{font-size:14px;line-height:1.7;color:#cbd5e1;margin-bottom:6px}
+.analysis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.analysis-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:16px}
+.analysis-card h4{font-size:14px;font-weight:700;color:#e2e8f0;margin-bottom:8px}
+.analysis-card p{font-size:13px;color:#94a3b8;line-height:1.6}
 .news-list{list-style:none}
 .news-item{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:14px 16px;margin-bottom:10px}
 .news-item:hover{background:rgba(255,255,255,0.04)}
-.news-item .news-source{display:inline-block;font-size:10px;color:#60a5fa;background:rgba(96,165,250,0.12);padding:2px 8px;border-radius:4px;font-weight:600}
-.news-item .news-title{font-size:15px;font-weight:600;color:#e2e8f0;margin-bottom:4px}
-.news-item .news-desc{font-size:13px;color:#94a3b8}
-.news-item .news-meta{font-size:11px;color:#64748b;margin-top:6px;display:flex;gap:12px}
-.summary-box{background:linear-gradient(135deg,rgba(96,165,250,0.08),rgba(74,222,128,0.05));border:1px solid rgba(96,165,250,0.15);border-radius:12px;padding:18px 20px;margin-bottom:28px}
-.summary-box h3{font-size:15px;color:#60a5fa;margin-bottom:10px}
-.summary-box p{font-size:14px;line-height:1.7;color:#cbd5e1}
-.summary-box ul li{padding:4px 0 4px 18px;font-size:14px;color:#cbd5e1}
+.news-item .news-source{display:inline-block;font-size:10px;color:#60a5fa;background:rgba(96,165,250,0.12);padding:2px 8px;border-radius:4px;font-weight:600;margin-bottom:6px}
+.news-item .news-title{font-size:15px;font-weight:600;color:#e2e8f0}
 .footer{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;color:#475569;font-size:12px}
 .footer a{color:#60a5fa;text-decoration:none}
-@media(max-width:600px){body{padding:16px 12px}.header h1{font-size:22px}.market-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}}
-</style></head><body>
-<div class="bg-grid"></div><div class="container">
-<a class="back-link" href="../index.html">&larr; News Archive</a>
-<div class="header"><h1>Daily Financial Morning Report</h1>
-<div class="subtitle"><span>2026-07-02 (Thu)</span><span>Taipei Time</span></div></div>
-<div class="summary-box"><h3>Market Summary</h3>
-<p>Wall Street closed higher Wed. S&amp;P500 +1.70% to 7,483. Nasdaq +2.21% above 26,000. VIX -12.18% to 16.59.</p>
-<p>Taiwan TAIEX hit new high at 47,018.99 (+1.65%). TSMC surged 3.94% to NT$2,505.</p>
-<ul><li><b>US:</b> Tech rebounds, Meta enters cloud market</li>
-<li><b>Taiwan:</b> TSMC leads, MediaTek +2.12%</li>
-<li><b>Commodities:</b> Gold -0.76%, Oil -1.79% to $67.99</li>
-<li><b>FX:</b> DXY 101.41, USD/TWD 31.89</li>
-<li><b>Focus:</b> Fed Hammack warns AI could fuel inflation</li></ul></div>
-<div class="section"><div class="section-title">Global Markets</div><div class="market-grid">
-<div class="market-card"><div class="name">S&P500</div><div class="price up">7,483.23</div><div class="change"><span class="change-badge up">&#9650; +1.70%</span></div></div>
-<div class="market-card"><div class="name">NASDAQ</div><div class="price up">26,040.03</div><div class="change"><span class="change-badge up">&#9650; +2.21%</span></div></div>
-<div class="market-card"><div class="name">VIX</div><div class="price down">16.59</div><div class="change"><span class="change-badge down">&#9660; -12.18%</span></div></div>
-<div class="market-card"><div class="name">10Y Yield</div><div class="price up">4.47%</div><div class="change"><span class="change-badge up">&#9650; +1.89%</span></div></div>
-<div class="market-card"><div class="name">Gold</div><div class="price down">$4,047.70</div><div class="change"><span class="change-badge down">&#9660; -0.76%</span></div></div>
-<div class="market-card"><div class="name">WTI Crude</div><div class="price down">$67.99</div><div class="change"><span class="change-badge down">&#9660; -1.79%</span></div></div>
-<div class="market-card"><div class="name">Bitcoin</div><div class="price up">$59,870.89</div><div class="change"><span class="change-badge up">&#9650; +0.57%</span></div></div>
-<div class="market-card"><div class="name">DXY</div><div class="price neutral">101.41</div><div class="change"><span class="change-badge neutral">&#9650; +0.04%</span></div></div>
-<div class="market-card"><div class="name">TAIEX</div><div class="price up">47,018.99</div><div class="change"><span class="change-badge up">&#9650; +1.65%</span></div></div>
-<div class="market-card"><div class="name">USD/TWD</div><div class="price neutral">31.89</div><div class="change"><span class="change-badge neutral">&#9650; +0.10%</span></div></div>
+.footer a:hover{text-decoration:underline}
+@media(max-width:600px){body{padding:16px 12px}.header h1{font-size:24px}.market-grid{grid-template-columns:1fr 1fr}.key-metrics{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="container">
+<a class="back-link" href="../index.html">← 返回新聞總覽</a>
+<div class="header">
+<h1>📊 每日財經晨報</h1>
+<div class="subtitle"><span>📅 2026年7月2日（週四）</span><span>🕐 台北時間</span><span>📈 市場數據更新至7/1收盘</span></div>
+</div>
+<div class="section"><div class="section-title">📌 關鍵經濟指標</div>
+<div class="key-metrics">
+<div class="metric"><div class="label">非農就業（6月）</div><div class="value" style="color:#f87171">+57K</div><div class="label" style="color:#f87171">遠低於預期</div></div>
+<div class="metric"><div class="label">失業率（6月）</div><div class="value" style="color:#f87171">4.2%</div><div class="label" style="color:#f87171">溫和上升</div></div>
+<div class="metric"><div class="label">10年期公債殖利率</div><div class="value" style="color:#4ade80">4.479%</div><div class="label" style="color:#4ade80">+0.11%</div></div>
+<div class="metric"><div class="label">VIX恐慌指數</div><div class="value" style="color:#4ade80">15.88</div><div class="label" style="color:#4ade80">-0.71</div></div>
+<div class="metric"><div class="label">美元/台幣</div><div class="value">31.848</div><div class="label">+0.04%</div></div>
 </div></div>
-<div class="section"><div class="section-title">Taiwan Key Stocks</div><table class="stock-table"><thead><tr><th>Stock</th><th>Ticker</th><th class="stock-price">Price</th><th class="stock-price">Prev</th><th class="stock-change">Chg</th></tr></thead><tbody>
-<tr><td class="stock-name">TSMC</td><td>2330.TW</td><td class="stock-price up">2,505</td><td class="stock-price">2,410</td><td class="stock-change up">&#9650; +3.94%</td></tr>
-<tr><td class="stock-name">Hon Hai</td><td>2317.TW</td><td class="stock-price down">248</td><td class="stock-price">251</td><td class="stock-change down">&#9660; -1.20%</td></tr>
-<tr><td class="stock-name">MediaTek</td><td>2454.TW</td><td class="stock-price up">4,335</td><td class="stock-price">4,245</td><td class="stock-change up">&#9650; +2.12%</td></tr>
-<tr><td class="stock-name">Quanta</td><td>2382.TW</td><td class="stock-price up">372</td><td class="stock-price">368</td><td class="stock-change up">&#9650; +1.09%</td></tr>
-<tr><td class="stock-name">Evergreen</td><td>2603.TW</td><td class="stock-price up">185.5</td><td class="stock-price">184.5</td><td class="stock-change up">&#9650; +0.54%</td></tr>
-</tbody></table></div>
-<div class="section"><div class="section-title">Market Focus</div><div class="market-grid" style="grid-template-columns:1fr">
-<div class="market-card" style="padding:16px"><div style="font-weight:700;margin-bottom:6px">Magnificent 7 lost ~$2T in June</div><div style="font-size:13px;color:#94a3b8">Microsoft,Nvidia,Alphabet,Apple,Meta,Tesla,Amazon shed ~$2T in June, turning negative YTD. Sector rotation from tech to defensive/value.</div></div>
-<div class="market-card" style="padding:16px"><div style="font-weight:700;margin-bottom:6px">Cleveland Fed: AI could fuel inflation</div><div style="font-size:13px;color:#94a3b8">Beth Hammack warned the AI investment boom could bring inflationary pressure, hinting further rate hikes may be needed.</div></div>
-<div class="market-card" style="padding:16px"><div style="font-weight:700;margin-bottom:6px">Meta enters cloud; CoreWeave,Nebius tumble</div><div style="font-size:13px;color:#94a3b8">Meta plans to commercialize AI infrastructure, raising questions about neocloud business models.</div></div>
-<div class="market-card" style="padding:16px"><div style="font-weight:700;margin-bottom:6px">Wedbush: Best time to buy space &amp; defense</div><div style="font-size:13px;color:#94a3b8">Wedbush initiated on SpaceX and space stocks, calling it a generational buying opportunity citing geopolitical tensions.</div></div>
+<div class="summary-box">
+<h3>📋 今日市場總覽</h3>
+<p><strong>🇺🇸 美股：</strong> 延續反彈走勢，三大指數全面收紅。S&#38;P 500 上漲 0.62% 收 7,529 點，接近歷史新高。就業市場顯著降溫，提升市場對聯時會降息的預期。</p>
+<p><strong>🌏 亞洲市場：</strong> 台股加權指數回檔 0.58% 至 46,744 點，終止連日創高走勢。日經跌 2.47% 為今日表現最弱。恒生小漲 0.76%。</p>
+<p><strong>🛢️ 原物料&#38;加密貨幣：</strong> 金價大漲 1.92% 至 ,146，避險需求升溫。原油跌 1.12% 至 7.81。比特幣反彈 2.99% 站回 1,800。</p>
+<p><strong>🏢 企業焦點：</strong> 微軟 25 億美元 AI 實施部門投資；特斯拉 Q2 交付年增 25% 超預期；Meta 進軍雲端，福特 Q2 銷量下滑 10.3%。</p>
+</div>
+<div class="section"><div class="section-title">🌍 全球主要指數</div>
+<div class="market-grid">
+<div class="market-card"><div class="name">S&#38;P 500</div><div class="price up">7,529.29</div><div class="change"><span class="change-badge up">&#9650; +0.62%</span></div><div class="extra">變動: +46.06 | 52週高: 7,620.90</div></div>
+<div class="market-card"><div class="name">道璿工業指數</div><div class="price up">52,690.18</div><div class="change"><span class="change-badge up">&#9650; +0.74%</span></div><div class="extra">變動: +384.94</div></div>
+<div class="market-card"><div class="name">那斯達克指數</div><div class="price up">26,186.11</div><div class="change"><span class="change-badge up">&#9650; +0.56%</span></div><div class="extra">變動: +146.08</div></div>
+<div class="market-card"><div class="name">台灣加權指數</div><div class="price down">46,744.16</div><div class="change"><span class="change-badge down">&#9660; -0.58%</span></div><div class="extra">變動: -274.83</div></div>
+<div class="market-card"><div class="name">日經 225 指數</div><div class="price down">68,733.15</div><div class="change"><span class="change-badge down">&#9660; -2.47%</span></div><div class="extra">變動: -1,741.81</div></div>
+<div class="market-card"><div class="name">恆生指數</div><div class="price up">23,055.03</div><div class="change"><span class="change-badge up">&#9650; +0.76%</span></div><div class="extra">變動: +174.01</div></div>
 </div></div>
-<div class="section"><div class="section-title">Headlines</div><ul class="news-list">
-<li class="news-item"><div class="news-source">CNBC</div><div class="news-title">Dan Ives leaves Wedbush for new venture</div><div class="news-meta"><span>2026-07-01</span></div></li>
-<li class="news-item"><div class="news-source">CNBC</div><div class="news-title">Michael Burry shorts Caterpillar for first time</div><div class="news-meta"><span>2026-07-01</span></div></li>
-<li class="news-item"><div class="news-source">MarketWatch</div><div class="news-title">Nvidia bets on trillion-dollar robotics boom</div><div class="news-meta"><span>2026-07-01</span></div></li>
-<li class="news-item"><div class="news-source">CNBC</div><div class="news-title">China-linked actors target AI competition</div><div class="news-meta"><span>2026-07-01</span></div></li>
-<li class="news-item"><div class="news-source">MarketWatch</div><div class="news-title">ServiceNow,Salesforce look like buys - Guggenheim</div><div class="news-meta"><span>2026-07-01</span></div></li>
-<li class="news-item"><div class="news-source">MarketWatch</div><div class="news-title">Sandisk, Micron sink; supply shortage may limit losses</div><div class="news-meta"><span>2026-07-01</span></div></li>
-<li class="news-item"><div class="news-source">CNBC</div><div class="news-title">Xi Jinping touts global influence at 105th anniversary</div><div class="news-meta"><span>2026-07-01</span></div></li>
+<div class="section"><div class="section-title">🪙 原物料 &#38; 加密貨幣</div>
+<div class="market-grid">
+<div class="market-card"><div class="name">黃金 (GC=F)</div><div class="price up">,146.60</div><div class="change"><span class="change-badge up">&#9650; +1.92%</span></div><div class="extra">單日大漲 8.30</div></div>
+<div class="market-card"><div class="name">原油 WTI (CL=F)</div><div class="price down">7.81</div><div class="change"><span class="change-badge down">&#9660; -1.12%</span></div><div class="extra">變動: -/usr/bin/bash.77</div></div>
+<div class="market-card"><div class="name">比特幣 (BTC)</div><div class="price up">1,797.54</div><div class="change"><span class="change-badge up">&#9650; +2.99%</span></div><div class="extra">變動: +,793.78</div></div>
+<div class="market-card"><div class="name">VIX 恐慌指數</div><div class="price down">15.88</div><div class="change"><span class="change-badge down">&#9660; -4.28%</span></div><div class="extra">市場情緒安定</div></div>
+</div></div>
+<div class="section"><div class="section-title">🔍 市場深度分析</div>
+<div class="analysis-grid">
+<div class="analysis-card"><h4>🇺🇸 美國就業降溫 — 降息預期升溫</h4><p>6月非農就業僅增57,000人，遠低於預期。失業率升至4.2%為近半年最高。就業放緩為Fed提供降息空間，市場預期9月降息機率顯著提升。</p></div>
+<div class="analysis-card"><h4>🤖 微軟加碼AI — 25億美元布局</h4><p>微軟宣布成立全新AI實施部門，投入25億美元、配置6,000名員工。科技巨頭在AI應用落地階段積極布局，有望帶動相關供應鏈需求。</p></div>
+<div class="analysis-card"><h4>🚗 特斯拉Q2交付年增25%超預期</h4><p>盡管電動車市場競爭加劇，特斯拉仍維持強勁增長動能。Rivian同步上調2026年交付展望。Lucid則未達華爾街Q2預期。</p></div>
+<div class="analysis-card"><h4>☁️ Meta進軍雲端 — 市場格局將變</h4><p>Meta計劃商業化AI基礎設施，進軍雲端市場。CoreWeave、Nebius等新創雲端公司承壓，市場準備迎接雲端服務利潤率下滑時代。</p></div>
+<div class="analysis-card"><h4>🏭 福特Q2銷量下滑10.3%</h4><p>主因F-Series供應商問題及電動車需求放緩。執行長呼粁USMCA重啟之際，與Toyota、GM進口車應有公平競爭環境。</p></div>
+<div class="analysis-card"><h4>📊 川普評市場 — 漲幅僅1%受惠</h4><p>川普稱「每個人都從市場反彈獲利」，但數據顯示漲幅主要集中於頂層1%富裕階層，財富不均恐影響選舉年政策走向。</p></div>
+</div></div>
+<div class="section"><div class="section-title">📰 財經頭條</div>
+<ul class="news-list">
+<li class="news-item"><span class="news-source">CNBC</span><div class="news-title">🇺🇸 美國6月非農僅增5.7萬人，失業率升至4.2%</div></li>
+<li class="news-item"><span class="news-source">CNBC</span><div class="news-title">🤖 微軟投入25億美元、6,000員工成立AI實施部門</div></li>
+<li class="news-item"><span class="news-source">CNBC</span><div class="news-title">🚗 特斯拉Q2交付量年增25%遠超預期</div></li>
+<li class="news-item"><span class="news-source">CNBC</span><div class="news-title">🏭 福特Q2銷量下滑10.3%，F-Series供應鏈與EV需求放緩</div></li>
+<li class="news-item"><span class="news-source">CNBC</span><div class="news-title">📈 Rivian上調2026交付展望，Lucid低於預期</div></li>
+<li class="news-item"><span class="news-source">CNBC</span><div class="news-title">☁️ Meta進軍雲端，CoreWeave等股價承壓</div></li>
+<li class="news-item"><span class="news-source">CNBC</span><div class="news-title">📊 川普稱人人獲利，數據顯示漲幅集中頂層1%</div></li>
+<li class="news-item"><span class="news-source">CNBC</span><div class="news-title">🤝 福特CEO籲USMCA公平競爭環境</div></li>
 </ul></div>
-<div class="footer"><p>Daily Financial Morning Report - AI Generated</p><p>Date: 2026-07-02 | Taipei Time</p><p>Disclaimer: For reference only, not investment advice</p>
-<p><a href="https://edward0714.github.io/hermes-Stock-Report/">&larr; Back to Reports</a></p>
+<div class="footer">
+<p>📊 每日財經晨報 — AI自動生成</p>
+<p>🗓️ 2026年7月2日（週四）| 台北時間</p>
+<p style="margin-top:8px;font-size:11px;color:#475569">⚠️ 免責聲明：本報告由AI自動生成，僅供參考，不構成任何投資建議。<br>市場數據：Yahoo Finance | 新聞來源：CNBC RSS</p>
+<p style="margin-top:10px"><a href="https://edward0714.github.io/hermes-Stock-Report/">← 返回報告首頁</a> &nbsp;|&nbsp; <a href="https://github.com/edward0714/hermes-Stock-Report">GitHub</a></p>
 </div></div></body></html>
