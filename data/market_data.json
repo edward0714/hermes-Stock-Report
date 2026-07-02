@@ -1,0 +1,62 @@
+{
+  "^GSPC": {
+    "name": "S&P 500",
+    "current": 7483.23,
+    "previous": 7358.22,
+    "change_pct": 1.7
+  },
+  "^IXIC": {
+    "name": "NASDAQ Composite",
+    "current": 26040.03,
+    "previous": 25476.64,
+    "change_pct": 2.21
+  },
+  "^VIX": {
+    "name": "CBOE Volatility Index",
+    "current": 16.59,
+    "previous": 18.89,
+    "change_pct": -12.18
+  },
+  "^TNX": {
+    "name": "10Y Treasury Yield",
+    "current": 4.47,
+    "previous": 4.39,
+    "change_pct": 1.89
+  },
+  "GC=F": {
+    "name": "Gold Futures",
+    "current": 4047.7,
+    "previous": 4078.7,
+    "change_pct": -0.76
+  },
+  "CL=F": {
+    "name": "Crude Oil WTI",
+    "current": 67.99,
+    "previous": 69.23,
+    "change_pct": -1.79
+  },
+  "BTC-USD": {
+    "name": "Bitcoin",
+    "current": 59870.89,
+    "previous": 59532.34,
+    "change_pct": 0.57
+  },
+  "DX-Y.NYB": {
+    "name": "US Dollar Index",
+    "current": 101.41,
+    "previous": 101.36,
+    "change_pct": 0.04
+  },
+  "^TWII": {
+    "name": "Taiwan Weighted Index",
+    "current": 47018.99,
+    "previous": 46255.26,
+    "change_pct": 1.65
+  },
+  "USDTWD=X": {
+    "name": "USD/TWD",
+    "current": 31.89,
+    "previous": 31.86,
+    "change_pct": 0.1
+  }
+}
