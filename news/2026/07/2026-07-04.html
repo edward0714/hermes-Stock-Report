@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>📊 財經晨報 Pro — 2026-07-04（週末週報）</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:linear-gradient(135deg,#f0f4f8,#d9e8f5);color:#1a1a1a;line-height:1.6;min-height:100vh;padding:20px}
+.container{max-width:1200px;margin:0 auto}
+.header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:60px 40px;border-radius:16px;margin-bottom:40px;box-shadow:0 20px 60px rgba(102,126,234,.3);text-align:center;position:relative;overflow:hidden}
+.header h1{font-size:3em;margin-bottom:10px;font-weight:700;letter-spacing:2px}
+.header-subtitle{font-size:1.2em;opacity:.95;margin-bottom:20px}
+.header-date{display:inline-block;background:rgba(255,255,255,.2);padding:8px 16px;border-radius:20px;font-size:.95em}
+.nav-tabs{display:flex;gap:10px;margin-bottom:40px;overflow-x:auto;padding-bottom:10px}
+.nav-tab{padding:12px 24px;background:#fff;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all .3s;font-weight:500;white-space:nowrap}
+.nav-tab:hover,.nav-tab.active{background:#667eea;color:#fff;border-color:#667eea;transform:translateY(-2px);box-shadow:0 8px 20px rgba(102,126,234,.2)}
+.section{background:#fff;border-radius:12px;padding:40px;margin-bottom:40px;box-shadow:0 4px 20px rgba(0,0,0,.08);animation:slideUp .5s ease-out;display:none}
+.section.active{display:block}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section h2{font-size:2em;color:#667eea;margin-bottom:30px;padding-bottom:15px;border-bottom:3px solid #667eea;display:flex;align-items:center;gap:12px}
+.section h2::before{content:"";display:inline-block;width:8px;height:8px;background:#667eea;border-radius:50%}
+.section h3{font-size:1.4em;color:#333;margin:25px 0 15px}
+.viewpoint-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:20px;margin-top:20px}
+.viewpoint-card{border-radius:12px;padding:25px;border-left:5px solid;transition:all .3s;cursor:pointer}
+.viewpoint-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.viewpoint-card.bullish{border-left-color:#28a745;background:linear-gradient(to right,rgba(40,167,69,.05),#fff)}
+.viewpoint-card.bearish{border-left-color:#dc3545;background:linear-gradient(to right,rgba(220,53,69,.05),#fff)}
+.viewpoint-card.neutral{border-left-color:#ffc107;background:linear-gradient(to right,rgba(255,193,7,.05),#fff)}
+.viewpoint-badge{display:inline-block;padding:6px 12px;border-radius:20px;font-weight:600;font-size:.85em;color:#fff}
+.viewpoint-badge.bullish{background:#28a745}.viewpoint-badge.bearish{background:#dc3545}.viewpoint-badge.neutral{background:#ffc107;color:#333}
+.viewpoint-title{font-size:1.2em;font-weight:600;color:#333;margin-bottom:15px}
+.viewpoint-item{margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid #eee}
+.viewpoint-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.viewpoint-item-label{font-weight:600;color:#667eea;font-size:.9em;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.viewpoint-item-content{color:#555;line-height:1.8}
+.market-indicators{width:100%;border-collapse:collapse;margin-top:20px}
+.market-indicators thead{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.market-indicators th{padding:16px;text-align:left;font-weight:600;border:none}
+.market-indicators tr{border-bottom:1px solid #e0e0e0}
+.market-indicators td{padding:16px;vertical-align:middle}
+.market-indicators .category{font-weight:600;color:#667eea;background:#f5f7fa}
+.market-indicators .number{font-weight:600;color:#667eea;font-family:"Courier New",monospace;font-size:1.1em}
+.market-indicators .up{color:#28a745;font-weight:700}
+.market-indicators .down{color:#dc3545;font-weight:700}
+.market-indicators .neutral{color:#ffc107;font-weight:700}
+.industry-table{width:100%;border-collapse:collapse;margin-top:20px}
+.industry-table thead{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.industry-table th{padding:18px;text-align:center;font-weight:600;border:none}
+.industry-table th:first-child{text-align:left}
+.industry-table tr{border-bottom:1px solid #e0e0e0}
+.industry-table td{padding:16px;text-align:center}
+.industry-table td:first-child{text-align:left;font-weight:600;color:#333}
+.direction-badge{display:inline-block;padding:8px 16px;border-radius:20px;font-weight:600;font-size:.9em;color:#fff}
+.direction-up{background:#28a745}.direction-down{background:#dc3545}.direction-neutral{background:#ffc107;color:#333}
+.stock-tags{display:flex;flex-wrap:wrap;gap:8px}
+.stock-tag{display:inline-block;background:#f0f7ff;color:#667eea;padding:6px 12px;border-radius:20px;font-weight:500;font-size:.85em;border:1px solid #667eea}
+.strategy-card{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:40px;border-radius:12px;margin-top:30px}
+.strategy-card h3{font-size:1.5em;margin-bottom:20px}
+.rating{font-size:2em;font-weight:700;margin:20px 0}
+.action-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px}
+.action-item{background:rgba(255,255,255,.15);padding:15px;border-radius:8px;border-left:4px solid;transition:all .3s}
+.action-item:hover{background:rgba(255,255,255,.25);transform:translateX(5px)}
+.action-item.add{border-left-color:#28a745}.action-item.hold{border-left-color:#ffc107}.action-item.reduce{border-left-color:#dc3545}.action-item.avoid{border-left-color:#999}
+.weekly-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:20px 0}
+.summary-card{text-align:center;padding:25px;border-radius:12px;background:#f5f7fa;transition:all .3s}
+.summary-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.summary-card .index-name{font-size:.9em;color:#666;margin-bottom:5px}
+.summary-card .index-value{font-size:1.8em;font-weight:700;color:#333;margin-bottom:5px}
+.summary-card .index-change{font-weight:600;font-size:1.1em}
+.summary-card .index-week{font-size:.85em;color:#999;margin-top:5px}
+.event-timeline{margin-top:20px;position:relative;padding-left:30px}
+.event-timeline::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#667eea,#764ba2);border-radius:2px}
+.event-item{margin-bottom:30px;position:relative;padding-left:30px}
+.event-item::before{content:"";position:absolute;left:-16.5px;top:5px;width:12px;height:12px;background:#fff;border:3px solid #667eea;border-radius:50%}
+.event-date{font-weight:700;color:#667eea;font-size:1.1em;margin-bottom:5px}
+.event-title{font-weight:600;color:#333;margin-bottom:8px}
+.event-importance{color:#ffc107;font-weight:600}
+.event-description{color:#666;font-size:.95em;margin-top:8px;line-height:1.6}
+.news-card{border-radius:12px;padding:20px;margin-bottom:15px;border-left:4px solid #667eea;background:#f9fbff;transition:all .3s}
+.news-card:hover{transform:translateX(5px);box-shadow:0 4px 15px rgba(0,0,0,.08)}
+.news-card .news-title{font-weight:600;color:#333;margin-bottom:8px;font-size:1.05em}
+.news-card .news-source{font-size:.8em;color:#999;margin-bottom:5px}
+.news-card .news-desc{color:#666;font-size:.9em;line-height:1.6}
+.news-card.bullish{border-left-color:#28a745;background:linear-gradient(to right,rgba(40,167,69,.03),#fff)}
+.news-card.bearish{border-left-color:#dc3545;background:linear-gradient(to right,rgba(220,53,69,.03),#fff)}
+.news-card.neutral{border-left-color:#ffc107;background:linear-gradient(to right,rgba(255,193,7,.03),#fff)}
+.news-tag{display:inline-block;font-size:.75em;padding:3px 8px;border-radius:4px;color:#fff;margin-right:5px}
+.news-tag.bullish{background:#28a745}.news-tag.bearish{background:#dc3545}.news-tag.neutral{background:#ffc107;color:#333}
+.footer{background:#fff;padding:30px 40px;border-radius:12px;text-align:center;color:#999;font-size:.9em;margin-top:40px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.back-link{color:#667eea;text-decoration:none;font-size:14px;margin-bottom:20px;display:inline-block}
+.warning-box{margin-top:25px;padding:20px;background:#fef3e2;border-left:4px solid #ffc107;border-radius:8px}
+.info-box{margin-top:25px;padding:20px;background:#f0f7ff;border-left:4px solid #667eea;border-radius:8px}
+@media(max-width:768px){.header{padding:40px 20px}.header h1{font-size:2em}.section{padding:20px}.viewpoint-grid{grid-template-columns:1fr}.action-list{grid-template-columns:1fr}.weekly-summary{grid-template-columns:1fr 1fr}}
+</style></head><body><div class="container">
+<a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+<div class="header"><div class="header-content">
+<h1>📊 財經晨報 Pro</h1>
+<div class="header-subtitle">📆 週末特刊 — 2026年7月4日 星期六</div>
+<div class="header-date">📅 台北時間 2026-07-04 | 週報回顧：6/29(一) → 7/3(五)</div>
+</div></div>
+
+<div class="nav-tabs">
+<div class="nav-tab active" data-tab="0">📈 市場觀點</div>
+<div class="nav-tab" data-tab="1">🌍 全球市場</div>
+<div class="nav-tab" data-tab="2">🏭 產業焦點</div>
+<div class="nav-tab" data-tab="3">📰 本週要聞</div>
+<div class="nav-tab" data-tab="4">📅 下週展望</div>
+<div class="nav-tab" data-tab="5">🎯 投資策略</div>
+</div>
+
+<!-- TAB 0 -->
+<div class="section active" data-tab="0">
+<h2>📈 本週市場回顧 — 台股強彈逾5%</h2>
+
+<div class="info-box">
+<strong style="color:#667eea;font-size:1.1em;">🔥 本週核心敘事：台股大逆轉 + 道瓊創歷史新高 + 降息預期升溫</strong>
+<p style="margin-top:10px;color:#555;line-height:1.8;">
+本週全球金融市場經歷戲劇性轉折。台股週初延續上週五（6/26）暴跌 3.5% 後的強勁反彈，加權指數自 44,572 點低點一路攻至 46,780 點，<strong style="color:#28a745;">單週大漲 2,208 點（+4.95%）</strong>，完全收復前週失土。外資雖在週五（7/3）大砍 777 億元，但內資強力承接，上演「黑翻紅」戲碼。<br><br>
+美國方面，6 月非農就業僅增 57,000 人，遠低於預期，但市場將其解讀為 Fed 加速降息的催化劑。道瓊工業指數逆勢創下 <strong style="color:#667eea;">收盤歷史新高 52,900 點</strong>，惟半導體指數（SOX）週線大跌 4.38%，資金明顯從科技股輪動至價值股。
+</p>
+</div>
+<div class="weekly-summary">
+<div class="summary-card"><div class="index-name">🇹🇼 台股 TAIEX</div><div class="index-value">46,780</div><div class="index-change" style="color:#28a745;">↑ +2,208 (+4.95%)</div><div class="index-week">本週收漲 — 強彈格局</div></div>
+<div class="summary-card"><div class="index-name">🇺🇸 道瓊</div><div class="index-value">52,900</div><div class="index-change" style="color:#28a745;">↑ +1,024 (+1.97%)</div><div class="index-week">創歷史新高 🏆</div></div>
+<div class="summary-card"><div class="index-name">🇺🇸 S&P 500</div><div class="index-value">7,483</div><div class="index-change" style="color:#28a745;">↑ +129 (+1.75%)</div><div class="index-week">站穩 7,400 平台</div></div>
+<div class="summary-card"><div class="index-name">🇺🇸 Nasdaq</div><div class="index-value">25,833</div><div class="index-change" style="color:#28a745;">↑ +535 (+2.11%)</div><div class="index-week">科技股週線仍漲</div></div>
+<div class="summary-card"><div class="index-name">🔲 費半 SOX</div><div class="index-value">12,626</div><div class="index-change" style="color:#dc3545;">↓ -578 (-4.38%)</div><div class="index-week">半導體相對弱勢</div></div>
+<div class="summary-card"><div class="index-name">🥇 黃金</div><div class="index-value">$4,187</div><div class="index-change" style="color:#28a745;">↑ +$119 (+2.93%)</div><div class="index-week">避險需求推升</div></div>
+</div>
+<h3 style="margin-top:30px;">📊 台股本週逐日走勢</h3>
+<div class="week-bar" style="display:flex;height:40px;border-radius:8px;overflow:hidden;margin:10px 0;">
+<div class="segment" style="flex:0.91;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:.85em;background:#28a745;">一<br>+0.91%</div>
+<div class="segment" style="flex:2.13;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:.85em;background:#28a745;">二<br>+2.13%</div>
+<div class="segment" style="flex:1.7;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:.85em;background:#28a745;">三<br>+1.70%</div>
+<div class="segment" style="flex:0.19;display:flex;align-items:center;justify-content:center;color:#333;font-weight:600;font-size:.85em;background:#ffc107;">四<br>-0.19%</div>
+<div class="segment" style="flex:0.08;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:.85em;background:#28a745;">五<br>+0.08%</div>
+</div>
+<h3>核心观点</h3>
+<div class="viewpoint-grid">
+<div class="viewpoint-card bullish"><div class="viewpoint-header"><div class="viewpoint-badge bullish">利多</div></div><div class="viewpoint-title">台股单周强弹 4.95% - 外资砍777亿内资接刀</div><div class="viewpoint-item"><div class="viewpoint-item-label">事件</div><div class="viewpoint-item-content">台股自6/26低点44572强弹至7/3收46780单周上涨2208点外资大卖777.82亿元但内资与散户强力承接指数尾盘翻红台指期夜盘续涨116点至47116</div></div><div class="viewpoint-item"><div class="viewpoint-item-label">市场影响</div><div class="viewpoint-item-content">外资卖内资买格局显示市场多空分歧但多方胜出VIX续跌至1581恐慌情绪降温台股短线站回均线突破47293前高将进一步转强</div></div></div><div class="viewpoint-card bullish"><div class="viewpoint-header"><div class="viewpoint-badge bullish">利多</div></div><div class="viewpoint-title">道琼创历史新高-非农弱降息预期强</div><div class="viewpoint-item"><div class="viewpoint-item-label">事件</div><div class="viewpoint-item-content">美国6月非农仅增57000人道琼工业指数逆势收在52900点创历史新高S&P500收7483点NASDAQ小幅回调市场定价Fed7月降息机率显著提升</div></div><div class="viewpoint-item"><div class="viewpoint-item-label">市场影响</div><div class="viewpoint-item-content">非农疲弱=降息预期升温=风险资产利多资金从高估值科技股轮动至金融工业等价值股道琼创高而SOX费半周跌438%即是最佳佐证</div></div></div><div class="viewpoint-card neutral"><div class="viewpoint-header"><div class="viewpoint-badge neutral">中性</div></div><div class="viewpoint-title">半导体指数逆风-AI估值修正与Google转单效应</div><div class="viewpoint-item"><div class="viewpoint-item-label">事件</div><div class="viewpoint-item-content">费半SOX本周大跌438%至12626Google传将先进封装订单转给英特尔台积电前工程师示警台湾硅盾危机财经专家阮慕骅称AI股开始估值修正</div></div><div class="viewpoint-item"><div class="viewpoint-item-label">市场影响</div><div class="viewpoint-item-content">半导体短线面临获利了结压力但AI长线需求仍强台积电ADR本周波动剧烈最高4776至最低4342周线仅小跌台股TSMC在2445元需留意下周营收公布</div></div></div><div class="viewpoint-card bullish"><div class="viewpoint-header"><div class="viewpoint-badge bullish">利多</div></div><div class="viewpoint-title">六利多护航台股-下半年攻高可期</div><div class="viewpoint-item"><div class="viewpoint-item-label">事件</div><div class="viewpoint-item-content">法人指出台股挟Fed升息疑虑缓解法人调升台积电目标价电子业资本支出加码逾千亿信驿营收创三高航空业迎顺风科技业投资狂潮等六大利多</div></div><div class="viewpoint-item"><div class="viewpoint-item-label">市场影响</div><div class="viewpoint-item-content">台湾电子5哥鸿海广达等资本支出合计较去年增加逾1100亿元反映AI军备赛的强劲需求若下周CPI数据符合降温预期台股有望挑战47500以上</div></div></div></div></div><!-- TAB 1 -->
+<div class="section" data-tab="1">
+<h2>全球市场扫描</h2>
+<h3>美国市场（截至7/2收盘）</h3>
+<table class="market-indicators">
+<thead><tr><th>分类</th><th>指标名称</th><th>最新值</th><th>前周</th><th>周涨跌</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td class="category" rowspan="5">美股</td><td>S&P 500</td><td class="number">7,483.24</td><td>7,354.00</td><td><span class="up">↑ +129.24 (+1.76%)</span></td><td>站稳 7,400 平台</td></tr>
+<tr><td>道琼</td><td class="number">52,900.07</td><td>51,876.11</td><td><span class="up">↑ +1,023.96 (+1.97%)</span></td><td>创历史新高</td></tr>
+<tr><td>Nasdaq</td><td class="number">25,832.67</td><td>25,297.56</td><td><span class="up">↑ +535.11 (+2.11%)</span></td><td>周线仍涨短线回调</td></tr>
+<tr><td>费半 SOX</td><td class="number">12,626.22</td><td>13,203.58</td><td><span class="down">↓ -577.36 (-4.38%)</span></td><td>半导体弱势</td></tr>
+<tr><td>VIX</td><td class="number">15.81</td><td>16.59</td><td><span class="down">↓ -0.78 (-4.70%)</span></td><td>恐慌续降</td></tr>
+<tr><td class="category" rowspan="4">利率/汇率</td><td>美债 10Y</td><td class="number">4.49%</td><td>4.37%</td><td><span class="up">↑ +12bp</span></td><td>降息预期推升殖利率</td></tr>
+<tr><td>美元指数 DXY</td><td class="number">100.86</td><td>101.39</td><td><span class="down">↓ -0.52%</span></td><td>美元弱势有利新兴市场</td></tr>
+<tr><td>美元/日圆</td><td class="number">161.34</td><td>-</td><td><span class="neutral">持平</span></td><td>日圆持续弱势</td></tr>
+<tr><td>美元/台币</td><td class="number">~31.93</td><td>-</td><td><span class="neutral">区间整理</span></td><td>台币相对稳定</td></tr>
+<tr><td class="category" rowspan="3">大宗商品</td><td>黄金</td><td class="number">$4,187.30</td><td>$4,068.30</td><td><span class="up">↑ +2.93%</span></td><td>避险+降息预期双重催化</td></tr>
+<tr><td>WTI 原油</td><td class="number">$68.78</td><td>$68.58</td><td><span class="up">↑ +0.29%</span></td><td>需求担忧缓解</td></tr>
+<tr><td>比特币</td><td class="number">$62,749.75</td><td>$60,003.76</td><td><span class="up">↑ +4.58%</span></td><td>加密市场回稳</td></tr>
+<tr><td class="category" rowspan="4">台股</td><td>TWII 加权</td><td class="number">46,780.62</td><td>44,571.76</td><td><span class="up">↑ +2,208.86 (+4.95%)</span></td><td>强弹</td></tr>
+<tr><td>电子指数</td><td class="number">3,010.56</td><td>-</td><td><span class="up">↑ +0.27%</span></td><td>权值股撑盘</td></tr>
+<tr><td>金融指数</td><td class="number">3,066.77</td><td>-</td><td><span class="up">↑ +1.11%</span></td><td>资金轮动受惠</td></tr>
+<tr><td>TSMC 台股</td><td class="number">NT$2,445</td><td>NT$2,370</td><td><span class="up">↑ +3.16%</span></td><td>7/7营收公布在即</td></tr>
+</tbody></table>
+<h3>亚洲/欧洲市场</h3>
+<table class="market-indicators">
+<thead><tr><th>指数</th><th>最新值</th><th>涨跌幅</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>日经 225</td><td class="number">69,744</td><td><span class="up">↑ +1.47%</span></td><td>日本股市持续强势</td></tr>
+<tr><td>KOSPI</td><td class="number">8,088</td><td><span class="up">↑ +5.76%</span></td><td>韩股强弹</td></tr>
+<tr><td>恒生指数</td><td class="number">23,350</td><td><span class="up">↑ +1.28%</span></td><td>港股回稳</td></tr>
+<tr><td>上证指数</td><td class="number">4,044</td><td><span class="up">↑ +0.37%</span></td><td>A股平稳</td></tr>
+<tr><td>富时 100</td><td class="number">10,679</td><td><span class="up">↑ +0.25%</span></td><td>欧股温和</td></tr>
+<tr><td>德国 DAX</td><td class="number">25,779</td><td><span class="up">↑ +0.78%</span></td><td>德股创高</td></tr>
+<tr><td>法国 CAC</td><td class="number">8,508</td><td><span class="up">↑ +0.39%</span></td><td>欧股偏多</td></tr>
+</tbody></table>
+<div class="info-box" style="margin-top:25px;"><strong style="color:#667eea;">资金流向总结：</strong>
+<ul style="margin-top:10px;margin-left:20px;color:#555;line-height:1.8;">
+<li><strong style="color:#28a745;">偏多信号：</strong>道琼创历史新高（52,900）VIX跌至15.81台股单周涨4.95%黄金突破美元续弱有利新兴市场</li>
+<li><strong style="color:#dc3545;">谨慎信号：</strong>费半SOX周跌4.38%外资单日卖超777亿NASDAQ短线回调非农仅增57K可能反映经济放缓</li>
+</ul></div></div>
+<!-- TAB 2 -->
+<div class="section" data-tab="2">
+<h2>台股产业族群扫描</h2>
+<table class="industry-table"><thead><tr><th>产业</th><th>方向</th><th>核心理由</th><th>关键数据</th><th>代表个股</th></tr></thead><tbody>
+<tr><td><strong>半导体晶圆代工</strong></td><td><span class="direction-badge direction-up">↑↑ 强势偏多</span></td><td>台积电7/7(二)6月营收公布AI需求推动再创新高电子业资本支出加码破千亿</td><td>TSMC台股NT$2,445<br>周涨+3.16%</td><td><div class="stock-tags"><span class="stock-tag">台积电</span><span class="stock-tag">联电</span><span class="stock-tag">世界先進</span></div></td></tr>
+<tr><td><strong>AI服务器/供应链</strong></td><td><span class="direction-badge direction-up">↑ 偏多</span></td><td>全球CSP资本支出持续上修鸿海资本支出追加510亿元但短线AI股估值面临修正压力</td><td>NVDA $194.83<br>周涨+1.19%</td><td><div class="stock-tags"><span class="stock-tag">鸿海</span><span class="stock-tag">广达</span><span class="stock-tag">纬创</span></div></td></tr>
+<tr><td><strong>IC设计/IP</strong></td><td><span class="direction-badge direction-up">↑ 偏多</span></td><td>信驿(BMC龙头)6月营收13.1亿创新高Q2 38.71亿创新高H1 70.18亿创新高3项历史新高</td><td>信驿6月营收+67.5% YoY<br>Q2营收+72.3% YoY</td><td><div class="stock-tags"><span class="stock-tag">信驿</span><span class="stock-tag">联发科</span><span class="stock-tag">瑞昱</span></div></td></tr>
+<tr><td><strong>内存</strong></td><td><span class="direction-badge direction-neutral">中性偏多</span></td><td>群联潘健成称AI让内存周期性消失NAND/DRAM价格趋稳</td><td>群联创办人<br>AI观点正面</td><td><div class="stock-tags"><span class="stock-tag">群联</span><span class="stock-tag">南亚科</span><span class="stock-tag">华邦电</span></div></td></tr>
+<tr><td><strong>金融保险</strong></td><td><span class="direction-badge direction-up">↑ 偏多</span></td><td>殖利率反弹至4.49%资金许加至价值股金融指数本周涨+1.11%</td><td>金融指数3,066.77<br>周涨+1.11%</td><td><div class="stock-tags"><span class="stock-tag">国泰金</span><span class="stock-tag">富邦金</span><span class="stock-tag">中信金</span></div></td></tr>
+<tr><td><strong>航空运输</strong></td><td><span class="direction-badge direction-up">↑ 偏多</span></td><td>暑假旅游旺季启动出境需求维持高档航空燃油价格回落减轻成本压力</td><td>航空燃油价格<br>快速回落</td><td><div class="stock-tags"><span class="stock-tag">长荣航</span><span class="stock-tag">华航</span></div></td></tr>
+<tr><td><strong>航运货柜</strong></td><td><span class="direction-badge direction-neutral">中性</span></td><td>油价在$68附近止跌但全球需求前景仍不明朗</td><td>WTI $68.78<br>横盘整理</td><td><div class="stock-tags"><span class="stock-tag">长荣</span><span class="stock-tag">阳明</span><span class="stock-tag">万海</span></div></td></tr>
+</tbody></table>
+<div class="info-box" style="margin-top:25px;"><strong style="color:#667eea;">特别关注：科技业投资狂潮</strong><p style="margin-top:10px;color:#555;line-height:1.8;">美国5大云端服务供应商(CSP)屡屡上调资本支出带动台湾电子大厂跟进扩产。<strong>鸿海资本支出大增30%(+510亿元)</strong>，电子5哥总计加码逾1,100亿元。唯一隐忧：台湾电力供应是否足够支撑此波AI扩厂需求？</p></div></div>
+<!-- TAB 3 --><div class="section" data-tab="3"><h2>æ¬å¨è´¡ç»è¦é» 2026å¹´6æ29æ¥~7æ4æ¥</h2>
+<!-- TAB 3 -->
+<div class="section" data-tab="3">
+<h2>本周财经要闻 2026年6月29日~7月4日</h2>
+<div class="news-card bullish"><div class="news-title"><span class="news-tag bullish">利多</span> 台股单周强弹2,208点！外资砍777亿仍黑翻红</div>
+<div class="news-source">Yahoo财经/FTNN/联合新闻 | 7月3日</div>
+<div class="news-desc">台股周五(7/3)开低走高，外资狂砍777.82亿元，但在内资与散户强力承接下，终场上涨36.46点收46,780.62点，单周累计大涨2,208点。台指期夜盘续涨116点至47,116。</div></div>
+<!-- TAB 3 -->
+<div class="section" data-tab="3">
+<h2>本周財經要聞 2026年6月29日~7月04日</h2>
+<div class="news-card bullish"><div class="news-title"><span class="news-tag bullish">利多</span> 台股單周強彈2,208點！外資砍777億仍黑翻紅</div>
+<div class="news-source">Yahoo財經/FTNN/聯合新聞 | 7月3日</div>
+<div class="news-desc">台股周五(7/3)開低走高，外資狂砍777.82億元，但在內資與散戶強力承接下，終場上漲36.46點收46,780.62點，單周累計大漲2,208點。台指期夜盤續漲116點至47,116。</div></div>
+<div class="news-card bullish"><div class="news-title"><span class="news-tag bullish">利多</span> 信驛盈收衝三個新高 - BMC龍頭Q2爆發</div>
+<div class="news-source">聯合新聞 | 7月3日</div>
+<div class="news-desc">伺服器遠端管理芯片(BMC)大廠信驛公告6月盈收13.1億元(月增2.2%年增67.5%)；Q2合併盈收38.71億元(季增23%年增72.3%)，超越法說預期。單月、單季、上半年均創歷史新高。</div></div>
+<div class="news-card bullish"><div class="news-title"><span class="news-tag bullish">利多</span> 科技業投資狂潮 - 電子大廠資本支出加碼破千億</div>
+<div class="news-source">鏡週刊 | 7月3日</div>
+<div class="news-desc">美國CSP資本支出持續上調，台廠跟進擴產。鴻海資本支出成長30%(追加510億元)，電子5哥合計加碼遞1,100億元。惟業界悠心台灣電力供應不足恐成AI擴廠的最大硬傷。</div></div>
+<div class="news-card bullish"><div class="news-title"><span class="news-tag bullish">利多</span> 三大理由添獲利柴火 - 航空業下半年迎順風</div>
+<div class="news-source">民報 | 7月3日</div>
+<div class="news-desc">暮假旅遊旺季啟動，出境需求維持高檔，熱門航線票價不易鬆動；航空燃油價格快速回落，成本壓力明顯減輕。</div></div>
+<div class="news-card neutral"><div class="news-title"><span class="news-tag neutral">中性</span> 記憶體大賺後總會崩盘？群聯潘健成：AI讓周期性消失了</div>
+<div class="news-source">鏡報 | 7月3日</div>
+<div class="news-desc">群聯電子創辦人潘健成指出，過去記憶體大賺後價格很快崩盘，但在AI時代下記憶體的周期性可能就此消失。</div></div>
+<div class="news-card bearish"><div class="news-title"><span class="news-tag bearish">利空</span> Google傳轉單英特爾 - 台積電前工程師示警硌盾危機</div>
+<div class="news-source">聯合新聞 | 7月3日</div>
+<div class="news-desc">英特爾傳拿下Google先進封裝訂單。台北市議員、前台積電工程師曾獻瑩示警，台灣半導體面臨資金外移、人才外流、技術外溢、客戶轉單四大挑戦。</div></div>
+<div class="news-card bearish"><div class="news-title"><span class="news-tag bearish">利空</span> AI永動機神話破滅？阮慕驅曝股市現實面</div>
+<div class="news-source">FTNN新聞網 | 7月3日</div>
+<div class="news-desc">財經專家阮慕驅發文指出AI股開始估值修正，一掃先前市場將AI視為永動機的樂觀情緒。費半指數連續下跌11%引發市場關注。</div></div>
+<div class="news-card bullish"><div class="news-title"><span class="news-tag bullish">利多</span> 美國非農僅增57K - 降息預期升溫道瓊創歷史新高</div>
+<div class="news-source">綜合報導 | 7月2日</div>
+<div class="news-desc">美國6月非農就業僅新增57,000人，遠低於預期。但市場押注Fed加速降息，道瓊工業指數逆勢創收盘歷史新高52,900點。黃金突破,187。</div></div>
+</div><!-- TAB 4 -->
+<div class="section" data-tab="4">
+<h2>下周展望 - 超級數據周來襲</h2>
+<p style="color:#555;line-height:1.8;margin-bottom:20px;">下周（7/6~7/10）將是 <strong style="color:#667eea;">2026年下半年最重要的超級數據周</strong>，多項關鍵事件將重新定價市場對 Fed 利率路徑的預期。</p>
+<div class="event-timeline">
+<div class="event-item">
+<div class="event-date">2026-07-06（週一）</div>
+<div class="event-title">美股 Independence Day 補假休市</div>
+<div class="event-importance">★ 低</div>
+<div class="event-description">美國股市因獨立紀念日(7/4)補假，週一休市一天。台股正常交易，但無美股行情指引。</div>
+</div>
+<div class="event-item">
+<div class="event-date">2026-07-07（週二）</div>
+<div class="event-title">燒 台積電6月盈收公布</div>
+<div class="event-importance">★★★★★ 極度重要</div>
+<div class="event-description">萬眾瞩目的台積電6月盈收即將公布！在AI晏片需求持續強勁的背景下，市場預期盈收將再創歷史新高。這將是台股下半年走勢的關鍵風向球。</div>
+</div>
+<div class="event-item">
+<div class="event-date">2026-07-07（週二）</div>
+<div class="event-title">美國6月ISM服務業PMI</div>
+<div class="event-importance">★★★★ 重要</div>
+<div class="event-description">服務業景氣判斷的關鍵指標。在6月非農僅增57K的背景下，服務業能否維持擴張對經濟前景判斷至關重要。</div>
+</div>
+<div class="event-item">
+<div class="event-date">2026-07-08（週三）</div>
+<div class="event-title">FOMC 6月會議紀要公布</div>
+<div class="event-importance">★★★★ 重要</div>
+<div class="event-description">Fed 6月會議紀要將揭露委員們對通膨、就業市場的最新觀點，以及對降息時間表的內部討論。</div>
+</div>
+<div class="event-item">
+<div class="event-date">2026-07-09（週四）</div>
+<div class="event-title">燒 美國6月CPI通膨數據</div>
+<div class="event-importance">★★★★★ 極度重要</div>
+<div class="event-description">超級數據周的壓軸大戲！在非農就業轉弱的背景下，CPI數據將是Fed 7月降息決定的最後一塊拼圖。若CPI持續降溫，市場對7月降息的預期將大幅升溫。</div>
+</div>
+<div class="event-item">
+<div class="event-date">2026-07-10（週五）</div>
+<div class="event-title">美國6月PPI/消費者信心指數</div>
+<div class="event-importance">★★★ 中等</div>
+<div class="event-description">生產者物價指數(PPI)與密西根消費者信心指數，作為CPI的輔助數據，進一步驗證通膨趨勢與消費動能。</div>
+</div>
+</div>
+</div><!-- TAB 5 -->
+<div class="section" data-tab="5">
+<h2>投資策略與一周前瞻</h2>
+<div class="strategy-card"><h3>市場綜合評級</h3>
+<div style="margin-top:20px;padding:20px;background:rgba(255,255,255,.1);border-radius:8px;">
+<div style="font-size:1.1em;margin-bottom:10px;">市場情緒</div>
+<div class="rating">⭐⭐⭐⭐ 偏多</div>
+<div style="font-size:.95em;opacity:.9;">道瓊創歷史新高 + 降息預期升溫 + 台股強彈4.95% + VIX續跌至15.81</div></div>
+<div style="margin-top:20px;padding:20px;background:rgba(255,255,255,.1);border-radius:8px;">
+<div style="font-size:1.1em;margin-bottom:10px;font-weight:600;">一周展望</div>
+<div style="line-height:1.8;opacity:.95;">
+<strong style="color:#28a745;">牛市情境（機率45%）：</strong>台積電盈收創高 + CPI降溫 → 台股突破47,293前高挑戰 47,500~48,000<br><br>
+<strong style="color:#ffc107;">中性情境（機率35%）：</strong>數據好壞參半 → 市場在 46,500~47,300區間震盪整理<br><br>
+<strong style="color:#dc3545;">熊市情境（機率20%）：</strong>CPI意外反彈 + 半導體弱勢延續 → 失望性賣壓回測 46,000~45,500<br><br>
+<strong>關鍵觀察點：</strong>台積電盈收(7/7二)、CPI(7/9四)、FOMC紀要(7/8三)</div></div>
+<div style="margin-top:25px;"><div style="font-size:1.1em;margin-bottom:15px;font-weight:600;">下周操作建議</div>
+<div class="action-list">
+<div class="action-item add"><div class="action-label"><strong>逢低布局</strong></div><div class="action-stocks">台積電 2330<br>7/7盈收公布預期創高</div></div>
+<div class="action-item add"><div class="action-label"><strong>加碼金融</strong></div><div class="action-stocks">國泰金、富邦金<br>降息預期+資金輪動</div></div>
+<div class="action-item hold"><div class="action-label"><strong>持有觀望</strong></div><div class="action-stocks">AI供應鏈<br>中長線看多短線估值修正</div></div>
+<div class="action-item hold"><div class="action-label"><strong>航空布局</strong></div><div class="action-stocks">長榮航、華航<br>暮假旺季 + 油價回落</div></div>
+<div class="action-item reduce"><div class="action-label"><strong>追高謹慎</strong></div><div class="action-stocks">高估值AI股<br>半導體指數弱勢警訊</div></div>
+<div class="action-item avoid"><div class="action-label"><strong>避開</strong></div><div class="action-stocks">題材炒作股<br>處置股(力鵬、榮星等)</div></div>
+</div></div></div>
+<div class="info-box" style="margin-top:25px;"><strong style="color:#667eea;">散戶投資備忘：</strong>
+<ul style="margin-top:10px;margin-left:20px;color:#555;line-height:1.8;">
+<li>本周外資賣超777億但內資接盤 - 市場有兩股力量對抗不宜追高殺低</li>
+<li>黃金突破$4,187美元續弱 - 可考應配置部分資產於黃金相關商品避險</li>
+<li>台積電盈收是下周最大催化劇 - 提前布局有風險但錯過漲幅也有機會成本</li>
+<li>高股息ETF(00929、00878)上半年遭抛售逾千億元 - 資金轉向成長型資產</li>
+</ul></div>
+<div class="footer">
+<p>本報告由 Hermes AI Agent 根據公開市場資訊自動生成，僅供參考之用</p>
+<p>數據來源：Yahoo Finance、Yahoo奇摩股市、MarketWatch、Reuters</p>
+<p style="margin-top:15px;color:#999;font-size:.85em;">免責聲明：本報告不構成投資建議</p>
+<p style="margin-top:10px;font-size:.85em;">生成時間：2026-07-04 08:00 (台北時間) | 週末特刊</p>
+</div></div>
+<script>
+(function(){var tabs=document.querySelectorAll(".nav-tab");var sections=document.querySelectorAll(".section");
+sections.forEach(function(s,i){s.classList.toggle("active",i===0);});
+tabs.forEach(function(tab,idx){tab.addEventListener("click",function(e){e.preventDefault();
+tabs.forEach(function(t){t.classList.remove("active");});
+sections.forEach(function(s){s.classList.remove("active");});
+tab.classList.add("active");if(sections[idx]){sections[idx].classList.add("active");
+sections[idx].style.animation="slideUp .5s ease-out";}});});})();
+</script>
+</body>
+</html>
