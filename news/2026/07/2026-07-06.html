@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日財經晨報 — 2026-07-06</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Noto Sans TC', sans-serif;
+            line-height: 1.8;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid #2a2a4a;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e94560;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2em;
+            background: linear-gradient(90deg, #e94560, #0f3460);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header .date { color: #8888aa; font-size: 1em; margin-top: 8px; }
+        .section {
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #2a2a4a;
+        }
+        .section h2 {
+            color: #e94560;
+            font-size: 1.3em;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 15px;
+        }
+        .market-table { width: 100%; border-collapse: collapse; }
+        .market-table th, .market-table td {
+            padding: 10px 12px;
+            text-align: right;
+            border-bottom: 1px solid #2a2a4a;
+        }
+        .market-table th { text-align: left; color: #aaaacc; font-weight: normal; font-size: 0.9em; }
+        .market-table td:first-child { text-align: left; font-weight: bold; }
+        .up { color: #00c896; }
+        .down { color: #e94560; }
+        .flat { color: #888; }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .badge-up { background: rgba(0,200,150,0.15); color: #00c896; }
+        .badge-down { background: rgba(233,69,96,0.15); color: #e94560; }
+        .badge-flat { background: rgba(136,136,136,0.15); color: #888; }
+        .news-list { list-style: none; }
+        .news-list li { padding: 12px 0; border-bottom: 1px solid #2a2a4a; }
+        .news-list li:last-child { border-bottom: none; }
+        .news-list li .source { color: #8888aa; font-size: 0.85em; }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(233,69,96,0.1), rgba(15,52,96,0.1));
+            border: 1px solid #e94560;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .highlight-box h3 { color: #e94560; margin-bottom: 8px; }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background: rgba(233,69,96,0.1);
+            border: 1px solid #e94560;
+            border-radius: 25px;
+            color: #e94560;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        .back-link:hover { background: rgba(233,69,96,0.3); color: #fff; }
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a4a;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.8em;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            .market-table th, .market-table td { padding: 8px 6px; font-size: 0.85em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>每日財經晨報</h1>
+            <div class="date">2026年7月6日（星期一）</div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>本日焦點</h3>
+            <p>費城半導體指數上週五暴跌 <strong style="color:#e94560;">5.44%</strong>，台股今日開盤面臨壓力</p>
+            <p>台股上週狂飆 <strong>2,208 點</strong>，市值暴增 <strong>7.2 兆</strong> 元</p>
+            <p>AI 機器人族群持續發燒，Google 點火實體 AI 量產元年</p>
+            <p>台股市值破 <strong>4 兆美元</strong> 超越英國，受惠 AI 熱潮</p>
+        </div>
+
+        <div class="section">
+            <h2>台股行情（上週五 7/3 收盤）</h2>
+            <table class="market-table">
+                <tr><th>指數</th><th>收盤價</th><th>漲跌</th><th>漲跌幅</th></tr>
+                <tr>
+                    <td>加權指數</td>
+                    <td>46,780.62</td>
+                    <td class="up">+36.46</td>
+                    <td><span class="badge badge-up">+0.08%</span></td>
+                </tr>
+                <tr>
+                    <td>上週累計漲跌</td>
+                    <td>—</td>
+                    <td class="up">+2,208</td>
+                    <td><span class="badge badge-up">強漲</span></td>
+                </tr>
+                <tr>
+                    <td>今日最高</td>
+                    <td>46,948.83</td>
+                    <td class="flat">—</td>
+                    <td><span class="badge badge-flat">—</span></td>
+                </tr>
+                <tr>
+                    <td>今日最低</td>
+                    <td>45,880.69</td>
+                    <td class="flat">—</td>
+                    <td><span class="badge badge-flat">—</span></td>
+                </tr>
+            </table>
+            <p style="margin-top:10px;color:#8888aa;font-size:0.9em;">
+                台股今日（7/6）已開盤，週五美股費半大跌恐影響今日走勢。
+                上週台股週線狂飆 2,208 點，市場情緒偏多但需留意半導體族群回檔壓力。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>美股行情（上週五 7/5 收盤）</h2>
+            <table class="market-table">
+                <tr><th>指數</th><th>收盤價</th><th>漲跌</th><th>漲跌幅</th></tr>
+                <tr>
+                    <td>道瓊工業指數</td>
+                    <td>52,900.07</td>
+                    <td class="up">+594.83</td>
+                    <td><span class="badge badge-up">+1.14%</span></td>
+                </tr>
+                <tr>
+                    <td>S&P 500</td>
+                    <td>7,483.24</td>
+                    <td class="flat">+0.01</td>
+                    <td><span class="badge badge-flat">+0.00%</span></td>
+                </tr>
+                <tr>
+                    <td>那斯達克綜合指數</td>
+                    <td>25,832.67</td>
+                    <td class="down">-207.33</td>
+                    <td><span class="badge badge-down">-0.80%</span></td>
+                </tr>
+                <tr>
+                    <td>費城半導體指數</td>
+                    <td>12,626.22</td>
+                    <td class="down">-727.08</td>
+                    <td><span class="badge badge-down">-5.44%</span></td>
+                </tr>
+                <tr>
+                    <td>羅素 2000</td>
+                    <td>2,996.11</td>
+                    <td class="down">-16.48</td>
+                    <td><span class="badge badge-down">-0.55%</span></td>
+                </tr>
+                <tr>
+                    <td>VIX 恐慌指數</td>
+                    <td>15.81</td>
+                    <td class="down">-0.78</td>
+                    <td><span class="badge badge-down">-4.70%</span></td>
+                </tr>
+            </table>
+            <p style="margin-top:10px;color:#8888aa;font-size:0.9em;">
+                費城半導體指數暴跌 5.44% 為本日最大焦點！道瓊大漲近 595 點與科技股脫鉤。
+                市場出現明顯的板塊輪動：資金從半導體流向傳產與金融。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>國際市場行情</h2>
+            <table class="market-table">
+                <tr><th>指數</th><th>收盤價</th><th>漲跌幅</th></tr>
+                <tr>
+                    <td>德國 DAX</td>
+                    <td>25,779.31</td>
+                    <td><span class="badge badge-up">+0.78%</span></td>
+                </tr>
+                <tr>
+                    <td>富時 100</td>
+                    <td>10,679.03</td>
+                    <td><span class="badge badge-up">+0.25%</span></td>
+                </tr>
+                <tr>
+                    <td>CAC 40</td>
+                    <td>8,508.07</td>
+                    <td><span class="badge badge-up">+0.39%</span></td>
+                </tr>
+                <tr>
+                    <td>Euro Stoxx 50</td>
+                    <td>6,412.68</td>
+                    <td><span class="badge badge-up">+0.82%</span></td>
+                </tr>
+                <tr>
+                    <td>日經平均指數</td>
+                    <td>69,744.07</td>
+                    <td><span class="badge badge-up">+1.47%</span></td>
+                </tr>
+                <tr>
+                    <td>恒生指數</td>
+                    <td>23,350.03</td>
+                    <td><span class="badge badge-up">+1.28%</span></td>
+                </tr>
+                <tr>
+                    <td>上證綜合指數</td>
+                    <td>4,043.64</td>
+                    <td><span class="badge badge-up">+0.37%</span></td>
+                </tr>
+                <tr>
+                    <td>印度 SENSEX</td>
+                    <td>77,763.91</td>
+                    <td><span class="badge badge-up">+0.34%</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>本日重點新聞</h2>
+            <ul class="news-list">
+                <li>
+                    <strong>費城半導體指數暴跌 5.44%</strong>
+                    <div class="source">上週五美股收盤 — 半導體類股遭遇大規模獲利了結，台股今日半導體族群面臨壓力測試。</div>
+                </li>
+                <li>
+                    <strong>台股上週狂飆 2,208 點，市值暴增 7.2 兆</strong>
+                    <div class="source">三立新聞 — 台股上週漲勢凌厲，機器人、矽晶圓、被動元件等族群全面噴出。</div>
+                </li>
+                <li>
+                    <strong>台股市值破 4 兆美元超越英國</strong>
+                    <div class="source">中央社 — 受惠 AI 熱潮，台股市值正式突破 4 兆美元大關，超越英國。</div>
+                </li>
+                <li>
+                    <strong>Google 點火實體 AI 量產元年，機器人軍團 13 檔漲停</strong>
+                    <div class="source">CMoney — AI 機器人概念股持續發燒，Google 新戰略點燃市場想像空間。</div>
+                </li>
+                <li>
+                    <strong>台積電法說行情提前點燃，法人預估台股有望再攻高</strong>
+                    <div class="source">東森電視 — 台積電即將舉行法說會，市場預期將釋出正面展望。</div>
+                </li>
+                <li>
+                    <strong>00685L 分割完成！7/7 甜甜價 12.75 元復牌</strong>
+                    <div class="source">鏡報 — 群益臺灣加權正 2（00685L）以 1 拆 24 完成分割，上半年漲幅 136.84%。</div>
+                </li>
+                <li>
+                    <strong>韓股熔斷元凶？SK 海力士兩倍 ETF 爆紅</strong>
+                    <div class="source">PChome — 韓國股市出現劇烈波動，SK 海力士相關槓桿 ETF 交易爆量。</div>
+                </li>
+                <li>
+                    <strong>台股外資倒貨內資撿便宜，法人預測後市震盪向上</strong>
+                    <div class="source">經濟日報 — 外資近期持續調節台股，內資與投信積極承接。</div>
+                </li>
+                <li>
+                    <strong>被動式台股 ETF 持續吸金</strong>
+                    <div class="source">經濟日報 — 0050 七月預估配息 0.6 元、7/21 除息。</div>
+                </li>
+                <li>
+                    <strong>雙重優勢股防禦性首選，緯穎、信驊等受關注</strong>
+                    <div class="source">經濟日報 — 法人點名具防禦性的雙重優勢個股。</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>本日投資重點</h2>
+            <table class="market-table">
+                <tr><th>面向</th><th>分析</th></tr>
+                <tr>
+                    <td>半導體風險</td>
+                    <td>費半暴跌 5.44%，台積電、聯發科等權值股今日恐面臨沉重賣壓。</td>
+                </tr>
+                <tr>
+                    <td>台股趨勢</td>
+                    <td>上週週線大漲 2,208 點，多頭格局未變，但短線面臨半導體利空與技術面過熱修正。</td>
+                </tr>
+                <tr>
+                    <td>AI 長線利多</td>
+                    <td>Google 點火實體 AI 量產，機器人概念股長線看好，可把握短線回檔布局機會。</td>
+                </tr>
+                <tr>
+                    <td>板塊輪動</td>
+                    <td>美股資金從科技股流向傳產金融，台股可關注傳產、金融與高股息 ETF 的防禦性表現。</td>
+                </tr>
+                <tr>
+                    <td>ETF 焦點</td>
+                    <td>00685L 分割後明日（7/7）復牌，參考價 12.75 元，留意溢價狀況與市場反應。</td>
+                </tr>
+            </table>
+        </div>
+
+        <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+        <div class="footer">
+            每日財經晨報由 AI 自動產生 — 僅供參考，投資決策請自行判斷<br>
+            資料來源：Google Finance、Yahoo Finance、Google News<br>
+            2026年7月6日
+        </div>
+    </div>
+</body>
+</html>
