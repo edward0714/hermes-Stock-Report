@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日財經晨報 — 2026-07-07</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Noto Sans TC', sans-serif;
+            line-height: 1.8;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid #2a2a4a;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e94560;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2em;
+            background: linear-gradient(90deg, #e94560, #0f3460);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header .date { color: #8888aa; font-size: 1em; margin-top: 8px; }
+        .section {
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #2a2a4a;
+        }
+        .section h2 {
+            color: #e94560;
+            font-size: 1.3em;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 15px;
+        }
+        .market-table { width: 100%; border-collapse: collapse; }
+        .market-table th, .market-table td {
+            padding: 10px 12px;
+            text-align: right;
+            border-bottom: 1px solid #2a2a4a;
+        }
+        .market-table th { text-align: left; color: #aaaacc; font-weight: normal; font-size: 0.9em; }
+        .market-table td:first-child { text-align: left; font-weight: bold; }
+        .up { color: #00c896; }
+        .down { color: #e94560; }
+        .flat { color: #888; }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .badge-up { background: rgba(0,200,150,0.15); color: #00c896; }
+        .badge-down { background: rgba(233,69,96,0.15); color: #e94560; }
+        .badge-flat { background: rgba(136,136,136,0.15); color: #888; }
+        .news-list { list-style: none; }
+        .news-list li { padding: 12px 0; border-bottom: 1px solid #2a2a4a; }
+        .news-list li:last-child { border-bottom: none; }
+        .news-list li .source { color: #8888aa; font-size: 0.85em; }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(233,69,96,0.1), rgba(15,52,96,0.1));
+            border: 1px solid #e94560;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .highlight-box h3 { color: #e94560; margin-bottom: 8px; }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background: rgba(233,69,96,0.1);
+            border: 1px solid #e94560;
+            border-radius: 25px;
+            color: #e94560;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        .back-link:hover { background: rgba(233,69,96,0.3); color: #fff; }
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a4a;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.8em;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            .market-table th, .market-table td { padding: 8px 6px; font-size: 0.85em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>每日財經晨報</h1>
+            <div class="date">2026年7月7日（星期二）</div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>本日焦點</h3>
+            <p>道瓊工業指數首次站上 <strong style="color:#00c896;">53,000 點</strong> 大關，改寫歷史新高！</p>
+            <p>美股全面反彈，費半指數從上週五暴跌中回神，單日大漲 <strong style="color:#00c896;">2.17%</strong></p>
+            <p>台股週一開高走低，早盤一度衝上 <strong>47,395 點</strong> 後拉回收 <strong>46,556 點</strong>，小跌 0.48%</p>
+            <p>國際金價突破 <strong>4,100 美元</strong> 關卡後高檔整理，避險情緒仍濃</p>
+        </div>
+
+        <div class="section">
+            <h2>台股行情（7月6日收盤）</h2>
+            <table class="market-table">
+                <tr><th>指數</th><th>收盤價</th><th>漲跌</th><th>漲跌幅</th></tr>
+                <tr>
+                    <td>加權指數</td>
+                    <td>46,556.39</td>
+                    <td class="down">-224.23</td>
+                    <td><span class="badge badge-down">-0.48%</span></td>
+                </tr>
+                <tr>
+                    <td>盤中最高</td>
+                    <td>47,395.30</td>
+                    <td class="flat">—</td>
+                    <td><span class="badge badge-flat">—</span></td>
+                </tr>
+                <tr>
+                    <td>盤中最低</td>
+                    <td>46,431.38</td>
+                    <td class="flat">—</td>
+                    <td><span class="badge badge-flat">—</span></td>
+                </tr>
+                <tr>
+                    <td>上週（6/29-7/3）累計</td>
+                    <td>—</td>
+                    <td class="up">+2,208</td>
+                    <td><span class="badge badge-up">強漲</span></td>
+                </tr>
+            </table>
+            <p style="margin-top:10px;color:#8888aa;font-size:0.9em;">
+                台股週一早盤受美股週五費半暴跌影響，一度開低至 46,431 點，隨後在台積電等權值股拉抬下急拉至 47,395 點，但尾盤漲幅收斂，終場下跌 224 點作收。台股上週週線仍大漲逾 2,200 點，多頭格局未被破壞。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>美股行情（7月6日收盤）</h2>
+            <table class="market-table">
+                <tr><th>指數</th><th>收盤價</th><th>漲跌</th><th>漲跌幅</th></tr>
+                <tr>
+                    <td>道瓊工業指數</td>
+                    <td>53,055.91</td>
+                    <td class="up">+155.84</td>
+                    <td><span class="badge badge-up">+0.29%</span></td>
+                </tr>
+                <tr>
+                    <td>S&P 500</td>
+                    <td>7,537.43</td>
+                    <td class="up">+54.19</td>
+                    <td><span class="badge badge-up">+0.72%</span></td>
+                </tr>
+                <tr>
+                    <td>那斯達克綜合指數</td>
+                    <td>26,121.16</td>
+                    <td class="up">+288.49</td>
+                    <td><span class="badge badge-up">+1.12%</span></td>
+                </tr>
+                <tr>
+                    <td>費城半導體指數</td>
+                    <td>12,900.14</td>
+                    <td class="up">+273.92</td>
+                    <td><span class="badge badge-up">+2.17%</span></td>
+                </tr>
+                <tr>
+                    <td>羅素 2000</td>
+                    <td>3,009.54</td>
+                    <td class="down">-0.54</td>
+                    <td><span class="badge badge-down">-0.02%</span></td>
+                </tr>
+                <tr>
+                    <td>VIX 恐慌指數</td>
+                    <td>15.57</td>
+                    <td class="down">-0.88</td>
+                    <td><span class="badge badge-down">-5.35%</span></td>
+                </tr>
+            </table>
+            <p style="margin-top:10px;color:#8888aa;font-size:0.9em;">
+                美股週一全面反彈！道瓊工業指數首次站上 53,000 點關卡，創歷史新高。費半指數大彈 2.17%，從上週五暴跌 5.44% 的陰霾中回神。市場情緒明顯回穩，VIX 恐慌指數下滑 5.35% 至 15.57。那斯達克漲逾 1%，顯示科技股買盤回籠。上週五美國因獨立紀念日補假休市，本週首個交易日展現強勁反攻氣勢。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>國際市場行情</h2>
+            <table class="market-table">
+                <tr><th>指數</th><th>收盤價</th><th>漲跌幅</th></tr>
+                <tr>
+                    <td>日經 225（7/7 收盤）</td>
+                    <td>69,761.26</td>
+                    <td><span class="badge badge-down">-1.01%</span></td>
+                </tr>
+                <tr>
+                    <td>恒生指數（最新）</td>
+                    <td>23,616.32</td>
+                    <td><span class="badge badge-up">+4.17%</span></td>
+                </tr>
+                <tr>
+                    <td>上證綜合指數（最新）</td>
+                    <td>4,041.24</td>
+                    <td><span class="badge badge-down">-1.30%</span></td>
+                </tr>
+                <tr>
+                    <td>Euro Stoxx 50</td>
+                    <td>6,398.01</td>
+                    <td><span class="badge badge-up">+1.10%</span></td>
+                </tr>
+            </table>
+            <p style="margin-top:10px;color:#8888aa;font-size:0.9em;">
+                亞股週二表現分歧。日經指數下跌 1.01%，延續上週以來的回檔壓力。恒生指數大漲逾 4%，受中國政策利多及科技股反彈帶動。上證指數走弱，小跌 1.30%。歐股上週五普遍收紅，Euro Stoxx 50 漲 1.10%。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>原物料與匯市</h2>
+            <table class="market-table">
+                <tr><th>商品／匯率</th><th>最新報價</th><th>漲跌</th><th>漲跌幅</th></tr>
+                <tr>
+                    <td>黃金現貨</td>
+                    <td>4,164.50</td>
+                    <td class="down">-3.00</td>
+                    <td><span class="badge badge-down">-0.07%</span></td>
+                </tr>
+                <tr>
+                    <td>西德州原油</td>
+                    <td>68.86</td>
+                    <td class="up">+0.31</td>
+                    <td><span class="badge badge-up">+0.45%</span></td>
+                </tr>
+                <tr>
+                    <td>美元指數</td>
+                    <td>100.87</td>
+                    <td class="down">-0.32</td>
+                    <td><span class="badge badge-down">-0.32%</span></td>
+                </tr>
+                <tr>
+                    <td>歐元兌美元</td>
+                    <td>1.1443</td>
+                    <td class="up">+0.0005</td>
+                    <td><span class="badge badge-up">+0.04%</span></td>
+                </tr>
+                <tr>
+                    <td>美元兌日圓</td>
+                    <td>162.168</td>
+                    <td class="up">+0.716</td>
+                    <td><span class="badge badge-up">+0.44%</span></td>
+                </tr>
+                <tr>
+                    <td>比特幣</td>
+                    <td>64,120</td>
+                    <td class="up">+122.83</td>
+                    <td><span class="badge badge-up">+0.19%</span></td>
+                </tr>
+                <tr>
+                    <td>美國10年期公債殖利率</td>
+                    <td>4.479%</td>
+                    <td class="down">-0.006</td>
+                    <td><span class="badge badge-down">-0.13%</span></td>
+                </tr>
+            </table>
+            <p style="margin-top:10px;color:#8888aa;font-size:0.9em;">
+                黃金現貨在突破 4,100 美元後進入高檔整理，報 4,164.50 美元。美元指數持續弱勢，跌破 101 關卡，提供新興市場資金動能。油價小幅反彈至 68.86 美元，市場關注供需變化。日圓持續弱勢，美元兌日圓升至 162.168。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>本日重點新聞</h2>
+            <ul class="news-list">
+                <li>
+                    <strong>道瓊工業指數首登 53,000 點，改寫歷史新高</strong>
+                    <div class="source">綜合報導 — 美股週一全面反彈，道瓊首次站上 53,000 點大關。台積電 ADR 大漲近 4%，帶動半導體類股回溫。</div>
+                </li>
+                <li>
+                    <strong>費半兩天跌 11% 後反彈 2.17%，台股沒有一起崩？</strong>
+                    <div class="source">鉅亨號 — 費城半導體指數上週五暴跌 5.44% 後，週一反彈 2.17%，市場關注半導體族群是否已止跌。</div>
+                </li>
+                <li>
+                    <strong>台股週一開低走高震盪 224 點，指數力守 46,500</strong>
+                    <div class="source">經濟日報 — 台股週一早盤受費半利空衝擊開低，隨後拉升至 47,395 點，尾盤漲幅收斂，終場下跌 224 點。</div>
+                </li>
+                <li>
+                    <strong>台股單週強彈逾兩千點，法人樂觀看待 Q3 行情</strong>
+                    <div class="source">工商時報 — 台股上週狂飆 2,208 點，市值暴增逾 7 兆元。法人看好 AI 長線趨勢，認為短線震盪無礙多頭格局。</div>
+                </li>
+                <li>
+                    <strong>下半年股市有更大上漲空間，華爾街稱「很牛」</strong>
+                    <div class="source">自由財經 — 華爾街分析師認為下半年美股仍有上漲空間，但提醒不要蜂擁買進成長股，建議均衡布局。</div>
+                </li>
+                <li>
+                    <strong>全球股市劇烈彈跳！謝金河揭「明燈狂翻車」關鍵誤區</strong>
+                    <div class="source">Yahoo 股市 — 財經專家謝金河指出，市場波動加劇下，傳統技術分析屢屢失靈，投資人應回歸基本面。</div>
+                </li>
+                <li>
+                    <strong>國際金價突破 4,100 美元後高檔整理，避險買盤仍強</strong>
+                    <div class="source">鉅亨網 — 金價在避險資金推動下突破 4,100 美元大關，創歷史新高後進入整理。分析師看好黃金後市。</div>
+                </li>
+                <li>
+                    <strong>美韓投資人瘋狂開槓桿，股市危險訊號浮現</strong>
+                    <div class="source">UDN — 美國與南韓投資人近期大舉使用槓桿操作，市場槓桿率創多年新高，分析師警示修正風險。</div>
+                </li>
+                <li>
+                    <strong>00685L 分割後以 12.75 元復牌，市場關注溢價狀況</strong>
+                    <div class="source">鏡報 — 群益臺灣加權正 2（00685L）以 1 拆 24 完成分割，今日以參考價 12.75 元恢復交易。</div>
+                </li>
+                <li>
+                    <strong>台積電法說會即將登場，法人預期將釋出正面展望</strong>
+                    <div class="source">東森電視 — 台積電即將舉行法說會，市場預期將釋出 AI 需求強勁、先進製程滿載等正面訊息。</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>本日投資重點</h2>
+            <table class="market-table">
+                <tr><th>面向</th><th>分析</th></tr>
+                <tr>
+                    <td>道瓊創新高</td>
+                    <td>道瓊首次站上 53,000 點，顯示資金從科技股輪動至傳產金融的趨勢持續。可留意金融、工業等傳統類股表現。</td>
+                </tr>
+                <tr>
+                    <td>半導體回穩</td>
+                    <td>費半指數反彈 2.17%，上週五的崩跌似已止血。台股半導體族群今日有望跟進反彈，但需留意成交量是否配合。</td>
+                </tr>
+                <tr>
+                    <td>台股短線震盪</td>
+                    <td>台股週一開低走高後收黑，顯示 47,000 點上方壓力沉重。短線可能進入區間整理，支撐看 46,000 點整數關卡。</td>
+                </tr>
+                <tr>
+                    <td>黃金創歷史高</td>
+                    <td>金價突破 4,100 美元後高檔整理，避險情緒仍濃。在全球不確定性升溫下，黃金 ETF 可作為資產配置的一環。</td>
+                </tr>
+                <tr>
+                    <td>外匯市場</td>
+                    <td>美元指數跌破 101，新台幣可能續強，有利進口產業但不利出口導向的電子業。日圓弱勢持續，留意日股波動。</td>
+                </tr>
+                <tr>
+                    <td>ETF 焦點</td>
+                    <td>00685L 分割後復牌，參考價 12.75 元適合小資族參與。0050 七月預估配息 0.6 元，除息日為 7 月 21 日。</td>
+                </tr>
+            </table>
+        </div>
+
+        <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+        <div class="footer">
+            每日財經晨報由 AI 自動產生 — 僅供參考，投資決策請自行判斷<br>
+            資料來源：Yahoo Finance、Google News<br>
+            2026年7月7日
+        </div>
+    </div>
+</body>
+</html>
