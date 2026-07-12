@@ -1,0 +1,39 @@
+# -*- coding: utf-8 -*-
+import os
+
+path = '/tmp/hermes-Stock-Report/news/2026/07/2026-07-11.html'
+with open(path, 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# Fix simplified Chinese
+content = content.replace('\u52b2\u626c', '\u52c1\u63da')  # 劲扬 -> 勁揚
+content = content.replace('\u4e03\u670810\u65e5\u5728\u7f8e\u639b\u724c\uff0c\u9996\u65e5\u5927\u8dcc13%', '\u4e03\u670810\u65e5\u5728\u7f8e\u639b\u724c\uff0c\u9996\u65e5\u5927\u6f3213%')
+content = content.replace('\u5468\u4e94\u53f0\u98a8\u5047', '\u9031\u4e94\u98b1\u98a8\u5047')
+content = content.replace('\u53f0\u98a8\u5047\u4f11\u5e02', '\u98b1\u98a8\u5047\u4f11\u5e02')
+content = content.replace('\u53f0\u80a1\u60c5\u884c', '\u53f0\u80a1\u60c5\u884c')
+content = content.replace('\u7f8e\u80a1\u60c5\u884c', '\u7f8e\u80a1\u60c5\u884c')
+
+# Add more news items
+news_section = '''\n<div class="section">
+<h2>\u672c\u9031\u91cd\u9ede\u65b0\u805e</h2>
+<ul class="news-list">
+<li><strong>SK\u6d77\u529b\u58eb ADR\u90a3\u65af\u9054\u514b\u639b\u724c\u9996\u65e5\u52c1\u63da13%\uff01\u53f0\u80a1\u4e0b\u9031\u88dc\u6f32\u884c\u60c5\u53ef\u671f</strong><br><span class="source">\u7d9c\u5408\u5831\u5c0e - SK Hynix 7\u670810\u65e5\u5728\u7f8e\u639b\u724c\uff0c\u9996\u65e5\u5927\u6f3213%\u3002\u53f0\u80a1\u56e0\u98b1\u98a8\u4f11\u5e02\u672a\u80fd\u5373\u6642\u53cd\u6620\u5229\u591a\uff0c\u6cd5\u4eba\u9810\u671f\u4e0b\u9031\u4e00\u534a\u5c0e\u9ad4\u8207\u8a18\u61b6\u9ad4\u65cf\u7fa4\u5c07\u5c55\u958b\u88dc\u6f32\u884c\u60c5\u3002</span></li>
+<li><strong>\u7f8e\u80a1AI\u8cc7\u91d1\u958b\u59cb\u8f2a\u52d5\uff01\u6676\u7247\u80a1\u964d\u6eab\u3001\u8edf\u9ad4\u80a1\u63a5\u68d2</strong><br><span class="source">\u9248\u5bdb\u7db2 - Meta\u5ba3\u5e03\u5099\u589eAI\u904b\u7b97\u5bb9\u91cf\uff0c\u5e36\u52d5\u80a1\u50f9\u767c\u53475.97%\u3002\u9ad8\u76db\u6307\u51faAI\u6295\u8cc7\u6b63\u5f9e\u786c\u9ad4\u8f49\u5411\u8edf\u9ad4\u61c9\u7528\u3002</span></li>
+<li><strong>\u7f8e\u570b6\u6708CPI\u5e74\u589e2.6%\u527517\u500b\u6708\u65b0\u9ad8</strong><br><span class="source">\u81ea\u7531\u6642\u5831 - 6\u6708CPI\u5e74\u589e2.6%\u527517\u500b\u6708\u65b0\u9ad8\uff0c\u806f\u6e96\u6703\u964d\u606f\u9810\u671f\u518d\u53d7\u8003\u9a57\uff0c10\u5e74\u671f\u516c\u50b5\u6b96\u5229\u7387\u6500\u5347\u81f34.569%\u3002</span></li>
+<li><strong>\u53f0\u80a1\u9031\u4e94\u98b1\u98a8\u5047\uff01\u6295\u8cc7\u4eba\u932f\u5931\u7f8e\u80a1\u5343\u5104\u53cd\u5f48\u884c\u60c5</strong><br><span class="source">\u81ea\u7531\u8ca1\u7d93 - \u53f0\u7063\u9031\u4e94\u56e0\u98b1\u98a8\u4f86\u8972\uff0c\u80a1\u5e02\u4f11\u5e02\u4e00\u5929\uff0c\u6cd5\u4eba\u4f30\u7b97\u52a0\u6b0a\u6307\u6578\u6709\u671b\u53cd\u5f48500-800\u9ede\u3002</span></li>
+<li><strong>Meta\u80a1\u50f9\u98c6\u5347\u8fd16%\uff0c\u8a08\u756b\u500d\u589eAI\u904b\u7b97\u5bb9\u91cf</strong><br><span class="source">\u9248\u5bdb\u7db2 - Meta\u5ba3\u5e03\u8a08\u756b\u500d\u589eAI\u904b\u7b97\u5bb9\u91cf\uff0c\u5e36\u52d5\u80a1\u50f9\u767c\u6f325.97%\uff0c\u6536\u5728669.21\u7f8e\u5143\u3002</span></li>
+<li><strong>\u8f1d\u9054\u91cd\u56de210\u7f8e\u5143\uff0cAI\u9f8d\u982d\u8cb7\u76e4\u56de\u7c43</strong><br><span class="source">CMoney - NVDA\u9031\u4e94\u4e0a\u6f324.03%\uff0c\u91cd\u65b0\u7ad9\u4e0a210\u7f8e\u5143\u5927\u95dc\u3002</span></li>
+</ul>
+</div>'''
+
+# Find position to insert news
+old_news = content[content.find('<div class="section">'):]
+old_news = old_news[:old_news.find('</div>')+6]
+news_start = content.find('<div class="section">')
+news_end = content.find('</div>', news_start) + 6
+content = content[:news_start] + news_section + content[news_end:]
+
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print(f'Fixed. Final size: {len(content)} bytes')
