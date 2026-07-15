@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 每日財經晨報 — 2026年7月15日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', 'Noto Sans TC', Arial, 'PingFang TC', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #e0e0e0;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(20, 20, 40, 0.92);
+            border-radius: 20px;
+            padding: 40px 35px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgba(100, 100, 200, 0.2);
+        }
+        h1 {
+            font-size: 1.8em;
+            text-align: center;
+            color: #ffd700;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 18px;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+        .date-badge {
+            text-align: center;
+            color: #a0a0c0;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+        }
+        .back-link {
+            display: inline-block;
+            color: #5dade2;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            background: rgba(93, 173, 226, 0.1);
+            border: 1px solid rgba(93, 173, 226, 0.2);
+            transition: all 0.2s;
+        }
+        .back-link:hover {
+            background: rgba(93, 173, 226, 0.2);
+            color: #85c1e9;
+        }
+        .section {
+            background: rgba(30, 30, 60, 0.7);
+            border-radius: 14px;
+            padding: 20px 25px;
+            margin-bottom: 22px;
+            border-left: 4px solid #5dade2;
+        }
+        .section h2 {
+            font-size: 1.3em;
+            color: #ffd700;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section h2 .icon { font-size: 1.2em; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        th, td {
+            padding: 10px 8px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        th {
+            color: #a0a0c0;
+            font-weight: 400;
+            font-size: 0.85em;
+        }
+        td { font-size: 0.95em; }
+        .positive { color: #ff6b6b; font-weight: bold; }
+        .negative { color: #4ecdc4; font-weight: bold; }
+        .flat { color: #a0a0a0; }
+        .price { font-weight: bold; font-size: 1.1em; }
+        .index-name { color: #c0c0e0; }
+        .news-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .title {
+            color: #e8e8f0;
+            font-size: 1em;
+            margin-bottom: 2px;
+        }
+        .news-item .source {
+            color: #8888aa;
+            font-size: 0.8em;
+        }
+        .disclaimer {
+            background: rgba(255, 215, 0, 0.08);
+            border-left: 4px solid #ffd700;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 0.82em;
+            color: #c0c0c0;
+            margin-top: 25px;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.8em;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(93,173,226,0.08));
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        .summary-box p {
+            font-size: 1.05em;
+            color: #e0e0f0;
+        }
+        .summary-box .highlight-red { color: #ff6b6b; font-weight: bold; }
+        .summary-box .highlight-green { color: #4ecdc4; font-weight: bold; }
+        @media (max-width: 600px) {
+            .container { padding: 20px 15px; }
+            h1 { font-size: 1.4em; }
+            .section { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+        <h1>📊 每日財經晨報</h1>
+        <div class="date-badge">📅 2026年7月15日（星期三）</div>
+
+        <div class="summary-box">
+            <p>
+                📌 台股重損 <span class="highlight-red">642 點（1.42%）</span>，千金股集體倒地，外資連八賣提款 518 億元。<br>
+                美股四大指數全數收紅，通膨降溫激勵科技股反彈，輝達強漲 4%。<br>
+                美元指數小幅波動，日圓維持 162 價位，黃金小幅回落。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🇹🇼</span> 台股行情</h2>
+            <table>
+                <tr>
+                    <th>指數</th>
+                    <th>收盤價</th>
+                    <th>漲跌</th>
+                    <th>漲跌幅</th>
+                </tr>
+                <tr>
+                    <td class="index-name">加權指數</td>
+                    <td class="price">44,737.95</td>
+                    <td class="negative">▼ 642.57</td>
+                    <td class="negative">-1.42%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">電子指數</td>
+                    <td class="price">2,853.61</td>
+                    <td class="negative">▼ 47.80</td>
+                    <td class="negative">-1.65%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">金融指數</td>
+                    <td class="price">3,096.33</td>
+                    <td class="negative">▼ 32.98</td>
+                    <td class="negative">-1.05%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">店頭指數</td>
+                    <td class="price">407.41</td>
+                    <td class="negative">▼ 12.49</td>
+                    <td class="negative">-2.98%</td>
+                </tr>
+            </table>
+            <div style="margin-top: 10px; font-size: 0.9em; color: #a0a0c0;">
+                開盤 45,364.40 | 最高 45,364.40 | 最低 43,654.04 | 成交金額 11,802.54 億元
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🇺🇸</span> 美股行情（7月14日收盤）</h2>
+            <table>
+                <tr>
+                    <th>指數</th>
+                    <th>收盤價</th>
+                    <th>漲跌</th>
+                    <th>漲跌幅</th>
+                </tr>
+                <tr>
+                    <td class="index-name">S&P 500</td>
+                    <td class="price">7,543.59</td>
+                    <td class="positive">▲ 28.25</td>
+                    <td class="positive">+0.38%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">道琐工業指數</td>
+                    <td class="price">52,508.27</td>
+                    <td class="positive">▲ 9.63</td>
+                    <td class="positive">+0.02%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">那斯達克指數</td>
+                    <td class="price">26,107.01</td>
+                    <td class="positive">▲ 233.83</td>
+                    <td class="positive">+0.90%</td>
+                </tr>
+            </table>
+            <div style="margin-top: 10px; font-size: 0.9em; color: #a0a0c0;">
+                美通膨降溫激勵晶片股反彈，輝達強漲過 4%。台積電 ADR 微跌 0.28%。
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🏢</span> 台股權值股表現</h2>
+            <table>
+                <tr>
+                    <th>個股</th>
+                    <th>收盤價</th>
+                    <th>漲跌</th>
+                    <th>漲跌幅</th>
+                </tr>
+                <tr>
+                    <td class="index-name">台積電（2330）</td>
+                    <td class="price">2,420.00</td>
+                    <td class="negative">▼ 20.00</td>
+                    <td class="negative">-0.82%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">鴻海（2317）</td>
+                    <td class="price">235.50</td>
+                    <td class="negative">▼ 1.00</td>
+                    <td class="negative">-0.42%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">聯發科（2454）</td>
+                    <td class="price">3,660.00</td>
+                    <td class="negative">▼ 165.00</td>
+                    <td class="negative">-4.31%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🌍</span> 國際匯率與原物料</h2>
+            <table>
+                <tr>
+                    <th>商品</th>
+                    <th>價格</th>
+                    <th>漲跌</th>
+                    <th>漲跌幅</th>
+                </tr>
+                <tr>
+                    <td class="index-name">美元／日圓</td>
+                    <td class="price">162.233</td>
+                    <td class="positive">▲ 0.044</td>
+                    <td class="positive">+0.03%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">黃金期貨</td>
+                    <td class="price">4,060.80</td>
+                    <td class="negative">▼ 8.90</td>
+                    <td class="negative">-0.22%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">原油期貨</td>
+                    <td class="price">79.96</td>
+                    <td class="positive">▲ 0.62</td>
+                    <td class="positive">+0.78%</td>
+                </tr>
+                <tr>
+                    <td class="index-name">新台幣匯率</td>
+                    <td class="price">32.00 附近</td>
+                    <td class="flat">— 微貶</td>
+                    <td class="flat">守住 32 元關卡</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">📰</span> 今日財經新聞</h2>
+            <div class="news-item">
+                <div class="title">📌 千金股集體倒地，台塑、軍工承救市大旗</div>
+                <div class="source">Yahoo 股市 — 14 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 公股金控豐收！兆祏金封王、華南金暴衝</div>
+                <div class="source">Yahoo 股市 — 10 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 外資提款 518 億元連八賣，瞄準主動式 ETF 減碼</div>
+                <div class="source">鉉亨網 — 13 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 美通膨降溫！晶片股反彈，美股主要指數收漲</div>
+                <div class="source">Newtalk 新聞 / FTNN 新聞網 — 1 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 股匯聯手拉尾盤，台幣小貶守住 32 元關卡</div>
+                <div class="source">自由時報 — 14 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 明年會配息！力積電毛利率衝三年半新高</div>
+                <div class="source">民報 — 1 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 少年股神又翻車？國巨一個月被違約交割三次，金額破億元</div>
+                <div class="source">Yahoo 財經特派 — 12 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 凱基金上半年賯 284 億元，EPS 1.64 元</div>
+                <div class="source">Yahoo 財經特派 — 13 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 台新新光金上半年獲利成長三倍，EPS 1.71 元</div>
+                <div class="source">Yahoo 財經特派 — 13 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 營收衝高仍不夠好，世芯遭外資砍目標價</div>
+                <div class="source">FTNN 新聞網 — 13 小時前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 荷姆茲風險蔓延！石油、AI 晶片、化肥與鏁供應鏈全面受壓</div>
+                <div class="source">財訊快報 — 21 分鐘前</div>
+            </div>
+            <div class="news-item">
+                <div class="title">📌 中國 5 月回補美債 185 億美元，日本大減 668 億美元</div>
+                <div class="source">財訊快報 — 19 分鐘前</div>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            ⚠️ <strong>免責聲明</strong>：本報告由 AI 自動生成，資料來源包括 Yahoo Finance、Yahoo 奇摩股市、鉉亨網、FTNN 新聞網、財訊快報等公開財經資訊。所有數據僅供參考，不構成任何投資建議。投資有風險，決策前請審慎評估。
+        </div>
+        <div class="footer">
+            🔄 AI 自動生成每日財經晨報 | 資料時間：2026年7月15日
+        </div>
+    </div>
+</body>
+</html>
