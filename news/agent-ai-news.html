@@ -3,74 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 產業焦點 - 財經晨報</title>
+<title>AI 產業焦點 - 愛德華AI私人助理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
-        background: linear-gradient(135deg, #0a0e1a, #111827);
-        color: #e2e8f0;
-        min-height: 100vh;
-        padding: 30px 20px;
+    .agent-nav { display:flex; align-items:center; gap:12px; padding:8px 0; }
+    .agent-nav a { display:flex; align-items:center; gap:6px; color:var(--text3); text-decoration:none; font-size:.85rem; padding:4px 10px; border-radius:6px; }
+    .agent-nav a:hover { background:var(--bg-hover); color:var(--text); }
+    .agent-nav .sep { color:var(--text3); font-size:.7rem; }
+    .agent-nav .active { color:var(--text) !important; }
+
+    .report-meta { display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:24px; padding:16px 20px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--rad); }
+    .report-meta .label { font-size:.75rem; color:var(--text3); }
+    .report-meta .val { font-size:.9rem; font-weight:600; }
+    .report-meta .badge { font-size:.72rem; padding:3px 10px; border-radius:6px; background:rgba(245,158,11,.15); color:var(--orange); font-weight:500; }
+
+    .topic-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--rad); padding:20px 24px; margin-bottom:14px; transition:all .2s; }
+    .topic-card:hover { border-color:var(--orange); transform:translateY(-2px); box-shadow:0 4px 16px rgba(245,158,11,.1); }
+    .topic-num { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,#f97316,#f59e0b); color:#fff; display:flex; align-items:center; justify-content:center; font-size:.78rem; font-weight:700; flex-shrink:0; }
+    .topic-hdr { display:flex; align-items:flex-start; gap:12px; margin-bottom:10px; }
+    .topic-title { font-size:1.05rem; font-weight:600; line-height:1.4; }
+    .topic-tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
+    .topic-tag { font-size:.7rem; padding:2px 8px; border-radius:4px; background:rgba(59,130,246,.1); color:var(--blue); }
+    .topic-tag.security { background:rgba(239,68,68,.1); color:var(--red); }
+    .topic-tag.ai { background:rgba(245,158,11,.1); color:var(--orange); }
+    .topic-tag.it { background:rgba(34,197,94,.1); color:var(--green); }
+    .topic-summary { font-size:.85rem; color:var(--text2); line-height:1.6; margin-bottom:10px; }
+    .topic-sales { font-size:.82rem; color:var(--orange); line-height:1.5; padding:10px 14px; background:rgba(245,158,11,.04); border-left:3px solid var(--orange); border-radius:4px; margin-bottom:10px; }
+    .topic-ref { font-size:.75rem; color:var(--text3); }
+    .topic-ref a { color:var(--blue); text-decoration:none; }
+    .topic-ref a:hover { text-decoration:underline; }
+
+    .empty-state { text-align:center; padding:80px 20px; }
+    .empty-state .icon { font-size:4rem; margin-bottom:16px; }
+    .empty-state h2 { margin-bottom:8px; }
+    .empty-state p { color:var(--text3); font-size:.9rem; max-width:400px; margin:0 auto 20px; line-height:1.6; }
+
+    @media (max-width:640px) {
+        .topic-hdr { flex-direction:column; }
     }
-    .container { max-width: 960px; margin: 0 auto; }
-    .back-link {
-        display: inline-block; color: #60a5fa; text-decoration: none;
-        font-size: 14px; margin-bottom: 24px;
-    }
-    .back-link:hover { text-decoration: underline; }
-    h1 {
-        font-size: 2rem; font-weight: 800;
-        background: linear-gradient(135deg, #60a5fa, #a78bfa);
-        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        margin-bottom: 8px;
-    }
-    .subtitle { color: #64748b; font-size: .95rem; margin-bottom: 32px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-    .card {
-        background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
-        border-radius: 12px; padding: 20px; transition: all .2s;
-    }
-    .card:hover { border-color: rgba(96,165,250,.3); transform: translateY(-2px); }
-    .card-tag {
-        display: inline-block; padding: 2px 8px; border-radius: 4px;
-        font-size: .72rem; font-weight: 500; margin-bottom: 8px;
-    }
-    .tag-ai { background: rgba(59,130,246,.15); color: #60a5fa; }
-    .tag-it { background: rgba(34,197,94,.15); color: #86efac; }
-    .tag-security { background: rgba(239,68,68,.15); color: #fca5a5; }
-    .tag-cloud { background: rgba(168,85,247,.15); color: #c084fc; }
-    .card-title { font-size: 1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
-    .card-desc { font-size: .85rem; color: #94a3b8; line-height: 1.6; margin-bottom: 12px; }
-    .card-meta { font-size: .78rem; color: #475569; display: flex; gap: 12px; }
-    .card-source { color: #60a5fa; }
-    .empty-state {
-        text-align: center; padding: 80px 20px; color: #475569;
-        grid-column: 1 / -1;
-    }
-    .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
-    .empty-state h3 { font-size: 1.1rem; margin-bottom: 8px; color: #64748b; }
-    .empty-state p { font-size: .9rem; }
-    footer { margin-top: 48px; text-align: center; color: #475569; font-size: 13px; }
 </style>
 </head>
 <body>
-<div class="container">
-    <a class="back-link" href="./index.html">← 回到歷史報告列表</a>
-    <h1>🤖 AI 產業焦點</h1>
-    <p class="subtitle">每週 AI / IT / 資安熱門話題整理 — 讓業務快速掌握銷售議題</p>
-    <div class="grid" id="newsGrid">
+<div class="bg-grid"></div>
+
+<nav class="navbar"><div class="nav-inner">
+    <a href="agents.html" class="nav-brand"><span>🏠</span><strong>愛德華AI私人助理</strong></a>
+    <div class="nav-links">
+        <span class="nav-user" id="navUser"></span>
+        <a href="agents.html" class="nav-link">🏠 助理</a>
+        <a href="#" class="nav-link active">🤖 AI 產業焦點</a>
+        <button class="nav-link nav-logout" onclick="logoutUser()">🚪 登出</button>
+        <button class="nav-theme" onclick="ThemeManager.cycle()" title="切換主題" id="themeFloatBtn">🌙</button>
+    </div>
+    <button class="mobile-btn" onclick="document.getElementById('mMenu').classList.toggle('open')">☰</button>
+</div>
+<div class="mobile-menu" id="mMenu">
+    <a href="agents.html">🏠 助理選擇</a>
+    <a href="#" class="active">🤖 AI 產業焦點</a>
+    <a href="#" onclick="logoutUser()">🚪 登出</a>
+</div></nav>
+
+<div class="container" style="padding-bottom:60px;">
+    <div class="agent-nav">
+        <a href="agents.html">🏠 助理</a><span class="sep">›</span>
+        <a href="#" style="color:var(--text)">🤖 AI 產業焦點</a>
+    </div>
+
+    <!-- Report Header -->
+    <div class="page-hdr" style="display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap;">
+        <h1 style="font-size:1.4rem;font-weight:600;margin:0;">🤖 AI 產業焦點</h1>
+        <span style="color:var(--text3);font-size:.85rem;">每週業務銷售話題整理</span>
+    </div>
+
+    <!-- Report Meta -->
+    <div class="report-meta" id="reportMeta">
+        <div><div class="label">📅 報告週次</div><div class="val" id="metaWeek">—</div></div>
+        <div><div class="label">📰 話題數</div><div class="val" id="metaCount">—</div></div>
+        <div><div class="label">🎯 適用對象</div><div class="val">業務 · 售前 · 協銷人員</div></div>
+        <div><span class="badge">🔄 每週六更新</span></div>
+    </div>
+
+    <!-- Topics Container -->
+    <div id="topicsContainer">
         <div class="empty-state">
-            <div class="icon">📡</div>
-            <h3>內容建置中</h3>
-            <p>每週 AI 產業重點話題即將上線，敬請期待</p>
+            <div class="icon">🤖</div>
+            <h2>準備產生本週報告</h2>
+            <p>點擊下方按鈕立即產生最新一期的業務銷售話題整理，或等待每週六上午 10:00 自動更新。</p>
+            <button class="btn btn-primary" onclick="generateReport()">🚀 立即產生本週報告</button>
         </div>
     </div>
-    <footer>
-        <a href="https://edward0714.github.io/" style="color:#60a5fa;text-decoration:none;">🌐 Edward Hu 首頁</a>
-        &nbsp;|&nbsp;
-        <a href="https://github.com/edward0714/hermes-Stock-Report" style="color:#60a5fa;text-decoration:none;">GitHub</a>
-    </footer>
 </div>
+
+<div id="toastContainer"></div>
+<script src="api.js"></script>
+<script>
+/* ═══ AI 產業焦點 — 本週報告 ═══ */
+const AI_NEWS_DATA = {"week":"2026-W29 (7/13-7/19)","generated_at":"2026-07-18T10:00:00+08:00","source_note":"資料來源：iThome Taiwan、資安新聞網站、AI 熱門媒體","topics":[{"id":1,"title":"微軟7月Patch Tuesday修補逾千CVE，零時差漏洞遭利用","tags":["security","it"],"summary":"微軟2026年7月例行安全更新創下修補量歷史新高，修復逾千個CVE漏洞，其中包含SharePoint零時差漏洞已遭駭客積極利用。微軟高層坦承AI技術發展讓軟體攻擊面擴大，未來Patch Tuesday修補數量只會持續增加，企業資安團隊面臨更嚴峻的修補管理壓力。","sales_tip":"主動詢問客戶Patch管理流程與工具，推薦自動化修補方案，強調AI時代漏洞數量激增是長期趨勢，需提前部署弱點管理。","refs":[{"name":"iThome 資安週報","url":"https://www.ithome.com.tw/news/177408"},{"name":"iThome","url":"https://www.ithome.com.tw/news/177264"}]},{"id":2,"title":"OpenShift 4.22發布MCP閘道，AI代理安全存取叢集","tags":["ai","it"],"summary":"Red Hat發布OpenShift 4.22，新增技術預覽版MCP（Model Context Protocol）伺服器與閘道，讓AI代理可在既有RBAC驗證授權機制下安全存取Kubernetes叢集資源。同步推出正式版JobSet Operator支援協調分散式訓練與模型微調，為企業級AI基礎設施提供更完整的平台支援。","sales_tip":"客戶評估容器平台時，可介紹OpenShift 4.22的MCP安全閘道如何解決AI代理存取企業系統的合規與授權痛點。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/177401"},{"name":"Red Hat","url":"https://www.redhat.com/en/blog/openshift-422-ai-agents-mcp"}]},{"id":3,"title":"Amazon揭露AI代理購物新模式，重塑電商體驗","tags":["ai"],"summary":"Amazon在AWS Summit Taipei 2026分享AI Shopping Agent發展經驗，從傳統搜尋商品進化到主動理解消費者需求，AI代理可協助完成從商品推薦到交易的完整流程。此模式將重塑電商購物體驗，台灣零售業者可從中獲得AI轉型的重要啟發。","sales_tip":"零售電商客戶可藉此案例了解AI代理如何提升轉換率與客單價，建議主動詢問客戶的電商AI布局，提供顧問型銷售。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/177406"},{"name":"Amazon AWS","url":"https://aws.amazon.com/tw/blogs/aws/ai-shopping-agent-at-aws-summit-taipei-2026/"}]},{"id":4,"title":"Moonshot AI發表Kimi K3，效能逼近最強模型","tags":["ai"],"summary":"Moonshot AI正式發布開源模型Kimi K3，採用Kimi Delta Attention與Stable LatentMoE等新架構，896個專家中每次僅啟用16個。在程式開發、AI代理、推理及視覺任務部分評測中表現接近或超越Claude Fable 5與GPT 5.6 Sol，API定價具競爭力，為開源AI注入強勁新勢力。","sales_tip":"客戶若正在評估開源LLM方案，可介紹Kimi K3在程式開發與代理任務上的優異表現，作為降低授權成本的有效替代選項。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/177376"},{"name":"Moonshot AI","url":"https://moonshot.ai/kimi-k3-release"}]},{"id":5,"title":"德國開源主權AI模型Soofi S，長文本效率勝8倍","tags":["ai"],"summary":"德國聯邦經濟部資助的開源主權AI模型Soofi S正式發布，採用Mamba-Transformer混合MoE架構，300億參數每次僅啟用30億。英德文程式碼評測居17款開源模型之首，長上下文吞吐量為傳統稠密模型8-9倍。全程在德國主機訓練，提供自主可控的歐洲AI方案。","sales_tip":"金融、政府客戶若關注資料主權與AI合規，可介紹Soofi S的開源授權與歐洲主權訓練背景，作為在地化部署參考案例。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/177378"},{"name":"KI Bundesverband","url":"https://ki-verband.de/soofi-s-open-source-ai-model/"}]},{"id":6,"title":"OpenAI紅隊模型GPT-Red自動找漏洞，注入攻擊降至0.05%","tags":["ai","security"],"summary":"OpenAI公開內部紅隊模型GPT-Red測試成果，該模型在提示注入攻擊測試中成功攻破84%情境，遠高於人類紅隊的13%。OpenAI利用GPT-Red產出的攻擊資料訓練GPT-5.6 Sol，使直接提示注入攻擊成功率從顯著水準驟降至僅0.05%，展現AI驅動安全測試的巨大價值。","sales_tip":"客戶若擔心LLM安全性，可引述此案例說明頂尖AI廠商如何以AI對抗AI，建議企業導入自動化紅隊測試機制。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/177372"},{"name":"OpenAI Blog","url":"https://openai.com/blog/gpt-red-automated-red-teaming"}]},{"id":7,"title":"歐盟DMA要求Google開放Android AI功能與搜尋資料共享","tags":["ai","it"],"summary":"歐盟依數位市場法（DMA）發布實施規範，要求Google開放Android關鍵功能，讓第三方AI助理可透過語音啟用並跨App執行任務，且須向合格搜尋服務分享匿名化搜尋資料。Google表達安全與隱私疑慮，使用者預計2027年起受惠相關變更。","sales_tip":"可與客戶討論AI監管趨勢，特別是歐盟法規對Android生態的影響，協助企業評估AI助理跨平台部署的合規需求。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/177388"},{"name":"European Commission","url":"https://digital-markets-act.ec.europa.eu/dma-google-android-ai-interoperability-2026"}]},{"id":8,"title":"臺灣製造業遭中國後門Daxin攻擊，供應鏈風險升溫","tags":["security"],"summary":"賽門鐵克與Carbon Black威脅獵捕團隊警告，4年前被發現的中國高階後門程式Daxin再度活躍，鎖定臺灣高科技製造業子公司發動攻擊。駭客同時部署另一後門Stupig，顯示國家級攻擊者持續鎖定台灣關鍵產業鏈，供應鏈資安風險再次升高，製造業需提高警覺。","sales_tip":"製造業客戶對供應鏈攻擊高度敏感，建議強化端點偵測回應（EDR）及網路分段，主動提供威脅情資分享服務。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/177397"},{"name":"iThome","url":"https://www.ithome.com.tw/news/177390"}]},{"id":9,"title":"SANS調查：78%組織用AI於資安，但僅36%有風險管理","tags":["ai","security"],"summary":"SANS 2026年調查顯示，將AI納入資安策略的組織比例從去年50%躍升至78%，但僅36%建立正式AI風險管理與法規遵循計畫。63%受訪者表示組織無法掌握AI模型使用位置及可能暴露資料，AI治理進度明顯落後於應用速度，形成新的資安缺口。","sales_tip":"可引導客戶討論AI治理現狀，推薦AI安全評估與模型監管方案，強調擴大AI應用必須同步補足風險管理缺口。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/177383"},{"name":"SANS Institute","url":"https://www.sans.org/2026-ai-security-survey/"}]},{"id":10,"title":"傳蘋果計畫收購AI晶片新創，自家Baltra晶片進度落後","tags":["ai","it"],"summary":"據The Information報導，蘋果正評估收購AI晶片新創公司以加速AI布局。蘋果自研AI伺服器晶片Baltra原訂今年出貨但進度落後，可能延後至2029年，迫使新版Siri暫時轉用Google Cloud與Nvidia GPU。顯示AI硬體自研難度高，即使是蘋果也面臨挑戰。","sales_tip":"蘋果AI布局延遲對採用Apple生態系的企業客戶是重要訊號，可提醒關注跨平台AI整合策略，避免過度依賴單一廠商。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/177363"},{"name":"The Information","url":"https://www.theinformation.com/articles/apple-ai-chip-acquisition-talks"}]}]};{"id":2,"title":"台積電2奈米製程2026下半年量產推動AI晶片升級","tags":["it","ai"],"summary":"台積電宣布N2（2奈米）製程將於2026下半年如期量產，採用GAA（閘極全環）電晶體架構，已獲得NVIDIA、AMD、Apple等大廠訂單。業界預估將帶動下一波AI加速晶片效能躍升，功耗降低30%以上，資料中心電力效率可望顯著改善。","sales_tip":"可向客戶說明新製程將使AI晶片效能翻倍，建議企業提前規劃2027年硬體升級預算，避免錯過效能紅利。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/162312"},{"name":"TechNews","url":"https://technews.tw/2026/07/08/tsmc-n2-volume-production/"}]},{"id":3,"title":"OpenAI推出GPT-5企業版：百萬Token上下文與多模態","tags":["ai"],"summary":"OpenAI於7月正式發布GPT-5 Enterprise，支援100萬Token上下文視窗，整合文字、圖片、音訊、影片多模態理解能力，並提供本地部署選項。企業級API定價較GPT-4降低40%，但需簽署資料不外洩合約。台灣金融、醫療業者已開始概念驗證。","sales_tip":"客戶若擔心LLM資安或成本問題，可分享GPT-5本地部署方案與台灣業者POC案例，引導客戶評估導入時程。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/162378"},{"name":"TechCrunch","url":"https://techcrunch.com/2026/07/09/openai-gpt-5-enterprise/"}]},{"id":4,"title":"微軟發布Copilot Studio 2.0：低程式碼AI Agent建置平台","tags":["ai","it"],"summary":"微軟在7月Ignite預告活動中推出Copilot Studio 2.0，允許企業以拖曳方式建立多步驟AI Agent，整合Dynamics 365、Salesforce、SAP等企業系統，並支援自訂知識庫與API串接。台灣已有製造業者用於建立供應鏈異常自動應對機器人。","sales_tip":"詢問客戶目前RPA或客服機器人使用情況，推薦Copilot Studio作為低程式碼AI Agent入口，強調無需AI工程團隊即可導入。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/162355"},{"name":"Microsoft Blog","url":"https://blogs.microsoft.com/ai/2026/07/07/copilot-studio-2-0-announcement/"}]},{"id":5,"title":"台灣數位部發布AI基本法草案：強制高風險AI揭露","tags":["ai","security"],"summary":"數位發展部於7月初公布《人工智慧基本法》草案，參考歐盟AI Act架構，要求高風險AI系統（如信贷評等、醫療診斷、招聘篩選）進行影響評估與演算法揭露，違者最高處新台幣1,500萬元罰鍰。預計2027年上路，企業需提前合規準備。","sales_tip":"可主動提醒客戶AI合規的時程壓力，提供法遵諮詢或AI治理工具建議，協助客戶建立合規流程。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/162367"},{"name":"數位發展部","url":"https://www.moda.gov.tw/press/2026-07-06-001.html"}]},{"id":6,"title":"大規模供應鏈勒索軟體攻擊 LockBit 4.0鎖定台廠","tags":["security"],"summary":"LockBit勒索軟體組織發布4.0版本，利用零時差漏洞入侵台灣多家電子製造業ERP系統，加密資料並外洩内部文件。攻擊採供應鏈橫向擴散模式，一家PCB廠遭入侵後擴散至三家下游組裝廠。趨勢科技與中華資安發布緊急應變通報。","sales_tip":"向客戶說明供應鏈資安的連鎖效應，推薦供應商安全評估與端點偵測回應方案，強調預防勝於付贖金。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/162388"},{"name":"資安人","url":"https://www.isecurity.com.tw/article/detail/20260708-lockbit-4-0-attack/"}]},{"id":7,"title":"Google推出Gemini Ultra 2：邊緣AI晶片效能激增5倍","tags":["ai","it"],"summary":"Google於7月10日發布Gemini Ultra 2晶片與TPU v7，專為邊緣端AI推論設計，效能較前代提升5倍，功耗僅35W。同時推出Edge AI開發套件，支援離線運作LLM與電腦視覺模型。台灣工業電腦業者（研華、友通）已規劃導入智慧工廠方案。","sales_tip":"製造業客戶若因頻寬或資安考量無法上雲，可介紹Edge AI方案，強調離線運作與低延遲優勢，適合智慧工廠場景。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/162395"},{"name":"Google AI Blog","url":"https://ai.googleblog.com/2026/07/gemini-ultra-2-edge-ai.html"}]},{"id":8,"title":"Cloudflare揭露新型DDoS攻擊：AI驅動的應用層流量風暴","tags":["security"],"summary":"Cloudflare發布2026上半年DDoS威脅報告，揭露新型AI驅動的第五層DDoS攻擊，攻擊者利用生成式AI動態產生的HTTP請求繞過傳統WAF規則。Q2攻擊量較去年同期成長300%，台灣金融、電商為主要目標。Cloudflare已推出AI行為分析防護模組。","sales_tip":"可詢問客戶網站或API近期是否有異常流量，介紹AI驅動的DDoS防護方案，強調傳統規則式WAF已不足以應對新型威脅。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/162340"},{"name":"Cloudflare Blog","url":"https://blog.cloudflare.com/2026-h1-ddos-threat-report/"}]},{"id":9,"title":"鴻海攜手NVIDIA打造台灣AI超級電腦「福爾摩沙二號」","tags":["ai","it"],"summary":"鴻海科技集團宣布與NVIDIA合作，在高雄軟體園區建置台灣最大AI超級電腦「福爾摩沙二號」，採用20,000顆B300 GPU，運算能力達500 ExaFLOPs。預計2027年初啟用，將提供國內學研與中小企業AI算力租賃服務，推動台灣AI生態系發展。","sales_tip":"對無法負擔自建AI基礎設施的中型客戶，可推薦算力租賃方案，協助客戶在不投入鉅額資本下啟動AI專案。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/162375"},{"name":"經濟日報","url":"https://money.udn.com/money/story/5612/8123456"}]},{"id":10,"title":"歐盟AI Act正式生效：台灣企業供應鏈合規壓力升溫","tags":["ai","security"],"summary":"歐盟AI Act於2026年7月正式全面生效，分級規範AI系統風險。台灣多家出口歐盟的電子與工具機製造商，因產品內嵌AI功能需符合透明度與風險管理要求。BSI台灣與工研院推出AI合規輔導方案，協助企業建立AI治理框架。","sales_tip":"主動提醒有歐盟客戶的廠商注意供應鏈AI合規條款，提供AI風險評估與文件化服務，協助客戶順利出口。","refs":[{"name":"iThome","url":"https://www.ithome.com.tw/news/162385"},{"name":"BSI台灣","url":"https://www.bsigroup.com/zh-TW/ai-act-2026/"}]}]};
+
+async function init() {
+    const user = await requireAuth();
+    if (!user) return;
+    document.getElementById('navUser').textContent = `👤 ${user.display_name || user.username}`;
+    // Render the pre-loaded report
+    renderReport(AI_NEWS_DATA);
+}
+function logoutUser() { ApiClient.logout().then(() => { window.location.href = 'index.html'; }); }
+
+function renderReport(data) {
+    document.getElementById('metaWeek').textContent = data.week || '—';
+    document.getElementById('metaCount').textContent = (data.topics || []).length + ' 則';
+
+    document.getElementById('topicsContainer').innerHTML = (data.topics || []).map((t, i) => `
+        <div class="topic-card">
+            <div class="topic-hdr">
+                <div class="topic-num">${i+1}</div>
+                <div style="flex:1;min-width:0;">
+                    <div class="topic-title">${t.title}</div>
+                    <div class="topic-tags">${(t.tags||[]).map(tag => `<span class="topic-tag ${tag}">${tag}</span>`).join('')}</div>
+                </div>
+            </div>
+            <div class="topic-summary">${t.summary}</div>
+            ${t.sales_tip ? `<div class="topic-sales">💡 ${t.sales_tip}</div>` : ''}
+            <div class="topic-ref">
+                📎 參考來源：
+                ${(t.refs||[]).map(r => `<a href="${r.url}" target="_blank" rel="noopener">${r.name}</a>`).join(' · ')}
+            </div>
+        </div>
+    `).join('');
+}
+
+async function generateReport() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.textContent = '⏳ 產生中...';
+    try {
+        const resp = await ApiClient._post('/ai-news/generate', {});
+        if (resp && resp.topics) {
+            localStorage.setItem('ai_news_report', JSON.stringify(resp));
+            renderReport(resp);
+            showToast('✅ 報告產生完成！', 'success');
+        }
+    } catch(e) {
+        showToast('❌ 產生失敗：' + e.message, 'error');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = '🚀 立即產生本週報告';
+    }
+}
+
+init();
+</script>
 </body>
 </html>
