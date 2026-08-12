@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日財經晨報 — 2026年8月12日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e8eaed; min-height: 100vh; line-height: 1.7;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; padding: 40px 20px 30px; background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #1565c0 100%); border-radius: 16px; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .header h1 { font-size: 2em; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .header .date { font-size: 1.1em; color: #90caf9; opacity: 0.9; }
+        .header .subtitle { margin-top: 8px; font-size: 0.95em; color: #b0bec5; }
+        .card { background: rgba(30,35,60,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px; margin-bottom: 20px; backdrop-filter: blur(10px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+        .card h2 { font-size: 1.3em; color: #64b5f6; border-bottom: 2px solid rgba(100,180,246,0.3); padding-bottom: 10px; margin-bottom: 16px; }
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+        .market-item { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.2s; }
+        .market-item:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .market-item .name { font-size: 0.9em; color: #9aa0a6; margin-bottom: 4px; }
+        .market-item .price { font-size: 1.4em; font-weight: 700; color: #fff; }
+        .market-item .change { font-size: 0.95em; margin-top: 4px; }
+        .up { color: #4caf50; } .down { color: #f44336; }
+        .stock-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .stock-table th { text-align: left; padding: 10px 12px; font-size: 0.85em; color: #9aa0a6; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 600; }
+        .stock-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95em; }
+        .stock-table tr:hover { background: rgba(255,255,255,0.03); }
+        .stock-table .sym { color: #9aa0a6; font-size: 0.8em; }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78em; font-weight: 600; }
+        .tag-up { background: rgba(76,175,80,0.2); color: #81c784; }
+        .tag-down { background: rgba(244,67,54,0.2); color: #ef9a9a; }
+        .summary-box { background: linear-gradient(135deg, rgba(255,183,77,0.12), rgba(255,138,101,0.08)); border-left: 4px solid #ffb74d; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 12px 0; }
+        .summary-box p { margin: 6px 0; font-size: 0.95em; }
+        .summary-box strong { color: #ffb74d; }
+        .news-item { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .title { font-weight: 600; color: #e0e0e0; margin-bottom: 4px; }
+        .news-item .desc { font-size: 0.9em; color: #9aa0a6; }
+        .back-link { display: inline-block; margin-top: 16px; color: #64b5f6; text-decoration: none; font-size: 0.95em; padding: 8px 16px; border-radius: 8px; background: rgba(100,180,246,0.1); }
+        .back-link:hover { background: rgba(100,180,246,0.2); }
+        .footer { text-align: center; padding: 20px; color: #5f6368; font-size: 0.85em; }
+        .timeline-note { font-size: 0.8em; color: #ff8a65; margin-top: 8px; padding: 8px 12px; background: rgba(255,138,101,0.08); border-radius: 8px; }
+    </style>
+</head>
+<body>
+<div class="container">
+<a class="back-link" href="../../index.html">&#8592; 回到歷史報告列表</a>
+
+<div class="header">
+    <h1>&#128202; 每日財經晨報</h1>
+    <div class="date">2026 年 8 月 12 日（星期三）</div>
+    <div class="subtitle">資料涵蓋前一交易日（2026年8月11日）收盤數據｜台股續漲 192 點站上 45,121 點，生技飆逾 4%；美股三大指數同步回檔，Google 重挛近 4%</div>
+</div>
+<div class="card">
+    <h2>&#127481;&#127484; 台股市場 — 加權指數續漲 192 點連二紅，站穩 45,000 點大關</h2>
+    <div class="market-grid"><div class="market-item">
+    <div class="name">加權指數</div>
+    <div class="price">45,120.72</div>
+    <div class="change"><span class="up">▲ +191.96（+0.43%）</span></div>
+</div><div class="market-item">
+    <div class="name">台灣 50 指數</div>
+    <div class="price">41,877.82</div>
+    <div class="change"><span class="up">▲ +235.02（+0.56%）</span></div>
+</div><div class="market-item">
+    <div class="name">中型 100 指數</div>
+    <div class="price">35,574.64</div>
+    <div class="change"><span class="up">▲ +45.80（+0.13%）</span></div>
+</div><div class="market-item">
+    <div class="name">成交金額</div>
+    <div class="price">9,021 億</div>
+    <div class="change"><span class="up">量能持穩</span></div>
+</div></div><h3 style="margin-top: 20px; color: #90caf9; font-size: 1em;">&#128293; 強勢類股 TOP 5</h3><table class="stock-table"><thead><tr><th>類股</th><th>收盤指數</th><th>漲跌點數</th><th>漲跌幅</th></tr></thead><tbody><tr><td>生技醫療</td><td>101.96</td><td class="up">+3.95</td><td class="up"><span class="tag tag-up">+4.03%</span></td></tr><tr><td>居家生活</td><td>105.92</td><td class="up">+3.21</td><td class="up"><span class="tag tag-up">+3.13%</span></td></tr><tr><td>化學生技醫療</td><td>175.31</td><td class="up">+5.29</td><td class="up"><span class="tag tag-up">+3.11%</span></td></tr><tr><td>油電燃氣</td><td>96.84</td><td class="up">+2.37</td><td class="up"><span class="tag tag-up">+2.51%</span></td></tr><tr><td>運動休閒</td><td>60.95</td><td class="up">+1.33</td><td class="up"><span class="tag tag-up">+2.23%</span></td></tr></tbody></table><h3 style="margin-top: 16px; color: #ef9a9a; font-size: 1em;">&#128308; 弱勢類股</h3><table class="stock-table"><thead><tr><th>類股</th><th>收盤指數</th><th>漲跌點數</th><th>漲跌幅</th></tr></thead><tbody><tr><td>綠能環保</td><td>136.91</td><td class="down">-3.17</td><td class="down"><span class="tag tag-down">-2.26%</span></td></tr><tr><td>光電</td><td>62.40</td><td class="down">-1.20</td><td class="down"><span class="tag tag-down">-1.89%</span></td></tr><tr><td>電子通路</td><td>383.66</td><td class="down">-5.41</td><td class="down"><span class="tag tag-down">-1.39%</span></td></tr><tr><td>金融保險</td><td>3,174.73</td><td class="down">-36.30</td><td class="down"><span class="tag tag-down">-1.13%</span></td></tr><tr><td>通信網路</td><td>232.85</td><td class="down">-2.26</td><td class="down"><span class="tag tag-down">-0.96%</span></td></tr></tbody></table>
+<div class="summary-box" style="margin-top: 16px;">
+    <p><strong>&#128200; 台股連二日走揚，站穩 45,000 點整數關卡：</strong>加權指數 8 月 11 日延續前日強勢反彈，終場上漲 191.96 點，漲幅 0.43%，收在 45,120.72 點。在昨日飆漲 702 點的基礎上持續走高，盤面結構由中小型股轉向權值股，台灣 50 指數上漲 0.56% 表現優於中型 100 的 0.13%。成交金額 9,021 億元，量能維持健康水準。</p>
+    <p><strong>&#128313; 資金由中小型轉向權值與生技：</strong>昨日領漲的中小型股漲勢趨緩，權值股接棒演出。台灣資訊科技指數上漲 0.67%，電子零組件續漲 1.88%，半導體上漲 0.59%。本日最大亮點在生技醫療族群，類股指數飆漲 4.03%，化學生技醫療勁揚 3.11%，政策利多與新藥題材持續發酵。金融保險逆勢下跌 1.13% 為壓盤重心。</p>
+    <p><strong>&#127754; 產業輪動明顯：</strong>塑膠化工上漲 2.14%、玻璃陶瓷上漲 2.06%、塑膠類上漲 1.52%，傳產亦有表現。然綠能環保重挛 2.26%、光電回檔 1.89%、電子通路下跌 1.39%，顯示資金快速在不同族群間輪動。</p>
+</div>
+</div>
+<div class="card">
+    <h2>&#127482;&#127480; 美股市場 — 三大指數同步回檔，Google 重挛近 4% 拖累那斯達克</h2>
+    <div class="market-grid"><div class="market-item">
+    <div class="name">DJIA 道瓊工業</div>
+    <div class="price">53,791.85</div>
+    <div class="change"><span class="down">▼ -184.13（-0.34%）</span></div>
+</div><div class="market-item">
+    <div class="name">S&P 500 標普五百</div>
+    <div class="price">7,728.20</div>
+    <div class="change"><span class="down">▼ -24.91（-0.32%）</span></div>
+</div><div class="market-item">
+    <div class="name">NASDAQ 那斯達克</div>
+    <div class="price">26,445.45</div>
+    <div class="change"><span class="down">▼ -159.91（-0.60%）</span></div>
+</div><div class="market-item">
+    <div class="name">VIX 恐慌指數</div>
+    <div class="price">15.28</div>
+    <div class="change"><span class="down">▼ -0.18（-1.16%）</span></div>
+</div></div>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128200; 美股三大指數同步收黑，科技股賣壓較重：</strong>美股週二呈現高檔回檔格局，道瓊下跌 184 點（-0.34%）收 53,792 點；標普五百下跌 25 點（-0.32%）收 7,728 點；那斯達克跌幅最重，下跌 160 點（-0.60%）收 26,445 點。VIX 恐慌指數進一步下滑至 15.28，顯示市場情緒仍屬平穩，但資金明顯從大型科技股撤出，轉向防禦性類股。</p>
+        <p><strong>&#128313; 市場靜待美國 CPI 數據：</strong>投資人聚焦本週即將公布的美國消費者物價指數，該數據將為聯準會後續利率決策提供關鍵指引。市場普遍預期通膨將持續回落，進一步支撐降息預期。然科技股因估值偏高，短線面臨獲利了結壓力。</p>
+    </div>
+</div>
+<div class="card">
+    <h2>&#128300; 科技七巨頭表現 — Google 重挛近 4%，僅特斯拉與 Meta 逆勢收紅</h2>
+    <table class="stock-table">
+        <thead><tr><th>公司</th><th>代號</th><th>收盤價</th><th>漲跌</th><th>漲跌幅</th></tr></thead>
+        <tbody><tr><td>Meta</td><td class="sym">META</td><td>599.12</td><td class="up">+4.20</td><td class="up"><span class="tag tag-up">+0.71%</span></td></tr><tr><td>特斯拉</td><td class="sym">TSLA</td><td>332.81</td><td class="up">+1.93</td><td class="up"><span class="tag tag-up">+0.58%</span></td></tr><tr><td>輝達</td><td class="sym">NVDA</td><td>217.50</td><td class="down">-0.05</td><td class="down"><span class="tag tag-down">-0.02%</span></td></tr><tr><td>微軟</td><td class="sym">MSFT</td><td>503.81</td><td class="down">-2.25</td><td class="down"><span class="tag tag-down">-0.44%</span></td></tr><tr><td>蘋果</td><td class="sym">AAPL</td><td>304.91</td><td class="down">-3.35</td><td class="down"><span class="tag tag-down">-1.09%</span></td></tr><tr><td>亞馬遜</td><td class="sym">AMZN</td><td>272.27</td><td class="down">-5.82</td><td class="down"><span class="tag tag-down">-2.09%</span></td></tr><tr><td>谷歌</td><td class="sym">GOOGL</td><td>343.80</td><td class="down">-13.72</td><td class="down"><span class="tag tag-down">-3.84%</span></td></tr></tbody>
+    </table>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128200; 七巨頭五跌二漲，賣壓集中於谷歌與亞馬遜：</strong>Meta 逆勢上漲 0.71% 收 599.12 美元，特斯拉上漲 0.58% 收 332.81 美元，為唯二收紅的巨頭。輝達近乎持平，微軟小跌 0.44% 仍站穩 500 美元大關。然而谷歌（Alphabet）單日重挛 3.84% 收 343.80 美元，為七巨頭中跌幅最重者；亞馬遜下跌 2.09% 收 272.27 美元；蘋果續跌 1.09% 收 304.91 美元。資金明顯從大型科技股撤出，市場風格轉換訊號浮現。</p>
+        <p><strong>&#128308; Google 暴跌近 4% 為最大拖累：</strong>谷歌股價重挛可能與反壟斷訴訟進展不利或市場對其人工智慧業務變現能力的擔憂有關，單日蒸發市值數百億美元，成為拖累那斯達克指數的最大元兇。</p>
+    </div>
+</div>
+<div class="card">
+    <h2>&#128176; 匯率與商品市場</h2>
+    <div class="market-grid"><div class="market-item">
+    <div class="name">美元／台幣</div>
+    <div class="price">32.278</div>
+    <div class="change"><span class="down">▼ 新台幣微貶 0.15%</span></div>
+</div><div class="market-item">
+    <div class="name">黃金期貨</div>
+    <div class="price">4,428.80</div>
+    <div class="change"><span class="up">▲ ▲ +67.00（+1.54%）</span></div>
+</div><div class="market-item">
+    <div class="name">原油期貨（WTI）</div>
+    <div class="price">83.49</div>
+    <div class="change"><span class="up">▲ ▲ +1.36（+1.66%）</span></div>
+</div></div>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#129351; 黃金續漲 1.54% 逼近 4,500 美元，續創歷史新高：</strong>黃金期貨 8 月 11 日續漲 67 美元（+1.54%），收在每盎司 4,428.80 美元，持續改寫歷史天價。自上週四以來，黃金已連續四個交易日走高。全球央行持續增持黃金、地緣政治風險未解、美元指數偏弱等多重利多疊加，推動金價一路攀升。市場普遍看好年底挑戰 4,800 至 5,000 美元區間。</p>
+        <p><strong>&#128739; 原油續漲 1.66%，站上 83 美元：</strong>原油期貨 8 月 11 日上漲 1.66%，收在每桶 83.49 美元。美伊衝突持續升溫，中東供應鏈中斷風險居高不下，荷莫茲海峽航運安全引發市場擔憂。油價自上週四以來連續走高，短線有機會挑戰 85 美元整數關卡。</p>
+        <p><strong>&#128313; 新台幣微貶至 32.28：</strong>美元兌台幣小幅回升至 32.278，較前一日的 32.231 微幅貶值約 0.15%。美元指數在連續走軟後出現技術性反彈，新台幣短線整理。後續走勢仍取決於本週即將公布的美國 CPI 數據與聯準會政策預期。</p>
+    </div>
+</div>
+<div class="card">
+    <h2>&#128240; 重點財經新聞摘要</h2>
+    <div class="news-item">
+        <div class="title">&#127481;&#127484; 台股連二紅，加權指數站穩 45,000 點大關</div>
+        <div class="desc">台股 8 月 11 日延續反彈氣勢，加權指數再漲 191 點（+0.43%）收在 45,121 點，連續兩日站穩 45,000 點整數關卡。權值股接棒演出，台灣 50 指數上漲 0.56% 表現突出；半導體上漲 0.59%、電子零組件續漲 1.88%。成交金額 9,021 億元量能穩健，盤面結構由前日的中小型股轉向權值股與生技醫療族群。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#127482;&#127480; 美股三大指數同步回檔，那斯達克跌 0.6% 表現最弱</div>
+        <div class="desc">美股週二全面收黑，道瓊下跌 0.34%、標普五百下跌 0.32%、那斯達克下跌 0.60%。資金明顯從大型科技股撤出，VIX 雖維持在 15.28 低檔，但市場謹慎等待即將公布的美國消費者物價指數。科技股估值偏高引發獲利了結賣壓，資金轉向傳產與防禦性類股。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#128308; Google 重挛近 4%，創七巨頭單日最大跌幅</div>
+        <div class="desc">谷歌（Alphabet）股價 8 月 11 日重挛 3.84% 收 343.80 美元，為科技七巨頭中表現最慘烈個股。市場傳聞反壟斷訴訟出現不利進展，加上投資人對其人工智慧業務變現能力的擔憂升溫，引發沉重賣壓。亞馬遜下跌 2.09%、蘋果續跌 1.09%，僅 Meta（+0.71%）與特斯拉（+0.58%）逆勢收紅。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#127973; 生技醫療族群飆漲逾 4%，政策利多持續加持</div>
+        <div class="desc">台股生技醫療類股指數 8 月 11 日飆漲 4.03%，化學生技醫療亦勁揚 3.11%，成為盤面上最亮眼的族群。政府持續推動生技產業發展政策，加上新藥研發與國際授權利多消息不斷，資金持續涌入相關個股。居家生活類股亦上漲 3.13%，傳產族群中的塑膠化工（+2.14%）與玻璃陶瓷（+2.06%）同步走強。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#129351; 黃金續創歷史新高，穩步逼近 4,500 美元整數關卡</div>
+        <div class="desc">黃金期貨連續四個交易日走高，8 月 11 日續漲 1.54% 收在每盎司 4,428.80 美元，持續改寫歷史天價。全球央行增持黃金、地緣政治風險與美元走軟等利多持續發酵，市場樂觀看待年底挑戰 5,000 美元的可能性。自上週四以來，黃金已累計上漲近 190 美元。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#128739; 原油續漲至 83 美元上方，中東供應風險溢價擴大</div>
+        <div class="desc">原油期貨 8 月 11 日上漲 1.66% 收在每桶 83.49 美元。美伊衝突持續升溫，中東供應鏈中斷風險居高不下，荷莫茲海峽航運安全堪憂。市場擔憂原油供應可能出現缺口，加上全球需求前景改善，油價短線有機會挑戰 85 美元整數關卡。</div>
+    </div>
+</div>
+<div class="card">
+    <h2>&#128204; 本日市場總結與展望</h2>
+    <div class="summary-box">
+        <p><strong>&#128313; 台股：</strong>加權指數續漲 192 點（+0.43%）收 45,121 點，連二紅站穩 45,000 點關卡。權值股接棒，半導體與電子零組件穩定上揚，生技醫療飆漲逾 4% 為最大亮點。成交金額 9,021 億元量能健康。</p>
+        <p><strong>&#128313; 美股：</strong>三大指數同步回檔，道瓊跌 0.34%、標普五百跌 0.32%、那斯達克跌 0.60%。Google 重挛近 4% 拖累科技股，資金撤出大型科技股。VIX 維持 15.28 低檔，市場聚焦本週美國 CPI 數據。</p>
+        <p><strong>&#128313; 科技股：</strong>七巨頭五跌二漲，Meta（+0.71%）與特斯拉（+0.58%）逆勢收紅。Google 暴跌 3.84%、亞馬遜跌 2.09%、蘋果跌 1.09% 表現最弱。資金由大型科技股輪動至傳產與小型股。</p>
+        <p><strong>&#128313; 匯率：</strong>美元兌台幣 32.28，新台幣微貶 0.15%。美元指數技術性反彈，台幣短線在 32.2 至 32.3 區間整理。</p>
+        <p><strong>&#128313; 商品：</strong>黃金續漲 1.54% 至 4,429 美元續創歷史新高，穩步朝 4,500 美元邁進。原油續漲 1.66% 至 83.49 美元，中東供應風險溢價持續擴大。</p>
+        <p><strong>&#128313; 本週焦點：</strong>美國 CPI 數據將決定全球資金流向、台股能否突破 45,200 點壓力區、科技股輪動是否持續、黃金能否攻克 4,500 美元心理關卡。</p>
+    </div>
+</div>
+<div class="timeline-note">
+    &#9888; 資料說明：本報告數據來自 2026 年 8 月 11 日（週二）收盤。台股數據來自臺灣證券交易所（TWSE），美股數據來自 Yahoo Finance，匯率數據來自期交所（TAIFEX）。商品期貨可能因結算時間不同而有所差異。本報告由 AI 自動生成，僅供參考，不構成投資建議。
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a class="back-link" href="../../index.html">&#8592; 回到歷史報告列表</a>
+</div>
+
+<div class="footer">
+    &copy; 2026 每日財經晨報 &middot; AI 自動生成 &middot; 資料來源：TWSE、Yahoo Finance、TAIFEX
+</div>
+</div>
+</body>
+</html>
