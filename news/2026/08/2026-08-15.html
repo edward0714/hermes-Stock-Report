@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日財經晨報 — 2026年8月15日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e8eaed; min-height: 100vh; line-height: 1.7;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; padding: 40px 20px 30px; background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #1565c0 100%); border-radius: 16px; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .header h1 { font-size: 2em; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .header .date { font-size: 1.1em; color: #90caf9; opacity: 0.9; }
+        .header .subtitle { margin-top: 8px; font-size: 0.95em; color: #b0bec5; }
+        .card { background: rgba(30,35,60,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px; margin-bottom: 20px; backdrop-filter: blur(10px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+        .card h2 { font-size: 1.3em; color: #64b5f6; border-bottom: 2px solid rgba(100,180,246,0.3); padding-bottom: 10px; margin-bottom: 16px; }
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+        .market-item { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.2s; }
+        .market-item:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .market-item .name { font-size: 0.9em; color: #9aa0a6; margin-bottom: 4px; }
+        .market-item .price { font-size: 1.4em; font-weight: 700; color: #fff; }
+        .market-item .change { font-size: 0.95em; margin-top: 4px; }
+        .up { color: #4caf50; } .down { color: #f44336; }
+        .stock-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .stock-table th { text-align: left; padding: 10px 12px; font-size: 0.85em; color: #9aa0a6; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 600; }
+        .stock-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95em; }
+        .stock-table tr:hover { background: rgba(255,255,255,0.03); }
+        .stock-table .sym { color: #9aa0a6; font-size: 0.8em; }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78em; font-weight: 600; }
+        .tag-up { background: rgba(76,175,80,0.2); color: #81c784; }
+        .tag-down { background: rgba(244,67,54,0.2); color: #ef9a9a; }
+        .tag-neutral { background: rgba(158,158,158,0.2); color: #b0bec5; }
+        .summary-box { background: linear-gradient(135deg, rgba(255,183,77,0.12), rgba(255,138,101,0.08)); border-left: 4px solid #ffb74d; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 12px 0; }
+        .summary-box p { margin: 6px 0; font-size: 0.95em; }
+        .summary-box strong { color: #ffb74d; }
+        .news-item { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .title { font-weight: 600; color: #e0e0e0; margin-bottom: 4px; }
+        .news-item .desc { font-size: 0.9em; color: #9aa0a6; }
+        .back-link { display: inline-block; margin-top: 16px; color: #64b5f6; text-decoration: none; font-size: 0.95em; padding: 8px 16px; border-radius: 8px; background: rgba(100,180,246,0.1); }
+        .back-link:hover { background: rgba(100,180,246,0.2); }
+        .footer { text-align: center; padding: 20px; color: #5f6368; font-size: 0.85em; }
+        .timeline-note { font-size: 0.8em; color: #ff8a65; margin-top: 8px; padding: 8px 12px; background: rgba(255,138,101,0.08); border-radius: 8px; }
+    </style>
+</head>
+<body>
+<div class="container">
+<a class="back-link" href="../../index.html">&#8592; 回到歷史報告列表</a>
+
+<div class="header">
+    <h1>&#128202; 每日財經晨報</h1>
+    <div class="date">2026 年 8 月 15 日（星期六）</div>
+    <div class="subtitle">資料涵蓋前一交易日（2026年8月14日）收盤數據｜台股開高走低失守 46,000 點，外資連 5 買加碼 453 億；塑膠類股暴漲逾 7%；美股三大指數小跌，零售銷售降溫、油金齊揚</div>
+</div>
+
+<div class="card">
+    <h2>&#127481;&#127484; 台股市場 — 開高走低失守 46,000 點，外資連 5 買續挺</h2>
+    <div class="market-grid"><div class="market-item">
+    <div class="name">加權指數</div>
+    <div class="price">45,811.01</div>
+    <div class="change"><span class="down">▼ -210.47（-0.46%）</span></div>
+</div><div class="market-item">
+    <div class="name">台灣 50 指數</div>
+    <div class="price">42,499.44</div>
+    <div class="change"><span class="down">▼ -285.79（-0.67%）</span></div>
+</div><div class="market-item">
+    <div class="name">中型 100 指數</div>
+    <div class="price">36,001.93</div>
+    <div class="change"><span class="down">▼ -19.65（-0.05%）</span></div>
+</div><div class="market-item">
+    <div class="name">成交金額</div>
+    <div class="price">1.11 兆元</div>
+    <div class="change"><span class="up">量能維持兆元</span></div>
+</div></div><h3 style="margin-top: 20px; color: #90caf9; font-size: 1em;">&#128293; 強勢類股 TOP 5</h3><table class="stock-table"><thead><tr><th>類股</th><th>收盤指數</th><th>漲跌點數</th><th>漲跌幅</th></tr></thead><tbody><tr><td>塑膠</td><td>346.83</td><td class="up">+23.14</td><td class="up"><span class="tag tag-up">+7.15%</span></td></tr><tr><td>資訊服務</td><td>226.29</td><td class="up">+7.50</td><td class="up"><span class="tag tag-up">+3.43%</span></td></tr><tr><td>水泥</td><td>119.82</td><td class="up">+2.51</td><td class="up"><span class="tag tag-up">+2.14%</span></td></tr><tr><td>玻璃陶瓷</td><td>138.18</td><td class="up">+2.64</td><td class="up"><span class="tag tag-up">+1.95%</span></td></tr><tr><td>生技醫療</td><td>102.54</td><td class="up">+1.56</td><td class="up"><span class="tag tag-up">+1.54%</span></td></tr></tbody></table><h3 style="margin-top: 16px; color: #ef9a9a; font-size: 1em;">&#128308; 弱勢類股</h3><table class="stock-table"><thead><tr><th>類股</th><th>收盤指數</th><th>漲跌點數</th><th>漲跌幅</th></tr></thead><tbody><tr><td>電子通路</td><td>371.32</td><td class="down">-10.25</td><td class="down"><span class="tag tag-down">-2.69%</span></td></tr><tr><td>化學</td><td>189.69</td><td class="down">-4.86</td><td class="down"><span class="tag tag-down">-2.50%</span></td></tr><tr><td>鋼鐵</td><td>119.72</td><td class="down">-2.99</td><td class="down"><span class="tag tag-down">-2.44%</span></td></tr><tr><td>橡膠</td><td>191.93</td><td class="down">-4.17</td><td class="down"><span class="tag tag-down">-2.13%</span></td></tr><tr><td>綠能環保</td><td>133.38</td><td class="down">-2.29</td><td class="down"><span class="tag tag-down">-1.69%</span></td></tr></tbody></table>
+<div class="summary-box" style="margin-top: 16px;">
+    <p><strong>&#128200; 台股連四紅止步，開高走低失守 46,000 點：</strong>加權指數 8 月 14 日早盤一度大漲逾 380 點、盤中最高觸及 46,402.60 點改寫波段新高，惟隨後賣壓湧現，終場由紅翻黑下跌 210.47 點（-0.46%），收在 45,811.01 點，結束連續四日的上漲走勢，46,000 點整數關卡得而復失。成交金額 1.11 兆元，量能仍維持兆元水準。</p>
+    <p><strong>&#128313; 外資連 5 買加碼 453 億，法人買盤未歇：</strong>外資 8 月 14 日再加碼買超 453 億元，為連續第五個交易日買超，本周累計買超達 2,061 億元。三大法人合計買超 508.86 億元，顯示即便指數回檔，法人資金仍持續進場，尤其鍾情力積電等個股。</p>
+    <p><strong>&#127754; 資金由電子轉向傳產與防禦族群：</strong>塑膠類股受台塑集團強勢帶動大漲 7.15%，資訊服務、水泥、玻璃陶瓷與生技醫療等族群同步走強；相對地，電子通路、化學、鋼鐵、橡膠與綠能環保等族群明顯回檔，半導體類指數亦下跌 1.45%。台灣 50 指數下跌 0.67%、中型 100 指數僅小跌 0.05%，顯示資金自大型科技權值股流向傳產與中小型股，類股輪動加劇。</p>
+</div>
+</div>
+
+<div class="card">
+    <h2>&#128184; 台股重點權值股表現</h2>
+    <table class="stock-table">
+        <thead><tr><th>股票</th><th>代號</th><th>收盤價</th><th>漲跌</th><th>漲跌幅</th></tr></thead>
+        <tbody>
+            <tr><td>國泰金</td><td class="sym">2882</td><td>101.50</td><td class="up">+2.00</td><td class="up"><span class="tag tag-up">+2.01%</span></td></tr>
+            <tr><td>富邦金</td><td class="sym">2881</td><td>129.50</td><td class="up">+1.00</td><td class="up"><span class="tag tag-up">+0.78%</span></td></tr>
+            <tr><td>廣達</td><td class="sym">2382</td><td>327.50</td><td class="up">+2.50</td><td class="up"><span class="tag tag-up">+0.77%</span></td></tr>
+            <tr><td>台達電</td><td class="sym">2308</td><td>1,885.00</td><td class="up">0.00</td><td><span class="tag tag-neutral">持平</span></td></tr>
+            <tr><td>聯發科</td><td class="sym">2454</td><td>4,210.00</td><td class="down">-15.00</td><td class="down"><span class="tag tag-down">-0.36%</span></td></tr>
+            <tr><td>鴻海</td><td class="sym">2317</td><td>259.50</td><td class="down">-2.50</td><td class="down"><span class="tag tag-down">-0.95%</span></td></tr>
+            <tr><td>大立光</td><td class="sym">3008</td><td>4,610.00</td><td class="down">-50.00</td><td class="down"><span class="tag tag-down">-1.07%</span></td></tr>
+            <tr><td>台積電</td><td class="sym">2330</td><td>2,395.00</td><td class="down">-40.00</td><td class="down"><span class="tag tag-down">-1.64%</span></td></tr>
+            <tr><td>聯電</td><td class="sym">2303</td><td>121.00</td><td class="down">-3.50</td><td class="down"><span class="tag tag-down">-2.81%</span></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h2>&#127482;&#127480; 美股市場 — 零售銷售降溫，三大指數小跌、周線三連漲</h2>
+    <div class="market-grid"><div class="market-item">
+    <div class="name">DJIA 道瓊工業</div>
+    <div class="price">53,732.41</div>
+    <div class="change"><span class="down">▼ -107.58（-0.20%）</span></div>
+</div><div class="market-item">
+    <div class="name">S&P 500 標普五百</div>
+    <div class="price">7,785.76</div>
+    <div class="change"><span class="down">▼ -13.23（-0.17%）</span></div>
+</div><div class="market-item">
+    <div class="name">NASDAQ 那斯達克</div>
+    <div class="price">26,729.16</div>
+    <div class="change"><span class="down">▼ -73.87（-0.28%）</span></div>
+</div><div class="market-item">
+    <div class="name">VIX 恐慌指數</div>
+    <div class="price">14.25</div>
+    <div class="change"><span class="down">▼ -0.38（-2.60%）</span></div>
+</div></div>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128200; 三大指數小跌，周線仍收三連漲：</strong>美股週五呈現獲利了結格局，道瓊工業指數下跌 107.58 點（-0.20%）收 53,732.41 點；標普五百下跌 13.23 點（-0.17%）收 7,785.76 點；那斯達克指數下跌 73.87 點（-0.28%）收 26,729.16 點。雖然單日收黑，但三大指數周線仍連續第三週上漲，多頭格局未遭破壞。VIX 恐慌指數下滑至 14.25 低檔，市場情緒平穩。</p>
+        <p><strong>&#128313; 零售銷售降溫，升息警報暫解：</strong>美國 7 月零售銷售意外低於預期，市場解讀消費降溫將削弱聯準會升息的壓力，升息機率明顯下滑，資金因此重新回流股債市場。惟在指數逼近歷史高檔之際，利多出盡引發部分獲利了結賣壓，導致主要指數由早盤的漲勢轉為小幅收黑。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128300; 科技七巨頭表現 — 特斯拉、蘋果逆勢收紅，其餘多數回檔</h2>
+    <table class="stock-table">
+        <thead><tr><th>公司</th><th>代號</th><th>收盤價</th><th>漲跌</th><th>漲跌幅</th></tr></thead>
+        <tbody><tr><td>特斯拉</td><td class="sym">TSLA</td><td>342.27</td><td class="up">+2.31</td><td class="up"><span class="tag tag-up">+0.68%</span></td></tr><tr><td>蘋果</td><td class="sym">AAPL</td><td>305.93</td><td class="up">+0.67</td><td class="up"><span class="tag tag-up">+0.22%</span></td></tr><tr><td>輝達</td><td class="sym">NVDA</td><td>225.16</td><td class="down">-0.14</td><td class="down"><span class="tag tag-down">-0.06%</span></td></tr><tr><td>谷歌</td><td class="sym">GOOGL</td><td>345.90</td><td class="down">-0.46</td><td class="down"><span class="tag tag-down">-0.13%</span></td></tr><tr><td>微軟</td><td class="sym">MSFT</td><td>495.40</td><td class="down">-1.48</td><td class="down"><span class="tag tag-down">-0.30%</span></td></tr><tr><td>Meta</td><td class="sym">META</td><td>589.85</td><td class="down">-5.12</td><td class="down"><span class="tag tag-down">-0.86%</span></td></tr><tr><td>亞馬遜</td><td class="sym">AMZN</td><td>262.65</td><td class="down">-2.48</td><td class="down"><span class="tag tag-down">-0.94%</span></td></tr></tbody>
+    </table>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128200; 七巨頭僅特斯拉、蘋果收紅：</strong>特斯拉上漲 0.68% 收 342.27 美元，蘋果小漲 0.22% 收 305.93 美元，為七巨頭中唯二收紅個股。輝達近乎持平（-0.06%），谷歌、微軟小幅回檔。</p>
+        <p><strong>&#128308; 亞馬遜、Meta 領跌：</strong>亞馬遜下跌 0.94% 收 262.65 美元，Meta 下跌 0.86% 收 589.85 美元，為七巨頭中跌幅較大者。整體而言，科技股在週五隨大盤同步降溫，前一日由特斯拉、Meta 領漲的強勁氣勢略見收斂，資金轉趨保守。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128176; 匯率與商品市場</h2>
+    <div class="market-grid"><div class="market-item">
+    <div class="name">美元／台幣</div>
+    <div class="price">32.004</div>
+    <div class="change"><span class="down">▼ 新台幣升值 0.37%</span></div>
+</div><div class="market-item">
+    <div class="name">黃金期貨</div>
+    <div class="price">4,432.00</div>
+    <div class="change"><span class="up">▲ +68.40（+1.57%）</span></div>
+</div><div class="market-item">
+    <div class="name">原油期貨（WTI）</div>
+    <div class="price">82.40</div>
+    <div class="change"><span class="up">▲ +1.15（+1.42%）</span></div>
+</div><div class="market-item">
+    <div class="name">美元指數</div>
+    <div class="price">99.64</div>
+    <div class="change"><span class="down">▼ -0.32（-0.32%）</span></div>
+</div></div>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#129351; 黃金續揚逾 1.5%，逼近歷史高檔：</strong>黃金期貨 8 月 14 日上漲 68.4 美元（+1.57%），收在約每盎司 4,432 美元，延續近期多頭氣勢。在美元走弱、全球央行增持與地緣政治風險的支撐下，金價維持高檔強勢格局。</p>
+        <p><strong>&#128739; 原油反彈逾 1.4%：</strong>原油期貨（WTI）8 月 14 日上漲 1.15 美元（+1.42%），收在每桶約 82.40 美元，收復前一日跌幅。美元走軟與市場對中東供應情勢的關注，支撐油價反彈，短線仍於 80 至 83 美元區間震盪。</p>
+        <p><strong>&#128313; 美元走弱、新台幣續強：</strong>美元指數下跌 0.32% 至 99.64，美元兌台幣收在約 32.004，新台幣升值約 0.37%。在外資連續買超台股的帶動下，新台幣延續偏強格局，並一度升破 32.3 關卡。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128240; 重點財經新聞摘要</h2>
+    <div class="news-item">
+        <div class="title">&#127481;&#127484; 台股開高走低失守 46,000 點，外資連 5 買加碼 453 億</div>
+        <div class="desc">台股 8 月 14 日早盤一度大漲逾 380 點、觸及 46,402.60 點波段新高，惟獲利了結賣壓出籠，終場翻黑下跌 210.47 點（-0.46%）收在 45,811.01 點，連四紅止步。外資仍連續第五日買超、單日加碼 453 億元，本周累計買超 2,061 億元，三大法人合計買超 508.86 億元。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#128165; 塑膠類股暴漲逾 7%，台塑集團帶頭強攻</div>
+        <div class="desc">塑膠類指數 8 月 14 日大漲 7.15%，為盤面最強族群，台塑集團旗下個股強勢表態、南亞甚至一度觸及漲停，市場以「別再當我是塑膠」形容此番攻勢。消息面上，台塑斥資 4 億元合資台塑大賽璐、持股 50% 拓展塑膠材料布局，加上資金輪動至低基期傳產股，推升塑膠族群全面走強。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#128640; MSCI 三升台股權重，估帶來 2,500 億資金活水</div>
+        <div class="desc">MSCI 最新季度調整調升台股權重，市場預估將為台股帶來約 2,500 億元的被動資金活水，成為支撐台股中期資金面的利多。加上外資本周天天買超，法人資金持續回流，市場對後市看法轉趨樂觀。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#127482;&#127480; 美 7 月零售銷售意外疲軟，三大指數小跌但周線三連漲</div>
+        <div class="desc">美國 7 月零售銷售意外低於預期，削弱聯準會升息壓力，升息機率明顯下滑，資金回流股債基金。惟指數逼近高檔、利多出盡引發獲利了結，道瓊下跌 0.20%、標普五百下跌 0.17%、那斯達克下跌 0.28%，但三大指數周線仍連續第三週收紅。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#129351; 油金齊揚，黃金逼近 4,432 美元、原油反彈至 82 美元上方</div>
+        <div class="desc">美元指數走弱至 99.64，帶動商品價格全面走揚。黃金期貨上漲 1.57% 收在約 4,432 美元，續創波段高檔；原油期貨（WTI）反彈 1.42% 收在約 82.40 美元。新台幣在外資買盤帶動下升值 0.37%，美元兌台幣收在約 32.004。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#128202; 台股資金輪動加劇，電子降溫、傳產與金融接棒</div>
+        <div class="desc">台股 8 月 14 日盤面結構明顯轉變，半導體類指數下跌 1.45%、電子通路下跌 2.69%，大型科技權值股普遍回檔，台積電下跌 1.64% 收 2,395 元；相對地，塑膠、資訊服務、水泥、生技醫療等傳產與防禦族群走強，金融股同步走揚，國泰金上漲 2.01%、富邦金上漲 0.78%，資金由電子族群轉向傳產與金融。</div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128204; 本日市場總結與展望</h2>
+    <div class="summary-box">
+        <p><strong>&#128313; 台股：</strong>加權指數下跌 210.47 點（-0.46%）收 45,811 點，開高走低失守 46,000 點關卡，結束連四紅。外資連 5 買加碼 453 億、本周累計買超 2,061 億元，法人資金續挺。</p>
+        <p><strong>&#128313; 類股：</strong>塑膠類股大漲 7.15% 領軍，資訊服務、水泥、生技醫療走強；電子通路、化學、鋼鐵、橡膠回檔，半導體下跌 1.45%，資金明顯由電子轉向傳產與金融。</p>
+        <p><strong>&#128313; 美股：</strong>零售銷售降溫削弱升息預期，惟高檔獲利了結，三大指數小跌（道瓊 -0.20%、標普 -0.17%、那斯達克 -0.28%），周線仍三連漲，VIX 維持 14.25 低檔。</p>
+        <p><strong>&#128313; 科技股：</strong>七巨頭僅特斯拉、蘋果收紅，亞馬遜、Meta 跌幅較大，科技股隨大盤降溫。</p>
+        <p><strong>&#128313; 匯率：</strong>美元指數走弱至 99.64，美元兌台幣 32.004，新台幣升值約 0.37%。</p>
+        <p><strong>&#128313; 商品：</strong>油金齊揚，黃金上漲 1.57% 至 4,432 美元，原油反彈 1.42% 至 82.40 美元。</p>
+        <p><strong>&#128313; 焦點：</strong>台股開高走低失守 46,000 點、外資連 5 買、塑膠類股暴漲逾 7%、美零售降溫暫解升息壓力、油金同步走揚。</p>
+    </div>
+</div>
+
+<div class="timeline-note">
+    &#9888; 資料說明：本報告數據來自 2026 年 8 月 14 日（週五）收盤。台股數據來自臺灣證券交易所（TWSE）公開 API，美股與商品數據來自 Yahoo Finance，匯率數據來自 Yahoo Finance（USDTWD）。商品期貨可能因結算時間與合約月份不同而有所差異。本報告由 AI 自動生成，僅供參考，不構成投資建議。
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a class="back-link" href="../../index.html">&#8592; 回到歷史報告列表</a>
+</div>
+
+<div class="footer">
+    &copy; 2026 每日財經晨報 &middot; AI 自動生成 &middot; 資料來源：TWSE、Yahoo Finance
+</div>
+</div>
+</body>
+</html>
