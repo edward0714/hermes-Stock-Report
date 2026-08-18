@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日財經晨報 — 2026年8月18日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e8eaed; min-height: 100vh; line-height: 1.7;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; padding: 40px 20px 30px; background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #1565c0 100%); border-radius: 16px; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .header h1 { font-size: 2em; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .header .date { font-size: 1.1em; color: #90caf9; opacity: 0.9; }
+        .header .subtitle { margin-top: 8px; font-size: 0.95em; color: #b0bec5; }
+        .card { background: rgba(30,35,60,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px; margin-bottom: 20px; backdrop-filter: blur(10px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+        .card h2 { font-size: 1.3em; color: #64b5f6; border-bottom: 2px solid rgba(100,180,246,0.3); padding-bottom: 10px; margin-bottom: 16px; }
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+        .market-item { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.2s; }
+        .market-item:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .market-item .name { font-size: 0.9em; color: #9aa0a6; margin-bottom: 4px; }
+        .market-item .price { font-size: 1.4em; font-weight: 700; color: #fff; }
+        .market-item .change { font-size: 0.95em; margin-top: 4px; }
+        .up { color: #4caf50; } .down { color: #f44336; }
+        .neutral { color: #b0bec5; }
+        .stock-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .stock-table th { text-align: left; padding: 10px 12px; font-size: 0.85em; color: #9aa0a6; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 600; }
+        .stock-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95em; }
+        .stock-table tr:hover { background: rgba(255,255,255,0.03); }
+        .stock-table .sym { color: #9aa0a6; font-size: 0.8em; }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78em; font-weight: 600; }
+        .tag-up { background: rgba(76,175,80,0.2); color: #81c784; }
+        .tag-down { background: rgba(244,67,54,0.2); color: #ef9a9a; }
+        .tag-neutral { background: rgba(158,158,158,0.2); color: #b0bec5; }
+        .summary-box { background: linear-gradient(135deg, rgba(255,183,77,0.12), rgba(255,138,101,0.08)); border-left: 4px solid #ffb74d; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 12px 0; }
+        .summary-box p { margin: 6px 0; font-size: 0.95em; }
+        .summary-box strong { color: #ffb74d; }
+        .news-item { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .title { font-weight: 600; color: #e0e0e0; margin-bottom: 4px; }
+        .news-item .desc { font-size: 0.9em; color: #9aa0a6; }
+        .back-link { display: inline-block; margin-top: 16px; color: #64b5f6; text-decoration: none; font-size: 0.95em; padding: 8px 16px; border-radius: 8px; background: rgba(100,180,246,0.1); }
+        .back-link:hover { background: rgba(100,180,246,0.2); }
+        .footer { text-align: center; padding: 20px; color: #5f6368; font-size: 0.85em; }
+        .timeline-note { font-size: 0.8em; color: #ff8a65; margin-top: 8px; padding: 8px 12px; background: rgba(255,138,101,0.08); border-radius: 8px; }
+    </style>
+</head>
+<body>
+<div class="container">
+<a class="back-link" href="../../index.html">&#8592; 回到歷史報告列表</a>
+
+<div class="header">
+    <h1>&#128202; 每日財經晨報</h1>
+    <div class="date">2026 年 8 月 18 日（星期二）</div>
+    <div class="subtitle">台股週一甩尾小漲 46 點收紅、重返 46,000 點得而復失；投信出現史上最大賣超、但外資 AI 題材持續看多；美股週一三大指數齊步走跌、油價與殖利率走升拖累；黃金大漲逾 2% 逼近 4,500 美元、原油大漲逾 3% 突破 84 美元</div>
+</div>
+
+<div class="card">
+    <h2>&#127481;&#127484; 台股市場 — 週一收盤回顧</h2>
+    <div class="market-grid">
+        <div class="market-item">
+            <div class="name">加權指數（週一 8/17 收）</div>
+            <div class="price">45,857.27</div>
+            <div class="change up">單日 ▲ +46.26（+0.10%）</div>
+        </div>
+        <div class="market-item">
+            <div class="name">週一盤中高點</div>
+            <div class="price">46,189.30</div>
+            <div class="change up">早盤重返 46,000 大關</div>
+        </div>
+        <div class="market-item">
+            <div class="name">週一盤中低點</div>
+            <div class="price">45,765.07</div>
+            <div class="change neutral">午後回吐漲幅</div>
+        </div>
+        <div class="market-item">
+            <div class="name">前一日收盤（8/14）</div>
+            <div class="price">45,811.01</div>
+            <div class="change neutral">收復上週五失土</div>
+        </div>
+    </div>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128200; 週一甩尾小漲 46 點收紅、46,000 點得而復失：</strong>台股加權指數週一（8/17）早盤一度強勢重返 46,000 點整數大關、盤中觸及 46,189.30 點，惟午後漲幅收斂，終場「甩尾」小漲 46.26 點收在 45,857.27 點，46,000 點關卡得而復失，但成功收復上週五的回檔失土。</p>
+        <p><strong>&#128313; 投信出現史上最大賣超、外資 AI 題材持續看多：</strong>值得注意的是，投信昨日出現史上最大單日賣超，賣壓來襲之際，靠大立光、川湖等指標股點燈撐盤。不過外資仍以 AI 為後盾持續看多台股，認為 AI 去槓桿已漸入尾聲，主動選股有機會卡位台股反彈行情，挑戰歷史新高。</p>
+        <p><strong>&#128293; 金融股輪流飆、高價股點燈：</strong>股后川湖昨日漲停創下天價，金融股則接力飆漲，國泰金大漲逼近 100 元關卡、富邦金再刷新高，盤面資金明顯在金融、高價電子股之間輪動。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#127482;&#127480; 美股市場 — 週一收盤回顧</h2>
+    <div class="market-grid">
+        <div class="market-item">
+            <div class="name">S&P 500 標普五百</div>
+            <div class="price">7,745.06</div>
+            <div class="change down">單日 ▼ -40.70（-0.52%）</div>
+        </div>
+        <div class="market-item">
+            <div class="name">NASDAQ 那斯達克</div>
+            <div class="price">26,644.91</div>
+            <div class="change down">單日 ▼ -84.25（-0.32%）</div>
+        </div>
+        <div class="market-item">
+            <div class="name">DJIA 道瓊工業</div>
+            <div class="price">53,459.78</div>
+            <div class="change down">單日 ▼ -272.63（-0.51%）</div>
+        </div>
+        <div class="market-item">
+            <div class="name">VIX 恐慌指數</div>
+            <div class="price">15.19</div>
+            <div class="change up">單日 ▲ +0.94（+6.60%）</div>
+        </div>
+    </div>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128200; 美股週一三大指數齊步走跌：</strong>美股週一（8/17）在油價上漲與公債殖利率走升的雙重壓力下，三大指數同步收黑。標普五百下跌 0.52% 收 7,745.06 點，那斯達克下跌 0.32% 收 26,644.91 點，道瓊工業指數下跌 0.51% 收 53,459.78 點，為本週揭開略顯疲弱的序幕。</p>
+        <p><strong>&#128313; 油價與殖利率走升為主要拖累：</strong>西德州原油週一大漲逾 3%，帶動能源成本與通膨預期升溫，加上公債殖利率走升，壓抑了股市風險情緒。市場焦點轉向本週即將登場的重量級零售股財報，以及輝達（NVDA）等科技巨擘後續財報時程。</p>
+        <p><strong>&#128142; VIX 雖回升仍處相對低檔：</strong>VIX 恐慌指數週一雖上揚 6.60% 至 15.19，但此前一度觸及 2026 年以來新低，整體市場情緒仍相對平穩，投資人正謹慎觀察後續財報與聯準會政策動向。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128300; 科技股焦點 — 週一半導體族群漲跌互見</h2>
+    <table class="stock-table">
+        <thead><tr><th>公司</th><th>代號</th><th>收盤價</th><th>單日漲跌</th><th>單日漲跌幅</th></tr></thead>
+        <tbody>
+            <tr><td>台積電ADR</td><td class="sym">TSM</td><td>430.97</td><td class="up">+4.62</td><td class="up"><span class="tag tag-up">+1.08%</span></td></tr>
+            <tr><td>輝達</td><td class="sym">NVDA</td><td>225.01</td><td class="down">-0.15</td><td class="down"><span class="tag tag-down">-0.07%</span></td></tr>
+            <tr><td>博通</td><td class="sym">AVGO</td><td>392.43</td><td class="down">-0.56</td><td class="down"><span class="tag tag-down">-0.14%</span></td></tr>
+            <tr><td>特斯拉</td><td class="sym">TSLA</td><td>339.30</td><td class="down">-2.97</td><td class="down"><span class="tag tag-down">-0.87%</span></td></tr>
+            <tr><td>超微</td><td class="sym">AMD</td><td>506.00</td><td class="down">-8.39</td><td class="down"><span class="tag tag-down">-1.63%</span></td></tr>
+        </tbody>
+    </table>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128142; 台積電ADR逆勢走強、領漲半導體族群：</strong>台積電ADR週一逆勢上漲 1.08% 收 430.97 美元，表現最為亮眼，反映市場對台積電 AI 訂單動能的持續看好；輝達則近乎持平、微幅回檔 0.07% 收 225.01 美元。</p>
+        <p><strong>&#128308; 超微回檔逾 1.6%、回吐上週五部分漲幅：</strong>超微（AMD）上週五強漲 6.5% 後，週一出現獲利了結賣壓，回檔 1.63% 收 506.00 美元，特斯拉小跌 0.87% 收 339.30 美元，博通則近乎持平收 392.43 美元，整體科技股走勢漲跌互見、缺乏明確方向。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128184; 台股重點權值股 — 週一收盤參考</h2>
+    <table class="stock-table">
+        <thead><tr><th>股票</th><th>代號</th><th>收盤價</th><th>單日漲跌</th><th>單日漲跌幅</th></tr></thead>
+        <tbody>
+            <tr><td>廣達</td><td class="sym">2382</td><td>333.50</td><td class="up">+6.00</td><td class="up"><span class="tag tag-up">+1.83%</span></td></tr>
+            <tr><td>台積電</td><td class="sym">2330</td><td>2,400.00</td><td class="up">+5.00</td><td class="up"><span class="tag tag-up">+0.21%</span></td></tr>
+            <tr><td>台達電</td><td class="sym">2308</td><td>1,885.00</td><td class="neutral">0.00</td><td class="neutral"><span class="tag tag-neutral">持平</span></td></tr>
+            <tr><td>鴻海</td><td class="sym">2317</td><td>255.00</td><td class="down">-4.50</td><td class="down"><span class="tag tag-down">-1.73%</span></td></tr>
+            <tr><td>聯發科</td><td class="sym">2454</td><td>4,050.00</td><td class="down">-160.00</td><td class="down"><span class="tag tag-down">-3.80%</span></td></tr>
+        </tbody>
+    </table>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128293; AI 伺服器指標廣達領漲、聯發科回檔較重：</strong>廣達週一上漲 1.83% 收 333.50 元，為權值股中表現最佳，台積電小漲 0.21% 收 2,400 元站穩整數關卡，台達電持平收 1,885 元；相對地，聯發科回檔 3.80% 收 4,050 元、鴻海下跌 1.73% 收 255 元，權值股走勢分歧。</p>
+        <p><strong>&#128313; 高價股與金融股成盤面焦點：</strong>除權值股外，昨日盤面資金明顯轉向高價股與金融族群，股后川湖漲停創天價，國泰金、富邦金接連創高，市場資金輪動速度加快，AI 伺服器與半導體主軸未變、但短線操作難度升高。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128176; 匯率與商品市場 — 週一最新動態</h2>
+    <div class="market-grid">
+        <div class="market-item">
+            <div class="name">黃金期貨</div>
+            <div class="price">4,479.70</div>
+            <div class="change up">單日 ▲ +99.30（+2.27%）</div>
+        </div>
+        <div class="market-item">
+            <div class="name">原油期貨（WTI）</div>
+            <div class="price">84.91</div>
+            <div class="change up">單日 ▲ +2.51（+3.05%）</div>
+        </div>
+        <div class="market-item">
+            <div class="name">VIX 恐慌指數</div>
+            <div class="price">15.19</div>
+            <div class="change up">單日 ▲ +0.94</div>
+        </div>
+        <div class="market-item">
+            <div class="name">美元／台幣</div>
+            <div class="price">31.85</div>
+            <div class="change down">新台幣走升</div>
+        </div>
+    </div>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#129351; 黃金大漲逾 2%、逼近 4,500 美元關卡：</strong>黃金期貨週一大漲 2.27% 收 4,479.70 美元，逼近 4,500 美元整數關卡。美元偏弱、市場對聯準會再升息的預期消退，加上全球央行持續增持黃金，均支撐金價於歷史高檔強勢上攻，多頭格局延續。</p>
+        <p><strong>&#128739; 原油大漲逾 3%、突破 84 美元：</strong>西德州原油（WTI）週一大漲 3.05% 收 84.91 美元，突破 84 美元關卡，成為壓抑美股的關鍵因素之一。油價走升推升能源成本與通膨預期，市場關注其對聯準會貨幣政策的後續影響。</p>
+        <p><strong>&#128185; 新台幣走升、逼近 31.8 關卡：</strong>美元兌台幣週一走低至約 31.85，新台幣延續偏強格局，反映外資資金持續流入台股、以及美元指數走軟的雙重帶動。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128204; 今日市場展望與關注焦點</h2>
+    <div class="summary-box">
+        <p><strong>&#128313; 台股能否重新站穩 46,000 點：</strong>週一台股一度重返 46,000 點卻得而復失，今日觀察指數能否重新站穩該關卡，若能守穩則多方格局可望延續，挑戰波段新高；反之則留意高檔整理、回測 5 日線的壓力。</p>
+        <p><strong>&#128313; 投信史上最大賣超的後續影響：</strong>投信昨日出現史上最大單日賣超，短線籌碼面需密切觀察，但外資仍以 AI 為後盾看多台股，法人多空拉鋸將是今日盤勢的關鍵變數。</p>
+        <p><strong>&#128313; 美股財報週與油價動向：</strong>本週美國重量級零售股財報陸續登場，輝達等科技巨擘財報時程亦備受矚目；油價走升與公債殖利率變化，將持續牽動全球風險情緒與聯準會政策預期。</p>
+        <p><strong>&#129351; 黃金與原物料：</strong>黃金逼近 4,500 美元關鍵關卡、原油突破 84 美元，商品價格走強對相關原物料、塑化與能源類股構成利多，但亦須留意通膨預期升溫對股市的壓力。</p>
+        <p><strong>&#128300; 類股輪動：</strong>金融股接連創高、高價股點燈，AI 伺服器與半導體仍為主軸，今日觀察資金是否延續在金融、高價電子與科技股之間的快速輪動節奏。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128240; 重點財經新聞摘要</h2>
+    <div class="news-item">
+        <div class="title">&#127481;&#127484; 台股週一甩尾小漲 46 點收紅，46,000 點得而復失</div>
+        <div class="desc">加權指數週一（8/17）早盤重返 46,000 點大關、盤中觸及 46,189.30 點，惟午後漲幅收斂，終場小漲 46.26 點收在 45,857.27 點，成功收復上週五失土。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#128165; 投信出現史上最大賣超，大立光、川湖點燈撐盤</div>
+        <div class="desc">投信昨日出現史上最大單日賣超，賣壓來襲之際靠大立光、川湖等指標股點燈救場，股后川湖漲停創天價，指數最終甩尾收紅。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#128293; 金融股輪流飆，國泰金逼近 100 元、富邦金刷新高</div>
+        <div class="desc">金融族群接力走強，國泰金大漲逼近 100 元關卡、富邦金再刷新高，加上五大金控持有台股市值突破 2.9 兆元，資金明顯轉進金融股。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#127482;&#127480; 美股週一三大指數齊跌，油價與殖利率走升拖累</div>
+        <div class="desc">美股週一在油價上漲與公債殖利率走升壓力下，標普五百跌 0.52%、那斯達克跌 0.32%、道瓊跌 0.51%，市場焦點轉向本週零售股財報。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#129351; 黃金大漲逾 2% 逼近 4,500 美元，原油突破 84 美元</div>
+        <div class="desc">黃金週一上漲 2.27% 收 4,479.70 美元、逼近 4,500 美元關卡；西德州原油大漲 3.05% 收 84.91 美元，商品市場同步走強。</div>
+    </div>
+</div>
+
+<div class="timeline-note">
+    &#9888; 資料說明：本報告台股加權指數、權值股與美股、科技股、商品、匯率數據均為週一（2026 年 8 月 17 日）收盤數據。資料來源：台灣證券交易所（TWSE）公開 API 及 Yahoo Finance、Google News、中央社（CNA）。本報告由 AI 自動生成，僅供參考，不構成投資建議。
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a class="back-link" href="../../index.html">&#8592; 回到歷史報告列表</a>
+</div>
+
+<div class="footer">
+    &copy; 2026 每日財經晨報 &middot; AI 自動生成 &middot; 資料來源：TWSE、Yahoo Finance、Google News、CNA
+</div>
+</div>
+</body>
+</html>
