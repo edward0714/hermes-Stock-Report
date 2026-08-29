@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日財經晨報 — 2026年8月29日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e8eaed; min-height: 100vh; line-height: 1.7;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; padding: 40px 20px 30px; background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #1565c0 100%); border-radius: 16px; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .header h1 { font-size: 2em; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .header .date { font-size: 1.1em; color: #90caf9; opacity: 0.9; }
+        .header .subtitle { margin-top: 8px; font-size: 0.95em; color: #b0bec5; }
+        .card { background: rgba(30,35,60,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px; margin-bottom: 20px; backdrop-filter: blur(10px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+        .card h2 { font-size: 1.3em; color: #64b5f6; border-bottom: 2px solid rgba(100,180,246,0.3); padding-bottom: 10px; margin-bottom: 16px; }
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+        .market-item { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.2s; }
+        .market-item:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .market-item .name { font-size: 0.9em; color: #9aa0a6; margin-bottom: 4px; }
+        .market-item .price { font-size: 1.4em; font-weight: 700; color: #fff; }
+        .market-item .change { font-size: 0.95em; margin-top: 4px; }
+        .up { color: #4caf50; } .down { color: #f44341; }
+        .neutral { color: #b0bec5; }
+        .summary-box { background: linear-gradient(135deg, rgba(255,183,77,0.12), rgba(255,138,101,0.08)); border-left: 4px solid #ffb74d; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 12px 0; }
+        .summary-box p { margin: 6px 0; font-size: 0.95em; }
+        .summary-box strong { color: #ffb74d; }
+        .news-item { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .title { font-weight: 600; color: #e0e0e0; margin-bottom: 4px; }
+        .news-item .desc { font-size: 0.9em; color: #9aa0a6; }
+        .back-link { display: inline-block; margin: 16px 0; color: #64b5f6; text-decoration: none; font-size: 0.95em; padding: 8px 16px; border-radius: 8px; background: rgba(100,180,246,0.1); }
+        .back-link:hover { background: rgba(100,180,246,0.2); }
+        .footer { text-align: center; padding: 20px; color: #5f6368; font-size: 0.85em; }
+    </style>
+</head>
+<body>
+<div class="container">
+<a class="back-link" href="../../index.html">&#8592; 返回歷史報告列表</a>
+
+<div class="header">
+    <h1>&#128202; 每日財經晨報</h1>
+    <div class="date">2026 年 8 月 29 日（星期六）</div>
+    <div class="subtitle">台股昨日續揚、台積電與聯發科雙雙走強；美股三大指數收紅、惟費城半導體指數漲多回檔逾 2%；AI 巨頭財報亮眼、市場聚焦通膨與聯準會動向</div>
+</div>
+
+<div class="card">
+    <h2>&#127481;&#127484; 台股市場 — 昨日（8/28）持續上漲</h2>
+    <div class="market-grid">
+        <div class="market-item">
+            <div class="name">加權指數（8/28 收盤）</div>
+            <div class="price">46,331.45</div>
+            <div class="change up">持續攀升、再創近期高點</div>
+        </div>
+        <div class="market-item">
+            <div class="name">台積電（2330）</div>
+            <div class="price">2,420 元</div>
+            <div class="change up">單日 ▲ +10 元，半導體權值領漲</div>
+        </div>
+        <div class="market-item">
+            <div class="name">聯發科（2454）</div>
+            <div class="price">3,985 元</div>
+            <div class="change up">單日 ▲ +120 元，逼近 4,000 元關卡</div>
+        </div>
+        <div class="market-item">
+            <div class="name">盤勢觀測</div>
+            <div class="price">多方續攻</div>
+            <div class="change up">電子權值與高價股帶動市場氛圍轉佳</div>
+        </div>
+    </div>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128200; 台股延續上漲動能：</strong>台股加權指數昨日（8/28）在電子權值股領軍下持續走高，市場買盤延續前一日的反彈氣勢，指數穩步上攻，收盤續創近期高點，多方格局明顯確立。</p>
+        <p><strong>&#127974; 台積電、聯發科雙主軸走強：</strong>權值王台積電昨日上漲 10 元、收在 2,420 元；IC 設計龍頭聯發科強漲 120 元、收在 3,985 元，一度挑戰 4,000 元整數關卡，半導體與高價電子族群成為撐盤主軸。</p>
+        <p><strong>&#128308; 法人解讀：量能與 AI 展望為後續關鍵：</strong>法人指出，台股短線多方氣勢轉佳，惟量能能否持續放大、以及 AI 供應鏈後續展望，仍是指數能否再創高的觀察重點；國際半導體股的波動亦需留意。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#127482;&#127480; 美股市場 — 昨日（8/28）三大指數收紅、費半回檔</h2>
+    <div class="market-grid">
+        <div class="market-item">
+            <div class="name">S&P 500 標普五百</div>
+            <div class="price">7,711.76</div>
+            <div class="change up">單日 ▲ +37.39（+0.49%）</div>
+        </div>
+        <div class="market-item">
+            <div class="name">NASDAQ 那斯達克</div>
+            <div class="price">26,402.42</div>
+            <div class="change up">單日 ▲ +221.96（+0.85%）</div>
+        </div>
+        <div class="market-item">
+            <div class="name">DJIA 道瓊工業</div>
+            <div class="price">53,559.99</div>
+            <div class="change up">單日 ▲ +282.98（+0.53%）</div>
+        </div>
+        <div class="market-item">
+            <div class="name">費城半導體指數</div>
+            <div class="price">11,469.66</div>
+            <div class="change down">單日 ▼ -270.71（-2.31%）</div>
+        </div>
+    </div>
+    <div class="summary-box" style="margin-top: 16px;">
+        <p><strong>&#128200; 美股三大指數全面收紅：</strong>美股週四（8/28）在多方數據與企業消息帶動下收紅，那斯達克上漲 0.85% 表現最強，標普五百與道瓊亦同步走高，市場風險情緒維持正面。</p>
+        <p><strong>&#128300; 費半漲多回檔逾 2%：</strong>與三大指數走勢分歧，費城半導體指數下跌約 2.31%，AI 相關個股在前波大漲後出現獲利了結賣壓，市場對半導體族群短線過熱的疑慮浮現，惟長線 AI 資本支出動能仍受關注。</p>
+        <p><strong>&#128161; 市場焦點：通膨與聯準會動向：</strong>投資人持續關注通膨數據與聯準會貨幣政策走向，多位官員對物價前景發表談話；企業財報方面，AI 與雲端相關公司公布的訂單與營運展望普遍亮眼，成為支撐盤面的重要題材。</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>&#128240; 今日財經新聞重點</h2>
+    <div class="news-item">
+        <div class="title">&#127919; 半導體產業動態</div>
+        <div class="desc">Marvell 公布強勁的 AI 訂單表現，惟毛利率預期壓抑股價表現；市場持續關注 AI 需求與供應鏈資本支出的延續性，半導體族群短線波動加劇。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#127919; 雲端與資安產業</div>
+        <div class="desc">CrowdStrike 繳出史上最佳季度財報，資安與雲端需求維持強勁，反映企業 IT 支出與資安防護投資動能持續升溫。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#127919; 總經與政策</div>
+        <div class="desc">多位聯準會官員對通膨發表看法，市場持續評估利率政策路徑；能源與原物料價格波動、以及各國經濟數據，均為投資人密切追蹤的重點。</div>
+    </div>
+    <div class="news-item">
+        <div class="title">&#128161; 操作策略提示</div>
+        <div class="desc">國際半導體指數出現回檔，台股電子權值雖表現強勢，仍宜留意高位震盪風險；建議分批布局、並密切追蹤 AI 供應鏈訂單與後續財報展望，做好風險控管。</div>
+    </div>
+</div>
+
+<div class="footer">
+    本報告由每日財經晨報自動產生，內容僅供參考，不構成任何投資建議。<br>
+    資料來源：台灣證券交易所、Yahoo Finance 與公開市場資訊。
+</div>
+</div>
+</body>
+</html>
