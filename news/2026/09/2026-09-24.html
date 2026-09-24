@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>財經晨報 Pro — 2026年09月24日</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e8f5 100%);
+            color: #1a1a1a; line-height: 1.6; min-height: 100vh; padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .back-link {
+            display: inline-block; margin: 0 auto 20px; text-align: center;
+            background: none; color: #667eea; font-weight: 600; text-decoration: none;
+            padding: 8px 16px; border: 1px solid #667eea; border-radius: 20px;
+        }
+        .back-link:hover { background: #667eea; color: white; }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 60px 40px; border-radius: 16px; margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3); text-align: center; position: relative; overflow: hidden;
+        }
+        .header::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 400px; height: 400px;
+            background: rgba(255, 255, 255, 0.1); border-radius: 50%; transform: translate(100px, -100px);
+        }
+        .header-content { position: relative; z-index: 1; }
+        .header h1 { font-size: 3em; margin-bottom: 10px; font-weight: 700; letter-spacing: 2px; }
+        .header-subtitle { font-size: 1.2em; opacity: 0.95; margin-bottom: 20px; }
+        .header-date {
+            display: inline-block; background: rgba(255, 255, 255, 0.2); padding: 8px 16px;
+            border-radius: 20px; font-size: 0.95em;
+        }
+        .nav-tabs { display: flex; gap: 10px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 10px; }
+        .nav-tab {
+            padding: 12px 24px; background: white; border: 2px solid #e0e0e0; border-radius: 8px;
+            cursor: pointer; transition: all 0.3s; font-weight: 500; white-space: nowrap;
+        }
+        .nav-tab:hover, .nav-tab.active {
+            background: #667eea; color: white; border-color: #667eea; transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+        .section {
+            background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); animation: slideUp 0.5s ease-out;
+        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .section h2 {
+            font-size: 2em; color: #667eea; margin-bottom: 30px; padding-bottom: 15px;
+            border-bottom: 3px solid #667eea; display: flex; align-items: center; gap: 12px;
+        }
+        .section h2::before { content: ''; display: inline-block; width: 8px; height: 8px; background: #667eea; border-radius: 50%; }
+        .viewpoint-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin-top: 20px; }
+        .viewpoint-card {
+            border-radius: 12px; padding: 25px; border-left: 5px solid; transition: all 0.3s;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); cursor: pointer;
+        }
+        .viewpoint-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); }
+        .viewpoint-card.bullish { border-left-color: #28a745; background: linear-gradient(to right, rgba(40, 167, 69, 0.05) 0%, white 100%); }
+        .viewpoint-card.bearish { border-left-color: #dc3545; background: linear-gradient(to right, rgba(220, 53, 69, 0.05) 0%, white 100%); }
+        .viewpoint-card.neutral { border-left-color: #ffc107; background: linear-gradient(to right, rgba(255, 193, 7, 0.05) 0%, white 100%); }
+        .viewpoint-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .viewpoint-badge { display: inline-block; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.85em; color: white; }
+        .viewpoint-badge.bullish { background: #28a745; }
+        .viewpoint-badge.bearish { background: #dc3545; }
+        .viewpoint-badge.neutral { background: #ffc107; color: #333; }
+        .viewpoint-title { font-size: 1.2em; font-weight: 600; color: #333; margin-bottom: 15px; }
+        .viewpoint-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .viewpoint-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .viewpoint-item-label { font-weight: 600; color: #667eea; font-size: 0.9em; letter-spacing: 1px; margin-bottom: 5px; }
+        .viewpoint-item-content { color: #555; line-height: 1.8; }
+        .highlight-tag { display: inline-block; background: #f0f7ff; color: #667eea; padding: 4px 10px; border-radius: 4px; font-weight: 500; margin-right: 5px; margin-top: 5px; font-size: 0.85em; }
+        .market-indicators { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .market-indicators thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .market-indicators th { padding: 16px; text-align: left; font-weight: 600; border: none; }
+        .market-indicators tr { border-bottom: 1px solid #e0e0e0; transition: background 0.3s; }
+        .market-indicators tbody tr:hover { background: #f9f9f9; }
+        .market-indicators td { padding: 16px; vertical-align: middle; }
+        .market-indicators .category { font-weight: 600; color: #667eea; background: #f5f7fa; }
+        .market-indicators .indicator-name { font-weight: 500; color: #333; }
+        .market-indicators .number { font-weight: 600; color: #667eea; font-family: 'Courier New', monospace; font-size: 1.1em; }
+        .market-indicators .up { color: #28a745; font-weight: 700; }
+        .market-indicators .down { color: #dc3545; font-weight: 700; }
+        .market-indicators .neutral { color: #999; font-weight: 700; }
+        .industry-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .industry-table thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .industry-table th { padding: 18px; text-align: center; font-weight: 600; border: none; }
+        .industry-table th:first-child { text-align: left; }
+        .industry-table tr { border-bottom: 1px solid #e0e0e0; }
+        .industry-table tbody tr:hover { background: #f9f9f9; }
+        .industry-table td { padding: 16px; text-align: center; }
+        .industry-table td:first-child { text-align: left; font-weight: 600; color: #333; }
+        .direction-badge { display: inline-block; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9em; color: white; }
+        .direction-up { background: #28a745; }
+        .direction-down { background: #dc3545; }
+        .direction-neutral { background: #ffc107; color: #333; }
+        .stock-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .stock-tag { display: inline-block; background: #f0f7ff; color: #667eea; padding: 6px 12px; border-radius: 20px; font-weight: 500; font-size: 0.85em; border: 1px solid #667eea; }
+        .strategy-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 12px; margin-top: 30px; }
+        .strategy-card h3 { font-size: 1.5em; margin-bottom: 20px; }
+        .rating { font-size: 2em; font-weight: 700; margin: 20px 0; }
+        .action-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .action-item { background: rgba(255, 255, 255, 0.15); padding: 15px; border-radius: 8px; border-left: 4px solid; transition: all 0.3s; }
+        .action-item:hover { background: rgba(255, 255, 255, 0.25); transform: translateX(5px); }
+        .action-item.add { border-left-color: #28a745; }
+        .action-item.hold { border-left-color: #ffc107; }
+        .action-item.reduce { border-left-color: #dc3545; }
+        .action-item.avoid { border-left-color: #999; }
+        .action-icon { font-size: 1.5em; margin-bottom: 10px; }
+        .action-label { font-weight: 600; margin-bottom: 5px; }
+        .action-stocks { font-size: 0.9em; opacity: 0.9; }
+        .event-timeline { margin-top: 20px; position: relative; padding-left: 30px; }
+        .event-timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); border-radius: 2px; }
+        .event-item { margin-bottom: 30px; position: relative; padding-left: 30px; }
+        .event-item::before { content: ''; position: absolute; left: -16.5px; top: 5px; width: 12px; height: 12px; background: white; border: 3px solid #667eea; border-radius: 50%; }
+        .event-date { font-weight: 700; color: #667eea; font-size: 1.1em; margin-bottom: 5px; }
+        .event-title { font-weight: 600; color: #333; margin-bottom: 8px; }
+        .event-importance { display: inline-block; font-size: 0.85em; color: #ffc107; font-weight: 600; }
+        .event-description { color: #666; font-size: 0.95em; margin-top: 8px; line-height: 1.6; }
+        .footer { background: white; padding: 30px 40px; border-radius: 12px; text-align: center; color: #999; font-size: 0.9em; margin-top: 40px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); }
+        @media (max-width: 768px) {
+            .header { padding: 40px 20px; }
+            .header h1 { font-size: 2em; }
+            .section { padding: 20px; }
+            .viewpoint-grid { grid-template-columns: 1fr; }
+            .action-list { grid-template-columns: 1fr; }
+            .market-indicators th, .market-indicators td { padding: 12px 8px; font-size: 0.9em; }
+            .industry-table th, .industry-table td { padding: 12px 8px; font-size: 0.9em; }
+        }
+        .collapsible-section { margin-top: 20px; }
+        .collapsible-header {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%); border: 2px solid #667eea;
+            color: #667eea; padding: 15px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;
+            display: flex; justify-content: space-between; align-items: center; transition: all 0.3s;
+        }
+        .collapsible-header:hover { background: linear-gradient(135deg, #e6f0ff 0%, #d4e8ff 100%); }
+        .collapsible-header.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-color: #667eea; }
+        .collapsible-content { display: none; padding: 20px; background: #f9fbff; border: 1px solid #e0e8ff; border-top: none; border-radius: 0 0 8px 8px; animation: slideDown 0.3s ease-out; }
+        .collapsible-content.show { display: block; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align:center;">
+            <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <h1>📊 財經晨報 Pro</h1>
+                <div class="header-subtitle">機構級研究日報</div>
+                <div class="header-date">📅 2026-09-24 星期四</div>
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <div class="nav-tab active">📈 市場觀點</div>
+            <div class="nav-tab">🌍 全球市況</div>
+            <div class="nav-tab">🏭 台股焦點</div>
+            <div class="nav-tab">💰 資金流向</div>
+            <div class="nav-tab">📅 事件日曆</div>
+        </div>
+
+        <!-- ===== 市場觀點 ===== -->
+        <div class="section">
+            <h2>📈 全球市場觀點</h2>
+
+            <div class="viewpoint-grid">
+                <!-- 利多1 -->
+                <div class="viewpoint-card bullish">
+                    <div class="viewpoint-header">
+                        <div class="viewpoint-badge bullish">利多</div>
+                    </div>
+                    <div class="viewpoint-title">🚀 台股大漲 5.70% 突破 47,800 點</div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📰 事件</div>
+                        <div class="viewpoint-item-content">
+                            台股加權指數單日勁揚逾 2,575 點，收在 47,800.17 點，單日漲幅高達 5.70%，為近期最強勢的行情
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">💥 市場影響</div>
+                        <div class="viewpoint-item-content">
+                            權值股全面噴出、外資強力回流，市場風險偏好與資金動能同步轉強
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📊 依據</div>
+                        <div class="viewpoint-item-content">
+                            台股加權指數 47,800.17（+5.70%），為今日亞洲市場領漲指標
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 利多2 -->
+                <div class="viewpoint-card bullish">
+                    <div class="viewpoint-header">
+                        <div class="viewpoint-badge bullish">利多</div>
+                    </div>
+                    <div class="viewpoint-title">⚡ 半導體族群全面噴發</div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📰 事件</div>
+                        <div class="viewpoint-item-content">
+                            費城半導體指數（SOX）單日暴漲 8.09% 至 12,689.82 點，那斯達克同步大漲 4.06%
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">💥 市場影響</div>
+                        <div class="viewpoint-item-content">
+                            全球半導體景氣強勁回溫，資金全面湧向晶片與 AI 供應鏈，台股權重股直接受惠
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📍 台股受惠</div>
+                        <div class="stock-tags">
+                            <span class="stock-tag">台積電</span>
+                            <span class="stock-tag">聯發科</span>
+                            <span class="stock-tag">鴻海</span>
+                            <span class="stock-tag">廣達</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 利空 -->
+                <div class="viewpoint-card bearish">
+                    <div class="viewpoint-header">
+                        <div class="viewpoint-badge bearish">利空</div>
+                    </div>
+                    <div class="viewpoint-title">⚠️ 傳統權值與避險資產遭資金撤離</div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📰 事件</div>
+                        <div class="viewpoint-item-content">
+                            道瓊指數大跌 2.65%（跌逾 1,413 點）收 51,863.69 點；黃金同步重挫 5.98% 至 4,400.8 美元
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">💥 市場影響</div>
+                        <div class="viewpoint-item-content">
+                            呈現「資金棄守傳統價值股與避險資產、全面轉進成長科技」的極端輪動，顯示風險偏好高漲卻也意味資產切換劇烈
+                        </div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">📍 追蹤指標</div>
+                        <div class="viewpoint-item-content">
+                            道瓊能否止跌、黃金避險需求是否持續流失、資金輪動是否失衡
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 全球市場狀態 ===== -->
+        <div class="section">
+            <h2>🌍 全球市場狀態 - 即時籌碼掃描</h2>
+
+            <table class="market-indicators">
+                <thead>
+                    <tr>
+                        <th>指標分類</th>
+                        <th>指標名稱</th>
+                        <th>最新數值</th>
+                        <th>單日變動</th>
+                        <th>方向</th>
+                        <th>市場解讀</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="category" rowspan="4">美股</td>
+                        <td class="indicator-name">S&amp;P 500</td>
+                        <td class="number">7,764.64</td>
+                        <td>+1.18%</td>
+                        <td><span class="up">↑ 上漲</span></td>
+                        <td>科技股強力撐盤</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">那斯達克指數</td>
+                        <td class="number">27,244.28</td>
+                        <td>+4.06%</td>
+                        <td><span class="up">↑ 大漲</span></td>
+                        <td>成長科技領漲</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">道瓊指數</td>
+                        <td class="number">51,863.69</td>
+                        <td>-2.65%</td>
+                        <td><span class="down">↓ 大跌</span></td>
+                        <td>傳統權值遭拋售</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">費城半導體 SOX</td>
+                        <td class="number">12,689.82</td>
+                        <td>+8.09%</td>
+                        <td><span class="up">↑↓ 暴漲</span></td>
+                        <td>半導體全面噴發</td>
+                    </tr>
+                    <tr>
+                        <td class="category" rowspan="2">大宗商品</td>
+                        <td class="indicator-name">黃金</td>
+                        <td class="number">4,400.8 美元</td>
+                        <td>-5.98%</td>
+                        <td><span class="down">↓ 重挫</span></td>
+                        <td>避險需求流失</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">原油</td>
+                        <td class="number">89.59 美元</td>
+                        <td>+2.91%</td>
+                        <td><span class="up">↑ 上漲</span></td>
+                        <td>供給面推升油價</td>
+                    </tr>
+                    <tr>
+                        <td class="category" rowspan="2">匯率</td>
+                        <td class="indicator-name">美元兌台幣</td>
+                        <td class="number">31.675</td>
+                        <td>-0.51%</td>
+                        <td><span class="down">↓ 台幣升值</span></td>
+                        <td>外資流入推升台幣</td>
+                    </tr>
+                    <tr>
+                        <td class="indicator-name">美元兌人民幣</td>
+                        <td class="number">6.6897</td>
+                        <td>-0.49%</td>
+                        <td><span class="down">↓ 人民幣升值</span></td>
+                        <td>美元走弱</td>
+                    </tr>
+                    <tr>
+                        <td class="category">台股</td>
+                        <td class="indicator-name">台股加權指數</td>
+                        <td class="number">47,800.17</td>
+                        <td>+5.70%</td>
+                        <td><span class="up">↑ 大漲</span></td>
+                        <td>外資強力回流</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 25px; padding: 20px; background: #f9fbff; border-left: 4px solid #667eea; border-radius: 8px;">
+                <strong style="color: #667eea;">💡 核心判讀：</strong>
+                <ul style="margin-top: 10px; margin-left: 20px; color: #555; line-height: 1.8;">
+                    <li>費城半導體指數暴漲 8.09% 搭配那斯達克大漲 4.06%，顯示市場正上演一場極端的「成長科技資金大風吹」，對台股科技權值股為強力利多</li>
+                    <li>台股 +5.70% 與台幣升值（-0.51%）同步出現，確認外資回流趨勢明確，非僅指數軋空所帶動</li>
+                    <li><strong style="color: #dc3545;">需特別留意：</strong>道瓊大跌 2.65% 且黃金重挫 5.98%，顯示資金急劇由價值股與避險資產撤離，單日輪動力道過於劇烈，短線或有獲利了結與回檔壓力</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===== 台股焦點 ===== -->
+        <div class="section">
+            <h2>🏭 台股焦點 - 今日最值得關注的產業族群</h2>
+
+            <table class="industry-table">
+                <thead>
+                    <tr>
+                        <th>產業</th>
+                        <th>方向</th>
+                        <th>核心理由</th>
+                        <th>量化依據</th>
+                        <th>代表個股</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>先進製程</strong></td>
+                        <td><span class="direction-badge direction-up">↑↑ 偏多</span></td>
+                        <td>SOX 暴漲 8.09%，晶片景氣強勁回溫，先進製程為主要受惠主軸</td>
+                        <td>SOX +8.09%<br>那斯達克 +4.06%</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">台積電</span>
+                                <span class="stock-tag">聯電</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>半導體設備與材料</strong></td>
+                        <td><span class="direction-badge direction-up">↑ 偏多</span></td>
+                        <td>半導體資本支出擴張預期升溫，設備與材料供應鏈同步受惠</td>
+                        <td>SOX 12,689.82<br>單日 +8.09%</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">家登</span>
+                                <span class="stock-tag">京鼎</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>AI 伺服器</strong></td>
+                        <td><span class="direction-badge direction-up">↑ 偏多</span></td>
+                        <td>AI 供應鏈與晶片同步受資金追捧，代工訂單能見度延續</td>
+                        <td>台股 +5.70%<br>外資回流</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">廣達</span>
+                                <span class="stock-tag">鴻海</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>金融</strong></td>
+                        <td><span class="direction-badge direction-neutral">→ 中性</span></td>
+                        <td>美道瓊崩跌顯示傳統價值資金撤離，金融族群方向有待觀察</td>
+                        <td>道瓊 -2.65%<br>傳統權值走弱</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">國泰金</span>
+                                <span class="stock-tag">台新金</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>航運</strong></td>
+                        <td><span class="direction-badge direction-neutral">→ 中性</span></td>
+                        <td>油價上漲 2.91%（89.59 美元）墊高航運成本，運價走勢有待觀察</td>
+                        <td>原油 +2.91%<br>成本壓力升溫</td>
+                        <td>
+                            <div class="stock-tags">
+                                <span class="stock-tag">長榮海運</span>
+                                <span class="stock-tag">陽明海運</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="collapsible-section">
+                <div class="collapsible-header" onclick="toggleOp(this)">
+                    📋 操作建議分層
+                    <span>▼</span>
+                </div>
+                <div class="collapsible-content" id="opContent">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="padding: 15px; background: #d4edda; border-radius: 8px; border-left: 4px solid #28a745;">
+                            <strong>🟢 強烈加碼</strong>
+                            <p style="margin-top: 10px;">台積電、廣達<br><span style="font-size: 0.9em; color: #555;">半導體噴發主軸</span></p>
+                        </div>
+                        <div style="padding: 15px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
+                            <strong>🟡 持有加碼</strong>
+                            <p style="margin-top: 10px;">鴻海、聯發科<br><span style="font-size: 0.9em; color: #555;">供應鏈受惠</span></p>
+                        </div>
+                        <div style="padding: 15px; background: #e7f3ff; border-radius: 8px; border-left: 4px solid #0066cc;">
+                            <strong>⚪ 持有觀望</strong>
+                            <p style="margin-top: 10px;">金融、航運、避險資產<br><span style="font-size: 0.9em; color: #555;">方向待確認、短線輪動劇烈</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 投資策略 ===== -->
+        <div class="strategy-card">
+            <h3>🎯 今日投資策略</h3>
+
+            <div style="margin-top: 20px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.1em; margin-bottom: 10px;">市場評級</div>
+                <div class="rating">⭐⭐⭐⭐☆ 偏多</div>
+                <div style="font-size: 0.95em; opacity: 0.9;">短線動能強勁，惟需防資金輪動過度的回檔風險</div>
+            </div>
+
+            <div style="margin-top: 20px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.1em; margin-bottom: 10px; font-weight: 600;">決策邏輯</div>
+                <div style="line-height: 1.8; opacity: 0.95;">
+                    台股單日大漲 5.70% 且費城半導體指數暴漲 8.09%，搭配台幣升值與那斯達克大漲，顯示外資回流與成長科技資金動能明確，短線偏多格局確立。<br><br>
+                    惟需留意：(1) 道瓊大跌 2.65%、黃金重挫 5.98%，顯示資金由傳統價值股與避險資產急劇撤離，輪動力道過於猛烈；(2) 單日漲幅過大恐有短線過熱與獲利了結壓力；(3) 油價續漲 2.91% 或墊高整體成本。<br><br>
+                    建議維持偏多加碼半導體與 AI 供應鏈權值股，金融與航運、避險資產暫以觀望為主，並嚴設停利以因應短線回檔。
+                </div>
+            </div>
+
+            <div style="margin-top: 25px;">
+                <div style="font-size: 1.1em; margin-bottom: 15px; font-weight: 600;">📋 今日操作清單</div>
+                <div class="action-list">
+                    <div class="action-item add">
+                        <div class="action-icon">🟢</div>
+                        <div class="action-label">優先加碼</div>
+                        <div class="action-stocks">台積電、廣達<br>半導體噴發主軸</div>
+                    </div>
+                    <div class="action-item hold">
+                        <div class="action-icon">🟡</div>
+                        <div class="action-label">持有加碼</div>
+                        <div class="action-stocks">鴻海、聯發科<br>供應鏈受惠</div>
+                    </div>
+                    <div class="action-item reduce">
+                        <div class="action-icon">🔴</div>
+                        <div class="action-label">逢高減碼</div>
+                        <div class="action-stocks">金融、航運<br>傳統權值承壓</div>
+                    </div>
+                    <div class="action-item avoid">
+                        <div class="action-icon">❌</div>
+                        <div class="action-label">暫時回避</div>
+                        <div class="action-stocks">避險資產（黃金）<br>資金持續流失，設停利</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 關鍵事件日曆 ===== -->
+        <div class="section">
+            <h2>📅 關鍵事件行事曆 - 未來 7 日</h2>
+
+            <div class="event-timeline">
+                <div class="event-item">
+                    <div class="event-date">📅 2026-09-24（今日）</div>
+                    <div class="event-title">半導體噴發、台股強勢收盤</div>
+                    <div class="event-importance">⭐⭐⭐⭐ 重要</div>
+                    <div class="event-description">
+                        台股加權大漲 5.70% 收 47,800.17 點，費城半導體指數暴漲 8.09%，外資回流帶動資金全面轉進成長科技。
+                        <br><strong>追蹤指標：</strong> 外資持續動向、大型權值股續航力、短線是否過熱
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">📅 2026-09-25</div>
+                    <div class="event-title">半導體類股續航力觀察</div>
+                    <div class="event-importance">⭐⭐⭐⭐ 重要</div>
+                    <div class="event-description">
+                        半導體單日暴漲後能否延續漲勢，將決定台股短線方向，也是資金輪動是否健康的關鍵。
+                        <br><strong>追蹤指標：</strong> SOX 指數、台積電與聯發科走勢、外資買賣超
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">📅 2026-09-26</div>
+                    <div class="event-title">台股資金輪動與道瓊止跌訊號</div>
+                    <div class="event-importance">⭐⭐⭐ 一般</div>
+                    <div class="event-description">
+                        道瓊大跌 2.65% 後是否止跌、資金是否回流傳統權值，將影響金融與航運族群。
+                        <br><strong>追蹤指標：</strong> 道瓊指數、金融股、油價走勢
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">📅 2026-09-28</div>
+                    <div class="event-title">成長與避險資產資金流向再平衡</div>
+                    <div class="event-importance">⭐⭐⭐⭐ 重要</div>
+                    <div class="event-description">
+                        黃金重挫 5.98%、油價續漲後，避險與原物料資金是否止穩，將成為市場風險情緒的重要觀察點。
+                        <br><strong>追蹤指標：</strong> 黃金、原油、美元指數、避險買盤動向
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 頁腳 -->
+        <div class="footer">
+            <p>📊 本報告由 Hermes AI Agent 根據公開市場資訊自動生成，僅供參考之用</p>
+            <p>📍 數據來源：本地市場數據（market_data.json 即時快照）</p>
+            <p style="margin-top: 15px; color: #999; font-size: 0.85em;">
+                ⚠️ <strong>免責聲明：</strong> 本報告不構成投資建議。投資決策應諮詢專業理財顧問，投資者應自行承擔投資風險。
+            </p>
+            <p style="margin-top: 10px; font-size: 0.85em;">📅 生成時間：2026-09-24（台北時間）</p>
+        </div>
+    </div>
+
+    <script>
+        // 導航標籤點擊效果 - 切換內容區塊
+        document.querySelectorAll('.nav-tab').forEach((tab, index) => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.display = 'none';
+                    section.style.animation = 'none';
+                });
+                this.classList.add('active');
+                const sections = document.querySelectorAll('.section');
+                if (sections[index]) {
+                    sections[index].style.display = 'block';
+                    sections[index].style.animation = 'slideUp 0.5s ease-out';
+                }
+            });
+        });
+        const initialSections = document.querySelectorAll('.section');
+        initialSections.forEach((section, i) => {
+            section.style.display = (i === 0) ? 'block' : 'none';
+        });
+        function toggleOp(header) {
+            header.classList.toggle('active');
+            document.getElementById('opContent').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
