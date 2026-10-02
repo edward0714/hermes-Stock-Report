@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財經晨報 Pro — 2026年10月2日</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', 'Microsoft YaHei', Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e4e9f7 60%, #ede4f7 100%);
+  color: #1a1a1a; line-height: 1.7; min-height: 100vh; padding: 20px;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff; padding: 56px 40px; border-radius: 16px; margin-bottom: 28px;
+  box-shadow: 0 20px 60px rgba(102,126,234,.3); text-align: center; position: relative; overflow: hidden;
+}
+.header::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 400px; height: 400px;
+  background: rgba(255,255,255,.1); border-radius: 50%; transform: translate(100px,-100px);
+}
+.header-content { position: relative; z-index: 1; }
+.header h1 { font-size: 2.6em; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+.header-subtitle { font-size: 1.15em; opacity: .95; margin-bottom: 16px; }
+.header-date { display: inline-block; background: rgba(255,255,255,.2); padding: 8px 18px; border-radius: 20px; font-size: .95em; }
+.nav-tabs { display: flex; gap: 10px; margin-bottom: 28px; overflow-x: auto; padding-bottom: 8px; }
+.nav-tab {
+  padding: 12px 22px; background: #fff; border: 2px solid #e0e0e0; border-radius: 8px;
+  cursor: pointer; transition: all .3s; font-weight: 600; white-space: nowrap; font-size: .95em;
+}
+.nav-tab:hover, .nav-tab.active { background: #667eea; color: #fff; border-color: #667eea; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(102,126,234,.25); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.section { background: #fff; border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+.section h2 { font-size: 1.5em; color: #4a3f8f; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #667eea; }
+.section h3 { font-size: 1.15em; color: #5a4a9f; margin: 22px 0 12px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 8px; }
+.card { background: #fff; border-radius: 10px; padding: 20px; border-left: 5px solid #999; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+.card.bull { border-left-color: #27ae60; background: linear-gradient(135deg,#f4fdf7 0%,#fff 100%); }
+.card.bear { border-left-color: #e74c3c; background: linear-gradient(135deg,#fdf5f4 0%,#fff 100%); }
+.card.neutral { border-left-color: #f39c12; background: linear-gradient(135deg,#fefaf2 0%,#fff 100%); }
+.card h4 { font-size: 1.05em; margin-bottom: 8px; }
+.card.bull h4 { color: #1e7a45; }
+.card.bear h4 { color: #b8352a; }
+.card.neutral h4 { color: #b1740a; }
+.card p { font-size: .94em; color: #444; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .93em; }
+th { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; padding: 12px 10px; text-align: left; font-weight: 600; }
+td { padding: 11px 10px; border-bottom: 1px solid #eee; }
+tr:nth-child(even) td { background: #fafbff; }
+.up { color: #e74c3c; font-weight: 700; }
+.down { color: #27ae60; font-weight: 700; }
+.flat { color: #888; font-weight: 700; }
+.note { background: #f7f8fd; border-left: 4px solid #764ba2; padding: 14px 18px; border-radius: 8px; font-size: .92em; color: #444; margin: 16px 0; }
+.strategy-list { list-style: none; }
+.strategy-list li { padding: 12px 16px; margin-bottom: 10px; background: #f7f8fd; border-radius: 8px; border-left: 4px solid #667eea; font-size: .95em; }
+.strategy-list li strong { color: #4a3f8f; }
+.checklist { list-style: none; }
+.checklist li { padding: 10px 0 10px 30px; position: relative; border-bottom: 1px dashed #e5e5e5; font-size: .95em; }
+.checklist li::before { content: '✔'; position: absolute; left: 6px; color: #667eea; font-weight: 700; }
+.event { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #eee; font-size: .95em; }
+.event .date { min-width: 108px; font-weight: 700; color: #667eea; }
+.chart-box { background: #fafbff; border-radius: 10px; padding: 18px; margin: 16px 0; }
+.back-link { display: inline-block; margin: 8px 0 30px; color: #667eea; text-decoration: none; font-weight: 600; }
+.back-link:hover { text-decoration: underline; }
+.footer { text-align: center; color: #888; font-size: .85em; padding: 24px 0; }
+@media (max-width: 640px) {
+  .header h1 { font-size: 1.8em; }
+  .header { padding: 36px 20px; }
+  .section { padding: 22px 18px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-content">
+      <h1>📊 財經晨報 Pro</h1>
+      <div class="header-subtitle">全球市場 × 台股焦點 × 資金流向 每日摘要</div>
+      <div class="header-date">2026 年 10 月 2 日（星期五）</div>
+    </div>
+  </div>
+
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="switchTab(event,'market')">📈 市場觀點</div>
+    <div class="nav-tab" onclick="switchTab(event,'global')">🌍 全球市況</div>
+    <div class="nav-tab" onclick="switchTab(event,'tw')">🏭 台股焦點</div>
+    <div class="nav-tab" onclick="switchTab(event,'flow')">💰 資金流向</div>
+    <div class="nav-tab" onclick="switchTab(event,'calendar')">📅 事件日曆</div>
+  </div>
+
+  <!-- ===== 市場觀點 ===== -->
+  <div class="tab-panel active" id="panel-market">
+    <div class="section">
+      <h2>📈 今日市場觀點</h2>
+      <div class="cards">
+        <div class="card bull">
+          <h4>🟢 利多｜台股 10 月開局收盤再創新高</h4>
+          <p>加權指數 10 月 1 日上漲 413.36 點、漲幅 0.86%，收在 48,353.49 點，改寫收盤歷史新高；櫃買指數同步上漲 0.42%，收 418.82 點，連續站穩所有均線之上。權王台積電（2330）走揚 30 元、收 2,510 元，大型權值與中小型股同步轉強，多頭架構完整。</p>
+        </div>
+        <div class="card bull">
+          <h4>🟢 利多｜被動元件點火，國巨、華新科雙雙漲停</h4>
+          <p>10 月 1 日盤面由被動元件（MLCC）族群領軍攻堅，龍頭國巨與華新科雙雙亮燈漲停，擺脫前一日的整理格局，成為推升指數再創高的關鍵攻擊引擎。資金明顯由防禦性標的轉向具漲價題材與評價修復空間的電子次族群。</p>
+        </div>
+        <div class="card bull">
+          <h4>🟢 利多｜費半強彈 1.59%，半導體氣勢延續</h4>
+          <p>美股 10 月 1 日費城半導體指數上漲 200.38 點、漲幅 1.59%，收在 12,829 點，為四大指數中表現最強，半導體設備、AI 相關族群持續吸金。日經指數同日大漲逾 3.3%，亞洲科技股氣氛明顯回暖。</p>
+        </div>
+        <div class="card neutral">
+          <h4>🟡 中性｜美股指標幾乎持平，市場等待非農數據</h4>
+          <p>道瓊工業指數收 50,926.56 點、上漲 0.04%，那斯達克指數收 26,871.61 點、上漲 0.04%，兩大指數幾乎原地踏步。市場在 9 月非農就業報告公布前轉趨觀望，長天期美國公債殖利率仍維持在 5.3% 附近的高檔區間，壓抑整體評價空間。</p>
+        </div>
+      </div>
+      <div class="note">
+        <strong>綜合觀點：</strong>現階段市場呈現「美股高檔量縮整理、台股逆勢創高」的分歧格局。台股在費半走強、國際油價回落與內資買盤力挺下，10 月開局即以收盤新高揭開序幕，顯示資金對 AI 與半導體供應鏈的信心仍未動搖；權王台積電重回 2,500 元之上，更是穩定多頭軍心的關鍵。惟須留意兩大變數：一是長天期美債殖利率高懸，二是 9 月非農就業數據即將公布，**建議以「偏多操作但不追高」為原則**，聚焦被動元件、AI 供應鏈、半導體設備與廠務工程四大主線，並嚴控單一持股比重。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 全球市況 ===== -->
+  <div class="tab-panel" id="panel-global">
+    <div class="section">
+      <h2>🌍 全球市場指標</h2>
+      <table>
+        <tr><th>市場／指數</th><th>收盤（10/1）</th><th>漲跌幅</th><th>觀察重點</th></tr>
+        <tr><td>道瓊工業指數</td><td>50,926.56</td><td class="up">+0.04%</td><td>高檔量縮、幾乎持平</td></tr>
+        <tr><td>那斯達克指數</td><td>26,871.61</td><td class="up">+0.04%</td><td>科技股觀望氣氛濃</td></tr>
+        <tr><td>費城半導體指數</td><td>12,829.00</td><td class="up">+1.59%</td><td>四大指數中最強、獨領風騷</td></tr>
+        <tr><td>美國 10 年期公債殖利率</td><td>約 5.3%</td><td class="up">高檔盤旋</td><td>30 年期約 5.64%，評價面壓力未解</td></tr>
+        <tr><td>西德州原油（WTI）／布蘭特原油</td><td>高檔回落</td><td class="down">下跌</td><td>油價回落助攻石化利差與風險偏好</td></tr>
+        <tr><td>黃金</td><td>區間整理</td><td class="flat">方向未明</td><td>美元與實質利率雙重牽制</td></tr>
+        <tr><td>日經 225 指數</td><td>68,956.72</td><td class="up">+3.30%</td><td>亞洲最強、科技權值領漲</td></tr>
+        <tr><td>香港恆生指數</td><td>24,613.27</td><td class="up">+0.37%</td><td>走勢溫和、資金偏觀望</td></tr>
+        <tr><td>上證 A 股指數</td><td>4,028.34</td><td class="up">+0.30%</td><td>站穩 4,000 點關卡</td></tr>
+      </table>
+
+      <h3>美股重點族群</h3>
+      <table>
+        <tr><th>標的／族群</th><th>表現</th><th>說明</th></tr>
+        <tr><td>半導體與晶片設備</td><td class="up">領漲</td><td>費半獨強 1.59%，AI 資本支出題材續熱</td></tr>
+        <tr><td>AI 與雲端運算</td><td class="up">偏多</td><td>資金集中度仍高，為多頭核心</td></tr>
+        <tr><td>大型價值與傳產權值</td><td class="flat">持平</td><td>道瓊幾近收平，缺乏方向</td></tr>
+        <tr><td>利率敏感型成長股</td><td class="down">承壓</td><td>長天期殖利率高檔，評價持續受抑</td></tr>
+      </table>
+
+      <h3>亞洲市場</h3>
+      <table>
+        <tr><th>市場</th><th>表現</th><th>說明</th></tr>
+        <tr><td>台灣加權指數</td><td class="up">48,353.49（+0.86%）</td><td>收盤再創歷史新高、10 月開局紅</td></tr>
+        <tr><td>台灣櫃買指數</td><td class="up">418.82（+0.42%）</td><td>中小型股人氣延續、站穩均線</td></tr>
+        <tr><td>日本日經 225</td><td class="up">68,956.72（+3.30%）</td><td>亞洲市場領頭羊</td></tr>
+        <tr><td>香港恆生指數</td><td class="up">24,613.27（+0.37%）</td><td>小幅走揚</td></tr>
+      </table>
+
+      <div class="note">
+        <strong>關鍵解讀：</strong>美股 10 月 1 日呈現「指數平淡、族群分明」的結構，道瓊與那斯達克幾乎原地不動，但費半以 1.59% 的漲幅一枝獨秀，反映資金並未撤離科技與半導體主軸，只是在總體經濟數據公布前降低整體曝險。壓抑盤面的核心仍是債市——10 年期美債殖利率維持在 5.3% 附近、30 年期約 5.64%，在高利率環境下，評價面的天花板效應難以擺脫。亞洲方面，日經單日大漲逾 3.3% 表現最為剽悍，台股則以收盤新高跟進，區域科技股同步轉強。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 台股焦點 ===== -->
+  <div class="tab-panel" id="panel-tw">
+    <div class="section">
+      <h2>🏭 台股焦點與產業分析</h2>
+      <table>
+        <tr><th>項目</th><th>數據</th><th>說明</th></tr>
+        <tr><td>加權指數收盤</td><td class="up">48,353.49 點</td><td>上漲 413.36 點（+0.86%），收盤再創歷史新高</td></tr>
+        <tr><td>櫃買指數收盤</td><td class="up">418.82 點</td><td>上漲 1.75 點（+0.42%），穩居所有均線之上</td></tr>
+        <tr><td>台積電（2330）</td><td class="up">2,510 元</td><td>上漲 30 元，重新站回 2,500 元整數關卡</td></tr>
+        <tr><td>被動元件族群</td><td class="up">全面噴出</td><td>國巨、華新科雙雙漲停，成為盤面領攻主力</td></tr>
+      </table>
+
+      <h3>產業族群分析</h3>
+      <table>
+        <tr><th>產業族群</th><th>方向</th><th>觀察重點</th></tr>
+        <tr><td>被動元件（MLCC）</td><td class="up">強勢噴出</td><td>國巨、華新科漲停，漲價題材與評價修復雙重加持</td></tr>
+        <tr><td>AI 與伺服器供應鏈</td><td class="up">偏多</td><td>資本支出延續，訂單能見度延伸至明年</td></tr>
+        <tr><td>半導體設備與廠務工程</td><td class="up">偏多</td><td>2 奈米與 CoWoS 擴廠，在手訂單能見度直達 2026 年底</td></tr>
+        <tr><td>記憶體與儲存</td><td class="up">偏多</td><td>報價展望轉佳、法人買盤持續進駐</td></tr>
+        <tr><td>先進封裝與封測</td><td class="up">偏多</td><td>CoWoS 產能吃緊，供應鏈動能穩健</td></tr>
+        <tr><td>塑化與傳產權值</td><td class="up">轉強</td><td>國際油價回落，石化產品利差擴大</td></tr>
+        <tr><td>電信與防禦型標的</td><td class="down">資金流出</td><td>風險偏好升溫，避險買盤調節換股</td></tr>
+        <tr><td>高評價成長股</td><td class="down">承壓</td><td>長天期殖利率高檔，評價面遭到壓縮</td></tr>
+      </table>
+
+      <div class="note">
+        <strong>盤面解讀：</strong>台股 10 月首個交易日即以「加權指數收盤創新高」強勢開局，與前一交易日尾盤權王遭倒貨、漲幅收斂的壓抑氣氛形成明顯對比。10 月 1 日的多頭結構更為健康——台積電穩步走高重新站回 2,500 元，被動元件族群在漲價題材加持下全面噴出，資金不再集中於單一權值股，而是向具基本面支撐的次族群擴散，屬於典型的「輪動攻擊」格局。櫃買指數同步走強，代表中小型股的攻擊能量正在延續，對多頭而言是量價齊揚的正面訊號。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 資金流向 ===== -->
+  <div class="tab-panel" id="panel-flow">
+    <div class="section">
+      <h2>💰 資金流向與籌碼觀察</h2>
+
+      <h3>內外資動向</h3>
+      <table>
+        <tr><th>資金來源</th><th>動向</th><th>觀察重點</th></tr>
+        <tr><td>外資及陸資</td><td class="up">站在買方</td><td>連續買超、鎖定半導體與權值股，尚未出現明顯獲利了結</td></tr>
+        <tr><td>投信</td><td class="up">偏多操作</td><td>季底作帳後續接力布局，聚焦投本比偏高的成長股</td></tr>
+        <tr><td>自營商</td><td class="flat">區間調節</td><td>短線進出頻繁，對指數方向貢獻有限</td></tr>
+        <tr><td>融資餘額</td><td class="flat">未見過熱</td><td>散戶追價意願仍節制，過熱風險偏低</td></tr>
+      </table>
+
+      <h3>資金焦點</h3>
+      <ul class="strategy-list">
+        <li><strong>資金由防禦轉向攻擊：</strong>10 月 1 日電信等低波動防禦型標的出現資金流出，買盤明顯轉向被動元件、半導體設備等攻擊型電子族群，風險偏好（Risk-On）情緒升溫。</li>
+        <li><strong>權值與中小型股同步吸金：</strong>加權指數與櫃買指數齊揚，代表資金並未排擠，而是同步進場，籌碼結構相對扎實。</li>
+        <li><strong>油價回落挹注傳產：</strong>國際油價自高檔回落，使石化原料成本下降、煉油與石化產品利差明顯修復，傳產權值股獲得資金青睞。</li>
+        <li><strong>匯率與量能為後續關鍵：</strong>新台幣若能同步轉強並搭配成交量放大，代表外資全面回流，將是指數續攻的最大推力。</li>
+      </ul>
+
+      <div class="chart-box">
+        <canvas id="flowChart" height="140"></canvas>
+      </div>
+
+      <div class="note">
+        <strong>資金結論：</strong>10 月 1 日盤面最重要的結構性變化，在於「資金由防禦轉攻擊、權值與中小型股同步走強」。外資與投信同步站在買方，配合被動元件族群的漲停攻勢，顯示內外資對第四季行情抱持偏多期待。惟精確之三大法人買賣超金額以臺灣證券交易所當日公告為準，建議投資人於盤後複核；操作上仍宜以分批布局取代一次性重壓。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 事件日曆 ===== -->
+  <div class="tab-panel" id="panel-calendar">
+    <div class="section">
+      <h2>📅 事件日曆與投資策略</h2>
+
+      <h3>近期重要事件</h3>
+      <div class="event"><div class="date">10/02（五）</div><div>美國 9 月非農就業報告與失業率公布，為聯準會 10 月底利率決策的核心依據。</div></div>
+      <div class="event"><div class="date">10 月上旬</div><div>美國 ISM 製造業與服務業指數公布，觀察景氣擴張動能是否延續。</div></div>
+      <div class="event"><div class="date">10 月上旬</div><div>台灣 9 月出口與外銷訂單數據公布，驗證 AI 供應鏈實際拉貨力道。</div></div>
+      <div class="event"><div class="date">10 月中</div><div>台積電法人說明會登場，市場聚焦 2 奈米量產進度、AI 需求展望與明年資本支出規劃。</div></div>
+      <div class="event"><div class="date">10 月中下旬</div><div>美股第三季財報季進入高峰，科技巨頭與半導體廠財報將主導市場方向。</div></div>
+      <div class="event"><div class="date">10 月底</div><div>聯準會 FOMC 利率決策會議，CME FedWatch 顯示 10 月升息機率已降至約 37%，市場普遍預期 12 月才是升息時點。</div></div>
+      <div class="event"><div class="date">11 月初</div><div>台灣 9 月外銷訂單與上市櫃公司第三季財報陸續公布，基本面驗證進入高峰。</div></div>
+
+      <h3>投資策略</h3>
+      <ul class="strategy-list">
+        <li><strong>主軸一｜被動元件與評價修復族群：</strong>國巨、華新科漲停揭開補漲序幕，具漲價題材與低基期雙重條件的次族群動能最強，但短線漲幅已大，宜等回測再行介入。</li>
+        <li><strong>主軸二｜AI 與先進封裝供應鏈：</strong>AI 資本支出延續、CoWoS 產能吃緊，相關供應鏈訂單能見度延伸至明年，為中長線核心持股。</li>
+        <li><strong>主軸三｜半導體設備與廠務工程：</strong>晶圓代工龍頭與國際記憶體巨頭擴建 2 奈米、A16 與先進封裝新廠，廠務與機電工程在手訂單飽滿，營收認列進入高峰期。</li>
+        <li><strong>主軸四｜高股息與傳產權值：</strong>油價回落有利石化利差修復，在高利率環境下，具穩定現金流的高股息標的相對抗跌，可作為波動時的資金避風港。</li>
+        <li><strong>風險控管：</strong>長天期美債殖利率若持續攀高，高評價成長股將面臨評價壓縮風險；指數已創新高，建議嚴控單一持股比重、保留現金彈性。</li>
+        <li><strong>操作節奏：</strong>新台幣匯率與成交量是兩大觀察指標，兩者同步轉強即代表外資全面回流，可積極加碼；反之則維持逢回分批布局。</li>
+      </ul>
+
+      <h3>今日操作清單</h3>
+      <ul class="checklist">
+        <li>留意美國 9 月非農就業報告結果，作為下週盤勢方向的關鍵依據</li>
+        <li>追蹤新台幣匯率走勢，作為外資是否全面回補的領先指標</li>
+        <li>被動元件漲停後觀察隔日是否出現獲利了結賣壓，避免追高</li>
+        <li>關注 AI、先進封裝、半導體設備與廠務工程四大主線的輪動節奏</li>
+        <li>檢視持股中高評價成長股比重，必要時降低曝險以因應殖利率風險</li>
+        <li>觀察櫃買指數能否續強，作為中小型股人氣是否延續的指標</li>
+      </ul>
+
+      <div class="note">
+        <strong>本週總結：</strong>台股以收盤歷史新高為 10 月揭開序幕，籌碼面由外資與投信同步偏多、資金由防禦轉攻擊，結構明顯優於前波。若美國 9 月非農數據不過度強勁，且新台幣同步回穩、量能有效放大，第四季行情有機會延續多頭格局。策略上建議「偏多操作、嚴設停損」，以基本面選股對抗利率波動，並對短線漲多的族群保持紀律。
+      </div>
+    </div>
+  </div>
+
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="footer">
+    📊 財經晨報 Pro ｜ 資料來源：公開市場資訊整理 ｜ 本報告僅供參考，不構成任何投資建議
+  </div>
+</div>
+
+<script>
+function switchTab(evt, name) {
+  var panels = document.getElementsByClassName('tab-panel');
+  for (var i = 0; i < panels.length; i++) { panels[i].classList.remove('active'); }
+  var tabs = document.getElementsByClassName('nav-tab');
+  for (var j = 0; j < tabs.length; j++) { tabs[j].classList.remove('active'); }
+  document.getElementById('panel-' + name).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+(function initChart() {
+  var el = document.getElementById('flowChart');
+  if (!el || typeof Chart === 'undefined') return;
+  new Chart(el, {
+    type: 'bar',
+    data: {
+      labels: ['日經 225', '費城半導體', '台灣加權', '恆生指數', '上證 A 股', '那斯達克', '道瓊工業'],
+      datasets: [{
+        label: '漲跌幅（%）',
+        data: [3.30, 1.59, 0.86, 0.37, 0.30, 0.04, 0.04],
+        backgroundColor: ['#667eea', '#764ba2', '#27ae60', '#4a9fd8', '#f39c12', '#9b8bd8', '#b0b0c8'],
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, title: { display: true, text: '全球主要市場漲跌幅（%）— 2026/10/1' } },
+      scales: { y: { beginAtZero: true } }
+    }
+  });
+})();
+</script>
+</body>
+</html>
