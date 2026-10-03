@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財經晨報 Pro — 2026年10月3日</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', 'Microsoft YaHei', Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e4e9f7 60%, #ede4f7 100%);
+  color: #1a1a1a; line-height: 1.7; min-height: 100vh; padding: 20px;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff; padding: 56px 40px; border-radius: 16px; margin-bottom: 28px;
+  box-shadow: 0 20px 60px rgba(102,126,234,.3); text-align: center; position: relative; overflow: hidden;
+}
+.header::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 400px; height: 400px;
+  background: rgba(255,255,255,.1); border-radius: 50%; transform: translate(100px,-100px);
+}
+.header-content { position: relative; z-index: 1; }
+.header h1 { font-size: 2.6em; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+.header-subtitle { font-size: 1.15em; opacity: .95; margin-bottom: 16px; }
+.header-date { display: inline-block; background: rgba(255,255,255,.2); padding: 8px 18px; border-radius: 20px; font-size: .95em; }
+.nav-tabs { display: flex; gap: 10px; margin-bottom: 28px; overflow-x: auto; padding-bottom: 8px; }
+.nav-tab {
+  padding: 12px 22px; background: #fff; border: 2px solid #e0e0e0; border-radius: 8px;
+  cursor: pointer; transition: all .3s; font-weight: 600; white-space: nowrap; font-size: .95em;
+}
+.nav-tab:hover, .nav-tab.active { background: #667eea; color: #fff; border-color: #667eea; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(102,126,234,.25); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.section { background: #fff; border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+.section h2 { font-size: 1.5em; color: #4a3f8f; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #667eea; }
+.section h3 { font-size: 1.15em; color: #5a4a9f; margin: 22px 0 12px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 8px; }
+.card { background: #fff; border-radius: 10px; padding: 20px; border-left: 5px solid #999; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+.card.bull { border-left-color: #27ae60; background: linear-gradient(135deg,#f4fdf7 0%,#fff 100%); }
+.card.bear { border-left-color: #e74c3c; background: linear-gradient(135deg,#fdf5f4 0%,#fff 100%); }
+.card.neutral { border-left-color: #f39c12; background: linear-gradient(135deg,#fefaf2 0%,#fff 100%); }
+.card h4 { font-size: 1.05em; margin-bottom: 8px; }
+.card.bull h4 { color: #1e7a45; }
+.card.bear h4 { color: #b8352a; }
+.card.neutral h4 { color: #b1740a; }
+.card p { font-size: .94em; color: #444; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .93em; }
+th { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; padding: 12px 10px; text-align: left; font-weight: 600; }
+td { padding: 11px 10px; border-bottom: 1px solid #eee; }
+tr:nth-child(even) td { background: #fafbff; }
+.up { color: #e74c3c; font-weight: 700; }
+.down { color: #27ae60; font-weight: 700; }
+.flat { color: #888; font-weight: 700; }
+.note { background: #f7f8fd; border-left: 4px solid #764ba2; padding: 14px 18px; border-radius: 8px; font-size: .92em; color: #444; margin: 16px 0; }
+.strategy-list { list-style: none; }
+.strategy-list li { padding: 12px 16px; margin-bottom: 10px; background: #f7f8fd; border-radius: 8px; border-left: 4px solid #667eea; font-size: .95em; }
+.strategy-list li strong { color: #4a3f8f; }
+.checklist { list-style: none; }
+.checklist li { padding: 10px 0 10px 30px; position: relative; border-bottom: 1px dashed #e5e5e5; font-size: .95em; }
+.checklist li::before { content: '✔'; position: absolute; left: 6px; color: #667eea; font-weight: 700; }
+.event { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #eee; font-size: .95em; }
+.event .date { min-width: 108px; font-weight: 700; color: #667eea; }
+.chart-box { background: #fafbff; border-radius: 10px; padding: 18px; margin: 16px 0; }
+.back-link { display: inline-block; margin: 8px 0 30px; color: #667eea; text-decoration: none; font-weight: 600; }
+.back-link:hover { text-decoration: underline; }
+.footer { text-align: center; color: #888; font-size: .85em; padding: 24px 0; }
+@media (max-width: 640px) {
+  .header h1 { font-size: 1.8em; }
+  .header { padding: 36px 20px; }
+  .section { padding: 22px 18px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-content">
+      <h1>📊 財經晨報 Pro</h1>
+      <div class="header-subtitle">全球市場 × 台股焦點 × 資金流向 每日摘要</div>
+      <div class="header-date">2026 年 10 月 3 日（星期六）</div>
+    </div>
+  </div>
+
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="switchTab(event,'market')">📈 市場觀點</div>
+    <div class="nav-tab" onclick="switchTab(event,'global')">🌍 全球市況</div>
+    <div class="nav-tab" onclick="switchTab(event,'tw')">🏭 台股焦點</div>
+    <div class="nav-tab" onclick="switchTab(event,'flow')">💰 資金流向</div>
+    <div class="nav-tab" onclick="switchTab(event,'calendar')">📅 事件日曆</div>
+  </div>
+
+  <!-- ===== 市場觀點 ===== -->
+  <div class="tab-panel active" id="panel-market">
+    <div class="section">
+      <h2>📈 今日市場觀點</h2>
+      <div class="cards">
+        <div class="card bull">
+          <h4>🟢 利多｜台股 10 月 2 日收盤再寫歷史新高</h4>
+          <p>加權指數 10 月 2 日上漲 122.25 點、漲幅 0.25%，收在 48,475.74 點，再度改寫台股歷史收盤新高，成交金額約 9,332 億元。櫃買指數在光通訊與中小型電子族群狂飆帶動下暴漲 1.94%，收 426.93 點，加權與櫃買同步創高，量價結構健康。</p>
+        </div>
+        <div class="card bull">
+          <h4>🟢 利多｜美國 9 月非農爆冷，升息押注急速降溫</h4>
+          <p>美國 9 月非農就業僅新增 2.9 萬人（市場預期約 8.9 萬人），失業率升至 4.2%，平均時薪年增率降至 3.0%，加上 7、8 月合計下修 6 萬人。市場對 10 月升息的押注瞬間降至約 17%，2 年期美債殖利率跳水，美股走高、費城半導體指數單日大漲逾 3%。</p>
+        </div>
+        <div class="card bull">
+          <h4>🟢 利多｜光通訊與 CPO 矽光子族群全面點火</h4>
+          <p>受惠費半連續兩個交易日強勁反彈，AI 高速光通訊、共同封裝光學（CPO）與矽光子概念股成為台股 10 月 2 日最強主軸，聯亞（3081）、光聖（6442）、臻鼎-KY（4958）等營收創高股獲投信與外資同步鎖定，資金明顯向具基本面支撐的成長股集中。</p>
+        </div>
+        <div class="card neutral">
+          <h4>🟡 中性｜就業降溫雙面刃，12 月升息雜音未除</h4>
+          <p>非農數據遠遜預期雖讓 10 月升息機率大減，但也反映美國招聘動能明顯轉弱。經濟學家提醒 9 月數據可能受勞動節日期與季節調整干擾，且 7 月新增就業由正轉負。市場仍高度預期 12 月可能再度升息，就業降溫究竟是「利多評價」還是「利空景氣」，需後續數據驗證。</p>
+        </div>
+      </div>
+      <div class="note">
+        <strong>綜合觀點：</strong>本週市場出現「雙重利多共振」——台股在費半連兩日強彈與內資投信連四買力挺下，10 月 2 日以收盤歷史新高收週，光通訊與 CPO 矽光子族群接棒成為新一代攻擊主軸；國際面則由美國 9 月非農爆冷點燃降息期待，10 月升息押注降至不到兩成，美債殖利率壓力獲得明顯緩解，為高評價成長股打開評價空間。惟須留意，就業數據走弱本身是景氣降溫的訊號，且中東地緣風險仍推升能源成本，**建議以「順勢偏多、嚴控持股比重」為操作原則**，聚焦光通訊／CPO、AI 供應鏈、先進封裝與半導體設備四大主線，並留意 10 月台積電法說會與美股第三季財報季的驗證。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 全球市況 ===== -->
+  <div class="tab-panel" id="panel-global">
+    <div class="section">
+      <h2>🌍 全球市場指標</h2>
+      <table>
+        <tr><th>市場／指數</th><th>收盤</th><th>漲跌幅</th><th>觀察重點</th></tr>
+        <tr><td>台灣加權指數（10/2）</td><td>48,475.74</td><td class="up">+0.25%</td><td>收盤再創歷史新高，成交約 9,332 億元</td></tr>
+        <tr><td>台灣櫃買指數（10/2）</td><td>426.93</td><td class="up">+1.94%</td><td>光通訊與中小型電子領軍，收最高</td></tr>
+        <tr><td>費城半導體指數（10/2）</td><td>續強走高</td><td class="up">漲逾 3%</td><td>非農爆冷激勵，連續兩日強彈</td></tr>
+        <tr><td>道瓊工業指數（10/1）</td><td>50,926.56</td><td class="up">+0.04%</td><td>高檔量縮、幾乎持平</td></tr>
+        <tr><td>標普 500 指數（10/1）</td><td>7,666.45</td><td class="up">+0.19%</td><td>小幅收紅</td></tr>
+        <tr><td>那斯達克指數（10/1）</td><td>26,871.60</td><td class="up">+0.04%</td><td>科技股觀望氣氛濃</td></tr>
+        <tr><td>美國 2 年期公債殖利率</td><td>—</td><td class="down">跳水</td><td>非農爆冷，升息押注急速降溫</td></tr>
+        <tr><td>美國 10 年期公債殖利率</td><td>約 5.24%</td><td class="down">自 5.34% 高點回落</td><td>一度觸及 2002 年以來高點</td></tr>
+        <tr><td>美元指數</td><td>約 102.03</td><td class="flat">高檔</td><td>美元與實質利率仍為風險資產牽制</td></tr>
+        <tr><td>國際油價（布蘭特／WTI）</td><td>高檔震盪</td><td class="flat">區間整理</td><td>中東地緣風險推升能源成本</td></tr>
+      </table>
+
+      <h3>美股重點族群</h3>
+      <table>
+        <tr><th>標的／族群</th><th>表現</th><th>說明</th></tr>
+        <tr><td>半導體與晶片設備</td><td class="up">領漲</td><td>費半單日漲逾 3%，AI 資本支出題材續熱</td></tr>
+        <tr><td>光通訊與矽光子</td><td class="up">強勢</td><td>AI 資料傳輸需求延伸，光模組與 CPO 題材受惠</td></tr>
+        <tr><td>AI 與雲端運算</td><td class="up">偏多</td><td>資金集中度仍高，為多頭核心</td></tr>
+        <tr><td>利率敏感型成長股</td><td class="up">轉強</td><td>殖利率回落，評價壓力暫時緩解</td></tr>
+        <tr><td>大型價值與傳產權值</td><td class="flat">持平</td><td>道瓊幾近收平，缺乏方向</td></tr>
+      </table>
+
+      <h3>亞洲市場</h3>
+      <table>
+        <tr><th>市場</th><th>表現</th><th>說明</th></tr>
+        <tr><td>台灣加權指數</td><td class="up">48,475.74（+0.25%）</td><td>收盤再創歷史新高、週線收紅</td></tr>
+        <tr><td>台灣櫃買指數</td><td class="up">426.93（+1.94%）</td><td>中小型股人氣爆發、收最高</td></tr>
+        <tr><td>費城半導體指數</td><td class="up">連續兩日強彈</td><td>亞洲科技股同步受惠</td></tr>
+      </table>
+
+      <div class="note">
+        <strong>關鍵解讀：</strong>本週全球市場的主旋律由「債市壓力」轉為「降息期待」。美國 9 月非農就業報告交出遠低於預期的成績（新增僅 2.9 萬人、失業率升至 4.2%、時薪年增降至 3.0%），市場對 10 月升息的押注立即由約四成跌破兩成，2 年期美債殖利率跳水，帶動美股與費半走高。這對過去幾個月備受高利率壓抑的成長股而言，是評價面最直接的利多。不過，就業動能轉弱本身也暗示企業擴編意願趨保守，加上中東地緣風險推升能源成本，市場呈現「資金願意進場、但對景氣保持警戒」的微妙平衡。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 台股焦點 ===== -->
+  <div class="tab-panel" id="panel-tw">
+    <div class="section">
+      <h2>🏭 台股焦點與產業分析</h2>
+      <table>
+        <tr><th>項目</th><th>數據</th><th>說明</th></tr>
+        <tr><td>加權指數收盤</td><td class="up">48,475.74 點</td><td>上漲 122.25 點（+0.25%），再創收盤歷史新高</td></tr>
+        <tr><td>櫃買指數收盤</td><td class="up">426.93 點</td><td>上漲 1.94%，光通訊與中小型電子領漲</td></tr>
+        <tr><td>成交金額</td><td>約 9,332 億元</td><td>量能維持高檔，資金動能充沛</td></tr>
+        <tr><td>台積電（2330）</td><td class="flat">2,475 元</td><td>平盤震盪，權值股休息、資金轉進次族群</td></tr>
+        <tr><td>三大法人合計</td><td class="up">買超約 95.6 億元</td><td>外資買超約 26.2 億元，投信連 4 買</td></tr>
+      </table>
+
+      <h3>產業族群分析</h3>
+      <table>
+        <tr><th>產業族群</th><th>方向</th><th>觀察重點</th></tr>
+        <tr><td>光通訊與 CPO 矽光子</td><td class="up">強勢噴出</td><td>費半強彈帶動，AI 資料傳輸需求延伸，本波最強主軸</td></tr>
+        <tr><td>AI 與伺服器供應鏈</td><td class="up">偏多</td><td>資本支出延續，訂單能見度延伸至明年</td></tr>
+        <tr><td>塑化與傳產權值</td><td class="up">轉強</td><td>台塑化受惠油價與利差，單日大漲逾 8%</td></tr>
+        <tr><td>記憶體與儲存</td><td class="up">偏多</td><td>國際大廠釋出供給吃緊訊號，報價展望轉佳</td></tr>
+        <tr><td>半導體設備與廠務工程</td><td class="up">偏多</td><td>先進製程擴廠，在手訂單能見度佳</td></tr>
+        <tr><td>被動元件（MLCC）</td><td class="down">高檔回檔</td><td>國巨*、華新科漲多回吐，短線籌碼調節</td></tr>
+        <tr><td>封測與部分 IC 測試</td><td class="down">承壓</td><td>京元電子、南茂出現法人獲利了結賣壓</td></tr>
+        <tr><td>金融與傳產防禦股</td><td class="down">資金流出</td><td>風險偏好升溫，避險買盤換股至成長族群</td></tr>
+      </table>
+
+      <div class="note">
+        <strong>盤面解讀：</strong>台股 10 月 2 日的多頭結構明顯優於前一週——權王台積電在 2,475 元附近平盤休息，資金不再單壓權值股，而是由費半強彈點火的光通訊與 CPO 矽光子族群接棒主攻，聯亞、光聖、臻鼎-KY 等營收創高股成為資金焦點；同時櫃買指數大漲 1.94% 並收在最高點，代表中小型股的攻擊能量全面擴散，屬於典型的「權值休息、次族群接棒」的健康輪動格局。另一方面，先前強勢的被動元件與部分封測股出現明顯獲利了結，顯示資金正從漲多族群流向具新題材與基本面支撐的標的，操作上須留意族群輪動節奏、避免追逐已過度反映的個股。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 資金流向 ===== -->
+  <div class="tab-panel" id="panel-flow">
+    <div class="section">
+      <h2>💰 資金流向與籌碼觀察</h2>
+
+      <h3>內外資動向</h3>
+      <table>
+        <tr><th>資金來源</th><th>動向</th><th>觀察重點</th></tr>
+        <tr><td>外資及陸資</td><td class="up">買超約 26.2 億元</td><td>買盤集中於傳產權值、面板與晶圓代工，同步調節漲多電子股</td></tr>
+        <tr><td>投信</td><td class="up">連續 4 個交易日買超</td><td>力挺多頭、鎖定營收創高與成長型標的</td></tr>
+        <tr><td>三大法人合計</td><td class="up">買超約 95.6 億元</td><td>內外資同站買方，籌碼結構偏多</td></tr>
+        <tr><td>融資餘額</td><td class="flat">未見過熱</td><td>散戶追價意願仍節制，過熱風險偏低</td></tr>
+      </table>
+
+      <h3>外資買賣超焦點（10/2）</h3>
+      <table>
+        <tr><th>買超排行</th><th>張數</th><th>賣超排行</th><th>張數</th></tr>
+        <tr><td>南亞（1303）</td><td class="up">30,203</td><td>南茂（8150）</td><td class="down">-20,627</td></tr>
+        <tr><td>友達（2409）</td><td class="up">15,537</td><td>國巨*（2327）</td><td class="down">-15,517</td></tr>
+        <tr><td>力積電（6770）</td><td class="up">15,263</td><td>合晶（6182）</td><td class="down">-13,819</td></tr>
+        <tr><td>中鋼（2002）</td><td class="up">10,050</td><td>京元電子（2449）</td><td class="down">-12,635</td></tr>
+        <tr><td>臻鼎-KY（4958）</td><td class="up">9,984</td><td>台新新光金（2887）</td><td class="down">-11,665</td></tr>
+        <tr><td>台塑化（6505）</td><td class="up">8,411</td><td>華新科（2492）</td><td class="down">-7,560</td></tr>
+      </table>
+
+      <h3>資金焦點</h3>
+      <ul class="strategy-list">
+        <li><strong>資金轉向傳產與評價修復族群：</strong>外資 10 月 2 日的買超重心明顯偏向南亞、中鋼、台塑化等傳產權值，顯示在電子次族群漲多之際，資金開始尋找基期較低、具利差修復題材的標的。</li>
+        <li><strong>成長主軸不變、內部換股：</strong>投信連續 4 買，聚焦營收創高的光通訊、CPO 與 AI 供應鏈，屬「主軸不變、持股換手」的良性輪動。</li>
+        <li><strong>漲多電子股遭調節：</strong>被動元件（國巨*、華新科）、封測（南茂、京元電子）與矽晶圓（合晶）出現明顯賣壓，應留意短線漲多後的籌碼鬆動風險。</li>
+        <li><strong>匯率與量能為續攻關鍵：</strong>新台幣若能同步轉強並搭配量能維持，代表外資全面回流；成交量已站穩 9,000 億元之上，有利多頭延續。</li>
+      </ul>
+
+      <div class="chart-box">
+        <canvas id="flowChart" height="140"></canvas>
+      </div>
+
+      <div class="note">
+        <strong>資金結論：</strong>本週資金結構呈現「內外資同步偏多、族群內部輪動」的態勢。外資買超金額雖不如前波踴躍，但買盤轉向傳產與評價修復族群，搭配投信連續買超力挺成長主軸，顯示資金並未退場、只是在族群間重新配置。操作上建議順勢而為，但對漲幅已大的電子次族群保持紀律，避免在籌碼鬆動時追高。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 事件日曆 ===== -->
+  <div class="tab-panel" id="panel-calendar">
+    <div class="section">
+      <h2>📅 事件日曆與投資策略</h2>
+
+      <h3>近期重要事件</h3>
+      <div class="event"><div class="date">10/02（已公布）</div><div>美國 9 月非農就業報告出爐：新增僅 2.9 萬人、失業率升至 4.2%、時薪年增降至 3.0%，7 與 8 月合計下修 6 萬人，10 月升息押注降至約 17%。</div></div>
+      <div class="event"><div class="date">10 月上旬</div><div>台灣 9 月出口與外銷訂單數據公布，驗證 AI 與半導體供應鏈實際拉貨力道。</div></div>
+      <div class="event"><div class="date">10 月上旬</div><div>美國 ISM 服務業指數與消費者物價（CPI）數據，觀察通膨降溫是否延續。</div></div>
+      <div class="event"><div class="date">10 月中</div><div>台積電法人說明會登場，市場聚焦 2 奈米量產進度、AI 需求展望與明年資本支出規劃。</div></div>
+      <div class="event"><div class="date">10 月中下旬</div><div>美股第三季財報季進入高峰，科技巨頭與半導體廠財報將主導市場方向。</div></div>
+      <div class="event"><div class="date">10 月底</div><div>聯準會 FOMC 利率決策會議，市場對 10 月升息押注已降至不到兩成，普遍預期 12 月才是下一波升息觀察點。</div></div>
+      <div class="event"><div class="date">11 月初</div><div>台灣 9 月外銷訂單與上市櫃公司第三季財報陸續公布，基本面驗證進入高峰。</div></div>
+
+      <h3>投資策略</h3>
+      <ul class="strategy-list">
+        <li><strong>主軸一｜光通訊與 CPO 矽光子：</strong>費半連兩日強彈、AI 資料傳輸需求由算力延伸至光學與傳輸層，聯亞、光聖等營收創高股動能最強，為本波最具延續性的攻擊主軸。</li>
+        <li><strong>主軸二｜AI 與先進封裝供應鏈：</strong>AI 資本支出延續、CoWoS 產能吃緊，相關供應鏈訂單能見度延伸至明年，為中長線核心持股。</li>
+        <li><strong>主軸三｜記憶體與儲存：</strong>國際大廠釋出 2027、2028 年供給仍可能吃緊的訊號，報價向下空間有限，具報價支撐與評價修復雙重題材。</li>
+        <li><strong>主軸四｜傳產評價修復與高股息：</strong>外資買盤轉向塑化、鋼鐵等評價偏低族群，在高利率環境下具穩定現金流的高股息標的亦可作為波動時的資金避風港。</li>
+        <li><strong>風險控管：</strong>就業數據轉弱雖利多評價，但同時是景氣降溫訊號；指數已創新高，建議嚴控單一持股比重、分批操作、保留現金彈性。</li>
+        <li><strong>操作節奏：</strong>新台幣匯率與成交量是兩大觀察指標，兩者同步轉強即代表外資全面回流，可積極加碼；反之則維持逢回分批布局。</li>
+      </ul>
+
+      <h3>下週操作清單</h3>
+      <ul class="checklist">
+        <li>追蹤新台幣匯率走勢，作為外資是否全面回補的領先指標</li>
+        <li>關注光通訊、CPO 矽光子族群能否延續強勢，作為多頭主軸的驗證</li>
+        <li>留意漲多的被動元件與封測股是否持續出現獲利了結賣壓，避免追高</li>
+        <li>觀察櫃買指數能否續強，作為中小型股人氣是否延續的指標</li>
+        <li>留意美國 CPI、ISM 服務業等數據，確認通膨降溫與降息期待的延續性</li>
+        <li>檢視持股中高評價成長股比重，並預留資金因應 10 月底 FOMC 前的波動</li>
+      </ul>
+
+      <div class="note">
+        <strong>本週總結：</strong>台股以「收盤歷史新高」結束 10 月第一週，籌碼面內外資同步偏多、資金由權值擴散至光通訊與 CPO 等次族群，結構明顯健康；國際面則由美國 9 月非農爆冷點燃降息期待，長天期殖利率壓力獲得緩解，為第四季行情提供有利的評價環境。惟就業動能轉弱與中東地緣風險仍需持續觀察，策略上建議「順勢偏多、嚴設停損」，以基本面選股對抗利率與景氣波動，並對短線漲多的族群保持紀律。
+      </div>
+    </div>
+  </div>
+
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="footer">
+    📊 財經晨報 Pro ｜ 資料來源：公開市場資訊整理 ｜ 本報告僅供參考，不構成任何投資建議
+  </div>
+</div>
+
+<script>
+function switchTab(evt, name) {
+  var panels = document.getElementsByClassName('tab-panel');
+  for (var i = 0; i < panels.length; i++) { panels[i].classList.remove('active'); }
+  var tabs = document.getElementsByClassName('nav-tab');
+  for (var j = 0; j < tabs.length; j++) { tabs[j].classList.remove('active'); }
+  document.getElementById('panel-' + name).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+(function initChart() {
+  var el = document.getElementById('flowChart');
+  if (!el || typeof Chart === 'undefined') return;
+  new Chart(el, {
+    type: 'bar',
+    data: {
+      labels: ['費半(10/2)', '台灣櫃買(10/2)', '台灣加權(10/2)', '標普500(10/1)', '道瓊(10/1)', '那斯達克(10/1)'],
+      datasets: [{
+        label: '漲跌幅（%）',
+        data: [3.00, 1.94, 0.25, 0.19, 0.04, 0.04],
+        backgroundColor: ['#667eea', '#764ba2', '#27ae60', '#4a9fd8', '#f39c12', '#9b8bd8'],
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, title: { display: true, text: '主要市場單日漲跌幅（%）' } },
+      scales: { y: { beginAtZero: true } }
+    }
+  });
+})();
+</script>
+</body>
+</html>
