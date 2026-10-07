@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 每日財經晨報 — 2026年10月7日</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Helvetica Neue', 'PingFang TC', 'Microsoft JhengHei', Arial, sans-serif;
+    background: #f4f2fb; color: #2c2c3a; line-height: 1.75;
+  }
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; padding: 42px 24px 34px; text-align: center;
+    box-shadow: 0 6px 24px rgba(102,126,234,0.35);
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 1.85rem; letter-spacing: 1px; }
+  .hero .date { font-size: 1.05rem; opacity: .92; }
+  .hero .tagline { margin-top: 12px; font-size: .95rem; opacity: .85; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px 60px; }
+  .back-link {
+    display: inline-block; margin: 18px 0 6px; color: #667eea;
+    text-decoration: none; font-weight: 700; font-size: .95rem;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px;
+  }
+  .tab-btn {
+    flex: 1 1 auto; min-width: 118px; padding: 12px 10px; cursor: pointer;
+    border: none; border-radius: 12px; font-size: .95rem; font-weight: 700;
+    background: #fff; color: #764ba2; box-shadow: 0 2px 8px rgba(118,75,162,.12);
+    transition: all .2s;
+  }
+  .tab-btn:hover { transform: translateY(-2px); }
+  .tab-btn.active { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fade .3s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px);} to {opacity:1;transform:none;} }
+  .card {
+    background: #fff; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px;
+    box-shadow: 0 3px 14px rgba(118,75,162,.10);
+  }
+  .card h2 {
+    margin: 0 0 14px; font-size: 1.25rem; color: #533f8f;
+    border-left: 5px solid #764ba2; padding-left: 12px;
+  }
+  .card h3 { font-size: 1.05rem; color: #667eea; margin: 18px 0 8px; }
+  .view-card {
+    border-radius: 12px; padding: 14px 18px; margin-bottom: 12px;
+    border-left: 6px solid #ccc; background: #fafaff;
+  }
+  .view-card.bull { border-left-color: #16a34a; background: #f2fdf6; }
+  .view-card.bear { border-left-color: #dc2626; background: #fef4f4; }
+  .view-card.neutral { border-left-color: #f59e0b; background: #fffbf2; }
+  .view-card .label { font-weight: 800; font-size: .92rem; display: block; margin-bottom: 4px; }
+  .view-card.bull .label { color: #16a34a; }
+  .view-card.bear .label { color: #dc2626; }
+  .view-card.neutral .label { color: #d97706; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .93rem; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #eae6f5; }
+  th { background: #f1eefc; color: #533f8f; font-weight: 700; }
+  tbody tr:hover { background: #fafaff; }
+  .up { color: #16a34a; font-weight: 700; }
+  .down { color: #dc2626; font-weight: 700; }
+  .flat { color: #6b7280; font-weight: 700; }
+  ul.clean { padding-left: 20px; margin: 8px 0; }
+  ul.clean li { margin: 6px 0; }
+  .pill {
+    display: inline-block; padding: 3px 10px; border-radius: 20px;
+    font-size: .78rem; font-weight: 700; margin-right: 6px;
+  }
+  .pill.bull { background: #dcfce7; color: #15803d; }
+  .pill.bear { background: #fee2e2; color: #b91c1c; }
+  .pill.neutral { background: #fef3c7; color: #b45309; }
+  .calendar-item {
+    display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #e6e1f2;
+  }
+  .calendar-item .dt {
+    flex: 0 0 108px; font-weight: 800; color: #764ba2; font-size: .92rem;
+  }
+  .calendar-item .ev { flex: 1; }
+  .footer {
+    text-align: center; padding: 26px 16px; color: #8b87a3; font-size: .85rem;
+  }
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(102,126,234,.10), rgba(118,75,162,.10));
+    border-radius: 12px; padding: 16px 18px; margin: 14px 0; font-size: .95rem;
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>📊 每日財經晨報 Pro</h1>
+  <div class="date">2026年10月7日（星期三）· 台北時間</div>
+  <div class="tagline">標普首破 7,800 點 · 台股逼近五萬關卡 · 殖利率回落助攻</div>
+</div>
+
+<div class="wrap">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab(0, this)">📈 市場觀點</button>
+    <button class="tab-btn" onclick="showTab(1, this)">🌍 全球市況</button>
+    <button class="tab-btn" onclick="showTab(2, this)">🏭 台股焦點</button>
+    <button class="tab-btn" onclick="showTab(3, this)">💰 資金流向</button>
+    <button class="tab-btn" onclick="showTab(4, this)">📅 事件日曆</button>
+  </div>
+
+  <!-- 市場觀點 -->
+  <div class="panel active">
+    <div class="card">
+      <h2>📈 今日市場觀點</h2>
+      <div class="view-card bull">
+        <span class="label">🟢 利多｜美債殖利率回落，升息預期大幅降溫</span>
+        美國 10 年期公債殖利率下跌 3 個基點至 5.281%，30 年期持穩於 5.655%。CME FedWatch 顯示，市場對聯準會本月再度升息的機率已由一週前的 50.9% 驟降至 19.4%，利率壓力緩解讓高評價科技股重新取得喘息空間。
+      </div>
+      <div class="view-card bull">
+        <span class="label">🟢 利多｜AI 需求持續支撐半導體供應鏈</span>
+        標普 500 與那斯達克雙雙創下歷史收盤新高，標普 500 首度站上 7,800 點。費城半導體指數維持漲勢，8 月資本財進口月增 4.4%，反映 AI 基礎建設支出仍然強勁。分析師預估標普 500 第三季獲利年增 30.6%，其中科技業成長 66.5%、能源業更達 114.7%。
+      </div>
+      <div class="view-card neutral">
+        <span class="label">🟡 中性｜油價高檔震盪，G7 釋出緊急庫存</span>
+        伊朗戰事推升油價一度突破每桶 90 美元，市場憂心能源成本轉化為更廣泛的通膨壓力。惟 G7 已達成協議釋放緊急柴油與原油庫存，近月 WTI 與布蘭特原油期貨價格趨於穩定，暫時舒緩供應疑慮。
+      </div>
+      <div class="view-card bear">
+        <span class="label">🔴 利空｜台股逼近五萬點，追價力道轉趨保守</span>
+        加權指數盤中最高觸及 49,968.92 點，距 50,000 點整數關僅差 31.08 點，隨即遭遇獲利了結賣壓，高低震盪達 489.23 點。終場雖仍收紅並創歷史收盤新高，但成交金額縮至約 1.02 兆元，且櫃買指數逆勢下跌 0.37%，顯示資金集中度提高、個股強弱分歧擴大。
+      </div>
+
+      <div class="highlight-box">
+        <strong>一句話總結：</strong>美股在殖利率回落與 AI 題材帶動下續創新高，但台股在五萬點關前出現明顯換手，權值股內部強弱分歧，短線操作宜聚焦資金實際流入的 AI 伺服器、PCB／高階材料族群，並嚴設停損於 10 月 6 日低點 49,479.69 點之下。
+      </div>
+    </div>
+  </div>
+
+  <!-- 全球市況 -->
+  <div class="panel">
+    <div class="card">
+      <h2>🌍 全球市場指標</h2>
+      <table>
+        <thead>
+          <tr><th>指數／商品</th><th>收盤</th><th>漲跌</th><th>幅度</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>道瓊工業指數</td><td>51,521.28</td><td class="up">+253.38</td><td class="up">+0.49%</td></tr>
+          <tr><td>標普 500 指數</td><td>7,818.93</td><td class="up">+44.98</td><td class="up">+0.58%</td></tr>
+          <tr><td>那斯達克指數</td><td>27,599.79</td><td class="up">+122.48</td><td class="up">+0.45%</td></tr>
+          <tr><td>費城半導體指數</td><td>13,217.82</td><td class="up">+45.09</td><td class="up">+0.34%</td></tr>
+          <tr><td>NYSE FANG+ 指數</td><td>19,517.14</td><td class="up">+149.91</td><td class="up">+0.77%</td></tr>
+          <tr><td>美國 10 年期公債殖利率</td><td>5.281%</td><td class="down">−3 個基點</td><td class="down">回落</td></tr>
+          <tr><td>美國 30 年期公債殖利率</td><td>5.655%</td><td class="flat">持平</td><td class="flat">—</td></tr>
+          <tr><td>現貨黃金</td><td>約 4,152 美元／盎司</td><td class="flat">高檔整理</td><td class="flat">—</td></tr>
+          <tr><td>比特幣</td><td>約 86,120 美元</td><td class="flat">區間震盪</td><td class="flat">—</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.88rem;color:#8b87a3;">資料期間：美股 10 月 6 日（週二）收盤；殖利率與 FedWatch 數據為台北時間 10 月 7 日凌晨最新報價。</p>
+
+      <h3>美國科技權值個股</h3>
+      <table>
+        <thead>
+          <tr><th>個股</th><th>漲跌幅</th><th>簡評</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>亞馬遜（AMZN）</td><td class="up">+1.95%</td><td>雲端與 AI 資本支出題材續強，為七巨頭中表現最亮眼</td></tr>
+          <tr><td>微軟（MSFT）</td><td class="up">+0.78%</td><td>AI 服務需求穩定，穩健走高</td></tr>
+          <tr><td>Alphabet（GOOGL）</td><td class="up">+0.35%</td><td>小幅收紅</td></tr>
+          <tr><td>蘋果（AAPL）</td><td class="up">+0.22%</td><td>平淡整理</td></tr>
+          <tr><td>Meta（META）</td><td class="down">−0.41%</td><td>七巨頭中唯一收黑</td></tr>
+        </tbody>
+      </table>
+
+      <h3>重要國際消息</h3>
+      <ul class="clean">
+        <li><strong>美國 9 月 ISM 服務業 PMI</strong>降至 54.9（前值 55.4），仍處強勁擴張區間，但價格支付指數跳升至 74.0，為 2022 年 7 月以來最高，柴油、鋼鐵、銅與石油產品價格上漲明顯。</li>
+        <li><strong>美國 8 月貿易逆差</strong>擴大 13.7%，進口額升至歷史新高，月增 4.3%、年增 28.4%，顯示內需強勁，可能加劇通膨壓力。</li>
+        <li><strong>高通與華為</strong>達成多年專利許可協議，涵蓋 5G、運算、AI 與網路等領域交叉授權，並將收購華為部分美國專利。</li>
+        <li><strong>波音</strong>獲洛克希德馬丁約 147 億美元合約，擴大 PAC-3 MSE 導引頭產能。</li>
+        <li><strong>美國政策面</strong>：川普宣布成立「超級智能特別工作組」，將於 120 天內完成 AI 風險與機遇評估報告。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 台股焦點 -->
+  <div class="panel">
+    <div class="card">
+      <h2>🏭 台股 10 月 6 日盤後焦點</h2>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>數據</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>加權指數收盤</td><td><strong>49,822.55 點</strong>（歷史收盤新高）</td></tr>
+          <tr><td>漲跌點數</td><td class="up">＋110.51 點（+0.22%）</td></tr>
+          <tr><td>盤中最高／最低</td><td>49,968.92 點／49,479.69 點（震盪 489.23 點）</td></tr>
+          <tr><td>成交金額</td><td>約 1.02 兆元（較前一交易日縮減）</td></tr>
+          <tr><td>櫃買指數</td><td class="down">430.86 點（−1.62 點，−0.37%）</td></tr>
+          <tr><td>台積電（2330）</td><td class="up">2,585 元（+10 元，+0.39%，收盤新高）</td></tr>
+          <tr><td>10 月台指期</td><td>50,060 點（對現貨正價差 237.45 點）</td></tr>
+        </tbody>
+      </table>
+
+      <h3>產業強弱分析</h3>
+      <p><span class="pill bull">強勢</span><strong>高階 PCB／CCL、AI 伺服器、ASIC、低軌衛星、封測</strong></p>
+      <ul class="clean">
+        <li>台光電（2383）上漲 5.18%、收 5,995 元，盤中最高 6,115 元；聯茂（6213）上漲 4.79%、金像電（2368）上漲 3.70%，AI 伺服器與高速交換器規格升級帶動高階 CCL 需求。</li>
+        <li>緯穎（6669）大漲 6.51%、收 2,290 元；世芯-KY（3661）上漲 5.82%，伺服器與 ASIC 買盤回流。</li>
+        <li>矽格（6257）法說題材加持攻上漲停 286 元，9 月營收年增 26.27%。</li>
+        <li>低軌衛星族群續熱：百一（6152）連二日漲停、昇達科（3491）上漲 5.21%、啟碁（6285）同步收紅。</li>
+        <li>資服／資安升溫：力新（5202）漲停、大綜（3147）上漲 6.18%。</li>
+        <li>散裝航運新興（2605）上漲 5.12%、收 36.95 元，聚焦第四季旺季與運價題材。</li>
+      </ul>
+      <p><span class="pill bear">弱勢</span><strong>IC 設計、部分漲多題材股</strong></p>
+      <ul class="clean">
+        <li>聯發科（2454）重挫 4.74%、收 4,920 元，失守 5,000 元整數關；聯電（2303）下跌 3.28%、收 147.5 元，跌破 150 元。</li>
+        <li>台燿（6274）前一日漲停後轉弱，屬高檔獲利了結；穩懋（3105）前兩日累漲逾 14% 後回檔 3.74%，但 9 月營收仍年月雙增。</li>
+        <li>中華化（1727）逆勢重挫 9.79%，市場解讀為漲多拉回，公司 9 月營收仍年增 40.38%。</li>
+      </ul>
+
+      <h3>指數技術面研判</h3>
+      <p>加權指數連續兩日收高，10 月 6 日再創歷史收盤新高，10 月 5 日跳空形成的 <strong>48,491.62～48,574.95 點</strong>缺口仍未回補，短線偏多結構維持。當日盤中最高 49,968.92 點，距五萬點僅約 31 點，終場留約 146 點上影線，反映整數關卡附近追價轉趨謹慎。</p>
+      <ul class="clean">
+        <li><strong>上檔壓力：</strong>50,000 點整數關，能否帶量站穩為關鍵。</li>
+        <li><strong>下方支撐：</strong>依序為 49,479.69 點，以及跳空缺口 48,491.62～48,574.95 點。</li>
+        <li><strong>指標股：</strong>台積電 10 月 15 日法說會，2,600 元為短線重要關卡；聯發科能否收復 5,000 元，牽動 IC 設計賣壓是否擴散。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 資金流向 -->
+  <div class="panel">
+    <div class="card">
+      <h2>💰 資金流向與籌碼</h2>
+      <table>
+        <thead>
+          <tr><th>法人</th><th>買賣超</th><th>動向解讀</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>外資</td><td class="down">賣超 66.57 億元</td><td>指數高檔震盪，外資於權值股小幅調節</td></tr>
+          <tr><td>投信</td><td class="down">賣超 158.51 億元</td><td>調節力道最重，反映季底後持股調整</td></tr>
+          <tr><td>自營商</td><td class="up">買超 17.21 億元</td><td>短線偏多操作</td></tr>
+          <tr><td><strong>三大法人合計</strong></td><td class="down"><strong>賣超 207.87 億元</strong></td><td>指數續創新高但法人同步減碼，籌碼面轉趨保守</td></tr>
+        </tbody>
+      </table>
+
+      <h3>資金輪動觀察</h3>
+      <ul class="clean">
+        <li><strong>資金從大型半導體轉向 AI 供應鏈：</strong>台積電推升指數力道明顯不如前一日，資金轉進 AI 伺服器、PCB 與銅箔基板供應鏈。</li>
+        <li><strong>上市與上櫃分歧：</strong>櫃買指數下跌 0.37%，中小型股表現持續落後，顯示資金集中度提高，僅少數大型權值與 AI 主流股獲青睞。</li>
+        <li><strong>量能觀察：</strong>成交金額約 1.02 兆元，仍維持兆元以上水準，但較前一交易日縮減，代表五萬點關前追價力道保守；若後續能帶量站穩 50,000 點，突破有效性才可望確認。</li>
+        <li><strong>避險資產：</strong>黃金維持 4,152 美元／盎司高檔，反映市場對地緣政治與通膨風險仍留一手。</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>操作提醒：</strong>法人合計賣超逾 200 億元，卻未壓抑指數創高，屬「量縮價穩」的高檔換手格局。以台積電、AI 伺服器及 PCB／高階材料等主流族群為持股核心，連續急漲的題材股不宜追價；下方先看 10 月 6 日低點 49,479.69 點，若跌破且量能放大，代表高檔賣壓升高，短線宜適度降低持股。
+      </div>
+    </div>
+  </div>
+
+  <!-- 事件日曆 -->
+  <div class="panel">
+    <div class="card">
+      <h2>📅 重要事件日曆</h2>
+
+      <div class="calendar-item">
+        <div class="dt">10 月 8 日<br>（四）凌晨</div>
+        <div class="ev"><strong>美國 9 月 FOMC 會議紀錄公布</strong><br>市場將從中尋找官員對後續利率路徑的態度，是解讀本月升息機率降至 19.4% 的關鍵線索。</div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="dt">10 月 8 日<br>（四）</div>
+        <div class="ev"><strong>聯準會官員談話密集</strong><br>留意對油價與通膨預期的評論，將直接影響美債殖利率走向。</div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="dt">10 月中旬</div>
+        <div class="ev"><strong>美國 9 月 CPI 公布（預估）</strong><br>觀察能源價格與關稅成本是否已傳導至核心通膨，為月底 FOMC 會議前最重要數據。</div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="dt">10 月 13 日<br>（二）</div>
+        <div class="ev"><strong>美國第三季財報季揭幕</strong><br>由大型金融機構打頭陣。分析師預估標普 500 成分股 Q3 獲利年增 30.6%，能源業 +114.7%、科技業 +66.5% 為主要成長動能。</div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="dt">10 月 15 日<br>（四）</div>
+        <div class="ev"><strong>台積電（2330）法人說明會</strong><br>本週台股最關鍵事件。市場聚焦第四季展望、AI 需求能見度與先進製程報價，2,600 元為法說前的短線重要關卡。</div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="dt">10 月下旬</div>
+        <div class="ev"><strong>聯準會 FOMC 利率決策會議</strong><br>目前市場認為再度升息機率約 19.4%，會前油價走勢與通膨數據將是定調關鍵。</div>
+      </div>
+
+      <h3>投資策略與操作清單</h3>
+      <ul class="clean">
+        <li>✅ <strong>核心持股：</strong>台積電、AI 伺服器（緯穎、世芯-KY）、PCB／高階 CCL（台光電、金像電）等有基本面支撐的主流族群。</li>
+        <li>✅ <strong>觀察加碼：</strong>等待急漲個股拉回後再分批布局，避免於盤中五萬點關前追價。</li>
+        <li>⚠️ <strong>降低比重：</strong>連續急漲的題材股、漲多且籌碼鬆動的個股（如台燿、中華化）不宜短線搶進。</li>
+        <li>⛔ <strong>停損紀律：</strong>指數跌破 49,479.69 點且量能放大，代表高檔賣壓升高，短線宜適度降低持股。</li>
+        <li>🔍 <strong>本週追蹤：</strong>FOMC 會議紀要（10/8）、台積電法說（10/15）、美債 10 年期殖利率能否守穩 5.3% 以下。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    本報告由自動化系統彙整公開市場資訊，僅供參考，不構成任何投資建議。<br>
+    📅 <a href="../../index.html" style="color:#667eea;">歷史報告列表</a>
+  </div>
+</div>
+
+<script>
+function showTab(idx, btn) {
+  var panels = document.querySelectorAll('.panel');
+  var btns = document.querySelectorAll('.tab-btn');
+  for (var i = 0; i < panels.length; i++) { panels[i].classList.remove('active'); }
+  for (var j = 0; j < btns.length; j++) { btns[j].classList.remove('active'); }
+  panels[idx].classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
