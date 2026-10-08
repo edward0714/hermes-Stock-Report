@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 每日財經晨報 — 2026年10月8日</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Helvetica Neue', 'PingFang TC', 'Microsoft JhengHei', Arial, sans-serif;
+    background: #f4f2fb; color: #2c2c3a; line-height: 1.75;
+  }
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; padding: 42px 24px 34px; text-align: center;
+    box-shadow: 0 6px 24px rgba(102,126,234,0.35);
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 1.85rem; letter-spacing: 1px; }
+  .hero .date { font-size: 1.05rem; opacity: .92; }
+  .hero .tagline { margin-top: 12px; font-size: .95rem; opacity: .85; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px 60px; }
+  .back-link {
+    display: inline-block; margin: 18px 0 6px; color: #667eea;
+    text-decoration: none; font-weight: 700; font-size: .95rem;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px; }
+  .tab-btn {
+    flex: 1 1 auto; min-width: 118px; padding: 12px 10px; cursor: pointer;
+    border: none; border-radius: 12px; font-size: .95rem; font-weight: 700;
+    background: #fff; color: #764ba2; box-shadow: 0 2px 8px rgba(118,75,162,.12);
+    transition: all .2s;
+  }
+  .tab-btn:hover { transform: translateY(-2px); }
+  .tab-btn.active { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fade .3s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px);} to {opacity:1;transform:none;} }
+  .card {
+    background: #fff; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px;
+    box-shadow: 0 3px 14px rgba(118,75,162,.10);
+  }
+  .card h2 {
+    margin: 0 0 14px; font-size: 1.25rem; color: #533f8f;
+    border-left: 5px solid #764ba2; padding-left: 12px;
+  }
+  .card h3 { font-size: 1.05rem; color: #667eea; margin: 18px 0 8px; }
+  .view-card {
+    border-radius: 12px; padding: 14px 18px; margin-bottom: 12px;
+    border-left: 6px solid #ccc; background: #fafaff;
+  }
+  .view-card.bull { border-left-color: #16a34a; background: #f2fdf6; }
+  .view-card.bear { border-left-color: #dc2626; background: #fef4f4; }
+  .view-card.neutral { border-left-color: #f59e0b; background: #fffbf2; }
+  .view-card .label { font-weight: 800; font-size: .92rem; display: block; margin-bottom: 4px; }
+  .view-card.bull .label { color: #16a34a; }
+  .view-card.bear .label { color: #dc2626; }
+  .view-card.neutral .label { color: #d97706; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .93rem; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #eae6f5; }
+  th { background: #f1eefc; color: #533f8f; font-weight: 700; }
+  tbody tr:hover { background: #fafaff; }
+  .up { color: #16a34a; font-weight: 700; }
+  .down { color: #dc2626; font-weight: 700; }
+  .flat { color: #6b7280; font-weight: 700; }
+  ul.clean { padding-left: 20px; margin: 8px 0; }
+  ul.clean li { margin: 6px 0; }
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .78rem; font-weight: 700; margin-right: 6px; }
+  .pill.bull { background: #dcfce7; color: #15803d; }
+  .pill.bear { background: #fee2e2; color: #b91c1c; }
+  .pill.neutral { background: #fef3c7; color: #b45309; }
+  .calendar-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #e6e1f2; }
+  .calendar-item .dt { flex: 0 0 108px; font-weight: 800; color: #764ba2; font-size: .92rem; }
+  .calendar-item .ev { flex: 1; }
+  .footer { text-align: center; padding: 26px 16px; color: #8b87a3; font-size: .85rem; }
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(102,126,234,.10), rgba(118,75,162,.10));
+    border-radius: 12px; padding: 16px 18px; margin: 14px 0; font-size: .95rem;
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>📊 每日財經晨報 Pro</h1>
+  <div class="date">2026年10月8日（星期四）· 台北時間</div>
+  <div class="tagline">長天期美債殖利率飆 24 年高 · 油價破百引通膨憂慮 · 台股五萬關前震盪</div>
+</div>
+
+<div class="wrap">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab(0, this)">📈 市場觀點</button>
+    <button class="tab-btn" onclick="showTab(1, this)">🌍 全球市況</button>
+    <button class="tab-btn" onclick="showTab(2, this)">🏭 台股焦點</button>
+    <button class="tab-btn" onclick="showTab(3, this)">💰 資金流向</button>
+    <button class="tab-btn" onclick="showTab(4, this)">📅 事件日曆</button>
+  </div>
+
+  <!-- 市場觀點 -->
+  <div class="panel active">
+    <div class="card">
+      <h2>📈 今日市場觀點</h2>
+
+      <div class="view-card bear">
+        <span class="label">🔴 利空｜長天期美債殖利率觸及 24 年高點，全球債市遭拋售</span>
+        美國長天期公債殖利率在週三（7 日）重新攀升並觸及 24 年高點，10 年期殖利率維持在 5.29% 附近高檔，市場對通膨與企業、主權債務規模持續攀升的擔憂同步升溫。全球債券遭到拋售，高評價科技股與利率敏感類股承壓，美股四大指數中僅 NYSE FANG+ 逆勢收紅。
+      </div>
+
+      <div class="view-card bear">
+        <span class="label">🔴 利空｜與伊朗戰爭相關的供應疑慮，布蘭特原油一度站上 100 美元</span>
+        中東地緣衝突引發的供應疑慮推升油價，布蘭特原油期貨週二收在每桶 100 美元以上，重新點燃市場對通膨的擔憂，也提高主要央行延長升息循環的可能性。油價與殖利率雙漲是本波全球市場震盪的核心原因。
+      </div>
+
+      <div class="view-card bull">
+        <span class="label">🟢 利多｜IEA 同意加快釋放石油庫存，油價由漲轉跌緩解壓力</span>
+        國際能源署（IEA）同意加快釋放石油庫存，並優先釋出柴油，帶動原油價格轉跌，股市跌幅隨之收斂。美國原油週三收跌 1.3%，報每桶 88.28 美元；布蘭特原油收 100.20 美元、下跌 0.4%。
+      </div>
+
+      <div class="view-card bull">
+        <span class="label">🟢 利多｜企業獲利動能仍強，標普 500 第三季獲利估年增 30.6%</span>
+        根據 LSEG 統計，分析師平均預期標普 500 成分股 7 至 9 月獲利年增率達 30.6%。第三季財報季預計下週正式展開，屆時投資人將檢視企業在 AI 技術上的巨額支出，是否開始轉化為實際獲利成果。
+      </div>
+
+      <div class="view-card neutral">
+        <span class="label">🟡 中性｜Fed 9 月會議紀要透露分歧，10 月升息機率降至 17.2%</span>
+        聯準會 9 月會議紀要顯示，決策官員對該次升息的理由存在分歧：部分官員認為是為了抑制能源價格衝擊，另一些則認為是控制需求驅動型通膨所必需。根據 CME FedWatch，市場認為連續第二次升息的機率為 17.2%，明顯低於一週前的 37.6%，市場訊息指向「10 月可能暫停升息」。
+      </div>
+
+      <div class="highlight-box">
+        <strong>💡 操作提醒：</strong>目前市場同時面對「殖利率衝高」與「油價破百」兩大通膨壓力，但 Fed 10 月暫停升息的預期正在升溫。建議短線降低對利率敏感的高評價成長股比重，資金可分批轉向現金流穩定的價值型與能源相關標的；台股在五萬點關前量能未明顯放大，宜採分批佈局、避免追高。
+      </div>
+    </div>
+  </div>
+
+  <!-- 全球市況 -->
+  <div class="panel">
+    <div class="card">
+      <h2>🌍 全球市況</h2>
+      <h3>美國四大指數（10 月 7 日收盤）</h3>
+      <table>
+        <thead>
+          <tr><th>指數</th><th>收盤</th><th>漲跌點</th><th>漲跌幅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>道瓊工業指數</td><td>51,179.87</td><td class="down">-341.41</td><td class="down">-0.66%</td></tr>
+          <tr><td>那斯達克指數</td><td>27,538.69</td><td class="down">-61.20</td><td class="down">-0.22%</td></tr>
+          <tr><td>標普 500 指數</td><td>7,801.77</td><td class="down">-17.16</td><td class="down">-0.22%</td></tr>
+          <tr><td>費城半導體指數</td><td>13,066.15</td><td class="down">-151.67</td><td class="down">-1.15%</td></tr>
+          <tr><td>NYSE FANG+ 指數</td><td>19,648.97</td><td class="up">+131.83</td><td class="up">+0.68%</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.9rem;color:#6b7280;">美股週三收低，標普 500 與道瓊終止連續 4 個交易日漲勢，那斯達克則結束 6 連漲。前一交易日標普 500 與那斯達克才雙雙創下歷史收盤新高，其中標普 500 首度站上 7,800 點。</p>
+
+      <h3>亞洲主要市場（10 月 7 日收盤）</h3>
+      <table>
+        <thead>
+          <tr><th>市場</th><th>收盤</th><th>漲跌幅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>台灣加權指數</td><td>49,806.37</td><td class="down">-0.03%</td></tr>
+          <tr><td>台灣店頭指數</td><td>430.86</td><td class="down">-1.62%</td></tr>
+          <tr><td>日經 225 指數</td><td>高檔震盪整理</td><td class="flat">觀望</td></tr>
+          <tr><td>韓國綜合指數</td><td>記憶體股撐盤</td><td class="flat">觀望</td></tr>
+        </tbody>
+      </table>
+
+      <h3>商品與利率</h3>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>價位</th><th>漲跌幅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>美國原油（WTI）</td><td>88.28 美元／桶</td><td class="down">-1.3%</td></tr>
+          <tr><td>布蘭特原油</td><td>100.20 美元／桶</td><td class="down">-0.4%</td></tr>
+          <tr><td>美國 10 年期公債殖利率</td><td>約 5.29%</td><td class="up">高檔持穩</td></tr>
+          <tr><td>美國 30 年期公債殖利率</td><td>觸及 24 年高點</td><td class="up">攀升</td></tr>
+          <tr><td>美國 30 年期固定房貸利率</td><td>近 3 年高點</td><td class="up">攀升</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.9rem;color:#6b7280;">美國抵押貸款銀行協會（MBA）統計，30 年期固定房貸利率上週飆升至近 3 年高點，房屋類股下跌 2.3%、建築商類股下跌 2.9%。</p>
+    </div>
+  </div>
+
+  <!-- 台股焦點 -->
+  <div class="panel">
+    <div class="card">
+      <h2>🏭 台股焦點</h2>
+      <h3>大盤表現</h3>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>數值</th><th>漲跌幅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>加權指數（10/7 收盤）</td><td>49,806.37</td><td class="down">-16.18（-0.03%）</td></tr>
+          <tr><td>加權指數（10/6 收盤）</td><td>49,822.55</td><td class="up">+110.51（+0.22%）</td></tr>
+          <tr><td>店頭指數</td><td>430.86</td><td class="down">-1.62</td></tr>
+          <tr><td>集中市場成交值</td><td>約 9,780 億元</td><td class="flat">量能持平</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.9rem;color:#6b7280;">加權指數在逼近五萬點整數關卡後躊躇不前，10 月 7 日終場小跌 16.18 點，收在 49,806.37 點，成交量未能明顯放大，呈現高檔量縮震盪格局。</p>
+
+      <h3>產業觀察</h3>
+      <ul class="clean">
+        <li><span class="pill bear">承壓</span><strong>半導體：</strong>美股晶片股今年以來已大漲逾 80%，週三回檔 1.2%，費半指數下跌 1.15%。台積電 ADR 下跌 2.09%、日月光 ADR 下跌 2.18%，聯電 ADR 逆勢上漲 0.52%、中華電信 ADR 下跌 0.65%，台股半導體族群今日開盤留意 ADR 走弱帶來的壓力。</li>
+        <li><span class="pill bull">亮點</span><strong>記憶體：</strong>美光（MU）勁揚 4.06%，為費半成分股中最強勢標的。記憶體價格持續飆升，推高硬體成本的同時也帶動相關供應鏈評價提升，南亞科、華邦電等台系記憶體族群可留意同步效應。</li>
+        <li><span class="pill neutral">觀望</span><strong>AI 伺服器與資料中心：</strong>輝達下跌 0.74%、AMD 下跌 0.55%，但 NYSE FANG+ 指數逆勢上漲 0.68%，亞馬遜漲 1.42%、蘋果漲 0.91%、Alphabet 漲 0.81%，顯示 AI 與雲端需求資金並未撤出。微軟攜手輝達推出新款 Surface 筆電，將更多 AI 功能帶進個人裝置。</li>
+        <li><span class="pill bear">承壓</span><strong>成熟製程與類比 IC：</strong>德儀下跌 2.78%、應用材料下跌 1.81%、高通下跌 2.16%，反映利率走高環境下對資本支出與消費性電子需求的保守看待。</li>
+        <li><span class="pill bull">防禦</span><strong>能源與價值型族群：</strong>布蘭特原油維持在 100 美元上方，能源相關類股相對有撐（標普 500 十一大類股中能源為近期唯一逆勢上漲類股），台股塑化、油電燃氣族群具備抗通膨題材。</li>
+      </ul>
+
+      <h3>投資策略</h3>
+      <div class="highlight-box">
+        <strong>策略主軸：</strong>「降低利率敏感度、提高現金流確定性」。台股在 49,800 點至五萬點區間震盪，量能未放大前不宜重壓，建議以分批方式佈局。
+      </div>
+      <ul class="clean">
+        <li>✅ <strong>可留意：</strong>記憶體供應鏈（美光財報與報價動能強勁）、AI 伺服器電源與散熱（長線需求未變）、能源與塑化（油價百元支撐）、高股息價值型標的。</li>
+        <li>⚠️ <strong>宜減碼：</strong>評價偏高且對利率敏感的高本益比成長股、房屋與營建相關供應鏈、成熟製程與消費性電子比重高之個股。</li>
+        <li>🎯 <strong>關鍵觀察：</strong>五萬點整數關卡能否以放大的量能有效突破；若長天期美債殖利率持續攀高，指數恐維持區間震盪。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 資金流向 -->
+  <div class="panel">
+    <div class="card">
+      <h2>💰 資金流向</h2>
+      <h3>利率與債市</h3>
+      <ul class="clean">
+        <li>美國 10 年期公債殖利率維持約 5.29% 高檔，長天期殖利率觸及 24 年高點，全球債券同步遭到拋售。</li>
+        <li>美國財政部長貝森特持續回購並出面喊話，一度壓抑殖利率上行，但長天期壓力未解。</li>
+        <li>美債標售的得標倍數與間接投標人參與程度仍相當強勁，顯示在高殖利率水準下，市場對美債的配置意願仍在。</li>
+        <li>CME FedWatch：市場對聯準會連續第二次升息的機率降至 17.2%（一週前為 37.6%），10 月暫停升息成為目前市場主流預期。</li>
+      </ul>
+
+      <h3>商品與通膨</h3>
+      <ul class="clean">
+        <li>布蘭特原油收 100.20 美元（-0.4%），美國原油收 88.28 美元（-1.3%）；IEA 加快釋放庫存並優先釋出柴油，油價由漲轉跌。</li>
+        <li>油價破百與長債殖利率雙漲，使市場對主要央行延長升息循環的預期升溫。</li>
+        <li>美國 30 年期固定房貸利率升至近 3 年高點，房市與建築相關類股承壓（分別下跌 2.3%、2.9%）。</li>
+      </ul>
+
+      <h3>台股籌碼與 ADR 表現（10 月 7 日）</h3>
+      <table>
+        <thead>
+          <tr><th>標的</th><th>漲跌幅</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>台積電 ADR（TSM）</td><td class="down">-2.09%</td><td>拖累今日台股半導體開盤氣氛</td></tr>
+          <tr><td>日月光 ADR（ASX）</td><td class="down">-2.18%</td><td>封測族群承壓</td></tr>
+          <tr><td>聯電 ADR（UMC）</td><td class="up">+0.52%</td><td>成熟製程逆勢抗跌</td></tr>
+          <tr><td>中華電信 ADR（CHT）</td><td class="down">-0.65%</td><td>防禦型電信同步小跌</td></tr>
+        </tbody>
+      </table>
+
+      <h3>美股焦點個股</h3>
+      <table>
+        <thead>
+          <tr><th>個股</th><th>漲跌幅</th><th>備註</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>美光（MU）</td><td class="up">+4.06%</td><td>記憶體報價飆升，費半最強</td></tr>
+          <tr><td>亞馬遜（AMZN）</td><td class="up">+1.42%</td><td>雲端與消費動能支撐</td></tr>
+          <tr><td>蘋果（AAPL）</td><td class="up">+0.91%</td><td>AI 裝置題材發酵</td></tr>
+          <tr><td>Alphabet（GOOGL）</td><td class="up">+0.81%</td><td>AI 應用持續推進</td></tr>
+          <tr><td>微軟（MSFT）</td><td class="up">+0.09%</td><td>發表 PC 端 AI 程式設計模型</td></tr>
+          <tr><td>SpaceX（SPCX）</td><td class="down">-2.5%</td><td>傳尋求 400 億美元融資採購輝達晶片</td></tr>
+          <tr><td>Meta（META）</td><td class="down">-2.38%</td><td>高評價科技股回檔</td></tr>
+          <tr><td>德儀（TXN）</td><td class="down">-2.78%</td><td>類比 IC 需求保守</td></tr>
+          <tr><td>高通（QCOM）</td><td class="down">-2.16%</td><td>消費性電子雜音</td></tr>
+          <tr><td>輝達（NVDA）</td><td class="down">-0.74%</td><td>AI 龍頭高檔整理</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-box">
+        <strong>資金流向總結：</strong>資金明顯自「利率敏感型」資產流出，轉向「現金流穩定型」與「抗通膨型」標的。債市因殖利率走高出現拋售，但高殖利率也吸引中長線配置買盤；股市內部則呈現大型科技股分化（META 跌、AMZN 與 AAPL 漲）與記憶體獨強的格局。
+      </div>
+    </div>
+  </div>
+
+  <!-- 事件日曆 -->
+  <div class="panel">
+    <div class="card">
+      <h2>📅 事件日曆</h2>
+      <div class="calendar-item">
+        <div class="dt">10/08（四）</div>
+        <div class="ev"><strong>美國上週初領失業救濟金人數</strong>：就業數據將牽動市場對 Fed 利率路徑的預期，弱於預期的數據通常有利風險資產。</div>
+      </div>
+      <div class="calendar-item">
+        <div class="dt">10/08（四）</div>
+        <div class="ev"><strong>Fed 官員談話</strong>：市場將解讀官員對 9 月升息分歧與 10 月是否暫停升息的態度。</div>
+      </div>
+      <div class="calendar-item">
+        <div class="dt">10/09（五）</div>
+        <div class="ev"><strong>美國 10 月消費者信心初值</strong>：油價破百對消費信心的影響為觀察重點。</div>
+      </div>
+      <div class="calendar-item">
+        <div class="dt">10/13（二）</div>
+        <div class="ev"><strong>美股第三季財報季揭開序幕</strong>：多家重量級金融企業率先公布財報，市場將檢視 AI 支出轉化為獲利的程度與美國消費者財務健康度。</div>
+      </div>
+      <div class="calendar-item">
+        <div class="dt">10/14（三）</div>
+        <div class="ev"><strong>美國 9 月 CPI／PPI 物價數據</strong>：在油價與長債殖利率雙漲背景下，通膨數據為本月最關鍵的多空分水嶺。</div>
+      </div>
+      <div class="calendar-item">
+        <div class="dt">持續關注</div>
+        <div class="ev"><strong>中東地緣衝突與原油供應</strong>：與伊朗戰爭相關的供應疑慮、IEA 釋放石油庫存的節奏，將直接主導油價與通膨預期。</div>
+      </div>
+      <div class="calendar-item">
+        <div class="dt">持續關注</div>
+        <div class="ev"><strong>長天期美債殖利率走勢</strong>：30 年期殖利率已觸及 24 年高點，若持續攀升，全球股債評價都將面臨壓力。</div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>本週關鍵結論：</strong>市場正處於「企業獲利強勁（標普 500 Q3 獲利估年增 30.6%）」與「通膨與利率壓力升高」的拉鋸格局。10 月 Fed 暫停升息的預期提供下檔支撐，但油價與長債殖利率需明確回落，指數才有機會重啟攻勢。台股在五萬點關前建議控制持股比重、分批因應。
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    📊 每日財經晨報 Pro · 2026年10月8日<br>
+    資料來源：鉅亨網、經濟日報、公開市場資訊 · 本報告僅供參考，不構成投資建議
+  </div>
+</div>
+
+<script>
+function showTab(idx, btn) {
+  var panels = document.querySelectorAll('.panel');
+  var btns = document.querySelectorAll('.tab-btn');
+  for (var i = 0; i < panels.length; i++) { panels[i].classList.remove('active'); }
+  for (var j = 0; j < btns.length; j++) { btns[j].classList.remove('active'); }
+  panels[idx].classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
