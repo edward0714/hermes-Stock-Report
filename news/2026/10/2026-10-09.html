@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財經晨報 Pro — 2026年10月9日</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft JhengHei',Arial,sans-serif;
+background:linear-gradient(135deg,#f0f4f8 0%,#d9e8f5 100%);color:#1a1a1a;line-height:1.7;min-height:100vh;padding:20px;}
+.container{max-width:1200px;margin:0 auto;}
+.header{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:56px 40px;border-radius:16px;
+margin-bottom:36px;box-shadow:0 20px 60px rgba(102,126,234,.3);text-align:center;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;background:rgba(255,255,255,.1);
+border-radius:50%;transform:translate(100px,-100px);}
+.header-content{position:relative;z-index:1;}
+.header h1{font-size:2.8em;margin-bottom:10px;font-weight:700;letter-spacing:2px;}
+.header-subtitle{font-size:1.15em;opacity:.95;margin-bottom:18px;}
+.header-date{display:inline-block;background:rgba(255,255,255,.2);padding:8px 16px;border-radius:20px;font-size:.95em;}
+.back-link{display:inline-block;margin-bottom:20px;color:#667eea;text-decoration:none;font-weight:600;
+background:#fff;padding:10px 18px;border-radius:8px;box-shadow:0 3px 12px rgba(0,0,0,.08);}
+.back-link:hover{background:#667eea;color:#fff;}
+.nav-tabs{display:flex;gap:10px;margin-bottom:32px;overflow-x:auto;padding-bottom:10px;}
+.nav-tab{padding:12px 24px;background:#fff;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;
+transition:all .3s;font-weight:500;white-space:nowrap;font-family:inherit;font-size:1em;}
+.nav-tab:hover,.nav-tab.active{background:#667eea;color:#fff;border-color:#667eea;transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(102,126,234,.2);}
+.section{display:none;background:#fff;border-radius:12px;padding:40px;margin-bottom:32px;
+box-shadow:0 4px 20px rgba(0,0,0,.08);}
+.section.active{display:block;animation:slideUp .5s ease-out;}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.section h2{font-size:1.9em;color:#667eea;margin-bottom:28px;padding-bottom:15px;border-bottom:3px solid #667eea;
+display:flex;align-items:center;gap:12px;}
+.viewpoint-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-top:20px;}
+.viewpoint-card{border-radius:12px;padding:25px;border-left:5px solid;transition:all .3s;}
+.viewpoint-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.12);}
+.viewpoint-card.bullish{border-left-color:#28a745;background:linear-gradient(to right,rgba(40,167,69,.06) 0%,#fff 100%);}
+.viewpoint-card.bearish{border-left-color:#dc3545;background:linear-gradient(to right,rgba(220,53,69,.06) 0%,#fff 100%);}
+.viewpoint-card.neutral{border-left-color:#ffc107;background:linear-gradient(to right,rgba(255,193,7,.08) 0%,#fff 100%);}
+.viewpoint-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.viewpoint-badge{display:inline-block;padding:6px 12px;border-radius:20px;font-weight:600;font-size:.85em;color:#fff;}
+.viewpoint-badge.bullish{background:#28a745;}
+.viewpoint-badge.bearish{background:#dc3545;}
+.viewpoint-badge.neutral{background:#ffc107;color:#333;}
+.viewpoint-title{font-size:1.15em;font-weight:600;color:#333;margin-bottom:12px;}
+.viewpoint-item-content{color:#555;line-height:1.8;}
+.highlight-tag{display:inline-block;background:#f0f7ff;color:#667eea;padding:4px 10px;border-radius:4px;
+font-weight:500;margin-right:5px;margin-top:5px;font-size:.85em;}
+table{width:100%;border-collapse:collapse;margin-top:20px;font-size:.98em;}
+thead{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;}
+th{padding:15px;text-align:left;font-weight:600;}
+th.c,td.c{text-align:center;}
+tbody tr{border-bottom:1px solid #e8e8e8;transition:background .3s;}
+tbody tr:hover{background:#f9f9f9;}
+td{padding:14px 15px;vertical-align:middle;}
+.cat{font-weight:600;color:#667eea;background:#f5f7fa;}
+.num{font-weight:600;color:#667eea;font-family:'Courier New',monospace;}
+.up{color:#28a745;font-weight:700;}
+.down{color:#dc3545;font-weight:700;}
+.flat{color:#999;font-weight:700;}
+.direction-badge{display:inline-block;padding:6px 14px;border-radius:20px;font-weight:600;font-size:.88em;color:#fff;}
+.direction-up{background:#28a745;}
+.direction-down{background:#dc3545;}
+.direction-neutral{background:#ffc107;color:#333;}
+.stock-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.stock-tag{display:inline-block;background:#f0f7ff;color:#667eea;padding:6px 12px;border-radius:6px;font-size:.88em;font-weight:500;}
+.strategy-box{background:linear-gradient(135deg,#f8f9ff 0%,#eef2ff 100%);border-left:5px solid #667eea;
+border-radius:10px;padding:22px;margin-bottom:20px;}
+.strategy-box h3{color:#667eea;margin-bottom:10px;font-size:1.15em;}
+.checklist{list-style:none;}
+.checklist li{padding:10px 0 10px 30px;position:relative;color:#444;border-bottom:1px dashed #e0e0e0;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'✔';position:absolute;left:0;color:#667eea;font-weight:700;}
+.calendar-item{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid #eee;align-items:flex-start;}
+.calendar-item:last-child{border-bottom:none;}
+.calendar-date{min-width:96px;font-weight:700;color:#764ba2;background:#f4f0ff;border-radius:8px;
+padding:8px 10px;text-align:center;font-size:.9em;}
+.calendar-text{color:#444;}
+.calendar-text b{color:#333;}
+.warn-box{background:#fff7f7;border-left:5px solid #dc3545;border-radius:10px;padding:20px;margin-top:20px;color:#444;}
+.note{color:#888;font-size:.88em;margin-top:14px;}
+footer{text-align:center;color:#888;padding:24px 0;font-size:.9em;}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-content">
+    <h1>📊 財經晨報 Pro</h1>
+    <div class="header-subtitle">高利率 × 高油價 × 高糧價：三高環境下的市場拉鋸</div>
+    <div class="header-date">2026 年 10 月 9 日（星期五）｜台灣時間</div>
+  </div>
+</div>
+
+<a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showTab(event,'tab1')">📈 市場觀點</button>
+  <button class="nav-tab" onclick="showTab(event,'tab2')">🌍 全球市況</button>
+  <button class="nav-tab" onclick="showTab(event,'tab3')">🏭 台股焦點</button>
+  <button class="nav-tab" onclick="showTab(event,'tab4')">💰 資金流向</button>
+  <button class="nav-tab" onclick="showTab(event,'tab5')">📅 事件日曆</button>
+</div>
+
+<!-- ===== 市場觀點 ===== -->
+<div class="section active" id="tab1">
+  <h2>📈 市場觀點</h2>
+
+  <div class="warn-box">
+    <b>⚠️ 今日最關鍵的一句話：</b>目前全球金融市場最大的風險，不只是股價位處高檔，而是
+    <b>油價、糧價與利率同步維持在高位</b>。這使股票、債券與外匯市場更容易受政策與地緣政治消息牽動，
+    波動幅度也隨之放大。台股今（9）日因雙十國慶連假<b>休市一天</b>，投資人可利用休市期間重新檢視部位風險。
+  </div>
+
+  <div class="viewpoint-grid">
+
+    <div class="viewpoint-card bearish">
+      <div class="viewpoint-header">
+        <span class="viewpoint-badge bearish">利空</span>
+        <span class="viewpoint-title">美債殖利率創 24 年新高</span>
+      </div>
+      <div class="viewpoint-item-content">
+        美國 10 年期公債殖利率盤中一度達到 <b>5.364%</b>，30 年期公債殖利率亦觸及 <b>24 年高點</b>。
+        長天期殖利率走揚，等於對股市評價直接加壓，尤其是高本益比的科技成長股與高度依賴借貸的企業。
+        美國財政部標售 390 億美元 10 年期公債，需求尚可，殖利率自盤中高點略為回落至約 5.24%～5.28%。
+        <div><span class="highlight-tag">30年期約 5.67%</span><span class="highlight-tag">2年期約 4.77%</span><span class="highlight-tag">利率風險升溫</span></div>
+      </div>
+    </div>
+
+    <div class="viewpoint-card bearish">
+      <div class="viewpoint-header">
+        <span class="viewpoint-badge bearish">利空</span>
+        <span class="viewpoint-title">AI 評價修正：OpenAI 營收不如預期</span>
+      </div>
+      <div class="viewpoint-item-content">
+        OpenAI 揭露 9 月底年化營收約 <b>500 億美元</b>，低於市場先前傳聞，市場重新評估 AI 需求與基建支出的回報速度。
+        AI 概念股全面承壓：輝達下跌 2.94%、甲骨文跌近 6%、費城半導體指數重挫約 3.39%，台積電 ADR 同步下跌約 3%。
+        這波修正屬於「評價面」而非「基本面崩壞」，但短線籌碼明顯鬆動。
+        <div><span class="highlight-tag">費半 -3.39%</span><span class="highlight-tag">輝達 -2.94%</span><span class="highlight-tag">甲骨文 -6%</span></div>
+      </div>
+    </div>
+
+    <div class="viewpoint-card neutral">
+      <div class="viewpoint-header">
+        <span class="viewpoint-badge neutral">中性</span>
+        <span class="viewpoint-title">中東局勢與油價：布蘭特原油守在百美元</span>
+      </div>
+      <div class="viewpoint-item-content">
+        中東緊張局勢升溫、美國減產消息，加上墨西哥灣風暴威脅與中東原油出口受阻，使油價維持高檔。
+        西德州原油（WTI）收在 <b>91.49 美元</b>，布蘭特原油則維持在每桶 100 美元上下。
+        不過川普表示美方正與伊朗進行富有成效的討論，並稱 11 月 3 日期中選舉前不會攻擊伊朗，
+        消息一出國際油價短線急挫、10 年期美債殖利率回落至 5.24%。油價方向仍是後續通膨路徑的最大變數。
+        <div><span class="highlight-tag">WTI 91.49 美元</span><span class="highlight-tag">布蘭特 100 美元</span><span class="highlight-tag">地緣政治雙向風險</span></div>
+      </div>
+    </div>
+
+    <div class="viewpoint-card bearish">
+      <div class="viewpoint-header">
+        <span class="viewpoint-badge bearish">利空</span>
+        <span class="viewpoint-title">聯準會釋出年底可能再升息訊號</span>
+      </div>
+      <div class="viewpoint-item-content">
+        聯準會 9 月會議紀錄顯示，決策官員一致同意升息 0.25 個百分點，將聯邦基金利率目標區間提高至
+        <b>3.75%～4.00%</b>。多數官員認為 2026 年底前可能還需要再升息一次，但未承諾具體時點，
+        主要擔憂能源價格、強勁需求與偏高的通膨。市場定價顯示 10 月升息機率約 19%、12 月升息機率約 69%～83%。
+        <div><span class="highlight-tag">12月升息機率 69%～83%</span><span class="highlight-tag">利率高原期延長</span></div>
+      </div>
+    </div>
+
+    <div class="viewpoint-card bullish">
+      <div class="viewpoint-header">
+        <span class="viewpoint-badge bullish">利多</span>
+        <span class="viewpoint-title">美債殖利率回落提供債券布局機會</span>
+      </div>
+      <div class="viewpoint-item-content">
+        10 年期公債標售需求良好，殖利率自 5.364% 的盤中高點回落，顯示在多年高檔區仍有實質買盤承接。
+        對長線投資人而言，殖利率處於 5% 以上有機會提供新的收益布局窗口；但須留意利率風險尚未完全解除，
+        不宜因「殖利率創多年新高」就認定債券價格不會再跌。
+        <div><span class="highlight-tag">評價面轉佳</span><span class="highlight-tag">留意存續期間風險</span></div>
+      </div>
+    </div>
+
+    <div class="viewpoint-card bearish">
+      <div class="viewpoint-header">
+        <span class="viewpoint-badge bearish">利空</span>
+        <span class="viewpoint-title">全球糧食價格升至近四年高點</span>
+      </div>
+      <div class="viewpoint-item-content">
+        聯合國糧農組織（FAO）最新資料顯示，2026 年 9 月全球食品價格指數為 <b>136.0 點</b>，月增 1.5%、年增 5.8%。
+        小麥月增 6.3%、玉米月增 5.6%、食糖價格指數月增 6.1%。黑海航運受阻、北美乾旱與部分亞洲國家天候不佳為主要推力。
+        糧價上漲將透過飼料、畜牧、肥料與運輸成本擴散，讓各國央行更難轉向寬鬆。
+        <div><span class="highlight-tag">指數 136.0 點</span><span class="highlight-tag">年增 5.8%</span><span class="highlight-tag">通膨黏著度上升</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== 全球市況 ===== -->
+<div class="section" id="tab2">
+  <h2>🌍 全球市況</h2>
+  <p style="color:#555;">以下為最新可取得的收盤與報價（美股以 10 月 7 日收盤為基準，10 月 8 日盤後變化另於備註說明）。</p>
+
+  <table>
+    <thead>
+      <tr><th>類別</th><th>指標</th><th class="c">最新報價</th><th class="c">漲跌</th><th class="c">漲跌幅</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="cat">美股</td><td>道瓊工業指數</td><td class="c num">51,180.17</td><td class="c down">-338.35</td><td class="c down">-0.66%</td></tr>
+      <tr><td class="cat">美股</td><td>標準普爾 500 指數</td><td class="c num">7,801.75</td><td class="c down">-17.19</td><td class="c down">-0.22%</td></tr>
+      <tr><td class="cat">美股</td><td>那斯達克指數</td><td class="c num">27,538.69</td><td class="c down">-60.70</td><td class="c down">-0.22%</td></tr>
+      <tr><td class="cat">美股</td><td>羅素 2000 指數</td><td class="c num">—</td><td class="c down">—</td><td class="c down">約 -1.3%</td></tr>
+      <tr><td class="cat">美股</td><td>費城半導體指數（10/8 盤後）</td><td class="c num">—</td><td class="c down">—</td><td class="c down">約 -3.39%</td></tr>
+      <tr><td class="cat">歐股</td><td>歐洲 STOXX 600</td><td class="c num">—</td><td class="c down">—</td><td class="c down">約 -1.0%</td></tr>
+      <tr><td class="cat">亞股</td><td>日經 225 指數</td><td class="c num">約 70,035</td><td class="c down">—</td><td class="c down">約 -0.92%</td></tr>
+      <tr><td class="cat">債市</td><td>美國 2 年期公債殖利率</td><td class="c num">約 4.77%</td><td class="c up">走高</td><td class="c up">—</td></tr>
+      <tr><td class="cat">債市</td><td>美國 10 年期公債殖利率</td><td class="c num">約 5.28%</td><td class="c up">盤中高 5.364%</td><td class="c up">—</td></tr>
+      <tr><td class="cat">債市</td><td>美國 30 年期公債殖利率</td><td class="c num">約 5.67%</td><td class="c up">24 年高點</td><td class="c up">—</td></tr>
+      <tr><td class="cat">能源</td><td>布蘭特原油（Brent）</td><td class="c num">100.20 美元</td><td class="c down">-0.38</td><td class="c down">-0.38%</td></tr>
+      <tr><td class="cat">能源</td><td>西德州原油（WTI，10/8 收盤）</td><td class="c num">91.49 美元</td><td class="c up">走高</td><td class="c up">—</td></tr>
+      <tr><td class="cat">匯市</td><td>美元指數</td><td class="c num">102.24</td><td class="c up">+0.32</td><td class="c up">+0.32%</td></tr>
+      <tr><td class="cat">匯市</td><td>歐元／美元</td><td class="c num">1.1198</td><td class="c down">走貶</td><td class="c down">近 17 個月低點</td></tr>
+      <tr><td class="cat">匯市</td><td>美元／日圓</td><td class="c num">約 157.95</td><td class="c flat">持平</td><td class="c flat">—</td></tr>
+      <tr><td class="cat">貴金屬</td><td>現貨黃金</td><td class="c num">—</td><td class="c up">+10.81 美元</td><td class="c up">川普談話後反彈</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box" style="margin-top:24px;">
+    <b>10 月 8 日美股盤後重點：</b>主要指數多數收黑，僅道瓊小幅收紅。中東緊張局勢推升油價與通膨預期，
+    同時 OpenAI 營收不如預期重擊 AI 概念股，費半與台積電 ADR 同步重挫約 3%。
+    其後川普表態「期中選舉前不打伊朗」，油價短線急挫、美債殖利率自高點回落至 5.24%。
+  </div>
+  <p class="note">註：部分指標為盤中報價或區間估計值，非全部為最終結算價；不同來源報價時間略有差異，僅供趨勢參考。</p>
+</div>
+
+<!-- ===== 台股焦點 ===== -->
+<div class="section" id="tab3">
+  <h2>🏭 台股焦點</h2>
+
+  <table>
+    <thead>
+      <tr><th>產業 / 族群</th><th class="c">方向</th><th class="c">觀察指標</th><th>重點說明</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>加權指數</td>
+        <td class="c"><span class="direction-badge direction-down">下跌</span></td>
+        <td class="c down">-0.99%</td>
+        <td>10/8 收 <b>49,313.44 點</b>，下跌 492.93 點，成交值 9,201.72 億元，10 月以來漲幅全數回吐。</td>
+      </tr>
+      <tr>
+        <td>半導體／AI 伺服器</td>
+        <td class="c"><span class="direction-badge direction-down">偏弱</span></td>
+        <td class="c down">評價修正</td>
+        <td>OpenAI 營收數字低於傳聞，台積電 ADR 跌約 3%；台指期夜盤一度失守 49,000 點。</td>
+      </tr>
+      <tr>
+        <td>AI 供應鏈（廣達／雙鴻／健策）</td>
+        <td class="c"><span class="direction-badge direction-neutral">分歧</span></td>
+        <td class="c flat">9 月營收</td>
+        <td>9 月訂單明顯調整，第 3 季營收略低於市場預期；分析師指部分受短期電力不足與零組件缺貨影響，引發庫存調整。</td>
+      </tr>
+      <tr>
+        <td>機殼／散熱（川湖）</td>
+        <td class="c"><span class="direction-badge direction-down">重挫</span></td>
+        <td class="c down">第 2 根跌停</td>
+        <td>9 月營收急凍，市場解讀為「AI 風向變了」，短線賣壓沉重。</td>
+      </tr>
+      <tr>
+        <td>被動元件（國巨／華新科）</td>
+        <td class="c"><span class="direction-badge direction-down">下跌</span></td>
+        <td class="c down">約 -1.9%</td>
+        <td>國巨跌 1.85%、華新科跌 1.87%，族群同步走弱。</td>
+      </tr>
+      <tr>
+        <td>IC 設計／面板（聯發科／友達）</td>
+        <td class="c"><span class="direction-badge direction-down">續挫</span></td>
+        <td class="c down">題材降溫</td>
+        <td>聯發科受競爭對手專利交叉授權及 AI 工具費用傳聞影響；友達反映基本面與股價落差，跌破 5 日線宜適度獲利入袋。</td>
+      </tr>
+      <tr>
+        <td>今日盤勢</td>
+        <td class="c"><span class="direction-badge direction-neutral">休市</span></td>
+        <td class="c flat">雙十連假</td>
+        <td>10 月 9 日（五）台股因雙十國慶連假<b>休市一天</b>，10 月 10 日為國慶日。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top:32px;color:#667eea;">焦點個股與族群標籤</h3>
+  <div class="stock-tags" style="margin-top:12px;">
+    <span class="stock-tag">台積電 2330</span>
+    <span class="stock-tag">聯發科 2454</span>
+    <span class="stock-tag">川湖 2059</span>
+    <span class="stock-tag">國巨 2327</span>
+    <span class="stock-tag">華新科 2492</span>
+    <span class="stock-tag">友達 2409</span>
+    <span class="stock-tag">廣達 2382</span>
+    <span class="stock-tag">雙鴻 3324</span>
+    <span class="stock-tag">健策 3653</span>
+  </div>
+
+  <div class="warn-box" style="margin-top:24px;">
+    <b>操作提醒：</b>台股在逼近 50,000 點整數關卡後連續拉回，量能未能有效放大，
+    加上外資連續賣超，短線屬於「高檔震盪、籌碼轉弱」格局。休市期間請留意美股與油價變化，
+    下週開盤須提防補跌風險，建議控制持股比重、避免追高。
+  </div>
+</div>
+
+<!-- ===== 資金流向 ===== -->
+<div class="section" id="tab4">
+  <h2>💰 資金流向</h2>
+
+  <table>
+    <thead>
+      <tr><th>法人別</th><th class="c">10/8 買賣超（億元）</th><th class="c">連續天數</th><th class="c">10 月以來累計（億元）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>外資（不含自營商）</td><td class="c down">-758.52</td><td class="c down">連 4 買轉 3 賣</td><td class="c down">-955.54</td></tr>
+      <tr><td>投信</td><td class="c up">+46.89</td><td class="c up">連 3 賣轉買</td><td class="c up">+46.89</td></tr>
+      <tr><td>自營商（自行買賣）</td><td class="c down">-21.32</td><td class="c down">連 5 買轉 2 賣</td><td class="c down">-34.99</td></tr>
+      <tr><td>自營商（避險）</td><td class="c down">-166.00</td><td class="c down">買轉 3 賣</td><td class="c down">-249.20</td></tr>
+      <tr><td><b>三大法人合計</b></td><td class="c down"><b>-898.95</b></td><td class="c down">連 4 買轉 3 賣</td><td class="c down"><b>-1,332.60</b></td></tr>
+    </tbody>
+  </table>
+
+  <div class="strategy-box" style="margin-top:28px;">
+    <h3>💡 資金流觀察</h3>
+    <ul style="list-style:none;color:#444;">
+      <li style="padding:8px 0;">• 外資單日賣超 758.52 億元，為本波最大賣壓來源，三大法人連 3 日賣超合計達 1,332.6 億元。</li>
+      <li style="padding:8px 0;">• 投信逆勢買超 46.89 億元，終止連 3 賣，顯示內資仍在部分族群中尋找承接標的。</li>
+      <li style="padding:8px 0;">• 美元指數升至 102.24、逼近 18 個月高點，亞幣普遍承壓，須留意新台幣匯率是否跟貶，進一步影響外資匯出意願。</li>
+      <li style="padding:8px 0;">• 全球資金明顯由高評價成長股轉向對經濟敏感的價值型與能源類股，是 10 月以來的主軸。</li>
+    </ul>
+  </div>
+
+  <div class="warn-box">
+    <b>風險提示：</b>高利率環境下，企業融資成本上升，小型股與高負債企業壓力較大（羅素 2000 單日約跌 1.3% 已反映此趨勢）。
+    台股方面，外資賣超若延續，權值電子股將是提款機，短線以「現金為王、降低槓桿」為宜。
+  </div>
+</div>
+
+<!-- ===== 事件日曆 ===== -->
+<div class="section" id="tab5">
+  <h2>📅 事件日曆</h2>
+
+  <div class="calendar-item">
+    <div class="calendar-date">10/09（五）</div>
+    <div class="calendar-text"><b>台股因雙十國慶連假休市一天。</b>投資人可利用休市期間檢視部位與風險曝險。</div>
+  </div>
+  <div class="calendar-item">
+    <div class="calendar-date">10/10（六）</div>
+    <div class="calendar-text"><b>雙十國慶日。</b>國內金融市場休市。</div>
+  </div>
+  <div class="calendar-item">
+    <div class="calendar-date">持續追蹤</div>
+    <div class="calendar-text"><b>美國 10 年期公債殖利率能否回落至 5% 以下。</b>若持續維持在 5% 以上，股票與債券市場波動將加大。</div>
+  </div>
+  <div class="calendar-item">
+    <div class="calendar-date">持續追蹤</div>
+    <div class="calendar-text"><b>布蘭特原油能否跌破每桶 100 美元。</b>能源價格回落有助於減輕全球通膨壓力，是風險偏好回升的關鍵。</div>
+  </div>
+  <div class="calendar-item">
+    <div class="calendar-date">持續追蹤</div>
+    <div class="calendar-text"><b>全球糧食價格是否續揚。</b>若糧價、燃料與運輸成本同步上升，各國央行將更難轉向降息。</div>
+  </div>
+  <div class="calendar-item">
+    <div class="calendar-date">11/03（二）</div>
+    <div class="calendar-text"><b>美國期中選舉。</b>川普已表態選前不會攻擊伊朗，地緣政治風險與油價走勢料將與選情高度連動。</div>
+  </div>
+  <div class="calendar-item">
+    <div class="calendar-date">12 月 FOMC</div>
+    <div class="calendar-text"><b>市場定價 12 月再升息機率約 69%～83%。</b>聯準會 9 月已升息 1 碼至 3.75%～4.00%，多數官員認為年底前可能再升息一次。</div>
+  </div>
+  <div class="calendar-item">
+    <div class="calendar-date">本週／下週</div>
+    <div class="calendar-text"><b>美國原油庫存與企業財報。</b>最新原油庫存意外減少約 320 萬桶，反映短期供需偏緊；企業財報將是驗證 AI 需求能否支撐股價的關鍵。</div>
+  </div>
+
+  <h3 style="margin-top:36px;color:#667eea;">🎯 投資策略與操作清單</h3>
+  <div class="strategy-box" style="margin-top:18px;">
+    <h3>核心結論</h3>
+    <p style="color:#444;">目前是典型的「三高環境」—高油價、高糧價、高利率並存，經濟成長與通膨正在拉鋸。
+    相較於猜測股市短期漲跌，更值得觀察的是<b>美國公債殖利率、聯準會政策路徑與國際能源價格是否逐漸穩定</b>。
+    在殖利率未明確回落前，建議以「降低槓桿、控制部位、保留現金」為原則。</p>
+  </div>
+
+  <ul class="checklist">
+    <li>降低高評價成長股與高負債小型股的持股比重，避開利率敏感標的。</li>
+    <li>長天期美債與長債 ETF 持有者，務必留意利率風險，勿因殖利率創高就急於加碼。</li>
+    <li>台股以權值電子為核心但降低單一比重，避開短線急漲的 AI 題材股追高。</li>
+    <li>關注能源、食品與運輸成本上升受惠（或受害）族群的差異化表現。</li>
+    <li>留意新台幣匯率走勢，作為外資是否持續匯出的領先觀察指標。</li>
+    <li>休市期間追蹤美股盤後、油價與美債殖利率，為下週開盤預作準備。</li>
+  </ul>
+
+  <p class="note">本報告為公開資訊整理與市場觀察，非個人化投資建議。投資有風險，請自行評估並承擔決策結果。</p>
+</div>
+
+<footer>
+  📊 財經晨報 Pro ｜ 2026 年 10 月 9 日 ｜ 資料來源：公開財經媒體與官方統計彙整
+</footer>
+
+</div>
+
+<script>
+function showTab(evt, id){
+  var sections = document.querySelectorAll('.section');
+  for (var i=0;i<sections.length;i++){ sections[i].classList.remove('active'); }
+  var tabs = document.querySelectorAll('.nav-tab');
+  for (var j=0;j<tabs.length;j++){ tabs[j].classList.remove('active'); }
+  document.getElementById(id).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>
