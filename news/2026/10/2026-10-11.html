@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財經晨報 Pro — 2026年10月11日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: #f5f4fb; color:#2d2b45; line-height:1.7;
+  }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 16px 60px; }
+  header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color:#fff; padding:44px 24px 38px; text-align:center;
+    box-shadow: 0 8px 28px rgba(102,126,234,.28);
+  }
+  header h1 { font-size:2rem; font-weight:800; letter-spacing:1px; }
+  header .date { margin-top:10px; font-size:1.05rem; opacity:.92; }
+  header .sub { margin-top:6px; font-size:.88rem; opacity:.8; }
+  .back-link {
+    display:inline-block; margin:20px 0 0; padding:8px 18px; border-radius:20px;
+    background:rgba(255,255,255,.2); color:#fff; text-decoration:none; font-size:.88rem;
+    border:1px solid rgba(255,255,255,.4); transition:.2s;
+  }
+  .back-link:hover { background:rgba(255,255,255,.34); }
+  nav.tabs {
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+    background:#fff; padding:14px 12px; margin-top:-18px; border-radius:16px;
+    box-shadow:0 6px 22px rgba(118,75,162,.14); position:relative; z-index:5;
+  }
+  nav.tabs button {
+    border:none; cursor:pointer; padding:10px 18px; border-radius:10px;
+    background:#f0eefb; color:#5b4b8a; font-size:.92rem; font-weight:600;
+    font-family:inherit; transition:.2s;
+  }
+  nav.tabs button:hover { background:#e3ddfa; }
+  nav.tabs button.active {
+    background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+    box-shadow:0 4px 14px rgba(102,126,234,.34);
+  }
+  section.panel { display:none; margin-top:28px; }
+  section.panel.active { display:block; }
+  .card {
+    background:#fff; border-radius:16px; padding:26px 24px; margin-bottom:22px;
+    box-shadow:0 4px 18px rgba(118,75,162,.09); border:1px solid #efecfa;
+  }
+  .card h2 {
+    font-size:1.24rem; color:#4a3d7a; margin-bottom:16px; padding-left:14px;
+    border-left:5px solid #764ba2; line-height:1.35;
+  }
+  .card h3 { font-size:1.02rem; color:#5b4b8a; margin:18px 0 10px; }
+  .card p { margin-bottom:12px; font-size:.95rem; color:#3d3a58; }
+  ul.list { margin:0 0 12px 4px; list-style:none; }
+  ul.list li {
+    padding:8px 0 8px 24px; position:relative; font-size:.94rem; color:#3d3a58;
+    border-bottom:1px dashed #efecfa;
+  }
+  ul.list li:last-child { border-bottom:none; }
+  ul.list li::before {
+    content:"▸"; position:absolute; left:4px; color:#764ba2; font-weight:700;
+  }
+  .op-card {
+    border-radius:14px; padding:16px 18px; margin-bottom:14px; border-left:6px solid;
+  }
+  .op-bull { background:#eefaf3; border-color:#22a06b; }
+  .op-bear { background:#fdeef0; border-color:#d64550; }
+  .op-neu  { background:#eef2fd; border-color:#4a6fd6; }
+  .op-card .tag {
+    display:inline-block; font-size:.76rem; font-weight:800; letter-spacing:.5px;
+    padding:3px 12px; border-radius:20px; color:#fff; margin-bottom:8px;
+  }
+  .op-bull .tag { background:#22a06b; }
+  .op-bear .tag { background:#d64550; }
+  .op-neu  .tag { background:#4a6fd6; }
+  .op-card .t { font-weight:700; font-size:1rem; margin-bottom:5px; color:#2d2b45; }
+  .op-card p { margin:0; font-size:.9rem; }
+  table { width:100%; border-collapse:collapse; font-size:.9rem; margin:6px 0 14px; }
+  thead th {
+    background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+    padding:11px 10px; text-align:left; font-weight:600; font-size:.87rem;
+  }
+  thead th:first-child { border-radius:10px 0 0 0; }
+  thead th:last-child { border-radius:0 10px 0 0; }
+  tbody td { padding:10px; border-bottom:1px solid #f0eefb; color:#3d3a58; }
+  tbody tr:nth-child(even) { background:#faf9fe; }
+  tbody tr:hover { background:#f3f0fc; }
+  .up { color:#d64550; font-weight:700; }
+  .down { color:#22a06b; font-weight:700; }
+  .flat { color:#7a7690; font-weight:700; }
+  .chip {
+    display:inline-block; font-size:.78rem; padding:2px 10px; border-radius:12px;
+    background:#f0eefb; color:#5b4b8a; margin:2px 4px 2px 0; font-weight:600;
+  }
+  .stat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:8px 0 6px; }
+  .stat {
+    background:linear-gradient(135deg,#f7f5fe,#eeebfa); border-radius:14px;
+    padding:16px; border:1px solid #e6e0f7;
+  }
+  .stat .lbl { font-size:.8rem; color:#7a6f9c; font-weight:600; }
+  .stat .val { font-size:1.34rem; font-weight:800; color:#4a3d7a; margin:5px 0 2px; }
+  .stat .chg { font-size:.85rem; font-weight:700; }
+  .cal-item {
+    display:flex; gap:14px; padding:12px 0; border-bottom:1px dashed #efecfa; align-items:flex-start;
+  }
+  .cal-item:last-child { border-bottom:none; }
+  .cal-date {
+    min-width:74px; text-align:center; background:linear-gradient(135deg,#667eea,#764ba2);
+    color:#fff; border-radius:10px; padding:7px 4px; font-weight:800; font-size:.82rem; line-height:1.25;
+  }
+  .cal-body { flex:1; }
+  .cal-body .t { font-weight:700; font-size:.95rem; color:#2d2b45; }
+  .cal-body .d { font-size:.86rem; color:#6d6885; margin-top:3px; }
+  .strategy {
+    background:linear-gradient(135deg,#f7f5fe,#f0eefb); border-radius:14px;
+    padding:18px 20px; border:1px dashed #cfc4ef; margin-top:8px;
+  }
+  footer { text-align:center; margin-top:36px; font-size:.82rem; color:#8b86a3; line-height:1.9; }
+  @media (max-width:600px) {
+    header h1 { font-size:1.42rem; }
+    nav.tabs button { padding:9px 13px; font-size:.84rem; }
+    .card { padding:20px 16px; }
+    table { font-size:.82rem; }
+    thead th, tbody td { padding:8px 6px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>📊 財經晨報 Pro</h1>
+  <div class="date">2026 年 10 月 11 日（星期日）</div>
+  <div class="sub">台股 × 美股 × 全球總經｜資料截止：2026 年 10 月 9 日台股收盤、10 月 9 日美股收盤</div>
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+</header>
+
+<div class="wrap">
+  <nav class="tabs">
+    <button class="active" data-p="p1">📈 市場觀點</button>
+    <button data-p="p2">🌍 全球市況</button>
+    <button data-p="p3">🏭 台股焦點</button>
+    <button data-p="p4">💰 資金流向</button>
+    <button data-p="p5">📅 事件日曆</button>
+  </nav>
+
+  <!-- ============ 1. 市場觀點 ============ -->
+  <section class="panel active" id="p1">
+    <div class="card">
+      <h2>📈 今日市場觀點總覽</h2>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="lbl">台股加權指數（10/9 收盤）</div>
+          <div class="val">49,806.37</div>
+          <div class="chg flat">▼ 16.18 點（-0.03%）</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">那斯達克指數</div>
+          <div class="val">27,193.34</div>
+          <div class="chg down">▼ 1.25%</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">費城半導體指數</div>
+          <div class="val">12,623.72</div>
+          <div class="chg down">▼ 3.39%</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">布蘭特原油</div>
+          <div class="val">$102.25</div>
+          <div class="chg">每桶（持平）</div>
+        </div>
+      </div>
+
+      <h3>本週核心定調：高檔震盪，等待台積電法說會定調</h3>
+      <p>台股加權指數在 10 月初連續改寫歷史新高、一度逼近 5 萬點整數大關後，本週轉為高檔量縮整理格局，加權指數週線收在 49,806 點附近。市場普遍認為，指數在 5 萬點前的「心理關卡」反覆測試屬於正常換手，後續能否突破的關鍵在於 <strong>10 月 15 日台積電法人說明會</strong>能否釋出優於預期的第 4 季展望。</p>
+
+      <div class="op-card op-bull">
+        <span class="tag">利多</span>
+        <div class="t">台積電第 3 季營收改寫歷史新高，基本面動能未歇</div>
+        <p>台積電公布第 3 季營收創下單季歷史新高，累計前 9 月營收達 3 兆 8,987.27 億元，較去年同期大幅成長 41.1%。法人指出，在輝達（NVIDIA）Vera Rubin 新平台訂單、以及 2 奈米先進製程需求強勁帶動下，第 4 季營收可望再創新高，全年美元營收增幅也將優於原先預期。</p>
+      </div>
+
+      <div class="op-card op-bear">
+        <span class="tag">利空</span>
+        <div class="t">AI 泡沫疑慮升溫，美股科技股與半導體族群明顯回檔</div>
+        <p>美股近日出現「AI 泡沫」雜音，資金自漲多的 AI 概念股撤出，那斯達克指數單日下跌 1.25%，費城半導體指數更重挫 3.39%，台積電 ADR 同步重挫逾 3%。此一調整對台股電子權值股形成短線壓力，須留意開盤跳空後的承接力道。</p>
+      </div>
+
+      <div class="op-card op-neu">
+        <span class="tag">中性</span>
+        <div class="t">台股相對抗跌，資金輪動至記憶體、載板與被動元件</div>
+        <p>在大盤高檔整理期間，資金並未全面退場，而是明顯轉向被動元件、記憶體及 ABF 載板等次族群輪動。加權指數盤中高低震盪幅度放大至近 400 點，顯示多空在此價位帶交戰激烈，短線宜以「選股不選市」因應。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🎯 投資策略建議</h2>
+      <div class="strategy">
+        <p><strong>一、主線不變：AI 供應鏈仍是中長期核心。</strong>柏瑞投信指出，AI 發展已由單一應用延伸至整體基礎建設升級，帶動半導體製程、傳輸材料與資料中心三大領域同步擴張，預估 2026 年台股獲利成長率可達 40% 以上，多頭格局並未改變。</p>
+        <p><strong>二、短線操作：法說會前降低槓桿、控制部位。</strong>10/15 台積電法說會屬「事件型行情」，市場已有多家外資機構搶先調升目標價（麥格理上看 4,410 元、花旗 4,000 元）。建議法說會前不宜過度追高，並保留部分現金以因應消息落地後的波動。</p>
+        <p><strong>三、族群配置：聚焦具技術門檻與訂單能見度者。</strong>優先關注具備規格升級動能、定價能力強的個股，如 2 奈米供應鏈、先進封裝（CoWoS）、ABF 載板與高頻高速傳輸材料。</p>
+      </div>
+
+      <h3>今日操作清單</h3>
+      <ul class="list">
+        <li><strong>持股續抱：</strong>AI 供應鏈核心持股（先進製程、封裝、伺服器）維持中長線持有，不因單日回檔出清。</li>
+        <li><strong>逢回布局：</strong>記憶體、ABF 載板與被動元件族群若因大盤震盪回測月線，可分批承接。</li>
+        <li><strong>風險控管：</strong>指數臨近 5 萬點心理關卡，建議將持股水位控制在 7 成以內，保留現金彈性。</li>
+        <li><strong>觀察重點：</strong>緊盯 10/15 台積電法說會對第 4 季毛利率與資本支出之指引。</li>
+        <li><strong>避開標的：</strong>短線漲幅過大、缺乏基本面支撐的 AI 概念投機股。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 2. 全球市況 ============ -->
+  <section class="panel" id="p2">
+    <div class="card">
+      <h2>🌍 全球市場指標一覽</h2>
+      <table>
+        <thead>
+          <tr><th>市場指標</th><th>最新收盤</th><th>漲跌</th><th>備註</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>道瓊工業指數</td><td>51,231.64</td><td class="up">▲ 0.10%</td><td>傳產權值撐盤</td></tr>
+          <tr><td>標普 500 指數</td><td>7,765.36</td><td class="down">▼ 0.47%</td><td>漲勢集中大型科技股</td></tr>
+          <tr><td>那斯達克指數</td><td>27,193.34</td><td class="down">▼ 1.25%</td><td>AI 泡沫疑慮壓抑</td></tr>
+          <tr><td>費城半導體指數</td><td>12,623.72</td><td class="down">▼ 3.39%</td><td>半導體族群明顯回檔</td></tr>
+          <tr><td>NYSE FANG+ 指數</td><td>19,427.50</td><td class="down">▼ 1.13%</td><td>科技龍頭同步走弱</td></tr>
+          <tr><td>台積電 ADR</td><td>—</td><td class="down">▼ 逾 3%</td><td>跟隨費半回檔</td></tr>
+          <tr><td>輝達（NVIDIA）</td><td>238.90 美元</td><td class="up">▲ 2.12%</td><td>日前曾創收盤新高</td></tr>
+          <tr><td>布蘭特原油</td><td>102.25 美元／桶</td><td class="flat">持平</td><td>能源價格仍居高位</td></tr>
+          <tr><td>比特幣</td><td>約 84,100 美元</td><td class="down">▼ 走弱</td><td>美元強勢壓抑</td></tr>
+          <tr><td>黃金</td><td>高檔持穩</td><td class="flat">持平</td><td>混雜數據中觀望</td></tr>
+        </tbody>
+      </table>
+
+      <h3>美股：創高後遇「AI 泡沫」雜音</h3>
+      <p>美股 10 月上旬曾由大型科技股領軍創下歷史新高，那斯達克指數、輝達與台積電 ADR 同步寫下收盤新猷。然而隨後市場對 AI 資本支出能否轉化為實質獲利產生疑慮，資金轉趨保守，半導體族群承受較大賣壓，費半單日重挫 3.39%，成為本波修正的重災區。道瓊因傳產權值支撐而相對有撐，呈現「科技弱、傳產穩」的分歧格局。</p>
+
+      <h3>能源與商品：油價高檔盤旋為最大變數</h3>
+      <p>布蘭特原油維持在每桶 102 美元以上的相對高位，法人普遍認為「能源價格將左右一切」——油價若續居高檔，將推升通膨預期並牽動美國聯準會（Fed）利率政策走向，是第 4 季市場最大的不確定因素。美元維持強勢，同步壓抑黃金與加密貨幣表現。</p>
+
+      <h3>總體經濟：Fed 利率路徑仍為市場主軸</h3>
+      <p>美國就業與通膨數據呈現混雜訊號，市場對聯準會降息時程與幅度的預估反覆。法人提醒，在通膨、國際油價走揚等不確定因素下，台股與美股短線均有高檔震盪的機率，須以企業獲利成長作為最終支撐依據。</p>
+    </div>
+  </section>
+
+  <!-- ============ 3. 台股焦點 ============ -->
+  <section class="panel" id="p3">
+    <div class="card">
+      <h2>🏭 台股盤勢與產業焦點</h2>
+      <h3>大盤：49,806 點高檔整理，5 萬點關前反覆測試</h3>
+      <p>台股加權指數本週收在 49,806.37 點，小跌 16.18 點、跌幅 0.03%，盤中一度逼近 5 萬點大關，單日高低震盪幅度近 400 點。櫃買市場同步量縮整理。10 月初指數曾單日狂飆逾 1,200 點、以 49,712 點寫下歷史新猷，顯示多頭氣勢仍在，但攻堅 5 萬點需更多成交量能配合。</p>
+
+      <h3>產業族群輪動</h3>
+      <table>
+        <thead>
+          <tr><th>族群</th><th>近期表現</th><th>觀察重點</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>半導體／先進製程</td><td>權值股高檔震盪</td><td>台積電 10/15 法說會為最大催化劑</td></tr>
+          <tr><td>記憶體</td><td class="up">資金明顯流入</td><td>外資大舉掃貨，單一檔買超逾 7 萬張</td></tr>
+          <tr><td>ABF 載板</td><td class="up">轉強</td><td>AI 伺服器需求帶動規格升級</td></tr>
+          <tr><td>被動元件</td><td class="up">資金輪動標的</td><td>漲價題材與缺貨預期</td></tr>
+          <tr><td>航運（散裝／貨櫃）</td><td class="flat">區間整理</td><td>運價與油價成本連動</td></tr>
+          <tr><td>金融／金控</td><td class="flat">防守型資金避風港</td><td>利率政策走向為關鍵</td></tr>
+        </tbody>
+      </table>
+
+      <h3>台積電（2330）成盤面唯一主角</h3>
+      <ul class="list">
+        <li><strong>營收創高：</strong>第 3 季營收改寫單季歷史新高，累計前 9 月營收 3 兆 8,987.27 億元，年增 41.1%。</li>
+        <li><strong>法說明確：</strong>10 月 15 日將召開線上法人說明會，為下週台股重頭戲，市場預期可望釋出正面訊息。</li>
+        <li><strong>成長動能：</strong>輝達 Vera Rubin 新平台訂單、2 奈米先進製程需求強勁，第 4 季營收可望續創新高。</li>
+        <li><strong>海外布局：</strong>赴美國德州建置第 2 園區議題持續發酵，市場關注擴產進度與結盟動向。</li>
+        <li><strong>目標價調升：</strong>多家內外資趕在法說前夕出具報告，麥格理證券上看 4,410 元、花旗證券 4,000 元。</li>
+      </ul>
+
+      <h3>10 月台股「四多」加持</h3>
+      <p>法人指出，台股 10 月行情具備「四多」支撐：上市櫃 9 月營收公布、台積電法說會、美股財報週接力登場，基本面火力全開之下，市場看好加權指數有望正式挑戰 5 萬點大關。</p>
+    </div>
+  </section>
+
+  <!-- ============ 4. 資金流向 ============ -->
+  <section class="panel" id="p4">
+    <div class="card">
+      <h2>💰 法人資金動向</h2>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="lbl">三大法人合計</div>
+          <div class="val">買超 642.88 億</div>
+          <div class="chg up">單日同步買超</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">外資及陸資</div>
+          <div class="val">買超 494.59 億</div>
+          <div class="chg up">累計 3 日買超 1,859 億</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">投信</div>
+          <div class="val">買超 79.42 億</div>
+          <div class="chg up">連續 6 日買超</div>
+        </div>
+      </div>
+
+      <h3>外資動向：連續大買，聚焦記憶體雙雄</h3>
+      <p>證交所公布籌碼動向顯示，三大法人合計買超 642.88 億元，其中外資及陸資買超 494.59 億元，累計 3 個交易日買超高達 1,859.37 億元，買盤力道強勁。外資主要掃貨標的集中於記憶體族群，單一檔買超高達 7 萬張以上，同時加碼鴻海 5 萬張，顯示資金在 AI 供應鏈中進行新一輪的區位調整。</p>
+
+      <h3>月線格局：外資單月買超創新高</h3>
+      <p>統計外資單月買超台股達 3,568 億元，改寫歷史新高紀錄。法人分析，受惠 AI 投資需求暢旺與科技供應鏈持續擴張，台股今年以來漲幅在亞洲主要市場中名列前茅，在經濟基本面穩健與企業獲利增長強勁的支撐下，多頭格局可望延續。</p>
+
+      <h3>資金流向三大主軸</h3>
+      <ul class="list">
+        <li><strong>AI 硬體供應鏈：</strong>半導體先進製程、先進封裝、伺服器組裝為外資長線核心配置。</li>
+        <li><strong>記憶體族群：</strong>受惠 AI 伺服器高頻寬記憶體（HBM）需求，成為本波資金輪動的最大受益者。</li>
+        <li><strong>載板與被動元件：</strong>規格升級帶動單價提升，資金自高基期權值股外溢至中價位次族群。</li>
+      </ul>
+
+      <h3>風險提示</h3>
+      <p>須留意 2026 年 7 月曾出現的科技股大輪動教訓——當時外資單日賣超台股 1,774.18 億元、改寫歷史最大賣超紀錄，台積電遭調節逾 3.8 萬張。此顯示外資在極端行情下撤出速度極快，投資人宜持續追蹤外資買賣超轉折訊號，作為部位調整依據。</p>
+    </div>
+  </section>
+
+  <!-- ============ 5. 事件日曆 ============ -->
+  <section class="panel" id="p5">
+    <div class="card">
+      <h2>📅 本週與近期重要事件</h2>
+      <div class="cal-item">
+        <div class="cal-date">10/12<br>週一</div>
+        <div class="cal-body">
+          <div class="t">台股恢復交易，補跌／補漲效應觀察</div>
+          <div class="d">上週五美股科技股與費半重挫，須留意電子權值股開盤跳空後的承接力道，以及資金是否續留記憶體、載板族群。</div>
+        </div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">10/15<br>週三</div>
+        <div class="cal-body">
+          <div class="t">⭐ 台積電（2330）第 3 季法人說明會</div>
+          <div class="d">本週最大重頭戲。市場聚焦第 4 季營收指引、毛利率變化、2 奈米量產進度、資本支出規劃，以及 Vera Rubin 平台訂單貢獻。法人預期可望釋出正面訊息。</div>
+        </div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">10 月中</div>
+        <div class="cal-body">
+          <div class="t">美股第 3 季財報週啟動</div>
+          <div class="d">大型科技股與半導體廠財報陸續公布，AI 資本支出與獲利轉化情形將直接影響全球科技股評價，為「AI 泡沫」爭議的關鍵驗證點。</div>
+        </div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">10 月</div>
+        <div class="cal-body">
+          <div class="t">上市櫃 9 月營收全數公布</div>
+          <div class="d">AI 供應鏈廠商營收表現為檢驗基本面動能的重要指標，可篩選營收創高且訂單能見度佳的標的。</div>
+        </div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">持續<br>關注</div>
+        <div class="cal-body">
+          <div class="t">國際油價與美國聯準會利率政策</div>
+          <div class="d">布蘭特原油維持每桶 102 美元以上高檔，油價走勢牽動通膨預期與 Fed 降息時程，為第 4 季最大總體變數。</div>
+        </div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">持續<br>關注</div>
+        <div class="cal-body">
+          <div class="t">台積電赴美擴產與德州第 2 園區進度</div>
+          <div class="d">海外布局進度、結盟動向與產能規劃，將影響長期資本支出節奏與供應鏈訂單分配。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📌 一週總結</h2>
+      <p>台股在連續改寫歷史新高後，本週進入 5 萬點關前的高檔整理，多空在 49,800 點附近激烈交戰。外資買盤依然強勁，三大法人同步買超、月買超創歷史新高，顯示長線資金對 AI 供應鏈的信心未減。然而美股「AI 泡沫」雜音導致費半重挫，短線形成壓力。</p>
+      <p>展望下週，<strong>10 月 15 日台積電法說會</strong>將是決定大盤能否正式站上 5 萬點的關鍵。在事件落地前，建議投資人維持紀律、控制持股水位，以選股取代猜指數，並將資金集中於具技術門檻、訂單能見度與定價能力的優質企業。</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>本報告由 Hermes Agent 自動生成，資料來源為公開財經新聞與市場資訊，僅供參考，不構成任何投資建議。</p>
+    <p>投資有風險，請審慎評估自身風險承受能力。</p>
+    <p><a href="../../index.html" style="color:#764ba2;text-decoration:none;font-weight:600;">← 回到歷史報告列表</a></p>
+    <p style="margin-top:8px;">© 2026 財經晨報 Pro ｜ 生成時間：2026-10-11</p>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('nav.tabs button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('nav.tabs button').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('section.panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      var target = document.getElementById(btn.dataset.p);
+      if (target) { target.classList.add('active'); }
+    });
+  });
+</script>
+</body>
+</html>
