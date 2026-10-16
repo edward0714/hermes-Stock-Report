@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日財經晨報 — 2026年10月16日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; background:#f5f4fb; color:#2d2b3a; line-height:1.7; }
+  .wrap { max-width:1100px; margin:0 auto; background:#fff; box-shadow:0 4px 24px rgba(102,126,234,.12); }
+  header { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; padding:38px 32px 30px; }
+  header .tag { display:inline-block; background:rgba(255,255,255,.22); padding:3px 12px; border-radius:20px; font-size:13px; letter-spacing:1px; }
+  header h1 { font-size:30px; margin:12px 0 6px; font-weight:800; }
+  header p { font-size:14px; opacity:.9; }
+  .back-link { display:inline-block; margin-top:14px; color:#fff; font-size:13px; text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.6); }
+  nav { display:flex; flex-wrap:wrap; background:#f0eefb; border-bottom:2px solid #e2ddf7; }
+  nav button { flex:1; min-width:150px; padding:14px 10px; border:none; background:transparent; cursor:pointer; font-size:15px; font-weight:600; color:#6b6685; font-family:inherit; }
+  nav button.active { background:#fff; color:#5b46b8; border-bottom:3px solid #764ba2; }
+  section.tab { display:none; padding:28px 32px 36px; }
+  section.tab.active { display:block; }
+  h2 { font-size:21px; color:#5b46b8; margin:0 0 14px; padding-left:12px; border-left:5px solid #764ba2; }
+  h3 { font-size:16px; color:#4a3f7a; margin:20px 0 8px; }
+  table { width:100%; border-collapse:collapse; margin:12px 0 20px; font-size:14px; }
+  th { background:#ece9fa; color:#4a3f7a; padding:10px; text-align:left; font-weight:700; }
+  td { padding:9px 10px; border-bottom:1px solid #eeecf7; }
+  tr:hover td { background:#faf9ff; }
+  .up { color:#d93025; font-weight:700; }
+  .down { color:#1a8a4f; font-weight:700; }
+  .flat { color:#7a7891; font-weight:700; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-bottom:22px; }
+  .card { border-radius:12px; padding:16px 18px; border-left:6px solid; }
+  .card.bull { background:#fdeef0; border-color:#d93025; }
+  .card.neutral { background:#eef3fd; border-color:#3d6fd1; }
+  .card.bear { background:#e9f6ee; border-color:#1a8a4f; }
+  .card .lbl { font-size:12px; font-weight:700; letter-spacing:1px; color:#7a7891; }
+  .card h4 { font-size:15px; margin:4px 0 6px; color:#2d2b3a; }
+  .card p { font-size:13.5px; color:#4b4a5e; }
+  .note { background:#faf9ff; border:1px dashed #cdc6ee; border-radius:10px; padding:12px 16px; font-size:13px; color:#6b6685; margin:14px 0; }
+  ul.list { padding-left:20px; }
+  ul.list li { margin-bottom:8px; font-size:14.5px; }
+  .pill { display:inline-block; font-size:12px; padding:2px 9px; border-radius:12px; background:#ece9fa; color:#5b46b8; margin-right:6px; }
+  footer { text-align:center; padding:20px; font-size:12.5px; color:#8a88a0; border-top:1px solid #eeecf7; }
+  @media(max-width:640px){ header h1{font-size:23px;} section.tab{padding:20px 16px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">財經晨報 Pro</span>
+  <h1>📊 每日財經晨報 — 2026年10月16日（星期五）</h1>
+  <p>台股 10/15 崩跌 1,655.96 點、收 46,969.87 點創史上第 6 大跌點 ｜ 外資單日淨賣超 3,025.55 億元刷新紀錄、新台幣爆量重貶 1.92 角 ｜ 台積電法說會毛利率 66.4% 季減，ADR 收跌 1.80%</p>
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+</header>
+
+<nav>
+  <button class="active" data-tab="view">📈 市場觀點</button>
+  <button data-tab="global">🌍 全球市況</button>
+  <button data-tab="tw">🏭 台股焦點</button>
+  <button data-tab="flow">💰 資金流向</button>
+  <button data-tab="cal">📅 事件日曆</button>
+</nav>
+
+<!-- ========== 市場觀點 ========== -->
+<section class="tab active" id="view">
+  <h2>今日核心觀點</h2>
+  <div class="cards">
+    <div class="card bull">
+      <div class="lbl">利多</div>
+      <h4>台積電第三季獲利連六季創新高，前三季 EPS 已達 29.43 元</h4>
+      <p>台積電 10/15 法說會公布第三季財報，合併營收 1 兆 4,942.4 億元（季增 17.6%、年增 50.9%），稅後純益 7,630.6 億元（年增 68.7%），每股稅後純益 29.43 元，獲利連續第六個季度改寫歷史新高。以美元計價營收 467.2 億美元、年增 41.2%，第四季美元營收指引 523 至 543 億美元，意味著仍有季增 12% 至 16% 的成長動能。</p>
+    </div>
+    <div class="card neutral">
+      <div class="lbl">中性</div>
+      <h4>第四季毛利率指引 65% 至 67%，較本季略為下修</h4>
+      <p>第三季毛利率 66.4%、營益率 58.7%，較第二季的 67.72% 與 58.9% 出現回落，主因 2 奈米製程初期量產稀釋與海外廠成本影響。公司對 2026 年全年資本支出維持 600 至 640 億美元不變，並對 2027 年需求釋出較為審慎的說法，成為法說會後 ADR 走弱的主因。管理層定調仍屬穩健，但市場對「成長斜率放緩」的解讀轉趨敏感。</p>
+    </div>
+    <div class="card bear">
+      <div class="lbl">利空</div>
+      <h4>台股崩跌 1,655.96 點、外資單日賣超 3,025.55 億元創史上新高</h4>
+      <p>台股 10/15 在美股通膨利空與 AI 資本支出疑慮雙重夾擊下重挫 1,655.96 點、跌幅逾 3.4%，收在 46,969.87 點，寫下台股史上第六大跌點紀錄，成交值爆出 1.3 兆元巨量。外資及陸資單日淨賣超 3,025.55 億元，改寫歷史最大單日賣超紀錄，新台幣同步爆出 91 億美元巨量、重貶 1.92 角收 32.265 元，形成典型「股匯雙殺」格局。</p>
+    </div>
+  </div>
+
+  <h3>一句話總結</h3>
+  <p>這是一場「<b>基本面創新高、籌碼面卻崩壞</b>」的矛盾格局。台積電交出連續六季創新高的成績單，第四季營收指引仍維持雙位數季增，但毛利率自高點回落、公司對 2027 年轉趨審慎，加上市場對 AI 過度支出的疑慮未解，使利多鈍化、賣壓傾巢而出。外資單日提款逾 3,000 億元改寫紀錄，新台幣重貶創波段新低，<b>籌碼面已成短線最大變數</b>。值得注意的是，美股 10/15 收盤漲跌互現、道瓊逆勢大漲 556 點，那斯達克自盤中低點翻紅，<b>台指期夜盤也由黑翻紅</b>，暗示最恐慌的時刻可能已過。今日操作重點不在猜底，而在<b>觀察外資賣超是否收斂、新台幣能否止穩、以及 46,969 點這個崩跌低點是否守得住</b>。</p>
+
+  <div class="note">資料說明：本篇部分即時數據依媒體披露之收盤／即時報價整理，個別品項可能因來源時點不同而與官方最終結算值有些微落差，投資決策請以交易所與官方結算資料為準。</div>
+
+  <h3>操作紀律提醒</h3>
+  <ul class="list">
+    <li>台股單日崩跌逾 1,655 點後，技術面已跌破月線，短線屬<b>恐慌性殺盤</b>性質，不建議在反彈初期重押，也不宜在急殺末端追空。</li>
+    <li><b>新台幣走勢是關鍵指標</b>：10/15 爆量重貶 1.92 角收 32.265 元，若今日續貶，代表外資匯出壓力未解，股匯雙殺風險仍在；若止穩，則籌碼面有機會轉佳。</li>
+    <li>台積電法說會已落幕，<b>利多鈍化的現象需要高度警覺</b>——過去經驗顯示，法說會後若股價無法反應亮眼財報，往往代表評價已充分反映。</li>
+    <li>記憶體族群面臨中國 2028 年大規模量產 RAM 的長線供給疑慮，短線雖有美光逆勢上漲近 2% 的支撐，但建議<b>以區間操作取代長抱</b>。</li>
+    <li>保留 2 至 3 成現金比重，等待外資賣超收斂與量能萎縮的落底訊號浮現。</li>
+  </ul>
+</section>
+
+<!-- ========== 全球市況 ========== -->
+<section class="tab" id="global">
+  <h2>全球市場指標（美股為 10/15 收盤）</h2>
+  <table>
+    <thead><tr><th>市場 / 指標</th><th>收盤 / 最新</th><th>漲跌</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr><td>道瓊工業指數</td><td>52,177.69</td><td class="up">＋556.21 點（＋1.08%）</td><td>科技股賣壓下逆勢大漲，零售商與非科技類股支撐</td></tr>
+      <tr><td>S&amp;P 500 指數</td><td>7,744.06</td><td class="up">＋25.12 點（＋0.33%）</td><td>漲幅溫和，AI 相關權值股仍構成拖累</td></tr>
+      <tr><td>那斯達克綜合指數</td><td>26,713.03</td><td class="up">＋20.16 點（＋0.08%）</td><td>自盤中低點明顯反彈，收盤驚險翻紅</td></tr>
+      <tr><td>費城半導體指數</td><td>11,581.22</td><td class="down">−103.17 點（−0.88%）</td><td>連續第 7 個交易日收黑，晶片股為本波最弱族群</td></tr>
+      <tr><td>台積電 ADR（TSM）</td><td>422.25 美元</td><td class="down">−7.75 美元（−1.80%）</td><td>法說會後走弱，盤中一度重挫逾 4%</td></tr>
+      <tr><td>輝達（NVDA）</td><td>—</td><td class="down">−1.84%</td><td>受台積電 ADR 走弱與 AI 支出疑慮拖累</td></tr>
+      <tr><td>超微（AMD）</td><td>—</td><td class="down">−1.50%</td><td>半導體族群同步承壓</td></tr>
+      <tr><td>英特爾（INTC）</td><td>—</td><td class="down">−2.80%</td><td>為晶片股中跌幅較大者</td></tr>
+      <tr><td>美光科技（MU）</td><td>—</td><td class="up">＋近 2%</td><td>記憶體報價支撐，逆勢收紅</td></tr>
+      <tr><td>CoreWeave</td><td>—</td><td class="up">＋近 6%</td><td>扭轉前一日跌勢，AI 運算需求題材回穩</td></tr>
+      <tr><td>美元指數</td><td>約 102.5</td><td class="up">高檔</td><td>PPI 創 4 年半新高推升升息預期，美元維持強勢</td></tr>
+      <tr><td>美元兌新台幣</td><td>32.265</td><td class="down">重貶 1.92 角</td><td>匯市爆 91 億美元巨量，外資提款創紀錄</td></tr>
+      <tr><td>WTI 原油</td><td>約 95 美元／桶</td><td class="flat">高檔震盪</td><td>供給面與地緣風險溢價仍在，能源成本壓力未解</td></tr>
+      <tr><td>黃金期貨</td><td>約 4,100 美元／盎司</td><td class="down">承壓</td><td>升息預期升溫壓抑避險資產表現</td></tr>
+      <tr><td>美國 10 年期公債殖利率</td><td>約 5.2%</td><td class="up">高檔</td><td>持續壓抑高評價成長股評價</td></tr>
+      <tr><td>美國 30 年期公債殖利率</td><td>約 5.5%</td><td class="up">高檔</td><td>長端殖利率居高不下，資金成本壓力未解</td></tr>
+    </tbody>
+  </table>
+
+  <h3>美股 10/15 盤面重點</h3>
+  <ul class="list">
+    <li><b>指數分化、非科技類股領漲</b>：道瓊大漲 556.21 點、漲幅 1.08%，明顯優於那斯達克的 0.08%，資金自高評價 AI 概念股流向價值型與內需類股，零售商沃爾瑪上漲 1.5%、耐吉大漲逾 5%，成為指數主要支撐。</li>
+    <li><b>費半連 7 黑</b>：費城半導體指數下跌 103.17 點、跌幅 0.88%，寫下連續第 7 個交易日收黑紀錄，晶片股為本波修正的重災區，市場正重新評估 AI 投資的回收期與資本效率。</li>
+    <li><b>台積電 ADR 法說會後承壓</b>：雖公布連續第六季創新高的財報，ADR 仍收跌 1.80% 至 422.25 美元，盤中一度重挫逾 4%，反映市場對毛利率季減與 2027 年審慎展望的擔憂，並連帶壓抑輝達、超微與英特爾表現。</li>
+    <li><b>通膨數據偏熱，升息預期升溫</b>：美國 9 月生產者物價指數（PPI）漲幅創 4 年半以來新高，依芝商所 FedWatch 工具，交易員預期聯準會 12 月升息的可能性已升至 67%，市場對寬鬆政策的期待進一步降溫。</li>
+    <li><b>記憶體供給疑慮浮現</b>：市場擔憂韓國記憶體廠在中國競爭加劇下可能出現供給過剩，特斯拉執行長馬斯克在社群平台發文指出中國將於 2028 年大規模生產 RAM，成為壓抑記憶體族群的長線變數。</li>
+    <li><b>亞股同步重挫</b>：10/15 亞股全面走弱，韓股單日暴跌約 6%，日經 225 指數狂瀉約 2,300 點，台灣加權指數亦重挫 1,655.96 點，形成全球半導體供應鏈的同步修正。</li>
+  </ul>
+</section>
+
+<!-- ========== 台股焦點 ========== -->
+<section class="tab" id="tw">
+  <h2>台股 10/15 收盤概況</h2>
+  <table>
+    <thead><tr><th>項目</th><th>數值</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr><td>加權指數</td><td>46,969.87 點</td><td class="down">下跌 1,655.96 點，創台股史上第 6 大跌點</td></tr>
+      <tr><td>成交值</td><td>約 1.3 兆元</td><td>爆出巨量，恐慌性賣壓集中宣洩</td></tr>
+      <tr><td>技術面</td><td>摜破月線</td><td>短線支撐失守，下一步觀察季線能否守穩</td></tr>
+      <tr><td>外資及陸資</td><td class="down">淨賣超 3,025.55 億元</td><td>刷新台股史上最大單日賣超紀錄</td></tr>
+      <tr><td>新台幣</td><td>32.265 元</td><td class="down">重貶 1.92 角，匯市爆 91 億美元巨量</td></tr>
+      <tr><td>台指期夜盤</td><td class="up">由黑翻紅</td><td>隨美股盤中回穩，短線止跌訊號浮現</td></tr>
+      <tr><td>台積電</td><td>法說會後承壓</td><td>第三季獲利創新高，但毛利率季減壓抑股價</td></tr>
+    </tbody>
+  </table>
+
+  <h3>台積電 2026 年第三季法人說明會重點</h3>
+  <table>
+    <thead><tr><th>項目</th><th>數值</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr><td>合併營收</td><td>1 兆 4,942.4 億元</td><td class="up">季增 17.6%、年增 50.9%</td></tr>
+      <tr><td>美元營收</td><td>467.2 億美元</td><td class="up">年增 41.2%</td></tr>
+      <tr><td>稅後純益</td><td>7,630.6 億元</td><td class="up">年增 68.7%，連續第六季創新高</td></tr>
+      <tr><td>每股稅後純益（EPS）</td><td>29.43 元</td><td>優於第二季的 27.25 元</td></tr>
+      <tr><td>毛利率</td><td>66.4%</td><td class="down">低於第二季的 67.72%，出現季減</td></tr>
+      <tr><td>營益率</td><td>58.7%</td><td>較第二季 58.9% 微幅回落</td></tr>
+      <tr><td>第四季美元營收指引</td><td>523 至 543 億美元</td><td class="up">相當於季增約 12% 至 16%</td></tr>
+      <tr><td>第四季毛利率指引</td><td>65% 至 67%</td><td>區間下緣低於本季，2 奈米量產稀釋為主要因素</td></tr>
+      <tr><td>第四季營益率指引</td><td>56.5% 至 58.5%</td><td>維持高檔水準</td></tr>
+      <tr><td>2026 年資本支出</td><td>600 至 640 億美元</td><td>維持原規劃不變，未如市場預期上調</td></tr>
+      <tr><td>先進製程佔比</td><td>約 79%</td><td>2 奈米 8%、3 奈米 33%、5 奈米 28%、7 奈米 10%</td></tr>
+      <tr><td>2027 年展望</td><td>態度審慎</td><td>為法說會後 ADR 走弱的主要解讀依據</td></tr>
+    </tbody>
+  </table>
+
+  <h3>產業焦點解析</h3>
+  <table>
+    <thead><tr><th>產業</th><th>關鍵訊息</th><th>觀察方向</th></tr></thead>
+    <tbody>
+      <tr><td>半導體 / 晶圓代工</td><td>台積電第三季獲利連六季創新高，第四季營收指引維持雙位數季增，但毛利率季減、資本支出未上調</td><td>2 奈米量產稀釋幅度、2027 年訂單能見度、海外廠成本</td></tr>
+      <tr><td>記憶體</td><td>美光逆勢上漲近 2%；市場憂心中國競爭加劇導致供給過剩，馬斯克稱中國 2028 年將大規模生產 RAM</td><td>DRAM 現貨報價、長鑫存儲擴產進度、AI 伺服器 HBM 需求</td></tr>
+      <tr><td>AI 伺服器 / 組裝</td><td>費半連 7 黑反映市場重新評估 AI 投資回收期；CoreWeave 逆勢大漲近 6% 顯示運算需求題材仍在</td><td>第四季 GB 系列機櫃出貨節奏、客戶資本支出指引</td></tr>
+      <tr><td>先進封裝 / CoWoS</td><td>台積電 3 奈米佔比達 33%、2 奈米開始貢獻 8%，先進封裝產能持續供不應求</td><td>產能擴充進度、設備交期、封測廠稼動率</td></tr>
+      <tr><td>PCB / 散熱</td><td>隨 AI 供應鏈同步修正，高階載板與液冷散熱族群跟隨大盤重挫</td><td>高階產品比重、單價提升幅度、訂單遞延狀況</td></tr>
+      <tr><td>金融</td><td>美國大型銀行財報穩健，道瓊逆勢大漲逾 556 點，金融類股為資金避風港</td><td>利差變化、股債評價回沖、外資賣超下的承接力道</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">台積電 2026 年 9 月營收年增 54.64%、8 月營收年增 53.32%，寫下連續多月高成長；第二季每股稅後純益 27.25 元、毛利率 67.72%，可作為本季法說會的比較基準。</div>
+
+  <h3>台股今日觀察重點</h3>
+  <ul class="list">
+    <li><b>46,969 點能否守穩</b>：此為 10/15 崩跌收盤低點，若今日開盤後迅速失守，代表賣壓仍未消化完成；若能守穩並逐步回補跳空缺口，可視為短線止跌訊號。</li>
+    <li><b>新台幣匯價</b>：10/15 收 32.265 元、爆量重貶，今日是否續貶將直接反映外資匯出壓力是否延續。</li>
+    <li><b>外資賣超是否收斂</b>：單日賣超 3,025.55 億元已屬極端值，歷史上此類極端賣超後常見短期反彈，觀察今日是否轉為收斂或甚至轉買。</li>
+    <li><b>量能變化</b>：1.3 兆元巨量屬恐慌性換手，若今日量能明顯萎縮且指數不再破底，籌碼沉澱訊號將更明確。</li>
+    <li><b>台積電法說會後續反應</b>：財報亮眼但 ADR 收跌，需觀察今日現貨市場是否出現補跌或利空出盡的反彈，為整體半導體供應鏈的風向球。</li>
+  </ul>
+</section>
+
+<!-- ========== 資金流向 ========== -->
+<section class="tab" id="flow">
+  <h2>三大法人與資金動向</h2>
+  <table>
+    <thead><tr><th>項目</th><th>金額 / 數值</th><th>說明</th></tr></thead>
+    <tbody>
+      <tr><td>外資及陸資（10/15）</td><td class="down">淨賣超 3,025.55 億元</td><td>刷新台股史上最大單日賣超紀錄</td></tr>
+      <tr><td>三大法人合計（10/14）</td><td class="down">賣超 153.97 億元</td><td>賣壓一度大幅收斂</td></tr>
+      <tr><td>三大法人合計（10/13）</td><td class="down">賣超 1,984.46 億元</td><td>含外資及陸資賣超 1,653.42 億元</td></tr>
+      <tr><td>新台幣收盤（10/15）</td><td>32.265 元</td><td class="down">重貶 1.92 角，匯市爆 91 億美元巨量</td></tr>
+      <tr><td>台股成交值（10/15）</td><td>約 1.3 兆元</td><td>恐慌性賣壓集中宣洩，量能明顯放大</td></tr>
+      <tr><td>台指期夜盤</td><td class="up">由黑翻紅</td><td>隨美股盤中回穩，避險情緒略為降溫</td></tr>
+    </tbody>
+  </table>
+
+  <h3>資金流向解讀</h3>
+  <ul class="list">
+    <li><b>外資提款規模已達歷史極端值</b>：10/15 單日淨賣超 3,025.55 億元，遠高於 10/13 的 1,653.42 億元，改寫台股史上最大單日賣超紀錄。以歷史經驗觀察，此類極端賣超通常伴隨短期底部形成，但前提是匯率與國際股市同步止穩。</li>
+    <li><b>股匯雙殺形成負向循環</b>：新台幣重貶 1.92 角收 32.265 元，匯市爆出 91 億美元巨量，外資賣股後將資金匯出，進一步壓抑新台幣，貶值又加重外資持股的匯損壓力，形成自我強化的賣壓循環，需待匯價止穩才能打破。</li>
+    <li><b>量能爆量屬換手性質</b>：1.3 兆元成交值代表籌碼在恐慌中大量換手，若後續量能逐步萎縮而指數不再破底，可視為籌碼由弱手轉向中長期資金的訊號。</li>
+    <li><b>期貨面出現止跌徵兆</b>：台指期夜盤由黑翻紅，反映美股 10/15 盤中回穩後避險需求降溫，是近期少見的正面訊號，有助於緩和今日現貨市場的開盤壓力。</li>
+    <li><b>內資承接力道待觀察</b>：在 9 月上市櫃營收首度突破 6 兆元、創新高家數逾 150 家的基本面支撐下，投信與官股行庫是否在低檔擴大承接，將是判斷籌碼是否落底的關鍵。</li>
+    <li><b>高評價族群評價修正風險</b>：在美債 10 年期殖利率維持約 5.2% 高檔、12 月升息機率升至 67% 的環境下，外資對高本益比成長股的減碼壓力仍將延續。</li>
+  </ul>
+</section>
+
+<!-- ========== 事件日曆 ========== -->
+<section class="tab" id="cal">
+  <h2>本週與近期重要事件</h2>
+  <table>
+    <thead><tr><th>日期</th><th>事件</th><th>市場關注焦點</th></tr></thead>
+    <tbody>
+      <tr><td>10/16（五）</td><td>Netflix 第三季財報</td><td>串流廣告業務成長、訂閱動能，為科技股財報季重要風向球</td></tr>
+      <tr><td>10/16（五）</td><td>美國 9 月工業生產</td><td>製造業景氣是否受高利率壓抑</td></tr>
+      <tr><td>10/19（一）</td><td>台灣 9 月外銷訂單</td><td>AI 與半導體訂單能見度，驗證台積電法說會需求說法</td></tr>
+      <tr><td>10/20（二）</td><td>中國第三季國內生產毛額（GDP）</td><td>中國經濟動能與半導體需求展望</td></tr>
+      <tr><td>10/22（三）</td><td>美國 9 月成屋銷售</td><td>高房貸利率下的房市降溫程度</td></tr>
+      <tr><td>10/23（五）</td><td>美國 9 月個人消費支出物價指數（PCE）</td><td>Fed 最重視的通膨指標，牽動 12 月利率決策</td></tr>
+      <tr><td>10/29（四）</td><td>美國聯準會 FOMC 利率決議（市場預期）</td><td>通膨偏熱下的政策路徑與會後聲明語氣</td></tr>
+      <tr><td>11/5（四）</td><td>美國 10 月非農就業報告（市場預期）</td><td>就業市場降溫幅度，影響年底利率預期</td></tr>
+      <tr><td>11/10（二）</td><td>台灣上市櫃公司 10 月營收公布</td><td>AI 供應鏈拉貨動能是否延續</td></tr>
+      <tr><td>11/12（四）</td><td>台積電 10 月營收公布</td><td>驗證第四季營收指引的達成進度</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">上表部分日期為市場預估值，實際公布時間請以官方行事曆為準。</div>
+
+  <h3>投資策略與操作清單</h3>
+  <table>
+    <thead><tr><th>族群 / 標的類型</th><th>建議策略</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>台積電與先進製程供應鏈</td><td>法說會後不急於進場，待股價止穩再分批布局</td><td>財報亮眼但 ADR 收跌、毛利率季減，需觀察現貨市場是否補跌</td></tr>
+      <tr><td>記憶體族群</td><td>區間操作、嚴設停損</td><td>美光逆勢收紅提供支撐，但中國 2028 年擴產為長線供給隱憂</td></tr>
+      <tr><td>AI 伺服器 / 組裝</td><td>長線分批、短線降低高評價個股比重</td><td>9 月營收創新高家數逾 150 家，基本面無虞但評價偏高</td></tr>
+      <tr><td>金融股</td><td>可作為防禦性配置，逢回加碼</td><td>美國銀行財報穩健，道瓊逆勢大漲 556 點，金融為資金避風港</td></tr>
+      <tr><td>高本益比成長股</td><td>降低比重，避免在反彈初期追高</td><td>美債 10 年期殖利率約 5.2% 高檔，12 月升息機率升至 67%</td></tr>
+      <tr><td>現金比重</td><td>維持 2 至 3 成，保留加碼銀彈</td><td>等待外資賣超收斂、新台幣止穩與量能萎縮三重落底訊號</td></tr>
+    </tbody>
+  </table>
+
+  <ul class="list">
+    <li><b>不猜底、不追空</b>：台股單日崩跌逾 1,655 點後，反彈與續跌機率並存，建議以分批與區間方式因應，避免一次性重押。</li>
+    <li><b>嚴設停損、控制槓桿</b>：若指數跌破 46,969 點（10/15 收盤低點），代表賣壓仍未消化，持股應主動減碼；同時避免使用高槓桿工具。</li>
+    <li><b>緊盯新台幣匯價</b>：新台幣止穩是外資賣壓鈍化的前兆，若今日續貶，宜維持防禦姿態。</li>
+    <li><b>關注台指期夜盤轉正的多方訊號</b>：夜盤由黑翻紅暗示避險情緒降溫，若今日現貨市場能配合量縮止穩，短線反彈機率提高。</li>
+    <li><b>避開高負債與高評價族群</b>：在殖利率高檔與升息預期未解的環境下，評價修正與資金成本壓力仍高。</li>
+  </ul>
+</section>
+
+<footer>
+  📊 每日財經晨報 Pro ｜ 2026年10月16日 ｜ 資料來源：公開財經媒體整理，僅供參考，不構成投資建議
+</footer>
+</div>
+
+<script>
+  document.querySelectorAll('nav button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('nav button').forEach(function (b) { b.classList.remove('active'); });
+      document.querySelectorAll('section.tab').forEach(function (s) { s.classList.remove('active'); });
+      btn.classList.add('active');
+      var el = document.getElementById(btn.getAttribute('data-tab'));
+      if (el) { el.classList.add('active'); }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
