@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 每日財經晨報 Pro — 2026年10月19日</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+    margin: 0; padding: 0; background: #f4f5fb; color: #2d2d3a; line-height: 1.7;
+  }
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; padding: 42px 20px 30px; text-align: center;
+    box-shadow: 0 6px 22px rgba(102,126,234,.35);
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 1.9rem; letter-spacing: 1px; }
+  .hero .date { font-size: 1.05rem; opacity: .92; }
+  .hero .sub { margin-top: 10px; font-size: .92rem; opacity: .8; }
+  .wrap { max-width: 960px; margin: -18px auto 40px; padding: 0 16px; }
+  .back-link {
+    display: inline-block; margin: 22px 0 4px; color: #667eea; font-weight: 700;
+    text-decoration: none; font-size: .95rem;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px; }
+  .tab {
+    flex: 1 1 auto; min-width: 130px; text-align: center; cursor: pointer;
+    padding: 12px 8px; border-radius: 12px; font-weight: 700; font-size: .92rem;
+    background: #fff; color: #5a5a72; border: 2px solid #e6e6f2;
+    transition: all .2s;
+  }
+  .tab:hover { border-color: #667eea; color: #667eea; }
+  .tab.active { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; border-color: transparent; box-shadow: 0 4px 14px rgba(102,126,234,.4); }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fade .3s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px);} to {opacity:1;transform:none;} }
+  .card {
+    background: #fff; border-radius: 14px; padding: 22px 22px 20px;
+    box-shadow: 0 4px 16px rgba(40,40,80,.08); margin-bottom: 20px;
+  }
+  .card h2 { margin: 0 0 14px; font-size: 1.25rem; color: #4a3f8f; border-left: 5px solid #764ba2; padding-left: 12px; }
+  .card h3 { font-size: 1.05rem; color: #5a4bb0; margin: 18px 0 8px; }
+  p { margin: 8px 0; }
+  .bullet li { margin: 7px 0; }
+  .opinion {
+    border-radius: 12px; padding: 14px 18px; margin: 12px 0;
+    border-left: 6px solid #ccc; background: #fafaff;
+  }
+  .opinion.bull { border-left-color: #16a34a; background: #f0fdf4; }
+  .opinion.bear { border-left-color: #dc2626; background: #fef2f2; }
+  .opinion.neutral { border-left-color: #f59e0b; background: #fffbeb; }
+  .opinion .tag { display:inline-block; font-weight:800; font-size:.8rem; padding:2px 10px; border-radius:20px; margin-bottom:6px; color:#fff; }
+  .opinion.bull .tag { background:#16a34a; }
+  .opinion.bear .tag { background:#dc2626; }
+  .opinion.neutral .tag { background:#f59e0b; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .92rem; }
+  th { background: linear-gradient(135deg,#667eea,#764ba2); color:#fff; padding:10px 8px; text-align:left; }
+  td { padding: 9px 8px; border-bottom: 1px solid #ececf6; }
+  tr:nth-child(even) td { background: #fafaff; }
+  .up { color: #dc2626; font-weight: 700; }
+  .down { color: #16a34a; font-weight: 700; }
+  .flat { color: #6b7280; font-weight: 700; }
+  .chip { display:inline-block; background:#eef0ff; color:#5a4bb0; border-radius:20px; padding:2px 12px; font-size:.82rem; font-weight:700; margin:2px 4px 2px 0; }
+  .note { font-size: .82rem; color: #7a7a92; margin-top: 10px; }
+  .strategy li { margin: 8px 0; }
+  .footer { text-align: center; color: #9a9ab0; font-size: .82rem; padding: 20px 0 40px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📊 每日財經晨報 Pro</h1>
+  <div class="date">2026年10月19日（星期一）</div>
+  <div class="sub">全球市場即時掃描 × 台股產業焦點 × 資金流向解析</div>
+</div>
+
+<div class="wrap">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(event,'p1')">📈 市場觀點</div>
+    <div class="tab" onclick="showTab(event,'p2')">🌍 全球市況</div>
+    <div class="tab" onclick="showTab(event,'p3')">🏭 台股焦點</div>
+    <div class="tab" onclick="showTab(event,'p4')">💰 資金流向</div>
+    <div class="tab" onclick="showTab(event,'p5')">📅 事件日曆</div>
+  </div>
+
+  <!-- ============ 市場觀點 ============ -->
+  <div id="p1" class="panel active">
+    <div class="card">
+      <h2>📈 今日市場核心觀點</h2>
+      <p>上週五（10/16）美股三大指數走勢分歧，道瓊收黑、標普微幅收紅、那斯達克小幅回檔，市場對「十月修正」的警戒情緒升溫。能源價格成為本週最關鍵的變數——布蘭特原油登上每桶 110 美元，為五個月來首見，中東地緣緊張若進一步升溫，將同步推升通膨預期並壓縮聯準會降息空間。台股方面，10/16 加權指數收漲，但外資持續站在賣方，籌碼面呈現「指數有撐、法人倒貨」的背離格局。</p>
+
+      <div class="opinion bull">
+        <span class="tag">利多</span>
+        <p><strong>AI 與半導體長線需求未變</strong>：儘管費半指數短線重挫，雲端與 AI 資本支出動能仍強，回檔反而提供中長線布局窗口。台積電先進製程與封測供應鏈仍是資金回頭的首選標的。</p>
+      </div>
+
+      <div class="opinion bear">
+        <span class="tag">利空</span>
+        <p><strong>油價急升 × 高利率預期雙殺</strong>：布蘭特原油衝上 110 美元，市場重新定價「高利率維持更久」的風險，黃金單日重挫逾 2%，風險性資產評價面承壓，台股電子高本益比族群波動加大。</p>
+      </div>
+
+      <div class="opinion neutral">
+        <span class="tag">中性</span>
+        <p><strong>指數區間震盪、個股表現分歧</strong>：加權指數在 5 萬點關前反覆測試，量能未明顯放大，資金轉向業績題材股與防禦型標的，選股不選市為現階段主軸。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 全球市況 ============ -->
+  <div id="p2" class="panel">
+    <div class="card">
+      <h2>🌍 全球市場指標</h2>
+      <table>
+        <tr><th>市場 / 指標</th><th>最新價位</th><th>漲跌幅</th><th>觀察重點</th></tr>
+        <tr><td>道瓊工業指數</td><td>52,002.41</td><td class="down">-0.34%</td><td>高檔震盪，權值股承壓</td></tr>
+        <tr><td>那斯達克綜合指數</td><td>26,797.54</td><td class="down">-0.08%</td><td>科技股漲多回檔</td></tr>
+        <tr><td>標普 500 指數</td><td>7,744.06</td><td class="up">+0.33%</td><td>相對抗跌，廣度尚可</td></tr>
+        <tr><td>費城半導體指數</td><td>—</td><td class="down">明顯回落</td><td>美光、台積電 ADR 同步走弱</td></tr>
+        <tr><td>台股加權指數</td><td>49,301.96（10/12）</td><td class="down">近期劇烈波動</td><td>10/15 重挫後 10/16 收漲</td></tr>
+        <tr><td>布蘭特原油</td><td>110 美元 / 桶</td><td class="up">周線連二漲</td><td>五個月首見，中東局勢主導</td></tr>
+        <tr><td>黃金現貨</td><td>4,165.58 美元 / 盎司</td><td class="flat">高檔回落</td><td>高利率預期壓抑金價</td></tr>
+        <tr><td>白銀現貨</td><td>57 美元 / 盎司</td><td class="down">同步走弱</td><td>貴金屬整體承壓</td></tr>
+      </table>
+      <p class="note">※ 數據為最近可得收盤值，日期已標註；指數點位以當地市場收盤為準。</p>
+
+      <h3>美股盤勢解析</h3>
+      <ul class="bullet">
+        <li>三大指數分歧，資金明顯自高評價科技股撤出，轉進能源與防禦類股。</li>
+        <li>半導體為重災區，美光、台積電 ADR 走弱，反映市場對 AI 資本支出節奏的疑慮。</li>
+        <li>油價急漲重新點燃通膨黏著度討論，市場對後續降息路徑轉趨保守。</li>
+      </ul>
+
+      <h3>亞股與匯市</h3>
+      <ul class="bullet">
+        <li>亞股普遍跟隨美股震盪，台、日、韓科技權值股同步承壓。</li>
+        <li>美元在升息預期支撐下維持偏強，新台幣短線承受貶值壓力，需留意熱錢外流風險。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ 台股焦點 ============ -->
+  <div id="p3" class="panel">
+    <div class="card">
+      <h2>🏭 台股產業焦點</h2>
+
+      <h3>🔹 半導體產業</h3>
+      <p>全球 AI 需求長線仍為台股最大底氣，但短線受費半重挫與台積電 ADR 走弱拖累，先進製程、IC 設計、封測族群波動放大。觀察重點在於回檔後法人是否回補，以及台積電法說後續訂單能見度。</p>
+      <p><span class="chip">台積電</span><span class="chip">IC 設計</span><span class="chip">封測</span><span class="chip">先進封裝</span></p>
+
+      <h3>🔹 光電 / 面板產業</h3>
+      <p>光電族群近期成交比重明顯升高，面板報價與車用、工控需求是否回溫為關鍵。惟油價上漲推升成本，毛利率改善空間受限。</p>
+
+      <h3>🔹 能源與傳產</h3>
+      <p>布蘭特原油登上 110 美元，帶動台股能源、塑化上游題材轉強；航運則因油價成本上升與運價走勢分歧而表現兩極。</p>
+
+      <h3>🔹 金融產業</h3>
+      <p>高利率環境對金融股相對有利，利差題材支撐下成為資金避風港之一，但需留意股債評價波動對壽險型金控的影響。</p>
+
+      <h3>🔹 AI 伺服器供應鏈</h3>
+      <p>雲端業者資本支出仍是主旋律，AI 伺服器、散熱、電源供應器、CCL 等高階零組件為中長線受惠族群，短線回檔可分批承接。</p>
+    </div>
+  </div>
+
+  <!-- ============ 資金流向 ============ -->
+  <div id="p4" class="panel">
+    <div class="card">
+      <h2>💰 三大法人與資金流向</h2>
+      <table>
+        <tr><th>日期</th><th>三大法人合計買賣超</th><th>市場氛圍</th></tr>
+        <tr><td>2026/10/15</td><td class="down">賣超約 3,025 億元</td><td>大幅調節，指數重挫</td></tr>
+        <tr><td>2026/10/14</td><td class="down">賣超約 200 億元</td><td>賣壓趨緩</td></tr>
+        <tr><td>2026/10/13</td><td class="down">賣超約 1,653 億元</td><td>外資領跌</td></tr>
+        <tr><td>2026/10/12</td><td class="down">賣超約 522 億元</td><td>連假後開低</td></tr>
+        <tr><td>2026/10/05</td><td class="up">買超約 719 億元</td><td>單日大買，後繼無力</td></tr>
+      </table>
+      <p class="note">※ 金額為三大法人合計買賣超估算值，資料來源為公開籌碼統計，僅供趨勢參考。</p>
+
+      <h3>資金流向三大觀察</h3>
+      <ul class="bullet">
+        <li><strong>外資動向：</strong>自 10/5 單日大買後連續站在賣方，10/16 指數收漲但外資仍賣超，顯示外資對高檔評價轉趨保守，籌碼由法人流向散戶的疑慮升高。</li>
+        <li><strong>融資餘額：</strong>指數回檔期間融資不減反增，短線浮額增加，若指數再度破底，斷頭賣壓風險需提防。</li>
+        <li><strong>避險資金：</strong>油價急升帶動能源相關 ETF 與原物料題材吸金；高利率預期下，債券殖利率走高，股債配置天秤略向固定收益傾斜。</li>
+      </ul>
+
+      <h3>油、金、匯快照</h3>
+      <ul class="bullet">
+        <li>布蘭特原油：110 美元 / 桶，周線連二漲，中東地緣風險為最大推手。</li>
+        <li>黃金現貨：4,165.58 美元 / 盎司，高檔回落，高利率預期壓抑避險需求。</li>
+        <li>白銀現貨：57 美元 / 盎司，跟隨貴金屬同步走弱。</li>
+        <li>美元指數：偏強格局，亞幣普遍承壓，新台幣短線偏弱。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ 事件日曆 ============ -->
+  <div id="p5" class="panel">
+    <div class="card">
+      <h2>📅 本週關鍵事件日曆</h2>
+      <table>
+        <tr><th>日期</th><th>事件</th><th>影響層面</th></tr>
+        <tr><td>10/19（一）</td><td>台股開盤補跌／跟進上週五美股</td><td>指數跳空、電子權值表現</td></tr>
+        <tr><td>本週內</td><td>中東地緣局勢與油價走勢</td><td>能源、通膨預期、全球風險偏好</td></tr>
+        <tr><td>本週內</td><td>美國經濟數據與 Fed 官員談話</td><td>利率路徑、美元、美債殖利率</td></tr>
+        <tr><td>本週內</td><td>台股第三季財報與法說會陸續登場</td><td>半導體、AI 供應鏈訂單能見度</td></tr>
+        <tr><td>月底前</td><td>美股科技巨頭財報密集期</td><td>AI 資本支出指引、科技股評價</td></tr>
+      </table>
+      <p class="note">※ 事件時程依公開資訊整理，實際日期請以官方公告為準。</p>
+    </div>
+
+    <div class="card">
+      <h2>🎯 投資策略與操作清單</h2>
+      <ul class="strategy">
+        <li><strong>核心持股：</strong>AI 伺服器、先進製程、散熱與電源供應鏈維持核心配置，回檔分批承接、不追高。</li>
+        <li><strong>衛星配置：</strong>油價急升下的能源、塑化上游族群可短打，嚴設停損。</li>
+        <li><strong>防禦部位：</strong>高利率受惠的金融股與電信、公用事業型標的可提高比重，對沖電子波動。</li>
+        <li><strong>現金水位：</strong>建議維持 2～3 成現金，等待指數落底訊號（量縮止穩、法人轉買）。</li>
+        <li><strong>風險控管：</strong>避開高融資、高本益比且無業績支撐的投機股；留意新台幣貶值對外資賣壓的連動。</li>
+        <li><strong>觀察訊號：</strong>① 布蘭特原油是否站穩 110 美元以上；② 外資是否由賣轉買；③ 費半指數能否止穩回升。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    本報告由 AI 助理自動彙整生成，資料來源為公開市場資訊，僅供參考，不構成任何投資建議。<br>
+    投資有風險，請審慎評估自身風險承受能力。<br>
+    產出時間：2026年10月19日（台北時間）
+  </div>
+</div>
+
+<script>
+function showTab(evt, id) {
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>
