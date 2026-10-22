@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 每日財經晨報 — 2026年10月22日</title>
+    <style>
+        :root {
+            --primary-start: #667eea;
+            --primary-end: #764ba2;
+            --text-color: #333;
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+            --highlight-color: #c5cae9;
+        }
+        body {
+            font-family: 'Microsoft JhengHei', 'Arial Unicode MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .header {
+            background: linear-gradient(90deg, var(--primary-start), var(--primary-end));
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .tab-button {
+            flex: 1;
+            text-align: center;
+            padding: 15px 10px;
+            background-color: #f8f8ff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: bold;
+            color: #6a6a9e;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-button.active {
+            background-color: var(--primary-end);
+            color: white;
+            border-bottom: 3px solid var(--primary-start);
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h2 {
+            border-left: 5px solid var(--primary-start);
+            padding-left: 15px;
+            margin-top: 30px;
+            color: var(--primary-end);
+        }
+        .opinion-card-grid {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .opinion-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .opinion-card.positive { background-color: #28a745; } /* 利多 */
+        .opinion-card.negative { background-color: #dc3545; } /* 利空 */
+        .opinion-card.neutral { background-color: #ffc107; color: #333; } /* 中性 */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            text-align: left;
+            background-color: #f9f9ff;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--primary-start);
+            color: white;
+            font-weight: normal;
+        }
+        tr:hover {
+            background-color: #f0f0ff;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 20px;
+            background-color: var(--highlight-color);
+            color: var(--primary-end);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #e0e0ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📈 每日財經晨報 Pro</h1>
+        <p>📅 2026年10月22日</p>
+    </div>
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="openTab(event, 'MarketView')">📈 市場觀點</button>
+            <button class="tab-button" onclick="openTab(event, 'GlobalView')">🌍 全球市況</button>
+            <button class="tab-button" onclick="openTab(event, 'TaiwanFocus')">🏭 台股焦點</button>
+            <button class="tab-button" onclick="openTab(event, 'FundFlow')">💰 資金流向</button>
+            <button class="tab-button" onclick="openTab(event, 'EventCalendar')">📅 事件日曆</button>
+        </div>
+
+        <!-- Tab 1: Market View -->
+        <div id="MarketView" class="tab-content active">
+            <h2>💡 今日市場觀點摘要</h2>
+            <div class="opinion-card-grid">
+                <div class="opinion-card positive">✅ 利多：AI與科技股逆勢撐盤，顯示長線趨勢未破。</div>
+                <div class="opinion-card negative">❌ 利空：美股與台股面臨尾盤賣壓，受半導體市場動能影響。</div>
+                <div class="opinion-card neutral">➖ 中性：油金匯率波動穩定，資金流動持續觀望擇時入場點。</div>
+            </div>
+            <h3>💰 主要市場指標（收盤數據參考）</h3>
+            <table>
+                <thead>
+                    <tr><th>指標</th><th>收盤價</th><th>漲跌幅</th><th>備註</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>美股大盤 (道瓊)</td><td>51,614點</td><td style="color: red;">下跌 213點</td><td>承壓賣出</td></tr>
+                    <tr><td>美股科技指數 (NASDAQ)</td><td>26,883點</td><td style="color: red;">下跌 185點</td><td>科技股回檔</td></tr>
+                    <tr><td>台股加權指數</td><td>45,857.66點</td><td style="color: red;">下跌 0.67%</td><td>尾盤賣壓主導</td></tr>
+                    <tr><td>費城半導體指數</td><td>12,440點</td><td style="color: red;">下跌 228點</td><td>重挫引發恐慌</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 2: Global View -->
+        <div id="GlobalView" class="tab-content">
+            <h2>🌍 全球市況分析</h2>
+            <p>國際市場持續受到半導體產業鏈的短期不確定性影響，美國四大指數雖經歷回檔，但部分 AI 相關的龍頭股仍顯示出強勁的逆勢買盤。市場正在消化關於經濟放緩的擔憂。</p>
+            <h3>半導體與全球供應鏈分析</h3>
+            <p>費城半導體指數昨日重挫，反映出市場對近期產業需求放緩的擔憂。全球電子產品和 AI 晶片的景氣循環調整進入中後期，投資者需謹慎評估短期波動。</p>
+            <p>（可進一步加入原油/黃金匯率趨勢表）</p>
+        </div>
+
+        <!-- Tab 3: Taiwan Focus -->
+        <div id="TaiwanFocus" class="tab-content">
+            <h2>🏭 台股焦點與產業分析</h2>
+            <p>本日台股開盤期初獲得部分買盤支撐，但隨著美股壓力傳導，特別是半導體股帶動的系統性賣壓，導致指數在尾盤下挫。載板記憶體相關產業也受到提款壓力影響，整體市場情緒偏謹慎。</p>
+            <h3>主要台股產業趨勢</h3>
+            <table>
+                <thead>
+                    <tr><th>產業類別</th><th>本週趨勢</th><th>關鍵因子</th><th>預期影響</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>半導體</td><td>⚠️ 下跌壓力</td><td>全球需求減速、美股科技股回檔</td><td>短期獲利了結，等待新景氣循環確認。</td></tr>
+                    <tr><td>記憶體</td><td>📉 觀望</td><td>存貨調整、科技巨頭需求不穩</td><td>下半場營收增長點尚未完全顯現。</td></tr>
+                    <tr><td>電子設備</td><td>⚖️ 波動中</td><td>消費端信心、全球供應鏈重組</td><td>穩定性高，但敏感度增加。</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 4: Fund Flow -->
+        <div id="FundFlow" class="tab-content">
+            <h2>💰 資金流向與投資策略</h2>
+            <h3>最新資金流向觀察</h3>
+            <p>目前資金正從高風險的投機性個股，轉向具有穩定現金流的權值股。外資在面臨大盤修正時，顯示出一定程度的逆勢力挺持，特別是對產業權重的配置保持穩定。</p>
+            <h3>✨ 投資策略與操作清單</h3>
+            <ol>
+                <li>**定時配置策略：** 鑒於市場波動加大，建議利用市場下跌後的修正期，採用定投（Dollar-Cost Averaging）策略分批累積優質資產。</li>
+                <li>**風險分散策略：** 保持產業分散，不要過度集中於單一板塊（如純半導體）。利用資金流向表進行配置決策。</li>
+                <li>**避險工具考量：** 考慮配置部分資產於黃金或其他抗通膨的避險資產，對沖系統性風險。</li>
+            </ol>
+        </div>
+
+        <!-- Tab 5: Event Calendar -->
+        <div id="EventCalendar" class="tab-content">
+            <h2>📅 重要事件日曆</h2>
+            <p>本週及未來兩週的關鍵經濟事件排程如下，請納入考量：</p>
+            <ul>
+                <li>**10/25 (五):** 美聯儲（Fed）貨幣政策會議紀錄公佈（市場焦點）</li>
+                <li>**10/27 (日):** 美國 PMI 製造業指數公佈（全球經濟指標）</li>
+                <li>**11/1 (三):** 台灣財政部財政報告公佈（本土經濟指標）</li>
+            </ul>
+        </div>
+
+        <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure the first tab is active on load
+            document.getElementsByClassName("tab-button")[0].click();
+        });
+    </script>
+</body>
+</html>
