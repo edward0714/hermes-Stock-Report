@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財經晨報 Pro — 2026年10月24日</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+  background: linear-gradient(135deg,#f0f4f8 0%,#d9e8f5 100%);
+  color:#1a1a1a; line-height:1.7; min-height:100vh; padding:20px;
+}
+.container { max-width:1200px; margin:0 auto; }
+.header {
+  background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; padding:56px 40px; border-radius:16px; margin-bottom:32px;
+  box-shadow:0 20px 60px rgba(102,126,234,.3); text-align:center;
+  position:relative; overflow:hidden;
+}
+.header::before {
+  content:""; position:absolute; top:0; right:0; width:400px; height:400px;
+  background:rgba(255,255,255,.1); border-radius:50%; transform:translate(100px,-100px);
+}
+.header-content { position:relative; z-index:1; }
+.header h1 { font-size:2.6em; margin-bottom:10px; font-weight:700; letter-spacing:2px; }
+.header-subtitle { font-size:1.15em; opacity:.95; margin-bottom:18px; }
+.header-date {
+  display:inline-block; background:rgba(255,255,255,.2);
+  padding:8px 18px; border-radius:20px; font-size:.95em;
+}
+.back-link {
+  display:inline-block; margin-bottom:20px; color:#667eea; text-decoration:none;
+  font-weight:600; font-size:.95em;
+}
+.back-link:hover { text-decoration:underline; }
+.nav-tabs { display:flex; gap:10px; margin-bottom:30px; overflow-x:auto; padding-bottom:10px; }
+.nav-tab {
+  padding:12px 22px; background:#fff; border:2px solid #e0e0e0; border-radius:8px;
+  cursor:pointer; transition:all .3s; font-weight:600; white-space:nowrap; font-size:.95em;
+}
+.nav-tab:hover, .nav-tab.active {
+  background:#667eea; color:#fff; border-color:#667eea;
+  transform:translateY(-2px); box-shadow:0 8px 20px rgba(102,126,234,.2);
+}
+.section {
+  background:#fff; border-radius:12px; padding:36px; margin-bottom:30px;
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+.section h2 {
+  font-size:1.5em; color:#4a3f8f; margin-bottom:22px;
+  padding-bottom:12px; border-bottom:3px solid #e8e4f8;
+}
+.section h3 { font-size:1.12em; color:#5b4b9e; margin:22px 0 12px; }
+p { margin-bottom:14px; color:#333; }
+ul { margin:10px 0 16px 22px; color:#444; }
+li { margin-bottom:8px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-bottom:26px; }
+.card {
+  border-radius:12px; padding:22px; border-left:6px solid #ccc;
+  background:#fafbff; box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+.card.bull { border-left-color:#16a34a; background:linear-gradient(135deg,#f0fdf4,#ffffff); }
+.card.bear { border-left-color:#dc2626; background:linear-gradient(135deg,#fef2f2,#ffffff); }
+.card.neutral { border-left-color:#f59e0b; background:linear-gradient(135deg,#fffbeb,#ffffff); }
+.card h4 { font-size:1.05em; margin-bottom:10px; }
+.card.bull h4 { color:#15803d; }
+.card.bear h4 { color:#b91c1c; }
+.card.neutral h4 { color:#b45309; }
+.card p { font-size:.94em; color:#444; margin:0; }
+table { width:100%; border-collapse:collapse; margin:16px 0 22px; font-size:.94em; }
+th {
+  background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+  padding:13px 12px; text-align:left; font-weight:600;
+}
+td { padding:12px; border-bottom:1px solid #eef0f4; vertical-align:top; }
+tr:nth-child(even) td { background:#fafbff; }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+.up { color:#dc2626; font-weight:700; }
+.down { color:#16a34a; font-weight:700; }
+.badge {
+  display:inline-block; padding:4px 12px; border-radius:14px;
+  font-size:.82em; font-weight:700;
+}
+.badge-up { background:#fee2e2; color:#b91c1c; }
+.badge-down { background:#dcfce7; color:#15803d; }
+.badge-neutral { background:#fef3c7; color:#b45309; }
+.stock-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.stock-tag {
+  background:#eef2ff; color:#4f46e5; padding:3px 10px; border-radius:12px;
+  font-size:.82em; font-weight:600;
+}
+.note {
+  background:#f9fbff; border-left:4px solid #667eea; border-radius:8px;
+  padding:18px 22px; margin:22px 0;
+}
+.note strong { color:#667eea; }
+.event-item {
+  border-left:4px solid #764ba2; background:#fafbff; border-radius:8px;
+  padding:16px 20px; margin-bottom:14px;
+}
+.event-date { font-weight:700; color:#667eea; font-size:.92em; }
+.event-title { font-size:1.05em; font-weight:700; margin:6px 0; color:#2d2a4a; }
+.event-importance { font-size:.85em; color:#b45309; margin-bottom:6px; }
+.event-desc { font-size:.92em; color:#555; }
+.checklist { list-style:none; margin-left:0; }
+.checklist li {
+  padding:12px 16px; background:#f8f9ff; border-radius:8px; margin-bottom:10px;
+  border-left:3px solid #667eea;
+}
+.footer {
+  text-align:center; color:#666; font-size:.9em; padding:30px 20px;
+  background:#fff; border-radius:12px;
+}
+.footer p { margin-bottom:8px; color:#666; }
+.chart-wrap { position:relative; height:320px; margin:20px 0 10px; }
+@media (max-width:768px){
+  .header h1 { font-size:1.9em; }
+  .header { padding:40px 22px; }
+  .section { padding:24px 18px; }
+  table { font-size:.86em; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="header">
+    <div class="header-content">
+      <h1>財經晨報 Pro</h1>
+      <div class="header-subtitle">地緣政治升溫、油價風險偏上，AI 主線仍在但波動加大</div>
+      <div class="header-date">📅 2026 年 10 月 24 日（週六）週末版 ｜ 台北時間 08:00</div>
+    </div>
+  </div>
+
+  <div class="nav-tabs">
+    <button class="nav-tab active">📈 市場觀點</button>
+    <button class="nav-tab">🌍 全球市況</button>
+    <button class="nav-tab">🏭 台股焦點</button>
+    <button class="nav-tab">💰 資金流向</button>
+    <button class="nav-tab">📅 事件日曆</button>
+  </div>
+
+  <!-- ===== 1. 市場觀點 ===== -->
+  <div class="section">
+    <h2>📈 今日市場觀點</h2>
+
+    <p>本週市場的核心矛盾，從「AI 資本支出能否延續」轉向「<strong>地緣政治風險重新定價能源價格</strong>」。伊朗衝突未見迅速平息跡象，巴克萊指出庫存消耗與需求回升令現貨市場趨緊，短期油價風險明顯偏上；美國駐土耳其大使甚至釋出「週末可能打擊伊朗」的訊號，使市場在週末前傾向降低風險部位。另一方面，美股在 AI 與資料中心需求帶動下，標普 500 曾突破 7,800 點創新高、那斯達克同步創高，科技七巨頭有六檔上漲，但道瓊仍落後 8 月高點逾 5%，呈現<strong>「科技強、傳產弱」的極度分化</strong>。</p>
+
+    <p>聯準會方面，10 月再次升息的市場預期已由一週前的 50.9% 大幅降至 19.4%，主因油價一度趨穩、10 年期美債殖利率回落至 5.281%。但需留意，殖利率與油價本週雙雙處於 2002 年以來的高位區間，一旦能源價格再度跳升，<strong>「降息期待 → 升息擔憂」的定價反轉可能非常快速</strong>。</p>
+
+    <div class="cards">
+      <div class="card bull">
+        <h4>🟢 利多：AI 資本支出仍是最強支撐</h4>
+        <p>標普 500 第三季獲利預估年增 30.6%，其中科技業成長 66.5%、能源業受油價推升成長 114.7%。8 月資本財進口月增 4.4%，反映 AI 基礎建設支出仍在擴張。台積電 ADR 曾創 485.80 美元歷史新高，對現股溢價接近 20%。</p>
+      </div>
+      <div class="card bear">
+        <h4>🔴 利空：油價＋殖利率雙高壓抑評價</h4>
+        <p>伊朗衝突使布蘭特原油一度突破 113 美元，G7 釋放緊急庫存僅能短期緩解。10 年期美債殖利率 5.281%、30 年期 5.655%，皆為 2002 年以來高位，對高本益比成長股形成折現壓力。</p>
+      </div>
+      <div class="card neutral">
+        <h4>🟡 中性：台股高檔震盪、外資調節未完</h4>
+        <p>加權指數在 48,000 點上方劇烈震盪，單日曾下跌近千點，三大法人賣壓沉重、外資大幅調節台積電。9 月外銷訂單創新高提供基本面支撐，但籌碼面仍需時間消化。</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>💡 核心判讀：</strong>
+      <ul>
+        <li><strong>主線不變、節奏變難：</strong>AI／半導體基本面（外銷訂單創高、先進製程滿載）仍是多頭主軸，但油價與殖利率的高位波動，讓評價面承受壓力，指數易出現「大漲大跌」的區間震盪。</li>
+        <li><strong>週末風險管理優先：</strong>中東局勢在週末有升級可能，持倉比重偏高者宜先降低槓桿，避免週一跳空風險。</li>
+        <li><strong>關注類股輪動：</strong>油價上行利好塑化上游、航運（運價與燃油附加費）與能源概念；但對航空、貨櫃下游客戶成本不利，需區分上下游。</li>
+        <li><strong>留意法說與財報季：</strong>美股 Q3 財報季啟動，金融股率先公布，能源與科技為主要成長動能，將主導 11 月前的市場情緒。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== 2. 全球市況 ===== -->
+  <div class="section">
+    <h2>🌍 全球市況總覽</h2>
+    <p style="font-size:.9em;color:#777;">以下為最近可得之收盤／報價參考（部分指數為前一交易日或近期高點數據，實際數值請以交易所公告為準）。</p>
+
+    <table>
+      <thead>
+        <tr><th>指標</th><th class="num">參考位階</th><th class="num">漲跌幅</th><th>觀察重點</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>道瓊工業指數</strong></td><td class="num">51,521.28</td><td class="num up">+0.49%</td><td>仍低於 8 月歷史高點逾 5%，傳產與金融拖累</td></tr>
+        <tr><td><strong>S&amp;P 500</strong></td><td class="num">7,818.93</td><td class="num up">+0.58%</td><td>首度收在 7,800 點之上，創歷史收盤新高</td></tr>
+        <tr><td><strong>那斯達克綜合指數</strong></td><td class="num">27,599.79</td><td class="num up">+0.45%</td><td>同步創收盤新高，AI 概念股領漲</td></tr>
+        <tr><td><strong>費城半導體指數</strong></td><td class="num">13,217.82</td><td class="num up">+0.34%</td><td>維持漲勢，惟波段震幅明顯放大</td></tr>
+        <tr><td><strong>台股加權指數</strong></td><td class="num">48,341.31</td><td class="num down">-960.65 點</td><td>高檔震盪，48,000 點為短線多空分水嶺</td></tr>
+        <tr><td><strong>台積電 ADR</strong></td><td class="num">485.80 美元</td><td class="num up">歷史新高</td><td>對現股溢價近 20%，為台股重要領先指標</td></tr>
+        <tr><td><strong>美國 10 年期公債殖利率</strong></td><td class="num">5.281%</td><td class="num down">-3 個基點</td><td>自 2002 年以來高位回落，但仍屬高檔</td></tr>
+        <tr><td><strong>美國 30 年期公債殖利率</strong></td><td class="num">5.655%</td><td class="num neutral">持平</td><td>長天期利率居高，壓抑成長股評價</td></tr>
+        <tr><td><strong>布蘭特原油</strong></td><td class="num">逾 113 美元</td><td class="num up">風險偏上</td><td>伊朗衝突＋現貨市場趨緊，巴克萊看短期風險上行</td></tr>
+        <tr><td><strong>美元指數</strong></td><td class="num">高檔震盪</td><td class="num neutral">觀望</td><td>升息預期降溫削弱美元動能，但避險需求仍提供支撐</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-wrap">
+      <canvas id="marketChart"></canvas>
+    </div>
+
+    <div class="note">
+      <strong>💡 全球盤勢判讀：</strong>
+      <ul>
+        <li><strong>美股結構分化極端：</strong>標普、那指創高但道瓊落後，資金高度集中於 AI／半導體，一旦龍頭股回檔，指數波動會被放大。</li>
+        <li><strong>利率是最大變數：</strong>10 年期 5.281% 屬 2002 年以來高位，若因油價推升通膨預期而再度上行，成長股評價將首當其衝。</li>
+        <li><strong>能源類股獲利上修：</strong>能源業 Q3 獲利預估年增 114.7%，為標普 500 十一大類股中動能最強者，與科技並列雙主軸。</li>
+        <li><strong>避險情緒留意 VIX：</strong>地緣風險事件若擴大，VIX 可能快速跳升，屆時宜同步檢視持股比重與停損紀律。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== 3. 台股焦點 ===== -->
+  <div class="section">
+    <h2>🏭 台股焦點 — 今日最值得關注的產業族群</h2>
+
+    <table>
+      <thead>
+        <tr><th>產業</th><th>方向</th><th>核心理由</th><th>量化／事件依據</th><th>代表個股</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>AI 伺服器代工</strong></td>
+          <td><span class="badge badge-up">↑↑ 偏多</span></td>
+          <td>AI 資料中心資本支出延續，訂單能見度延伸至明年上半年；台積電 ADR 創高強化供應鏈信心</td>
+          <td>標普 500 科技業 Q3 獲利預估年增 66.5%<br>8 月資本財進口月增 4.4%</td>
+          <td><div class="stock-tags"><span class="stock-tag">廣達</span><span class="stock-tag">鴻海</span><span class="stock-tag">緯創</span><span class="stock-tag">技嘉</span></div></td>
+        </tr>
+        <tr>
+          <td><strong>先進製程／晶圓代工</strong></td>
+          <td><span class="badge badge-up">↑ 偏多</span></td>
+          <td>9 月外銷訂單創新高，AI 需求延續；台積電 ADR 曾創 485.80 美元天價，對現股溢價近 20%</td>
+          <td>台灣 9 月外銷訂單創歷史新高<br>ADR 對現股溢價約 20%</td>
+          <td><div class="stock-tags"><span class="stock-tag">台積電</span><span class="stock-tag">聯電</span><span class="stock-tag">世界先進</span></div></td>
+        </tr>
+        <tr>
+          <td><strong>IC 設計</strong></td>
+          <td><span class="badge badge-neutral">→ 中性偏多</span></td>
+          <td>AI 邊緣運算與網通需求穩健，但高本益比在殖利率高檔時較易受評價修正壓力</td>
+          <td>族群評價多位於歷史區間上緣<br>需留意法人調節動作</td>
+          <td><div class="stock-tags"><span class="stock-tag">聯發科</span><span class="stock-tag">瑞昱</span><span class="stock-tag">聯詠</span></div></td>
+        </tr>
+        <tr>
+          <td><strong>塑化／能源概念</strong></td>
+          <td><span class="badge badge-up">↑ 偏多</span></td>
+          <td>布蘭特原油突破 113 美元、現貨市場趨緊，上游利差有望改善；G7 釋放庫存僅短期緩解</td>
+          <td>巴克萊：短期油價風險明顯偏上<br>伊朗衝突難迅速平息</td>
+          <td><div class="stock-tags"><span class="stock-tag">台塑化</span><span class="stock-tag">台塑</span><span class="stock-tag">南亞</span></div></td>
+        </tr>
+        <tr>
+          <td><strong>航運</strong></td>
+          <td><span class="badge badge-neutral">→ 中性</span></td>
+          <td>中東航線風險推升運價與燃油附加費，但油價成本同步上升，獲利多空互抵，需看航線結構</td>
+          <td>波斯灣出口受擾動<br>燃油成本佔比攀升</td>
+          <td><div class="stock-tags"><span class="stock-tag">長榮</span><span class="stock-tag">陽明</span><span class="stock-tag">萬海</span></div></td>
+        </tr>
+        <tr>
+          <td><strong>金融</strong></td>
+          <td><span class="badge badge-down">↓ 中性偏空</span></td>
+          <td>美債殖利率高檔對債券部位評價不利，但淨息差可望改善；Q3 財報季率先登場，觀望氣氛濃</td>
+          <td>10 年期殖利率 5.281%<br>美股金融股財報率先公布</td>
+          <td><div class="stock-tags"><span class="stock-tag">富邦金</span><span class="stock-tag">國泰金</span><span class="stock-tag">中信金</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>💡 台股操作判讀：</strong>
+      <ul>
+        <li><strong>指數位置：</strong>加權指數在 48,000 點上方劇烈震盪，48,000 點為心理與技術面雙重關卡；站穩則多頭結構延續，失守則進入區間整理。</li>
+        <li><strong>籌碼面壓力：</strong>三大法人賣壓沉重、外資大幅調節權值股，短線指數上攻力道受限，需觀察外資賣超是否收斂。</li>
+        <li><strong>基本面支撐：</strong>9 月外銷訂單創新高、AI 需求暢旺，台積電與聯發科等龍頭長期成長動能不變，回檔可視為中長線布局機會。</li>
+        <li><strong>風險提示：</strong>中東局勢週末有升級可能，加上殖利率高檔，建議控制單一持股比重，避免追高。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== 4. 資金流向 ===== -->
+  <div class="section">
+    <h2>💰 資金流向與籌碼觀察</h2>
+
+    <table>
+      <thead>
+        <tr><th>觀察項目</th><th>近期方向</th><th>解讀</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>外資（台股）</strong></td><td><span class="badge badge-down">淨賣超</span></td><td>外資大幅調節權值股（含台積電），為指數高檔震盪主因；賣壓是否收斂是短線關鍵</td></tr>
+        <tr><td><strong>三大法人合計</strong></td><td><span class="badge badge-down">賣超</span></td><td>法人同步減碼，籌碼由法人流向散戶與融資，需留意融資餘額是否快速攀升</td></tr>
+        <tr><td><strong>美股資金</strong></td><td><span class="badge badge-up">集中科技</span></td><td>資金高度集中 AI／半導體與能源兩大主軸，小型股明顯落後大型股</td></tr>
+        <tr><td><strong>美債市場</strong></td><td><span class="badge badge-neutral">殖利率高檔</span></td><td>10 年期 5.281%、30 年期 5.655%，長天期利率居高，資金對成長股評價更為挑剔</td></tr>
+        <tr><td><strong>能源市場</strong></td><td><span class="badge badge-up">資金流入</span></td><td>油價上行帶動能源類股獲利上修（Q3 預估 +114.7%），為資金新寵</td></tr>
+        <tr><td><strong>避險資產</strong></td><td><span class="badge badge-up">需求升溫</span></td><td>地緣風險升溫，黃金與美元避險需求增加，VIX 若跳升將引發風險資產去槓桿</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>💡 資金面結論：</strong>
+      <ul>
+        <li>台股目前處於「基本面利多、籌碼面利空」的拉扯格局，外資賣超未止前，指數難有連續性大漲。</li>
+        <li>美股資金極度集中，若 AI 龍頭出現獲利了結，指數回檔幅度會被放大，台股科技權值股將同步承壓。</li>
+        <li>油價上行吸引資金轉進能源與塑化，為傳產族群帶來久違的資金動能，短線可留意類股輪動機會。</li>
+        <li>週末地緣風險未明，建議保留現金部位，避免滿倉承受跳空風險。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== 5. 事件日曆 ===== -->
+  <div class="section">
+    <h2>📅 事件日曆 — 下週關鍵觀察點</h2>
+
+    <div class="event-item">
+      <div class="event-date">📅 週末期間（10/24–10/26）</div>
+      <div class="event-title">中東地緣政治局勢演變</div>
+      <div class="event-importance">⭐⭐⭐⭐⭐ 極度重要</div>
+      <div class="event-desc">
+        美國駐土耳其大使釋出「週末可能打擊伊朗」訊號，川普表示不知情；以色列總理言論引發中國擔憂。若衝突升級，油價恐跳空上漲、風險資產承壓。
+        <br><strong>追蹤指標：</strong>布蘭特原油開盤跳空幅度、VIX 指數、黃金價格
+      </div>
+    </div>
+
+    <div class="event-item">
+      <div class="event-date">📅 下週（10/27 起）</div>
+      <div class="event-title">美股第三季財報季啟動</div>
+      <div class="event-importance">⭐⭐⭐⭐⭐ 極度重要</div>
+      <div class="event-desc">
+        金融機構率先公布財報，市場預估標普 500 第三季獲利年增 30.6%，能源業 +114.7%、科技業 +66.5% 為主要成長動能。財報結果將主導 11 月前市場情緒。
+        <br><strong>追蹤指標：</strong>金融股淨息差、能源股利差、科技股 AI 訂單能見度
+      </div>
+    </div>
+
+    <div class="event-item">
+      <div class="event-date">📅 10 月下旬</div>
+      <div class="event-title">聯準會 10 月利率決策會議</div>
+      <div class="event-importance">⭐⭐⭐⭐⭐ 極度重要</div>
+      <div class="event-desc">
+        CME FedWatch 顯示 10 月再升息機率已由 50.9% 降至 19.4%。會後聲明措詞與點陣圖將決定殖利率走向，是台股與全球風險資產的最大變數。
+        <br><strong>追蹤指標：</strong>會後聲明措詞、10 年期美債殖利率、美元指數
+      </div>
+    </div>
+
+    <div class="event-item">
+      <div class="event-date">📅 下週</div>
+      <div class="event-title">美國 9 月 PCE 物價指數</div>
+      <div class="event-importance">⭐⭐⭐⭐ 重要</div>
+      <div class="event-desc">
+        油價上漲可能推升通膨預期，若 PCE 高於預期，降息期待將進一步降溫，殖利率恐再上行。反之則有利成長股評價修復。
+        <br><strong>追蹤指標：</strong>核心 PCE 年增率、市場對 12 月會議的定價
+      </div>
+    </div>
+
+    <div class="event-item">
+      <div class="event-date">📅 持續關注</div>
+      <div class="event-title">OPEC+ 增產決策與 G7 緊急庫存釋放</div>
+      <div class="event-importance">⭐⭐⭐⭐ 重要</div>
+      <div class="event-desc">
+        巴克萊指出庫存消耗與需求回升令現貨市場趨緊；G7 已協議釋放緊急柴油與原油庫存，僅能短期緩解供應疑慮。若 OPEC+ 增產幅度不足，油價仍有上行空間。
+        <br><strong>追蹤指標：</strong>WTI 與布蘭特價差、波斯灣出口量、航運運價
+      </div>
+    </div>
+
+    <div class="event-item">
+      <div class="event-date">📅 下週</div>
+      <div class="event-title">台灣 9 月工業生產與外銷訂單後續數據</div>
+      <div class="event-importance">⭐⭐⭐ 重要</div>
+      <div class="event-desc">
+        9 月外銷訂單已創歷史新高，後續須觀察 10 月能否延續。若 AI 伺服器與先進製程訂單持續暢旺，將支撐台股基本面評價。
+        <br><strong>追蹤指標：</strong>經濟部工業生產指數、上市櫃 9 月營收年增率
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>⚠️ 週末特別提醒：</strong>
+      <p style="margin:8px 0 0;">由於中東局勢在週末存在升級可能，加上市場對 10 月 Fed 會議的定價仍不穩定，建議在下週開盤前先檢視：① 布蘭特原油是否跳空上漲；② VIX 是否快速跳升；③ 外資期貨未平倉空單是否增加。三項若同時惡化，宜降低持股比重因應。</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>📊 本報告由 Hermes AI Agent 根據公開市場資訊自動生成，僅供參考之用</p>
+    <p>📍 數據來源：Bloomberg、Reuters、鉅亨網、經濟日報、工商時報、巴克萊研究、公開上市公司法說會資訊</p>
+    <p style="margin-top:14px;color:#999;font-size:.85em;">⚠️ <strong>免責聲明：</strong>本報告不構成投資建議。投資決策應諮詢專業理財顧問，投資者應自行承擔投資風險。</p>
+    <p style="margin-top:10px;font-size:.85em;">📅 生成時間：2026-10-24 08:00（台北時間）｜下次更新：2026-10-25 08:00</p>
+    <p style="margin-top:8px;font-size:.82em;color:#aaa;">※ 部分指數數值為最近可得之收盤或近期高點參考，實際數據請以交易所公告為準。</p>
+  </div>
+</div>
+
+<script>
+// 分頁切換
+document.querySelectorAll('.nav-tab').forEach((tab, index) => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => { s.style.display = 'none'; });
+    this.classList.add('active');
+    const sections = document.querySelectorAll('.section');
+    if (sections[index]) sections[index].style.display = 'block';
+  });
+});
+const sections = document.querySelectorAll('.section');
+sections.forEach((s, i) => { s.style.display = i === 0 ? 'block' : 'none'; });
+
+// 走勢圖
+const ctx = document.getElementById('marketChart');
+if (ctx) {
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['近期低點', '反彈', '震盪', '創高', '高檔整理', '最新'],
+      datasets: [
+        {
+          label: 'S&P 500（示意走勢）',
+          data: [7551, 7637, 7674, 7818, 7764, 7819],
+          borderColor: '#667eea',
+          backgroundColor: 'rgba(102,126,234,0.12)',
+          tension: 0.35,
+          fill: true,
+          pointRadius: 4
+        },
+        {
+          label: '台股加權（示意走勢）',
+          data: [45511, 46288, 47718, 48341, 47800, 48341],
+          borderColor: '#764ba2',
+          backgroundColor: 'rgba(118,75,162,0.10)',
+          tension: 0.35,
+          fill: true,
+          pointRadius: 4,
+          yAxisID: 'y1'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { labels: { font: { size: 13 }, color: '#4a3f8f' } },
+        tooltip: { backgroundColor: 'rgba(74,63,143,0.92)' }
+      },
+      scales: {
+        y: {
+          position: 'left',
+          title: { display: true, text: '標普 500 指數', color: '#667eea' },
+          ticks: { color: '#667eea' },
+          grid: { color: 'rgba(102,126,234,0.08)' }
+        },
+        y1: {
+          position: 'right',
+          title: { display: true, text: '台股加權指數', color: '#764ba2' },
+          ticks: { color: '#764ba2' },
+          grid: { drawOnChartArea: false }
+        },
+        x: { ticks: { color: '#666' } }
+      }
+    }
+  });
+}
+</script>
+</body>
+</html>
