@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 財經晨報 Pro — 2026年10月25日</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+    background: #f4f2fb; color: #2d2a3e; line-height: 1.75;
+  }
+  .header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; padding: 42px 20px 34px; text-align: center;
+    box-shadow: 0 6px 22px rgba(102,126,234,.35);
+  }
+  .header h1 { margin: 0 0 8px; font-size: 2rem; letter-spacing: 1px; }
+  .header .date { font-size: 1.02rem; opacity: .92; }
+  .header .sub { font-size: .9rem; opacity: .78; margin-top: 6px; }
+  .wrap { max-width: 1080px; margin: -22px auto 40px; padding: 0 16px; }
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    background: #fff; border-radius: 14px; padding: 10px;
+    box-shadow: 0 4px 18px rgba(118,75,162,.14); margin-bottom: 22px;
+  }
+  .tab {
+    border: none; cursor: pointer; font-family: inherit; font-size: .95rem;
+    padding: 10px 18px; border-radius: 10px; background: #f0edfa; color: #5a4b8a;
+    font-weight: 600; transition: all .22s;
+  }
+  .tab:hover { background: #e4def7; }
+  .tab.active { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; box-shadow: 0 3px 12px rgba(102,126,234,.4); }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fade .3s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .card {
+    background: #fff; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px;
+    box-shadow: 0 3px 14px rgba(118,75,162,.10); border-top: 4px solid #764ba2;
+  }
+  .card h2 { margin: 0 0 14px; font-size: 1.22rem; color: #5a3f8f; display: flex; align-items: center; gap: 8px; }
+  .card h3 { font-size: 1.02rem; color: #6b5a9e; margin: 18px 0 8px; }
+  .card p { margin: 0 0 12px; }
+  .view-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 14px; }
+  .view {
+    border-radius: 12px; padding: 16px 18px; border-left: 5px solid #999; background: #faf9fe;
+  }
+  .view.bull { border-left-color: #16a34a; background: #f0fdf4; }
+  .view.bear { border-left-color: #dc2626; background: #fef2f2; }
+  .view.neutral { border-left-color: #d97706; background: #fffbeb; }
+  .view .tag { font-size: .78rem; font-weight: 700; letter-spacing: .5px; }
+  .view.bull .tag { color: #15803d; }
+  .view.bear .tag { color: #b91c1c; }
+  .view.neutral .tag { color: #b45309; }
+  .view h4 { margin: 4px 0 8px; font-size: 1rem; color: #2d2a3e; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; margin: 6px 0 4px; }
+  th { background: #f0edfa; color: #5a3f8f; text-align: left; padding: 10px 12px; font-weight: 700; white-space: nowrap; }
+  td { padding: 10px 12px; border-bottom: 1px solid #eeeaf8; }
+  tr:last-child td { border-bottom: none; }
+  .up { color: #dc2626; font-weight: 700; }
+  .down { color: #16a34a; font-weight: 700; }
+  .flat { color: #6b7280; font-weight: 700; }
+  .note { font-size: .82rem; color: #7b7392; border-left: 3px solid #c9bff0; padding-left: 12px; margin-top: 12px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .chip { font-size: .84rem; padding: 5px 12px; border-radius: 999px; background: #f0edfa; color: #5a4b8a; font-weight: 600; }
+  .chip.g { background: #dcfce7; color: #15803d; }
+  .chip.r { background: #fee2e2; color: #b91c1c; }
+  .actions { list-style: none; padding: 0; margin: 0; }
+  .actions li {
+    position: relative; padding: 12px 14px 12px 40px; margin-bottom: 10px;
+    background: #faf9fe; border-radius: 10px; font-size: .94rem;
+  }
+  .actions li::before {
+    content: "✓"; position: absolute; left: 14px; top: 12px;
+    width: 18px; height: 18px; line-height: 18px; text-align: center;
+    background: linear-gradient(135deg,#667eea,#764ba2); color: #fff;
+    border-radius: 50%; font-size: .72rem; font-weight: 700;
+  }
+  .cal { border-left: 3px solid #667eea; padding-left: 16px; }
+  .cal-item { margin-bottom: 14px; position: relative; }
+  .cal-item::before {
+    content: ""; position: absolute; left: -22px; top: 7px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #764ba2; box-shadow: 0 0 0 3px #ece7fb;
+  }
+  .cal-date { font-weight: 700; color: #5a3f8f; font-size: .9rem; }
+  .footer { text-align: center; font-size: .82rem; color: #8a82a3; padding: 26px 16px 40px; }
+  .back-link {
+    display: inline-block; margin-bottom: 16px; padding: 9px 18px; border-radius: 9px;
+    background: #fff; color: #5a3f8f; text-decoration: none; font-weight: 700; font-size: .88rem;
+    box-shadow: 0 2px 10px rgba(118,75,162,.14);
+  }
+  .back-link:hover { background: #f0edfa; }
+  .disclaimer { font-size: .78rem; color: #8a82a3; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 財經晨報 Pro</h1>
+  <div class="date">2026 年 10 月 25 日（星期日）</div>
+  <div class="sub">台股光復節連假休市 ｜ 美股上週五科技股承壓，AI 支出疑慮再起</div>
+</div>
+
+<div class="wrap">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab(0,this)">📈 市場觀點</button>
+    <button class="tab" onclick="showTab(1,this)">🌍 全球市況</button>
+    <button class="tab" onclick="showTab(2,this)">🏭 台股焦點</button>
+    <button class="tab" onclick="showTab(3,this)">💰 資金流向</button>
+    <button class="tab" onclick="showTab(4,this)">📅 事件日曆</button>
+  </div>
+
+  <!-- 1. 市場觀點 -->
+  <div class="panel active">
+    <div class="card">
+      <h2>📈 今日市場觀點</h2>
+      <p>上週五（10 月 23 日）美股在 AI 資本支出疑慮與國際油價因地緣政治升溫而大漲的雙重壓力下，主要指數多數收黑。以科技股為主的那斯達克綜合指數單日重挫 694.00 點（-2.60%），創下今年 6 月以來最慘單日表現；標普 500 指數下跌 93.74 點（-1.21%），為 7 月以來最差單日；道瓊工業指數則在傳產與價值股支撐下微漲 11.89 點（+0.02%），收在 52,867.98 點。費城半導體指數跌幅收斂至 -0.07%，顯示晶片族群賣壓相對可控。</p>
+      <p>台股方面，10 月 23 日因光復節連假休市，未即時反映美股跌幅。連假前最後交易日（10 月 22 日）加權指數強勁上漲 594.84 點（+1.28%），收在 46,887.77 點，單日成交金額約 8,628 億元，外資在新台幣走強助攻下轉為買超。市場關注 10 月 26 日恢復交易後，是否補跌反映美股科技股賣壓。</p>
+      <div class="view-grid">
+        <div class="view bull">
+          <div class="tag">▲ 利多</div>
+          <h4>企業財報亮眼、AI 需求仍強</h4>
+          <p>特斯拉獲利優於預期，Meta 上調資本支出展望並持續加碼 AI，第 3 季財報季開局強勁。市場預估 2026 年企業盈餘可成長約 35%，基本面並未轉弱，回檔屬評價面修正而非系統性風險。</p>
+        </div>
+        <div class="view bear">
+          <div class="tag">▼ 利空</div>
+          <h4>AI 支出疑慮 + 油價大漲</h4>
+          <p>市場對 AI 公司龐大資本支出的回收期產生疑慮，高估值科技股首當其衝；同時中東地緣政治緊張推升國際油價，通膨預期回溫，壓抑風險性資產表現。標普 500 創 7 月以來最差單日。</p>
+        </div>
+        <div class="view neutral">
+          <div class="tag">◆ 中性</div>
+          <h4>連假後補跌與季線攻防</h4>
+          <p>台股連假期間美股科技股走弱，10 月 26 日開盤恐面臨補跌壓力。法人認為「最壞已過」，短線將進入區間震盪整理，季線為多空關鍵，若能守穩，11 月仍有機會迎來較大行情。</p>
+        </div>
+      </div>
+      <div class="note">操作基調：連假後首日不追殺、不搶反彈，先觀察開盤量能與季線支撐，採分批布局而非一次性重押。</div>
+    </div>
+
+    <div class="card">
+      <h2>🎯 本週三大觀察主軸</h2>
+      <div class="chips">
+        <span class="chip">① AI 資本支出回收期</span>
+        <span class="chip">② 國際油價與通膨預期</span>
+        <span class="chip">③ 台股連假後補跌幅度</span>
+      </div>
+      <p><strong>主軸一：</strong>超級財報週登場，大型雲端與晶片廠的資本支出指引將直接決定 AI 族群能否止穩，是本週最大的不確定來源。</p>
+      <p><strong>主軸二：</strong>油價若持續因中東局勢走高，將推升通膨預期並壓縮降息空間，對高本益比科技股形成估值壓力。</p>
+      <p><strong>主軸三：</strong>台股 10 月 26 日恢復交易，需觀察補跌是否一次到位。若開低走高、量能不過度放大，代表賣壓已在連假期間被消化。</p>
+    </div>
+  </div>
+
+  <!-- 2. 全球市況 -->
+  <div class="panel">
+    <div class="card">
+      <h2>🌍 全球市場指標</h2>
+      <table>
+        <thead>
+          <tr><th>指數 / 商品</th><th>收盤</th><th>漲跌</th><th>幅度</th><th>備註</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>道瓊工業指數</td><td>52,867.98</td><td class="up">+11.89</td><td class="up">+0.02%</td><td>傳產、價值股撐盤</td></tr>
+          <tr><td>標普 500 指數</td><td>7,663.43</td><td class="down">-93.74</td><td class="down">-1.21%</td><td>7 月以來最差單日</td></tr>
+          <tr><td>那斯達克綜合指數</td><td>26,008.86</td><td class="down">-694.00</td><td class="down">-2.60%</td><td>6 月以來最慘單日</td></tr>
+          <tr><td>費城半導體指數</td><td>—</td><td class="down">小幅收黑</td><td class="down">-0.07%</td><td>跌幅相對收斂</td></tr>
+          <tr><td>台股加權指數（10/22）</td><td>46,887.77</td><td class="up">+594.84</td><td class="up">+1.28%</td><td>10/23 光復節連假休市</td></tr>
+          <tr><td>布蘭特原油</td><td>—</td><td class="up">大漲</td><td class="up">—</td><td>地緣政治緊張升溫</td></tr>
+          <tr><td>黃金</td><td>—</td><td class="up">小幅上漲</td><td class="up">—</td><td>避險需求仍在</td></tr>
+          <tr><td>美元指數</td><td>—</td><td class="up">走強</td><td class="up">—</td><td>連續第四個交易日升值</td></tr>
+        </tbody>
+      </table>
+      <div class="note">上述美股數據為 10 月 23 日（週五）收盤；台股因光復節連假休市，採最近交易日 10 月 22 日收盤。油、金、匯為方向性描述，實際報價請以交易平台為準。</div>
+    </div>
+
+    <div class="card">
+      <h2>🌐 國際市場解讀</h2>
+      <h3>科技股評價修正，而非基本面轉壞</h3>
+      <p>本次回檔主因市場重新檢視 AI 資本支出的回收期。過去一年大型科技股大幅上漲，評價已處於高位，任何對支出效率的質疑都會被放大。然而第 3 季財報顯示需求端仍強，記憶體、伺服器與先進封裝訂單能見度未見下修，屬於「評價面修正」多於「景氣反轉」。</p>
+      <h3>油價與通膨預期是最大變數</h3>
+      <p>中東地緣政治風險升高帶動原油價格大幅走高。若油價維持高檔，將推升整體通膨預期，使市場對降息時程的期待再度延後，對高本益比成長股形成持續壓力。這也是上週五標普 500 與那斯達克跌幅擴大的關鍵原因之一。</p>
+      <h3>美債殖利率與美元同步走強</h3>
+      <p>美元連續第四個交易日走強，反映資金在風險事件前回流美元資產。若美債殖利率同步居高不下，科技股估值壓力短期難解；反之，若殖利率自高點回落，將是科技股止穩的第一個訊號。</p>
+    </div>
+  </div>
+
+  <!-- 3. 台股焦點 -->
+  <div class="panel">
+    <div class="card">
+      <h2>🏭 台股盤勢與產業分析</h2>
+      <p>台股 10 月 23 日因光復節連假休市，市場在連假前一日（10 月 22 日）以強勁走勢作收，加權指數上漲 594.84 點、漲幅 1.28%，收在 46,887.77 點，成交金額約 8,628 億元。新台幣走強助攻外資由賣轉買，急跌的地板股出現反彈契機。</p>
+      <h3>半導體與 AI 供應鏈</h3>
+      <p>美股費城半導體指數上週五僅小跌 0.07%，跌幅明顯小於那斯達克，顯示晶片族群在這波 AI 支出疑慮中相對抗跌。台積電 ADR 與先進封裝、CoWoS 供應鏈仍是外資關注焦點。若 10 月 26 日台股補跌，半導體權值股預期仍是撐盤主力。</p>
+      <h3>電子零組件與高階材料</h3>
+      <p>高階銅箔、ABF 載板等 AI 伺服器關鍵材料持續供不應求，屬於結構性缺貨題材，較不受短期評價修正影響。此類族群在震盪盤勢中具備相對抗跌的條件。</p>
+      <h3>傳產、金融與高股息</h3>
+      <p>美股上週五道瓊在傳產與價值股支撐下微幅收紅，資金有從高估值成長股轉向價值股的跡象。台股中的金融、塑化與高股息族群，在連假後補跌壓力下可望成為資金避風港。</p>
+      <div class="chips">
+        <span class="chip g">相對抗跌：半導體權值、高階材料</span>
+        <span class="chip">觀察：AI 伺服器組裝</span>
+        <span class="chip r">風險較高：高本益比 IC 設計</span>
+      </div>
+      <div class="note">台股 10 月 26 日（週一）恢復交易，為光復節連假後首個交易日，開盤補跌幅度與量能變化為本週最重要的觀察點。</div>
+    </div>
+
+    <div class="card">
+      <h2>📌 法人觀點彙整</h2>
+      <p>多家法人指出，台股短線雖因連假期間美股走弱而面臨補跌壓力，但企業基本面與景氣回溫的支撐仍在，評估「最壞已過」，短線將是來回區間震盪整理的走勢，下個月有機會迎來較大行情。</p>
+      <p>另有資深市場人士認為，台股即使失守季線也不必過度恐慌，在企業獲利支撐下，主升段目標仍看上 5 萬點，點名三大潛力族群蓄勢待發。法人同時看好 11 月行情，並點出三大布局方向，建議投資人以分批方式建立部位。</p>
+      <div class="note">以上為市場公開觀點整理，非投資建議。</div>
+    </div>
+  </div>
+
+  <!-- 4. 資金流向 -->
+  <div class="panel">
+    <div class="card">
+      <h2>💰 資金流向與投資策略</h2>
+      <h3>資金動向觀察</h3>
+      <p>連假前新台幣明顯走強，帶動外資由賣轉買，是 10 月 22 日台股大漲近 595 點的主要推力之一。不過連假期間美股科技股重挫，外資在 10 月 26 日恢復交易後的態度，將決定補跌是一次性宣洩、還是形成連續賣壓。</p>
+      <p>國際資金面上，美元連續第四個交易日走強，顯示部分資金在風險事件前轉向美元與黃金避險。油價大漲則吸引資金流向能源相關標的，形成「科技股流出、能源與價值股流入」的輪動格局。</p>
+      <h3>投資策略</h3>
+      <div class="view-grid">
+        <div class="view neutral">
+          <div class="tag">◆ 核心策略</div>
+          <h4>分批、不追殺、不搶反彈</h4>
+          <p>連假後首日先觀察開盤量能與季線支撐，採分批布局。若開低走高且量能溫和，代表賣壓已消化；若開低走低且量能放大，則耐心等待止穩訊號。</p>
+        </div>
+        <div class="view bull">
+          <div class="tag">▲ 布局方向</div>
+          <h4>半導體權值 + 高階材料</h4>
+          <p>以先進封裝、CoWoS 供應鏈、高階銅箔與 ABF 載板為核心，搭配金融與高股息族群作為防禦部位，平衡科技股的波動風險。</p>
+        </div>
+        <div class="view bear">
+          <div class="tag">▼ 風險控管</div>
+          <h4>嚴控高本益比持股比重</h4>
+          <p>AI 支出疑慮未解前，高本益比 IC 設計與題材股波動加大，建議降低單一持股比重，並以季線作為停損參考，避免在震盪中被洗出場。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>✅ 今日操作清單</h2>
+      <ul class="actions">
+        <li>開盤前確認美股上週五收盤與亞股早盤方向，判斷補跌壓力強度。</li>
+        <li>觀察加權指數是否守住季線，以及成交金額是否異常放大。</li>
+        <li>檢視持股中高本益比 AI 題材股比重，必要時分批減碼至可承受水位。</li>
+        <li>針對半導體權值與高階材料族群，設定分批承接價位，不一次性重押。</li>
+        <li>留意新台幣匯率與外資買賣超，作為資金回流與否的確認指標。</li>
+        <li>本週超級財報週前，保留現金部位以因應財報公布後的跳空風險。</li>
+      </ul>
+      <div class="disclaimer">本清單為盤勢觀察與風險管理參考，不構成個股買賣建議。</div>
+    </div>
+  </div>
+
+  <!-- 5. 事件日曆 -->
+  <div class="panel">
+    <div class="card">
+      <h2>📅 本週事件日曆</h2>
+      <div class="cal">
+        <div class="cal-item">
+          <div class="cal-date">10 月 26 日（一）</div>
+          <p>台股光復節連假後恢復交易，為本週首個交易日；市場關注補跌幅度與量能表現，以及外資買賣超方向。</p>
+        </div>
+        <div class="cal-item">
+          <div class="cal-date">10 月 27 日（二）</div>
+          <p>美國公布耐久財訂單等景氣數據，市場藉此評估企業投資動能；同時留意聯準會官員談話對利率路徑的暗示。</p>
+        </div>
+        <div class="cal-item">
+          <div class="cal-date">10 月 28 日（三）</div>
+          <p>市場聚焦美國個人消費支出（PCE）物價指數，為通膨走向的關鍵指標；油價走高是否推升通膨預期為觀察重點。</p>
+        </div>
+        <div class="cal-item">
+          <div class="cal-date">10 月 29 日（四）</div>
+          <p>美股超級財報週進入高峰，大型雲端與晶片廠陸續公布財報與資本支出指引，將直接影響 AI 族群走勢。</p>
+        </div>
+        <div class="cal-item">
+          <div class="cal-date">10 月 30 日（五）</div>
+          <p>歐元區第 3 季國內生產毛額初值公布；台股週線收盤，觀察連假後一週能否收復季線。</p>
+        </div>
+        <div class="cal-item">
+          <div class="cal-date">下週前瞻</div>
+          <p>11 月行情啟動，法人看好三大布局方向；美國 10 月 ISM 製造業指數與非農就業數據將為利率決策提供最新依據。</p>
+        </div>
+      </div>
+      <div class="note">上述日程為市場預期之例行發布時點，實際公布時間與內容請以官方公告為準。</div>
+    </div>
+
+    <div class="card">
+      <h2>🔍 下週關鍵問句</h2>
+      <p><strong>一、</strong>AI 資本支出指引是否下修？若大型雲端業者維持或上調支出，科技股評價壓力可望緩解。</p>
+      <p><strong>二、</strong>油價是否持續走高？若中東局勢降溫、油價回落，通膨預期與殖利率壓力將同步減輕。</p>
+      <p><strong>三、</strong>台股能否守穩季線？守穩則 11 月行情可期，失守則需延長整理時間。</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>📊 財經晨報 Pro ｜ 2026 年 10 月 25 日</p>
+    <p><a href="../../index.html" style="color:#764ba2;font-weight:700;text-decoration:none;">← 回到歷史報告列表</a></p>
+    <p class="disclaimer">本報告為公開市場資訊整理與觀點彙整，僅供參考，不構成任何投資建議。投資有風險，決策請自行評估。</p>
+  </div>
+</div>
+
+<script>
+function showTab(i, el) {
+  var panels = document.querySelectorAll('.panel');
+  var tabs = document.querySelectorAll('.tab');
+  for (var k = 0; k < panels.length; k++) { panels[k].classList.remove('active'); }
+  for (var j = 0; j < tabs.length; j++) { tabs[j].classList.remove('active'); }
+  panels[i].classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>
