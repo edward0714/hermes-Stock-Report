@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日財經晨報 — 2026年10月29日</title>
+<style>
+  :root{
+    --p1:#667eea; --p2:#764ba2; --bg:#f5f6fb; --card:#ffffff;
+    --txt:#1f2430; --sub:#5b6478; --line:#e6e8f2;
+    --up:#d93025; --down:#12805c; --flat:#8a8f9c;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+       background:var(--bg);color:var(--txt);line-height:1.75;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 18px 60px;}
+  header.hero{background:linear-gradient(135deg,var(--p1) 0%,var(--p2) 100%);color:#fff;
+       padding:46px 18px 34px;margin:0 -18px 0;border-radius:0 0 26px 26px;box-shadow:0 10px 30px rgba(102,126,234,.28);}
+  header.hero .inner{max-width:1044px;margin:0 auto;}
+  .kicker{font-size:13px;letter-spacing:3px;opacity:.85;margin-bottom:8px;}
+  h1{margin:0;font-size:31px;font-weight:800;letter-spacing:.5px;}
+  .date{margin-top:10px;font-size:15px;opacity:.92;}
+  .hero-tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;}
+  .hero-tags span{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+       padding:4px 12px;border-radius:20px;font-size:13px;}
+  .back-link{display:inline-block;margin:20px 0 6px;color:var(--p2);text-decoration:none;font-size:14px;font-weight:600;}
+  .back-link:hover{text-decoration:underline;}
+  nav.tabs{display:flex;flex-wrap:wrap;gap:6px;background:#fff;padding:8px;border-radius:16px;
+       margin:16px 0 22px;box-shadow:0 4px 16px rgba(31,36,48,.07);position:sticky;top:0;z-index:9;}
+  nav.tabs button{flex:1;min-width:130px;border:0;background:transparent;color:var(--sub);
+       font-size:14.5px;font-weight:700;padding:11px 8px;border-radius:11px;cursor:pointer;transition:.2s;font-family:inherit;}
+  nav.tabs button:hover{background:#f0f2fb;color:var(--p2);}
+  nav.tabs button.active{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;
+       box-shadow:0 4px 12px rgba(118,75,162,.32);}
+  section.panel{display:none;animation:fade .25s ease;}
+  section.panel.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  h2{font-size:20px;margin:30px 0 14px;padding-left:12px;border-left:4px solid var(--p1);}
+  h3{font-size:16.5px;margin:22px 0 10px;color:var(--p2);}
+  .card{background:var(--card);border-radius:16px;padding:20px 22px;box-shadow:0 3px 14px rgba(31,36,48,.06);margin-bottom:16px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;}
+  .view{border-radius:16px;padding:18px 20px;background:#fff;border-left:6px solid var(--flat);
+       box-shadow:0 3px 14px rgba(31,36,48,.06);}
+  .view.bull{border-left-color:var(--up);}
+  .view.bear{border-left-color:var(--down);}
+  .view.neu{border-left-color:#e0a33e;}
+  .view .tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 10px;border-radius:12px;margin-bottom:8px;}
+  .view.bull .tag{background:#fdecea;color:var(--up);}
+  .view.bear .tag{background:#e6f4ef;color:var(--down);}
+  .view.neu .tag{background:#fdf3e2;color:#a9741b;}
+  .view h4{margin:4px 0 8px;font-size:16px;}
+  .view p{margin:0;font-size:14.3px;color:var(--sub);}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;
+       box-shadow:0 3px 14px rgba(31,36,48,.06);font-size:14px;}
+  th{background:#eef0fb;color:#3b3f52;text-align:left;padding:11px 12px;font-weight:700;font-size:13.5px;}
+  td{padding:10px 12px;border-top:1px solid var(--line);}
+  tr:hover td{background:#fafbff;}
+  .up{color:var(--up);font-weight:700;}
+  .down{color:var(--down);font-weight:700;}
+  .flat{color:var(--flat);font-weight:700;}
+  ul.clean{margin:8px 0;padding-left:22px;}
+  ul.clean li{margin:7px 0;}
+  .note{font-size:12.5px;color:#9aa0b0;margin-top:12px;}
+  .cal{display:grid;gap:10px;}
+  .cal-item{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:12px;padding:13px 16px;
+       box-shadow:0 2px 10px rgba(31,36,48,.05);}
+  .cal-date{flex:0 0 84px;font-weight:800;color:var(--p2);font-size:13.5px;padding-top:2px;}
+  .cal-body{font-size:14px;color:var(--sub);}
+  .cal-body b{color:var(--txt);}
+  .pill{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:11px;background:#eef0fb;color:#4b4f66;margin-left:6px;}
+  .checklist li{margin:9px 0;font-size:14.3px;}
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:#9aa0b0;text-align:center;}
+  @media(max-width:560px){h1{font-size:23px;}nav.tabs button{min-width:calc(50% - 6px);flex:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="inner">
+    <div class="kicker">財 經 晨 報 ・ P R O</div>
+    <h1>每日財經晨報</h1>
+    <div class="date">2026 年 10 月 29 日（星期四）｜台北時間 08:00 出刊</div>
+    <div class="hero-tags">
+      <span>Fed 連五凍</span>
+      <span>費半重挫 4.30%</span>
+      <span>微軟 Azure 成長 48%</span>
+      <span>台股重返 47,000 點</span>
+      <span>12 月升息機率 85%</span>
+    </div>
+  </div>
+</header>
+
+<a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+<nav class="tabs">
+  <button class="active" onclick="showTab(event,'p1')">📈 市場觀點</button>
+  <button onclick="showTab(event,'p2')">🌍 全球市況</button>
+  <button onclick="showTab(event,'p3')">🏭 台股焦點</button>
+  <button onclick="showTab(event,'p4')">💰 資金流向</button>
+  <button onclick="showTab(event,'p5')">📅 事件日曆</button>
+</nav>
+
+<!-- ========== 分頁一：市場觀點 ========== -->
+<section class="panel active" id="p1">
+  <h2>今日核心觀點</h2>
+  <div class="card">
+    <p>聯準會週三（28 日）結束兩天會議，將基準利率維持在 <b>3.75%～4.00%</b> 區間，符合市場預期，但決議出現 <b>2 張主張升息 1 碼的反對票</b>（理事庫克、克里夫蘭聯準銀行總裁哈瑪克），加上主席華許在記者會上的談話，市場解讀為「利率連五凍、鷹派抬頭」。美元指數因此走貶 0.2% 至 102.15，2 年期公債殖利率下滑 1.46 個基點至 4.722%，殖利率曲線趨陡。</p>
+    <p>美股的反應是典型的「指數分歧」：道瓊幾乎持平（-0.09%），但那斯達克下跌 1.88%、費城半導體指數重挫 <b>4.30%</b> 並寫下連六黑，台積電 ADR 同步下跌 3.4% 收在 430 美元。這對昨日才大漲 939 點、重返 47,000 點的台股而言，今天開盤就是一道壓力測試。</p>
+    <p>目前 CME FedWatch 顯示市場預期 12 月升息機率接近 <b>85%</b>，意味資金成本往上的方向沒有改變。在 11 月 3 日美國期中選舉與下週大型科技股財報公布前，市場傾向「先降低風險部位、再看方向」，指數短線易跌難漲。</p>
+  </div>
+
+  <h2>五檔觀點卡片</h2>
+  <div class="grid">
+    <div class="view bear">
+      <span class="tag">利空</span>
+      <h4>Fed 兩票主張升息，12 月升息機率近 85%</h4>
+      <p>利率雖維持不動，但兩張反對票與華許的鷹派語氣讓市場重新定價。對高本益比的 AI 與半導體族群，這是評價面最直接的壓力來源。</p>
+    </div>
+    <div class="view bear">
+      <span class="tag">利空</span>
+      <h4>費半連六黑、重挫 4.30%，台積電 ADR 跌 3.4%</h4>
+      <p>半導體指數單日下跌 524.41 點收 11,684.38 點，台積電 ADR 收 430 美元。ADR 與現貨的價差收斂，今日台積電開盤承壓的機率高。</p>
+    </div>
+    <div class="view bull">
+      <span class="tag">利多</span>
+      <h4>微軟 Q1 營收獲利雙超預期，Azure 年增 48%</h4>
+      <p>AI 需求仍在兌現：Azure 雲端營收年增 48%、整體營收成長 19%、自由現金流 186 億美元，盤後股價上漲約 4%。AI 基礎建設的訂單能見度沒有轉弱。</p>
+    </div>
+    <div class="view neu">
+      <span class="tag">中性</span>
+      <h4>微軟資本支出 452 億美元，低於市場預期 507 億</h4>
+      <p>年增約 30% 但仍低於分析師平均預估，CoreWeave 盤後跌 5%、Nebius 同步走弱。資本支出「節制」對微軟現金流是好事，對新雲端業者卻是交付延後的訊號。</p>
+    </div>
+    <div class="view neu">
+      <span class="tag">中性</span>
+      <h4>台股昨日大漲 939 點、成交值卻萎縮至 7,221 億元</h4>
+      <p>加權指數漲 2.04% 收 47,035.58 點，重返 47,000 點整數關卡，但外資現貨翻多、期貨仍偏空，量能萎縮顯示追價意願有限，急漲後的回檔風險升高。</p>
+    </div>
+    <div class="view bull">
+      <span class="tag">利多</span>
+      <h4>Meta 250 億美元增發獲 5 倍超額認購</h4>
+      <p>這是 980 億美元股權融資計畫的一環，逾半股份配給只做多的長線機構。AI 資本市場的資金池仍然深厚，對整體科技股評價提供下檔支撐。</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h3>一句話定調</h3>
+    <p style="margin:0;font-size:15.5px;">「指數在等方向，資金在等 12 月。」——利率路徑偏鷹、AI 需求偏多，兩股力量拉扯下，今天的操作重點不是猜漲跌，而是控管部位與成本。</p>
+  </div>
+</section>
+
+<!-- ========== 分頁二：全球市況 ========== -->
+<section class="panel" id="p2">
+  <h2>市場指標總覽</h2>
+  <table>
+    <thead><tr><th>指標</th><th>收盤</th><th>漲跌</th><th>幅度</th><th>觀察重點</th></tr></thead>
+    <tbody>
+      <tr><td>道瓊工業指數</td><td>51,621.48</td><td class="down">-48.62</td><td class="down">-0.09%</td><td>幾乎持平，傳產與金融撐盤</td></tr>
+      <tr><td>標普 500 指數</td><td>7,718.94</td><td class="down">-86.51</td><td class="down">-1.11%</td><td>科技權值拖累</td></tr>
+      <tr><td>那斯達克綜合指數</td><td>26,692.87</td><td class="down">-511.51</td><td class="down">-1.88%</td><td>利率預期轉鷹，評價面承壓</td></tr>
+      <tr><td>費城半導體指數</td><td>11,684.38</td><td class="down">-524.41</td><td class="down">-4.30%</td><td>連六黑，跌幅居前</td></tr>
+      <tr><td>台積電 ADR</td><td>430.00 美元</td><td class="down">-15.12</td><td class="down">-3.40%</td><td>與 10/28 現貨大漲走勢背離</td></tr>
+      <tr><td>美元指數（DXY）</td><td>102.15</td><td class="down">-0.20%</td><td class="down">—</td><td>Fed 會後走貶，曲線趨陡</td></tr>
+      <tr><td>美 2 年期公債殖利率</td><td>4.722%</td><td class="down">-1.46 bp</td><td class="down">—</td><td>短端下滑、長端走揚</td></tr>
+      <tr><td>台股加權指數（10/28）</td><td>47,035.58</td><td class="up">+939.35</td><td class="up">+2.04%</td><td>重返 47,000 點，量能萎縮</td></tr>
+      <tr><td>台股成交金額（10/28）</td><td>7,221.35 億元</td><td class="down">量縮</td><td class="flat">—</td><td>急漲但追價意願有限</td></tr>
+      <tr><td>新台幣兌美元</td><td>32.577</td><td class="flat">區間偏弱</td><td class="flat">—</td><td>外資動向為關鍵</td></tr>
+    </tbody>
+  </table>
+  <p class="note">註：美股數據為 10 月 28 日（週三）收盤；台股為 10 月 28 日集中市場收盤。</p>
+
+  <h2>Fed 決策三大重點</h2>
+  <div class="card">
+    <ul class="clean">
+      <li><b>利率連五凍：</b>基準利率維持 3.75%～4.00%，符合市場預期，Fed 選擇等 11 月 3 日美國期中選舉結束後，再決定是否調整借貸成本。</li>
+      <li><b>2 張反對票：</b>理事庫克（Lisa Cook）與克里夫蘭聯準銀行總裁哈瑪克（Beth Hammack）主張升息 1 碼，這是本輪循環中少見的鷹派分歧。</li>
+      <li><b>物價穩定優先：</b>聲明形容經濟活動強勁、國內支出具韌性、就業與失業率大致穩定；同時宣布減少利率決策會議次數，政策溝通節奏將更保守。</li>
+    </ul>
+    <p style="margin:8px 0 0;color:var(--sub);font-size:14px;">市場反應：美元指數下跌 0.2%，2 年期殖利率下滑、殖利率曲線趨陡，顯示投資人認為「短線不升、但年底前仍可能升」。CME FedWatch 顯示 12 月升息機率接近 85%。</p>
+  </div>
+
+  <h2>其他央行與國際動態</h2>
+  <div class="card">
+    <ul class="clean">
+      <li><b>紐西蘭央行</b>意外維持利率 2.75% 不變，令原本預期升息的經濟學家跌破眼鏡，紐幣一度重挫 1.74% 至 0.5583 美元，成為 G10 最弱貨幣。</li>
+      <li><b>加拿大央行</b>三年多來首度升息，並表示為避免能源成本飆升推升整體通膨，未來可能還需要繼續升息，加幣兌美元升 0.37%。</li>
+      <li><b>歐洲央行（ECB）</b>週四、<b>日本央行（BoJ）</b>週五公布決策，市場預期兩者都將維持政策利率不變。</li>
+      <li><b>英國</b>財政大臣宣布提高銀行、博弈業者、儲蓄者與房東稅負，並收緊線上市場平台加值型營業稅規定，以籌措預算財源。</li>
+      <li><b>波音</b>第三季虧損大幅收斂，但 737 MAX 增產進度落後、百億美元自由現金流目標延至 2029 年，股價暴跌 10.71% 收 168.18 美元。</li>
+      <li><b>蘋果</b>發表首款觸控螢幕 MacBook Pro，首度將 OLED 與動態島導入 Mac，本週五台灣開放預訂，售價近 10 萬元起。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 分頁三：台股焦點 ========== -->
+<section class="panel" id="p3">
+  <h2>昨日盤勢回顧（10/28）</h2>
+  <div class="card">
+    <p>台股 28 日開高走高，加權指數終場大漲 <b>939.35 點（+2.04%）</b>，收在 <b>47,035.58 點</b>，重新站回 47,000 點整數關卡。盤面由電子權值與 AI 供應鏈領軍，市場在 Fed 決議前先押注「利率不動」的利多。不過成交金額萎縮至 <b>7,221.35 億元</b>，外資現貨雖轉為買超，期貨部位仍偏空，顯示這根長紅棒的量價結構並不紮實。</p>
+    <p>籌碼面呈現「現貨翻多、期貨避險」的分歧格局：外資在現貨市場回補，但期貨淨空單未明顯回補，代表機構法人對後市仍採「買現貨、空期貨」的保護性策略，而非全面翻多。</p>
+  </div>
+
+  <h2>今日開盤三大觀察</h2>
+  <div class="grid">
+    <div class="view bear">
+      <span class="tag">壓力</span>
+      <h4>台積電 ADR 跌 3.4%，現貨開盤承壓</h4>
+      <p>ADR 收 430 美元、單日下跌 15.12 美元，換算幅度 -3.4%。若台積電現貨開盤反映此跌幅，對加權指數的拖累約在百點以上，47,000 點恐難一次守住。</p>
+    </div>
+    <div class="view neu">
+      <span class="tag">觀察</span>
+      <h4>47,000 點是多空分水嶺</h4>
+      <p>昨日長紅棒的低點與 47,000 點整數關卡重疊，若今天跳空開低後能迅速回補缺口，代表買盤仍在；反之若跌破並伴隨放量，短線轉弱確立。</p>
+    </div>
+    <div class="view bull">
+      <span class="tag">支撐</span>
+      <h4>台積電 Q3 財報仍是基本面底氣</h4>
+      <p>台積電 2026 年第三季合併營收約 1 兆 4,942 億元、稅後純益約 7,630.6 億元、每股盈餘 29.43 元，年增約 69%。基本面與股價的落差，是回檔時的緩衝。</p>
+    </div>
+  </div>
+
+  <h2>產業分析</h2>
+  <div class="card">
+    <h3>半導體：短線評價修正，長線需求未變</h3>
+    <p>費半連六黑、單日重挫 4.30%，反映的是「利率預期轉鷹 → 高本益比族群評價下修」，而非訂單流失。台積電 Q3 獲利年增 69%、EPS 29.43 元創新高，先進製程與 AI 需求仍緊俏，外資目標價區間從 3,088 元到 4,410 元，分歧點在資本支出與毛利率，而非需求。今天的下跌屬於評價面修正，不是基本面轉折。</p>
+
+    <h3>AI 伺服器與散熱：微軟資本支出低於預期是雜音</h3>
+    <p>微軟第一季資本支出與融資租賃合計 452 億美元、年增約 30%，但低於分析師平均預估的 507 億美元，CoreWeave 盤後跌 5%、Nebius 同步走弱。對台灣的 AI 伺服器、電源、散熱、機櫃供應鏈而言，這是「交付節奏遞延」而非「需求消失」，但短線股價已充分反映高成長預期，任何資本支出遞延的消息都容易引發獲利了結。</p>
+
+    <h3>記憶體與儲存：希捷創高仍跌 6% 的警訊</h3>
+    <p>希捷 2027 會計年度第一季獲利創歷史新高，股價卻在盤後重挫 6%。這說明市場對記憶體／儲存的「好業績」已經完全定價，接下來要的是「更好」。相關族群今天若開高，反而要留意開高走低。</p>
+
+    <h3>金融：利率高原期的相對優勢</h3>
+    <p>Fed 連五凍、12 月升息機率近 85%，利率「更高更久」對壽險與銀行的利差是支撐。在電子權值承壓的日子，金融股常扮演撐盤角色，是今天觀察指數能否守穩 47,000 點的關鍵。</p>
+
+    <h3>傳產與航運：油價與中國需求是變數</h3>
+    <p>加央行明確點出「能源成本飆升」的通膨風險，油價位階成為傳產成本與航運燃油附加費的關鍵。若油價持續走高，航空與貨櫃的毛利壓力會先反映在第四季財報。</p>
+  </div>
+
+  <h2>今日法說會焦點</h2>
+  <div class="card">
+    <p style="margin:0;">下午 2 點至 3 點法人說明會密集舉辦：<b>友達（2409）、強信（4560）、瑞儀（6176）、盛群（6202）、台達電（2308）、亞德客（1590）、國巨（2327）、瑞昱（2379）</b>。其中台達電（AI 電源）、國巨（被動元件）、瑞昱（網通晶片）的法說內容，將直接影響 AI 供應鏈今天的氣氛。</p>
+  </div>
+</section>
+
+<!-- ========== 分頁四：資金流向 ========== -->
+<section class="panel" id="p4">
+  <h2>資金動向解讀</h2>
+  <div class="card">
+    <ul class="clean">
+      <li><b>美元與美債：</b>Fed 會後美元指數下跌 0.2% 至 102.15，2 年期殖利率下滑 1.46 bp 至 4.722%，殖利率曲線趨陡。短端反映「這次不升」，長端反映「通膨與供給壓力仍在」，這是典型的「鷹派暫停」定價。</li>
+      <li><b>股票型資金：</b>標普 500 等權重指數 10 月逆轉幅度創紀錄，顯示資金從少數科技巨頭擴散到其他類股，但也意味著 9 月以來多數個股表現疲弱、債券殖利率攀升持續壓抑股價。AI 融資瓶頸與債市警鐘是這波輪動的背景。</li>
+      <li><b>AI 籌資市場：</b>Meta 250 億美元普通股增發獲約 5 倍超額認購，逾半配給只做多機構，前 15 大投資人合計取得約 70%。若 980 億美元股權融資計畫全數落實，將躋身史上最大規模股權融資之列——AI 資本市場的胃納仍深。</li>
+      <li><b>半導體資金：</b>費半連六黑、單日 -4.30%，SOX 相關 ETF 出現明顯流出；台積電 ADR 下跌 3.4%，ADR 溢價收斂通常領先現貨走弱 1～2 個交易日。</li>
+      <li><b>台股籌碼：</b>外資現貨轉買超、期貨淨空單未回補，屬於「買現貨、空期貨」的保護性布局；投信與自營商在急漲段多有調節。量能萎縮至 7,221 億元是這波反彈最大的疑慮。</li>
+      <li><b>避險資產：</b>美元轉弱、黃金與能源ETF在高位震盪，市場風險偏好介於「不恐慌」與「不追價」之間。</li>
+    </ul>
+  </div>
+
+  <h2>資金流向速覽</h2>
+  <table>
+    <thead><tr><th>資金類別</th><th>方向</th><th>強度</th><th>解讀</th></tr></thead>
+    <tbody>
+      <tr><td>美債（短端）</td><td class="up">殖利率下滑</td><td class="flat">中性</td><td>決議符合預期，鴿派解讀有限</td></tr>
+      <tr><td>美債（長端）</td><td class="down">殖利率走揚</td><td class="flat">偏空</td><td>曲線趨陡，通膨預期未退</td></tr>
+      <tr><td>半導體族群</td><td class="down">流出</td><td class="down">強</td><td>連六黑，評價面修正</td></tr>
+      <tr><td>大型軟體／雲端</td><td class="up">流入</td><td class="up">中</td><td>微軟財報超預期，盤後 +4%</td></tr>
+      <tr><td>新雲端（neocloud）</td><td class="down">流出</td><td class="down">中</td><td>資本支出低於預期，交付遞延</td></tr>
+      <tr><td>台股外資現貨</td><td class="up">買超</td><td class="up">弱</td><td>期貨仍偏空，屬保護性布局</td></tr>
+      <tr><td>台股量能</td><td class="down">萎縮</td><td class="down">明顯</td><td>7,221 億元，追價意願不足</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========== 分頁五：事件日曆 ========== -->
+<section class="panel" id="p5">
+  <h2>本週關鍵事件</h2>
+  <div class="cal">
+    <div class="cal-item">
+      <div class="cal-date">10/29（四）</div>
+      <div class="cal-body"><b>美國 9 月 PCE 物價指數、第三季 GDP 初值</b><span class="pill">已公布 Fed 決議後首份通膨數據</span><br>PCE 是 Fed 最看重的通膨指標，若核心 PCE 高於預期，將強化 12 月升息的正當性。</div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date">10/29（四）</div>
+      <div class="cal-body"><b>亞馬遜、英特爾財報</b><span class="pill">盤後</span><br>亞馬遜的 AWS 成長與資本支出、英特爾的晶圓代工進度，是 AI 資本支出與半導體復甦的兩大驗證點。</div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date">10/29（四）</div>
+      <div class="cal-body"><b>歐洲央行（ECB）利率決議</b><span class="pill">預期維持不變</span><br>關注總裁會後談話對歐元與歐洲債市的影響。</div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date">10/29（四）</div>
+      <div class="cal-body"><b>台股法說會密集日</b><span class="pill">下午 2～3 點</span><br>台達電、國巨、瑞昱、友達、瑞儀、盛群、亞德客、強信。</div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date">10/30（五）</div>
+      <div class="cal-body"><b>日本央行（BoJ）利率決議</b><span class="pill">預期維持不變</span><br>日圓與日債殖利率的波動，可能透過套利交易傳導到全球風險資產。</div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date">10/30（五）</div>
+      <div class="cal-body"><b>蘋果首款觸控 MacBook Pro 台灣開放預訂</b><span class="pill">售價近 10 萬元起</span><br>觀察供應鏈（軸承、面板、散熱）的短線題材效應。</div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date">11/03（二）</div>
+      <div class="cal-body"><b>美國期中選舉</b><span class="pill">Fed 決策的觀察變數</span><br>Fed 明確表示要等選舉結束後再評估利率，選舉結果將左右 12 月會議的基調。</div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date">12 月 FOMC</div>
+      <div class="cal-body"><b>升息機率約 85%（CME FedWatch）</b><span class="pill">市場已高度定價</span><br>若 12 月真的升息，高本益比科技股的評價壓力會再來一次；若按兵不動，則有慶祝行情空間。</div>
+    </div>
+  </div>
+
+  <h2>投資策略與操作清單</h2>
+  <div class="card">
+    <h3>策略定調：不追高、留現金、分批布局</h3>
+    <p>台股昨天用一根 939 點的長紅棒重返 47,000 點，但成交值萎縮、外資期貨仍偏空；美股隨即在 Fed 鷹派訊號下讓費半重挫 4.30%。今天的環境是「昨天漲太多、今天有壞消息」，最不需要的就是開盤追價。</p>
+    <ul class="clean checklist">
+      <li>✅ <b>先看 47,000 點能否守住。</b>跳空開低後若在 10 點前回補缺口，代表買盤承接；若跌破且量能放大，先減碼弱勢股。</li>
+      <li>✅ <b>半導體分批、不一次押注。</b>ADR 跌 3.4% 是評價修正，不是基本面轉折；用 2～3 批承接，把成本壓在恐慌段。</li>
+      <li>✅ <b>避開「好消息已反映」的族群。</b>希捷創高仍跌 6% 是明確範例，記憶體／儲存若開高，寧可錯過也不要追。</li>
+      <li>✅ <b>AI 長線部位不動，短線部位減碼。</b>微軟 Azure +48% 證明需求還在，但資本支出低於預期意味供應鏈交付遞延，短線題材股先落袋。</li>
+      <li>✅ <b>保留 20～30% 現金。</b>11/3 期中選舉、12 月 FOMC、下週科技財報三重變數在前，現金是最好的選擇權。</li>
+      <li>✅ <b>金融股可作為防守配置。</b>利率高原期利差受惠，在電子承壓日具撐盤效果。</li>
+      <li>⚠️ <b>不要用「Fed 這次沒升息」當作加碼理由。</b>兩張反對票＋12 月升息機率 85%，鷹派風險沒有解除。</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  本報告由自動化流程彙整公開財經資訊，僅供研究參考，不構成任何投資建議。<br>
+  出刊時間：2026 年 10 月 29 日 08:00（台北時間）｜資料來源：鉅亨網、經濟日報、公開市場資訊
+</footer>
+</div>
+
+<script>
+function showTab(e,id){
+  document.querySelectorAll('nav.tabs button').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('section.panel').forEach(function(s){s.classList.remove('active');});
+  e.currentTarget.classList.add('active');
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
