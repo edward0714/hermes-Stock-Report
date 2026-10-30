@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日財經晨報 Pro — 2026年10月30日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    background:#f4f5fb; color:#2d3142; line-height:1.7;
+  }
+  .header {
+    background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    color:#fff; padding:38px 20px 30px; text-align:center;
+    box-shadow:0 8px 24px rgba(102,126,234,.25);
+  }
+  .header h1 { font-size:1.9rem; font-weight:700; letter-spacing:1px; }
+  .header .date { margin-top:8px; font-size:1rem; opacity:.92; }
+  .header .sub { margin-top:6px; font-size:.85rem; opacity:.8; }
+  .back-link {
+    display:inline-block; margin-top:16px; color:#fff; text-decoration:none;
+    border:1px solid rgba(255,255,255,.55); padding:6px 16px; border-radius:20px;
+    font-size:.85rem; transition:.25s;
+  }
+  .back-link:hover { background:rgba(255,255,255,.18); }
+  .wrap { max-width:1080px; margin:0 auto; padding:24px 16px 60px; }
+  .tabs {
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+    margin:0 0 26px; position:sticky; top:0; z-index:20;
+    background:rgba(244,245,251,.96); backdrop-filter:blur(6px); padding:12px 0;
+  }
+  .tab-btn {
+    border:none; cursor:pointer; padding:10px 18px; border-radius:24px;
+    background:#fff; color:#5b6180; font-size:.92rem; font-weight:600;
+    box-shadow:0 2px 8px rgba(102,126,234,.14); transition:.25s;
+    font-family:inherit;
+  }
+  .tab-btn:hover { transform:translateY(-2px); }
+  .tab-btn.active {
+    background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+    box-shadow:0 6px 16px rgba(118,75,162,.35);
+  }
+  .tab-panel { display:none; animation:fade .35s ease; }
+  .tab-panel.active { display:block; }
+  @keyframes fade { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;} }
+  .card {
+    background:#fff; border-radius:16px; padding:24px; margin-bottom:20px;
+    box-shadow:0 4px 18px rgba(102,126,234,.10); border-left:5px solid #667eea;
+  }
+  .card h2 {
+    font-size:1.15rem; color:#4a3f8f; margin-bottom:14px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .card h3 { font-size:1rem; color:#5b4fa8; margin:18px 0 8px; }
+  .card p { font-size:.94rem; color:#414863; margin-bottom:10px; }
+  .card ul { margin:8px 0 12px 20px; }
+  .card li { font-size:.93rem; color:#414863; margin-bottom:7px; }
+  .view-card {
+    border-radius:14px; padding:18px 20px; margin-bottom:14px;
+    border-left:5px solid #ccc; background:#fafaff;
+  }
+  .view-card.bull { border-left-color:#22a06b; background:#f1fbf6; }
+  .view-card.bear { border-left-color:#e05656; background:#fdf3f3; }
+  .view-card.neutral { border-left-color:#e0a72c; background:#fdf9ee; }
+  .view-card .tag {
+    display:inline-block; font-size:.75rem; font-weight:700; padding:2px 10px;
+    border-radius:12px; margin-bottom:8px; color:#fff;
+  }
+  .bull .tag { background:#22a06b; }
+  .bear .tag { background:#e05656; }
+  .neutral .tag { background:#e0a72c; }
+  .view-card strong { display:block; font-size:1rem; color:#2d3142; margin-bottom:6px; }
+  .view-card span.desc { font-size:.9rem; color:#4d5470; }
+  table { width:100%; border-collapse:collapse; margin:12px 0 6px; font-size:.9rem; }
+  th {
+    background:linear-gradient(135deg,#eef0fd,#e8e3f7); color:#4a3f8f;
+    padding:11px 10px; text-align:left; font-weight:700; font-size:.86rem;
+  }
+  td { padding:10px; border-bottom:1px solid #eef0f8; }
+  tr:last-child td { border-bottom:none; }
+  tr:hover td { background:#fafaff; }
+  .up { color:#1e9e63; font-weight:700; }
+  .down { color:#d94a4a; font-weight:700; }
+  .flat { color:#8a8fa8; font-weight:700; }
+  .badge {
+    display:inline-block; padding:2px 9px; border-radius:10px; font-size:.76rem; font-weight:700;
+  }
+  .badge-buy { background:#e6f7ef; color:#1e9e63; }
+  .badge-watch { background:#fff5e0; color:#b9821a; }
+  .badge-avoid { background:#fdecec; color:#d94a4a; }
+  .summary-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:6px 0 4px;
+  }
+  .mini {
+    background:linear-gradient(135deg,#f7f6ff,#eeeafb); border-radius:12px; padding:14px;
+    text-align:center;
+  }
+  .mini .label { font-size:.8rem; color:#6b6f8c; }
+  .mini .value { font-size:1.25rem; font-weight:700; margin-top:4px; }
+  .calendar-item {
+    display:flex; gap:14px; padding:14px 0; border-bottom:1px dashed #e4e6f2;
+  }
+  .calendar-item:last-child { border-bottom:none; }
+  .cal-date {
+    min-width:64px; text-align:center; background:linear-gradient(135deg,#667eea,#764ba2);
+    color:#fff; border-radius:10px; padding:8px 4px; font-size:.78rem; font-weight:700;
+    height:fit-content;
+  }
+  .cal-content { font-size:.92rem; }
+  .cal-content strong { color:#4a3f8f; }
+  .disclaimer {
+    margin-top:26px; padding:16px 20px; background:#f0eefb; border-radius:12px;
+    font-size:.8rem; color:#6b6f8c; line-height:1.7;
+  }
+  .footer { text-align:center; padding:22px 10px 40px; font-size:.8rem; color:#9297b0; }
+  @media (max-width:600px){
+    .header h1 { font-size:1.4rem; }
+    .tab-btn { padding:8px 13px; font-size:.83rem; }
+    .card { padding:18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 每日財經晨報 Pro</h1>
+  <div class="date">2026年10月30日（星期五）</div>
+  <div class="sub">Alphabet 財報失色 · 台指夜盤重挫 · 台股季線保衛戰</div>
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+</div>
+
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('market',this)">📈 市場觀點</button>
+    <button class="tab-btn" onclick="showTab('global',this)">🌍 全球市況</button>
+    <button class="tab-btn" onclick="showTab('tw',this)">🏭 台股焦點</button>
+    <button class="tab-btn" onclick="showTab('flow',this)">💰 資金流向</button>
+    <button class="tab-btn" onclick="showTab('calendar',this)">📅 事件日曆</button>
+  </div>
+
+  <!-- 市場觀點 -->
+  <div id="market" class="tab-panel active">
+    <div class="card">
+      <h2>🎯 今日核心結論</h2>
+      <p>Google 母公司 Alphabet 第三季財報不如預期、自由現金流連續兩季轉負，股價單日重挫逾 12%，市場對「AI 資本支出過熱」的疑慮全面升溫，拖累美股四大指數同步收黑。台指期夜盤應聲大跌 643 點，台股今日（10/30）將面臨 46,000 點關卡與季線保衛戰。</p>
+      <div class="summary-grid">
+        <div class="mini"><div class="label">加權指數（10/29 收）</div><div class="value down">46,368.33</div><div class="label">-667.25（-1.42%）</div></div>
+        <div class="mini"><div class="label">那斯達克（10/29 收）</div><div class="value down">26,184.73</div><div class="label">-1.38%</div></div>
+        <div class="mini"><div class="label">費城半導體</div><div class="value down">11,518.20</div><div class="label">-1.42%</div></div>
+        <div class="mini"><div class="label">台指期夜盤</div><div class="value down">-643 點</div><div class="label">失守 46,000</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>💡 多空觀點拆解</h2>
+
+      <div class="view-card bear">
+        <span class="tag">利空</span>
+        <strong>Alphabet 現金流轉負，AI 投資報酬率遭質疑</strong>
+        <span class="desc">第三季自由現金流下探至負 90.7 億美元（約新台幣 2,940 億元），為連續第二季轉負。市場解讀為超大規模雲端業者的資本支出已超前於變現能力，短線將壓抑 AI 供應鏈評價。</span>
+      </div>
+
+      <div class="view-card bear">
+        <span class="tag">利空</span>
+        <strong>英特爾盤後狂瀉逾 20%，PC 產業逆風示警</strong>
+        <span class="desc">英特爾（INTC）週四收盤下跌 3.62% 後，盤後因示警 PC 產業短期逆風，股價跌幅擴大至 20% 以上。對台灣 PC 代工、載板、記憶體模組等供應鏈形成直接壓力。</span>
+      </div>
+
+      <div class="view-card neutral">
+        <span class="tag">中性</span>
+        <strong>台股連兩日大幅震盪，籌碼面主導短線</strong>
+        <span class="desc">10/28 大漲 939.35 點收復 4 萬 7，10/29 即重挫 667.25 點回吐大半，外資單日賣超 688.15 億元。指數雖維持中多格局，但量能與籌碼仍需時間消化。</span>
+      </div>
+
+      <div class="view-card bull">
+        <span class="tag">利多</span>
+        <strong>資金明顯轉進防禦型族群</strong>
+        <span class="desc">10/29 盤面生技醫療類股上漲 1.10%、金融保險上漲 1.05%、水泥上漲 0.46%，顯示資金並未全面撤出，而是由高評價電子股轉向低基期防禦標的。</span>
+      </div>
+
+      <div class="view-card bull">
+        <span class="tag">利多</span>
+        <strong>聯準會利率維持不變，資金面無緊縮壓力</strong>
+        <span class="desc">聯準會本次會議維持利率不變，市場解讀為貨幣政策進入觀察期，對評價面屬中性偏多，有助於指數在回檔時獲得支撐。</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🧭 投資策略與操作清單</h2>
+      <h3>策略主軸：降低槓桿、嚴控持股比重、等待止穩訊號</h3>
+      <ul>
+        <li><strong>不追空、不搶反彈</strong>：夜盤重挫 643 點後，今日開低機率高，開盤前半小時切勿進場摸底。</li>
+        <li><strong>觀察 46,000 點與季線</strong>：若盤中跌破 46,000 且成交量放大至 8,000 億元以上，應進一步降低電子持股。</li>
+        <li><strong>防禦型部位為核心</strong>：金融保險、生技醫療、水泥等低基期族群可作為資金避風港。</li>
+        <li><strong>AI 供應鏈耐心等</strong>：待 Alphabet、英特爾利空消化，且費半站回 11,800 點之上再行加碼。</li>
+      </ul>
+      <table>
+        <thead><tr><th>操作方向</th><th>族群／標的</th><th>理由</th><th>評等</th></tr></thead>
+        <tbody>
+          <tr><td>逢低布局</td><td>金融保險</td><td>10/29 逆勢上漲 1.05%，評價偏低、殖利率保護</td><td><span class="badge badge-buy">可留意</span></td></tr>
+          <tr><td>逢低布局</td><td>生技醫療</td><td>漲幅 1.10% 居冠，資金明顯轉進</td><td><span class="badge badge-buy">可留意</span></td></tr>
+          <tr><td>區間操作</td><td>先進製程供應鏈（智原、宜特）</td><td>10/29 逆勢抗跌，惟須嚴設停損</td><td><span class="badge badge-watch">觀察</span></td></tr>
+          <tr><td>降低比重</td><td>PC／NB 供應鏈</td><td>英特爾示警 PC 逆風，需求能見度下降</td><td><span class="badge badge-avoid">減碼</span></td></tr>
+          <tr><td>暫緩進場</td><td>AI 伺服器高評價股</td><td>AI 變現能力遭質疑，評價修正風險未除</td><td><span class="badge badge-avoid">暫緩</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 全球市況 -->
+  <div id="global" class="tab-panel">
+    <div class="card">
+      <h2>🌍 美股四大指數（10月29日收盤）</h2>
+      <table>
+        <thead><tr><th>指數</th><th>收盤</th><th>漲跌點</th><th>漲跌幅</th></tr></thead>
+        <tbody>
+          <tr><td>道瓊工業指數</td><td>52,342.56</td><td class="down">-132.54</td><td class="down">-0.25%</td></tr>
+          <tr><td>標普 500 指數</td><td>7,720.39</td><td class="down">-23.59</td><td class="down">-0.30%</td></tr>
+          <tr><td>那斯達克指數</td><td>26,184.73</td><td class="down">-365.12</td><td class="down">-1.38%</td></tr>
+          <tr><td>費城半導體指數</td><td>11,518.20</td><td class="down">-165.80</td><td class="down">-1.42%</td></tr>
+        </tbody>
+      </table>
+      <p>四大指數齊黑，科技與半導體為殺盤重心，道瓊因傳產與金融權重較高，跌幅相對輕微。那斯達克與費半跌幅均超過 1.3%，顯示資金自高評價成長股撤出。</p>
+    </div>
+
+    <div class="card">
+      <h2>📰 國際關鍵事件</h2>
+      <h3>Alphabet 財報不如預期，股價崩跌逾 12%</h3>
+      <p>Google 母公司 Alphabet 公布 2026 年第三季財報，結果令市場失望。更關鍵的是自由現金流連續兩季轉負，下探至負 90.7 億美元（約新台幣 2,940 億元），引發投資人對 AI 基礎建設資本支出過熱、變現速度跟不上的強烈疑慮，成為本波科技股回檔的觸發點。</p>
+
+      <h3>英特爾盤後重挫逾 20%</h3>
+      <p>英特爾（INTC）週四收盤下跌 3.62%，盤後進一步示警 PC 產業短期逆風，股價跌幅擴大至 20% 以上，為全球 PC 供應鏈投下震撼彈。</p>
+
+      <h3>台積電 ADR 同步走弱</h3>
+      <p>台積電 ADR 週四下跌 1.75%，反映半導體族群賣壓，也預告台股今日權值股開盤承壓。</p>
+
+      <h3>聯準會維持利率不變</h3>
+      <p>聯準會本次會議決議維持利率不變，市場解讀為政策進入觀察期，短期資金面無進一步緊縮壓力。</p>
+    </div>
+
+    <div class="card">
+      <h2>💱 國際市場連動觀察</h2>
+      <table>
+        <thead><tr><th>項目</th><th>方向</th><th>對台股意涵</th></tr></thead>
+        <tbody>
+          <tr><td>美元指數</td><td class="flat">102.29 附近</td><td>美元持穩，外資匯出力道需觀察</td></tr>
+          <tr><td>費城半導體指數</td><td class="down">連四紅後轉跌 1.42%</td><td>半導體族群短線承壓</td></tr>
+          <tr><td>台積電 ADR</td><td class="down">-1.75%</td><td>台積電現貨開盤走弱機率高</td></tr>
+          <tr><td>台指期夜盤</td><td class="down">-643 點</td><td>失守 46,000，今日跳空開低</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 台股焦點 -->
+  <div id="tw" class="tab-panel">
+    <div class="card">
+      <h2>🏭 台股盤勢回顧（10月29日）</h2>
+      <div class="summary-grid">
+        <div class="mini"><div class="label">加權指數</div><div class="value down">46,368.33</div><div class="label">-667.25（-1.42%）</div></div>
+        <div class="mini"><div class="label">成交金額</div><div class="value">約 8,000 億</div><div class="label">量能維持高檔</div></div>
+        <div class="mini"><div class="label">三大法人</div><div class="value down">賣超 816.66 億</div><div class="label">外資 -688.15 億</div></div>
+        <div class="mini"><div class="label">技術面</div><div class="value down">失守季線</div><div class="label">中多格局未破</div></div>
+      </div>
+      <p>台股 10/28 才以大漲 939.35 點收復 4 萬 7 大關，10/29 隨即遭遇劇烈洗盤，終場重挫 667.25 點、跌幅 1.42%，收在 46,368.33 點，再度失守季線支撐。三大法人單日賣超 816.66 億元，其中外資大砍 688.15 億元，為本波最重手筆，引發散戶恐慌性殺出。</p>
+    </div>
+
+    <div class="card">
+      <h2>📊 類股表現（10月29日）</h2>
+      <table>
+        <thead><tr><th>類股</th><th>漲跌幅</th><th>評析</th></tr></thead>
+        <tbody>
+          <tr><td>生技醫療</td><td class="up">+1.10%</td><td>資金避風港首選，逆勢吸金</td></tr>
+          <tr><td>金融保險</td><td class="up">+1.05%</td><td>低評價＋殖利率保護，外資調節下相對抗跌</td></tr>
+          <tr><td>水泥</td><td class="up">+0.46%</td><td>傳產防禦特性浮現</td></tr>
+          <tr><td>半導體</td><td class="down">走弱</td><td>台積電現貨下跌收黑，為指數主要拖累</td></tr>
+          <tr><td>電子權值</td><td class="down">走弱</td><td>台灣 50 成分股多數收黑</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>🔥 族群輪動焦點</h2>
+      <h3>台積電先進製程供應鏈（10/29 漲幅前三）</h3>
+      <p>智原（3035）、港建*（3093）、宜特（3289）</p>
+      <h3>高速運算伺服器概念股（10/29 漲幅前三）</h3>
+      <p>智原（3035）、建準（2421）、雙鴻（3324）</p>
+      <h3>蘋果供應鏈股（10/29 漲幅前三）</h3>
+      <p>穩懋（3105）、智原（3035）、建準（2421）</p>
+      <p>智原同時躋身三大族群漲幅前三，為盤面最強勢個股；建準、雙鴻受惠 AI 伺服器散熱需求，逆勢突圍，顯示 AI 基礎建設的「散熱／電源」次族群仍是資金聚焦方向。</p>
+    </div>
+
+    <div class="card">
+      <h2>⚠️ 今日觀盤重點</h2>
+      <ul>
+        <li><strong>46,000 點關卡</strong>：夜盤已跌破，現貨開盤若無法快速站回，短線恐測試 45,500 點。</li>
+        <li><strong>台積電表現</strong>：ADR 下跌 1.75%，現貨開盤價與尾盤是否出現護盤買盤為關鍵。</li>
+        <li><strong>外資動向</strong>：連續大幅賣超後是否轉為觀望，將決定指數能否止穩。</li>
+        <li><strong>成交量</strong>：若下跌量縮，代表賣壓有限；若放量下殺則需提高警覺。</li>
+        <li><strong>防禦族群續強度</strong>：金融、生技若持續吸金，代表資金僅是換股而非撤出。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 資金流向 -->
+  <div id="flow" class="tab-panel">
+    <div class="card">
+      <h2>💰 三大法人買賣超（10月29日）</h2>
+      <table>
+        <thead><tr><th>法人</th><th>買賣超</th><th>動向解讀</th></tr></thead>
+        <tbody>
+          <tr><td>外資及陸資</td><td class="down">賣超 688.15 億元</td><td>單日大砍，為本波最大賣超，主要調節電子權值</td></tr>
+          <tr><td>三大法人合計</td><td class="down">賣超 816.66 億元</td><td>投信、自營同步站在賣方</td></tr>
+          <tr><td>融資餘額</td><td class="flat">需觀察</td><td>若融資明顯減少，有助籌碼沉澱</td></tr>
+        </tbody>
+      </table>
+      <p>外資單日賣超 688.15 億元，佔三大法人賣超比重逾八成，顯示本波賣壓來源集中在外資對 AI 供應鏈的評價調整，而非全面性撤資。後續須觀察外資賣超是否連續，以及投信是否轉為承接。</p>
+    </div>
+
+    <div class="card">
+      <h2>🔄 資金輪動方向</h2>
+      <table>
+        <thead><tr><th>資金流向</th><th>族群</th><th>觀察指標</th></tr></thead>
+        <tbody>
+          <tr><td class="up">流入</td><td>生技醫療、金融保險、水泥</td><td>防禦型類股同步收紅，避險需求明確</td></tr>
+          <tr><td class="up">流入</td><td>AI 散熱（建準、雙鴻）</td><td>高速運算伺服器概念股逆勢抗跌</td></tr>
+          <tr><td class="down">流出</td><td>半導體權值、PC 供應鏈</td><td>台積電現貨走弱、英特爾示警</td></tr>
+          <tr><td class="down">流出</td><td>高評價 AI 伺服器股</td><td>Alphabet 財報引發資本支出疑慮</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>📌 籌碼面結論</h2>
+      <p>本波回檔的核心並非基本面轉壞，而是「AI 資本支出能否變現」的評價疑慮。Alphabet 自由現金流轉負提供了市場質疑的具體證據，短期內 AI 供應鏈評價將持續受壓。然而資金並未離場，而是轉進金融、生技等低基期防禦族群，屬於典型的「換股不撤資」格局。</p>
+      <p>操作上建議跟隨資金流向，將部位由高評價成長股移向低基期防禦股，並保留現金等待 AI 供應鏈評價修正完成。</p>
+    </div>
+  </div>
+
+  <!-- 事件日曆 -->
+  <div id="calendar" class="tab-panel">
+    <div class="card">
+      <h2>📅 本週與下週重要事件</h2>
+
+      <div class="calendar-item">
+        <div class="cal-date">10/30<br>週五</div>
+        <div class="cal-content">
+          <strong>台股季線保衛戰</strong><br>
+          台指期夜盤重挫 643 點後現貨開盤，觀察 46,000 點能否守住；同時留意美系科技股財報後續效應。
+        </div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="cal-date">10/30<br>週五</div>
+        <div class="cal-content">
+          <strong>美股科技巨頭財報持續公布</strong><br>
+          Alphabet 財報已示警，市場將以同樣標準檢視其他超大規模雲端業者的資本支出與自由現金流。
+        </div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="cal-date">11/01<br>週日</div>
+        <div class="cal-content">
+          <strong>中國 10 月製造業 PMI 公布</strong><br>
+          觀察中國需求是否回穩，對台股傳產、原物料族群具指標意義。
+        </div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="cal-date">11/03<br>週二</div>
+        <div class="cal-content">
+          <strong>美國 10 月 ISM 製造業指數</strong><br>
+          為聯準會後續政策路徑的重要參考，牽動美元與美債殖利率。
+        </div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="cal-date">11/06<br>週五</div>
+        <div class="cal-content">
+          <strong>美國 10 月非農就業報告</strong><br>
+          本週最關鍵數據，將直接影響 12 月利率決策預期。
+        </div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="cal-date">11月中<br>陸續公布</div>
+        <div class="cal-content">
+          <strong>台股 10 月營收公告</strong><br>
+          觀察 AI 伺服器、散熱、先進製程供應鏈的營收是否維持成長動能，為評價修正後的驗證點。
+        </div>
+      </div>
+
+      <div class="calendar-item">
+        <div class="cal-date">11/13<br>週五</div>
+        <div class="cal-content">
+          <strong>MSCI 半年度指數調整生效前觀察</strong><br>
+          留意權重調整帶來的被動式資金流動。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🎯 下週觀盤三原則</h2>
+      <ul>
+        <li><strong>先看量、再看價</strong>：止穩訊號須伴隨量縮，而非放量下殺後的技術性反彈。</li>
+        <li><strong>聚焦財報驗證</strong>：AI 資本支出疑慮需要實際營收與毛利率數據來化解，10 月營收是第一個檢驗點。</li>
+        <li><strong>維持防禦配置</strong>：金融、生技、水泥等低基期族群作為核心持股，降低波動衝擊。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>免責聲明：</strong>本報告係彙整公開新聞與市場資訊所編製，僅供參考，不構成任何投資建議或買賣要約。投資人應自行評估風險，並就個人財務狀況、投資目標與風險承受度做出獨立判斷。歷史績效不代表未來表現，市場有風險，投資應審慎。
+  </div>
+
+  <div class="footer">
+    每日財經晨報 Pro · 2026年10月30日 · 資料來源：公開財經新聞與市場資訊
+  </div>
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
