@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 財經晨報 Pro — 2026年11月3日</title>
+<style>
+  :root{
+    --p1:#667eea; --p2:#764ba2;
+    --ink:#1f2333; --muted:#6b7280; --line:#e8e6f2;
+    --up:#d92b2b; --down:#0f9d58; --flat:#7a7f8c;
+    --card:#ffffff; --bg:#f6f5fb;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0 0 60px;
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  header{
+    background:linear-gradient(135deg,var(--p1) 0%,var(--p2) 100%);
+    color:#fff; padding:46px 20px 38px; text-align:center;
+    box-shadow:0 8px 28px rgba(102,126,234,.28);
+  }
+  header .kicker{font-size:.86rem; letter-spacing:.22em; opacity:.9; margin-bottom:10px;}
+  header h1{margin:0; font-size:2rem; font-weight:800; letter-spacing:.02em;}
+  header .date{margin-top:10px; font-size:1rem; opacity:.95;}
+  header .tagline{margin-top:14px; font-size:.94rem; opacity:.9;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 16px;}
+  nav{
+    display:flex; flex-wrap:wrap; gap:6px; justify-content:center;
+    background:#fff; border-radius:16px; padding:8px; margin:-24px auto 26px;
+    box-shadow:0 10px 26px rgba(31,35,51,.10); max-width:820px; position:relative; z-index:5;
+  }
+  nav button{
+    flex:1 1 130px; border:0; background:transparent; cursor:pointer;
+    padding:11px 8px; border-radius:11px; font-size:.94rem; font-weight:700;
+    color:var(--muted); font-family:inherit; transition:.18s;
+  }
+  nav button:hover{background:#f1effb; color:var(--p2);}
+  nav button.active{background:linear-gradient(135deg,var(--p1),var(--p2)); color:#fff; box-shadow:0 6px 16px rgba(118,75,162,.30);}
+  section.panel{display:none; animation:fade .28s ease;}
+  section.panel.active{display:block;}
+  @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+  .card{
+    background:var(--card); border-radius:16px; padding:24px 26px; margin-bottom:20px;
+    box-shadow:0 4px 18px rgba(31,35,51,.06); border:1px solid var(--line);
+  }
+  .card h2{margin:0 0 6px; font-size:1.22rem; color:var(--p2); display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .card h2 .badge{font-size:.7rem; background:#efeafd; color:var(--p2); padding:3px 9px; border-radius:999px; font-weight:700;}
+  .card h3{margin:22px 0 8px; font-size:1.02rem; color:#33384d; border-left:4px solid var(--p1); padding-left:10px;}
+  .lead{color:#3f4457; font-size:1.02rem;}
+  .muted{color:var(--muted); font-size:.88rem;}
+  .hero-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-top:8px;}
+  .kpi{background:linear-gradient(160deg,#faf9ff,#f1effb); border:1px solid var(--line); border-radius:13px; padding:14px 16px;}
+  .kpi .lab{font-size:.8rem; color:var(--muted); font-weight:700; letter-spacing:.04em;}
+  .kpi .val{font-size:1.5rem; font-weight:800; margin-top:4px;}
+  .kpi .chg{font-size:.88rem; font-weight:700; margin-top:2px;}
+  .up{color:var(--up);} .down{color:var(--down);} .flat{color:var(--flat);}
+  table{width:100%; border-collapse:collapse; margin-top:12px; font-size:.94rem;}
+  th{background:#f3f1fb; color:#4b4f66; text-align:left; padding:11px 12px; font-weight:700; font-size:.86rem; letter-spacing:.03em;}
+  th:first-child{border-radius:10px 0 0 0;} th:last-child{border-radius:0 10px 0 0;}
+  td{padding:11px 12px; border-bottom:1px solid #f0eef8;}
+  tbody tr:hover{background:#faf9ff;}
+  td.num, th.num{text-align:right; font-variant-numeric:tabular-nums;}
+  .opinion{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:14px;}
+  .op{border-radius:14px; padding:16px 18px; border-left:5px solid;}
+  .op.bull{background:#fff6f6; border-color:var(--up);}
+  .op.bear{background:#f2fbf6; border-color:var(--down);}
+  .op.neu{background:#f7f7fb; border-color:var(--flat);}
+  .op .t{font-weight:800; font-size:.96rem; margin-bottom:6px;}
+  .op .t.bull{color:var(--up);} .op .t.bear{color:var(--down);} .op .t.neu{color:#5b6070;}
+  .op p{margin:0; font-size:.9rem; color:#42465a;}
+  ul.clean{padding-left:0; list-style:none; margin:10px 0 0;}
+  ul.clean li{position:relative; padding-left:22px; margin:9px 0; font-size:.95rem;}
+  ul.clean li::before{content:"›"; position:absolute; left:6px; top:-1px; color:var(--p1); font-weight:900; font-size:1.1rem;}
+  .note{background:#fbfaff; border:1px dashed #d9d4ef; border-radius:12px; padding:14px 16px; font-size:.88rem; color:#5a5f73; margin-top:16px;}
+  .strategy{background:linear-gradient(135deg,#f8f6ff,#efecfb); border-radius:14px; padding:18px 20px; margin-top:14px;}
+  .strategy ol{margin:8px 0 0; padding-left:22px;}
+  .strategy li{margin:7px 0; font-size:.94rem;}
+  .cal{display:grid; gap:12px; margin-top:14px;}
+  .cal .row{display:grid; grid-template-columns:110px 1fr; gap:14px; background:#faf9ff; border:1px solid var(--line); border-radius:12px; padding:13px 16px; align-items:start;}
+  .cal .d{font-weight:800; color:var(--p2); font-size:.92rem;}
+  .cal .e{font-size:.93rem;}
+  .cal .e small{display:block; color:var(--muted); font-size:.82rem; margin-top:2px;}
+  .back-link{display:inline-block; margin:8px 0 0; color:var(--p2); font-weight:700; text-decoration:none; font-size:.92rem;}
+  .back-link:hover{text-decoration:underline;}
+  footer{text-align:center; color:var(--muted); font-size:.82rem; margin-top:26px; padding:0 20px;}
+  @media (max-width:560px){
+    header h1{font-size:1.5rem;}
+    .card{padding:18px 16px;}
+    table{font-size:.84rem;}
+    th,td{padding:9px 8px;}
+    .cal .row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">每日財經晨報 PRO</div>
+  <h1>📊 蘋果財報登場、費半尾盤翻黑　台股跌幅收斂力守季線</h1>
+  <div class="date">2026 年 11 月 3 日（星期二）</div>
+  <div class="tagline">美股走勢分歧　道瓊逆勢收紅逾 500 點　油價重挫逾 6%　黃金重回 3,960 美元　市場靜待期中選舉與就業報告</div>
+</header>
+
+<div class="wrap">
+  <nav>
+    <button class="active" onclick="showTab('market',this)">📈 市場觀點</button>
+    <button onclick="showTab('global',this)">🌍 全球市況</button>
+    <button onclick="showTab('tw',this)">🏭 台股焦點</button>
+    <button onclick="showTab('flow',this)">💰 資金流向</button>
+    <button onclick="showTab('cal',this)">📅 事件日曆</button>
+  </nav>
+
+  <!-- ============ 市場觀點 ============ -->
+  <section class="panel active" id="market">
+    <div class="card">
+      <h2>📈 今日市場觀點 <span class="badge">數據基準 11/2 美股與台股</span></h2>
+      <p class="lead">美股週一（11/2）盤中一度由道瓊領軍大漲逾 500 點，市場對美中貿易緊張降溫與企業財報抱持期待；然而尾盤風雲變色，AI 與半導體族群再度遭到賣壓襲擊，費城半導體指數終場重挫逾 3%，那斯達克由紅翻黑收跌逾 1%，四大指數走勢明顯分歧。資金輪動特徵清楚：資金自高評價 AI 晶片股撤出，轉進價值型與防禦型權值股，道瓊成為全場少數收紅的指數。</p>
+      <p class="lead">台股週一（11/2）開盤雖一度重挫逾 900 點，但盤中跌幅明顯收斂，櫃買指數甚至率先翻紅，顯示本土資金承接意願不弱。三大法人合計賣超 549.9 億元，外資仍是主要賣壓來源。市場關注焦點已由「AI 資本支出是否過度」轉向「蘋果財報能否為科技股定調」，蘋果於美股 11/2 盤後公布財報，成為今（11/3）日台股開盤最重要的風向球。</p>
+
+      <div class="hero-grid">
+        <div class="kpi">
+          <div class="lab">道瓊工業指數（11/2）</div>
+          <div class="val">52,308.17</div>
+          <div class="chg up">▲ 537.86（+1.04%）</div>
+        </div>
+        <div class="kpi">
+          <div class="lab">那斯達克（11/2 盤中）</div>
+          <div class="val">25,620.02</div>
+          <div class="chg flat">▲0.72% 後尾盤翻黑</div>
+        </div>
+        <div class="kpi">
+          <div class="lab">台股加權指數（11/2）</div>
+          <div class="val">跌幅明顯收斂</div>
+          <div class="chg up">櫃買指數率先翻紅</div>
+        </div>
+        <div class="kpi">
+          <div class="lab">黃金現貨（11/2）</div>
+          <div class="val">3,960 美元</div>
+          <div class="chg up">▲ 2.15%（避險買盤）</div>
+        </div>
+      </div>
+
+      <h3>三大觀點</h3>
+      <div class="opinion">
+        <div class="op bear">
+          <div class="t bear">🟢 利空：AI 評價修正壓力未除</div>
+          <p>費半尾盤再度急殺逾 3%，反映市場對科技巨頭龐大資本支出能否轉化為獲利的疑慮仍在。高本益比 AI 供應鏈在財報陸續公布前，評價面仍有下修空間，短線波動恐加大。</p>
+        </div>
+        <div class="op bull">
+          <div class="t bull">🔴 利多：台股承接力道浮現</div>
+          <p>加權指數 11/2 開低後跌幅收斂、櫃買率先翻紅，顯示本土資金與投信買盤積極承接。若蘋果財報優於預期，跌深電子權值股有機會展開反彈，季線可視為重要防線。</p>
+        </div>
+        <div class="op neu">
+          <div class="t neu">⚪ 中性：靜待財報與選舉結果</div>
+          <p>本週蘋果、AMD、美超微、高通財報密集登場，加上美國期中選舉與 11/6 就業報告，市場方向未明。建議觀察費半能否止穩、台股季線能否守穩，再決定加減碼節奏。</p>
+        </div>
+      </div>
+
+      <div class="note">
+        ⚠️ 風險提示：本報告依公開市場資訊整理，不構成投資建議。投資人應自行評估風險承受度，並留意美國期中選舉結果與本週財報帶來的波動。
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 全球市況 ============ -->
+  <section class="panel" id="global">
+    <div class="card">
+      <h2>🌍 全球市況 <span class="badge">美股走勢分歧</span></h2>
+      <table>
+        <thead>
+          <tr><th>指數</th><th class="num">價位</th><th class="num">漲跌</th><th class="num">漲跌幅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>道瓊工業指數（11/2）</td><td class="num">52,308.17</td><td class="num up">+537.86</td><td class="num up">+1.04%</td></tr>
+          <tr><td>S&amp;P 500（11/2 盤中）</td><td class="num">7,623.22</td><td class="num up">+0.58%</td><td class="num up">+0.58%</td></tr>
+          <tr><td>那斯達克綜合指數（11/2 盤中）</td><td class="num">25,620.02</td><td class="num up">+0.72%</td><td class="num up">+0.72%</td></tr>
+          <tr><td>那斯達克（11/2 收盤）</td><td class="num">—</td><td class="num down">翻黑</td><td class="num down">跌逾 1%</td></tr>
+          <tr><td>費城半導體指數（11/2 收盤）</td><td class="num">—</td><td class="num down">重挫</td><td class="num down">-3.4%</td></tr>
+        </tbody>
+      </table>
+
+      <h3>11/2 盤勢解析</h3>
+      <ul class="clean">
+        <li>道瓊在價值型與防禦型權值股支撐下一度大漲逾 500 點，成為四大指數中表現最強勁者。</li>
+        <li>尾盤 AI 與半導體族群賣壓再現，費半終場重挫逾 3%，拖累那斯達克由紅翻黑、收跌逾 1%。</li>
+        <li>蘋果於美股 11/2 盤後公布財報，市場預估營收有機會達 1,133 億美元，但記憶體漲價與晶片供應瓶頸壓抑毛利率，財測指引成為焦點。</li>
+        <li>油價單日重挫逾 6%，反映需求面雜音；避險資金回流貴金屬，帶動黃金現貨重回 3,960 美元之上。</li>
+      </ul>
+
+      <h3>大宗商品與匯市</h3>
+      <table>
+        <thead>
+          <tr><th>項目</th><th class="num">最新價位</th><th class="num">走勢</th><th>市場解讀</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>西德州原油（WTI）</td><td class="num">單日重挫逾 6%</td><td class="num down">大幅回檔</td><td>需求面雜音再起，供給過剩疑慮壓抑油價</td></tr>
+          <tr><td>黃金現貨</td><td class="num">約 3,960 美元／盎司</td><td class="num up">▲ 2.15%</td><td>股市波動加大，避險買盤明顯回流</td></tr>
+          <tr><td>美元指數（DXY）</td><td class="num">約 98.5</td><td class="num flat">持平偏弱</td><td>市場等待期中選舉與本週就業數據明朗</td></tr>
+          <tr><td>美國 10 年期公債殖利率</td><td class="num">約 4.05%</td><td class="num down">回落</td><td>殖利率不升反降，反映資金轉向防禦</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        📌 觀察指標：費半能否止穩回升、那斯達克能否收復跌幅，以及蘋果財報後的盤後與次日反應，為本週科技股多空分水嶺。
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 台股焦點 ============ -->
+  <section class="panel" id="tw">
+    <div class="card">
+      <h2>🏭 台股焦點 <span class="badge">跌幅收斂、櫃買翻紅</span></h2>
+      <p class="lead">台股週一（11/2）受美股上週五重挫與費半崩跌拖累，開盤一度重挫逾 900 點，但盤中賣壓逐步消化，加權指數跌幅明顯收斂，櫃買指數率先翻紅，顯示中小型股與本土資金承接力道不弱。電子權值股仍是盤面壓力來源，台積電於 2,500 元整數關卡附近震盪，市場關注其能否守穩。</p>
+
+      <h3>盤面三大觀察</h3>
+      <ul class="clean">
+        <li><strong>台積電 2,500 元保衛戰：</strong>台積電上週五隨美股半導體族群走弱，ADR 下跌 1.8%，儘管第三季獲利創新高，短線評價仍受 AI 資本支出疑慮壓抑。2,500 元為心理與技術面雙重關卡，跌破恐引發停損賣壓。</li>
+        <li><strong>跌幅收斂、櫃買翻紅：</strong>加權指數 11/2 開低後跌幅明顯收斂，櫃買指數率先翻紅，顯示中小型股與本土資金承接意願轉強，為盤勢注入支撐。</li>
+        <li><strong>資金轉向防禦型類股：</strong>盤面資金流向金融、傳產與高股息族群，反映市場風險偏好下降，短線操作宜降低槓桿。</li>
+      </ul>
+
+      <h3>產業族群表現</h3>
+      <table>
+        <thead>
+          <tr><th>族群</th><th class="num">走勢</th><th>主要影響因素</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>半導體／IC 設計</td><td class="num down">承壓</td><td>費半重挫 3.4%，AI 支出疑慮壓抑評價</td></tr>
+          <tr><td>AI 伺服器／散熱</td><td class="num down">回檔</td><td>美股科技股殺盤，供應鏈同步修正</td></tr>
+          <tr><td>金融保險</td><td class="num up">相對抗跌</td><td>資金轉向防禦，殖利率題材支撐</td></tr>
+          <tr><td>航運／傳產</td><td class="num flat">震盪</td><td>油價單日重挫逾 6%，運價變數升高</td></tr>
+          <tr><td>高股息 ETF 成分股</td><td class="num up">吸金</td><td>市場風險偏好下降，防禦型資金進駐</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        📌 關鍵價位：加權指數季線為多空防線，台積電 2,500 元為短線心理關卡。若蘋果財報優於預期帶動電子權值止穩，盤勢有機會出現跌深反彈。
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 資金流向 ============ -->
+  <section class="panel" id="flow">
+    <div class="card">
+      <h2>💰 資金流向 <span class="badge">三大法人賣超 549.9 億</span></h2>
+      <p class="lead">台股 11/2 三大法人合計賣超 549.9 億元，外資仍是主要賣壓來源，延續十月單月提款 9,943 億元的史上最大規模紀錄。不過投信持續買超，加上櫃買率先翻紅，顯示內資承接力道仍在，籌碼面並未全面轉空。</p>
+
+      <h3>三大法人動向</h3>
+      <table>
+        <thead>
+          <tr><th>法人</th><th class="num">近期動向</th><th>觀察重點</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>外資</td><td class="num down">11/2 續賣、十月賣超 9,943 億元</td><td>史上最大單月提款，十一月是否延續賣超為關鍵</td></tr>
+          <tr><td>投信</td><td class="num up">持續買超</td><td>高股息與防禦型族群為主要加碼標的</td></tr>
+          <tr><td>自營商</td><td class="num flat">偏保守</td><td>隨盤勢波動調整部位，短線操作為主</td></tr>
+        </tbody>
+      </table>
+
+      <h3>資金配置觀察</h3>
+      <ul class="clean">
+        <li>美股資金自 AI 晶片股撤出，轉向醫療、公用事業等防禦型類股，台股供應鏈同步承壓。</li>
+        <li>美債殖利率回落至 4.05% 附近，反映資金轉向防禦，有利高股息與金融族群表現。</li>
+        <li>台股高股息 ETF 持續吸金，成為盤面資金避風港。</li>
+        <li>油價單日重挫逾 6%，航運與傳產族群資金動能轉弱，短線操作宜留意運價變化。</li>
+      </ul>
+
+      <div class="strategy">
+        <strong>💡 投資策略與操作清單</strong>
+        <ol>
+          <li><strong>降低槓桿、控制部位：</strong>本週重磅財報與就業數據登場前，市場波動加大，建議降低融資與槓桿比重。</li>
+          <li><strong>電子權值股分批布局：</strong>台積電若回測 2,500 元附近且量能收斂，可分批承接，長線 AI 需求未見反轉。</li>
+          <li><strong>防禦型族群短打：</strong>金融、高股息與公用事業族群可作為資金避風港，適合短線操作。</li>
+          <li><strong>觀察費半止穩訊號：</strong>費半止穩回升、那斯達克收復跌幅，為台股反彈的重要觸發條件。</li>
+          <li><strong>留意本週財報與數據：</strong>蘋果、AMD、美超微、高通財報與美國 11/6 就業報告將主導市場方向，操作宜保留現金彈性。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 事件日曆 ============ -->
+  <section class="panel" id="cal">
+    <div class="card">
+      <h2>📅 事件日曆 <span class="badge">本週重點</span></h2>
+      <div class="cal">
+        <div class="row">
+          <div class="d">11/2（一）</div>
+          <div class="e">蘋果（AAPL）第四季財報（美股盤後）　台股跌幅收斂
+            <small>蘋果財報為科技股定調關鍵；台股 11/2 開低後跌幅收斂，櫃買率先翻紅。</small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d">11/3（二）</div>
+          <div class="e">美國 10 月 ISM 製造業指數　蘋果財報市場反應
+            <small>製造業景氣風向球，若數據疲弱恐加重市場對經濟放緩的疑慮；蘋果財報後電子權值股走勢為觀察重點。</small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d">11/4（三）</div>
+          <div class="e">AMD、美超微財報　美國期中選舉結果
+            <small>AI 晶片與伺服器大廠財報接力，期中選舉結果將影響政策與市場風險偏好。</small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d">11/5（四）</div>
+          <div class="e">高通財報　美國 10 月 CPI 通膨數據
+            <small>通膨路徑將影響聯準會利率決策預期，為本週最大變數。</small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d">11/6（五）</div>
+          <div class="e">美國 10 月非農就業報告
+            <small>就業數據將定調下週市場方向，市場預期選舉後股市回歸基本面。</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        📌 本週為超級財報週，蘋果、AMD、美超微、高通財報與通膨、就業數據密集登場，加上美國期中選舉，市場波動預期加大，投資人宜提前做好風險管理。
+      </div>
+    </div>
+  </section>
+
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+</div>
+
+<footer>
+  每日財經晨報 Pro ｜ 資料來源：公開市場資訊整理 ｜ 本報告僅供參考，不構成投資建議
+</footer>
+
+<script>
+function showTab(id, btn){
+  document.querySelectorAll('section.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(function(b){ b.classList.remove('active'); });
+  if(btn){ btn.classList.add('active'); }
+}
+</script>
+</body>
+</html>
