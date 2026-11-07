@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 財經晨報 Pro — 2026年11月7日</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;
+       background:#f4f2fb;color:#2d2a3e;line-height:1.75;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;background:#fff;min-height:100vh;
+        box-shadow:0 0 40px rgba(102,126,234,.12)}
+  header{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;
+         padding:40px 28px 30px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;
+         border-radius:50%;background:rgba(255,255,255,.12)}
+  header .date{font-size:.9rem;letter-spacing:2px;opacity:.9;margin-bottom:8px}
+  header h1{font-size:1.75rem;font-weight:800;letter-spacing:1px;position:relative;z-index:2}
+  header .sub{margin-top:12px;font-size:.95rem;opacity:.92;position:relative;z-index:2}
+  .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;position:relative;z-index:2}
+  .badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);
+         padding:5px 14px;border-radius:20px;font-size:.82rem;font-weight:600}
+  nav{display:flex;overflow-x:auto;background:#fff;border-bottom:2px solid #ece9f8;
+      position:sticky;top:0;z-index:50;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  nav button{flex:1;min-width:120px;padding:15px 8px;border:none;background:none;
+      font-size:.9rem;font-weight:700;color:#8b86a3;cursor:pointer;
+      border-bottom:3px solid transparent;transition:.25s;font-family:inherit;white-space:nowrap}
+  nav button.active{color:#667eea;border-bottom-color:#667eea;background:#f8f7fd}
+  main{padding:28px 28px 60px}
+  .tab{display:none;animation:fade .35s ease}
+  .tab.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  h2{font-size:1.25rem;color:#4c3f8f;margin:30px 0 16px;padding-left:12px;
+     border-left:5px solid #667eea;font-weight:800}
+  h2:first-child{margin-top:0}
+  h3{font-size:1.02rem;color:#5a4d9c;margin:22px 0 10px;font-weight:700}
+  p{margin-bottom:14px;color:#43405a}
+  .lead{background:linear-gradient(135deg,#f7f5ff,#efeafd);border-radius:14px;
+        padding:22px;margin-bottom:26px;border:1px solid #e4ddfa}
+  .lead strong{color:#5b3fa8}
+  .card{border-radius:14px;padding:20px;margin-bottom:16px;border-left:5px solid #667eea;
+        background:#faf9fe;border:1px solid #eeebf9;border-left-width:5px}
+  .card.bull{border-left-color:#16a34a;background:#f3fbf5}
+  .card.bear{border-left-color:#dc2626;background:#fef4f4}
+  .card.neutral{border-left-color:#f59e0b;background:#fffbf0}
+  .card .tag{display:inline-block;font-size:.75rem;font-weight:800;padding:3px 11px;
+        border-radius:12px;margin-bottom:9px;letter-spacing:.5px}
+  .tag.bull{background:#dcfce7;color:#15803d}
+  .tag.bear{background:#fee2e2;color:#b91c1c}
+  .tag.neutral{background:#fef3c7;color:#b45309}
+  .card h4{font-size:1rem;margin-bottom:8px;color:#2d2a3e;font-weight:800}
+  .card p{margin-bottom:0;font-size:.93rem;color:#4b4763}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.9rem;
+        border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(102,126,234,.09)}
+  thead{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+  th{padding:12px 10px;text-align:left;font-weight:700;font-size:.86rem}
+  td{padding:11px 10px;border-bottom:1px solid #efedf7}
+  tbody tr:nth-child(even){background:#faf9fe}
+  tbody tr:hover{background:#f2eefe}
+  .up{color:#dc2626;font-weight:700}
+  .down{color:#16a34a;font-weight:700}
+  .flat{color:#6b7280;font-weight:700}
+  .num{font-variant-numeric:tabular-nums;text-align:right}
+  .grid2{display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:700px){.grid2{grid-template-columns:1fr 1fr}}
+  .stat{background:#fff;border:1px solid #eae6f8;border-radius:12px;padding:16px;
+        border-top:3px solid #764ba2}
+  .stat .k{font-size:.78rem;color:#8b86a3;font-weight:700;letter-spacing:.5px}
+  .stat .v{font-size:1.28rem;font-weight:800;color:#4c3f8f;margin-top:4px}
+  .stat .s{font-size:.8rem;color:#8b86a3;margin-top:2px}
+  ul.clean{list-style:none;margin-bottom:16px}
+  ul.clean li{padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed #eeebf9;
+        font-size:.94rem;color:#43405a}
+  ul.clean li::before{content:"▸";position:absolute;left:6px;color:#764ba2;font-weight:800}
+  .quote{background:#f8f7fd;border-radius:12px;padding:18px 20px;font-size:.92rem;
+        color:#5a4d9c;border-left:4px solid #a78bfa;margin:18px 0}
+  .cal{border:1px solid #eae6f8;border-radius:12px;overflow:hidden;margin-bottom:16px}
+  .cal .row{display:flex;gap:14px;padding:14px 16px;border-bottom:1px solid #f2f0fa;font-size:.9rem}
+  .cal .row:last-child{border-bottom:none}
+  .cal .d{flex:0 0 68px;font-weight:800;color:#667eea;font-size:.86rem}
+  .cal .e{flex:1;color:#43405a}
+  .warn{background:#fef6f0;border:1px solid #fbd9c4;border-radius:12px;padding:16px 20px;
+        font-size:.9rem;color:#9a3412;margin:18px 0}
+  .back-link{display:inline-block;margin:40px 0 0;padding:11px 22px;
+        background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-decoration:none;
+        border-radius:24px;font-weight:700;font-size:.88rem;transition:.25s}
+  .back-link:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(118,75,162,.35)}
+  footer{background:#2d2a3e;color:#b8b3cc;padding:26px 28px;font-size:.8rem;line-height:1.9}
+  .src{font-size:.78rem;color:#8b86a3;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="date">2026 年 11 月 7 日（星期六）</div>
+  <h1>📊 財經晨報 Pro</h1>
+  <div class="sub">科技股崩跌後的跌深反彈：台股單日重挫 4.51%，美股週五收復部分失土</div>
+  <div class="badge-row">
+    <span class="badge">台股加權 39,701.64 ▼4.51%</span>
+    <span class="badge">那斯達克 ▲1.09%</span>
+    <span class="badge">費半反彈逾 4%</span>
+    <span class="badge">VIX 突破 25</span>
+  </div>
+</header>
+
+<nav>
+  <button class="active" onclick="showTab(0,this)">📈 市場觀點</button>
+  <button onclick="showTab(1,this)">🌍 全球市況</button>
+  <button onclick="showTab(2,this)">🏭 台股焦點</button>
+  <button onclick="showTab(3,this)">💰 資金流向</button>
+  <button onclick="showTab(4,this)">📅 事件日曆</button>
+</nav>
+
+<main>
+
+<!-- ========== 1. 市場觀點 ========== -->
+<section class="tab active">
+  <div class="lead">
+    <p><strong>一句話總結：</strong>這是一場「由政策風險點燃、由 AI 資本支出疑慮擴散」的科技股崩跌，而非全面性經濟衰退。台股本週五（11/6）加權指數收在 <strong>39,701.64 點，單日重挫 1,873.08 點（-4.51%）</strong>，寫下連七跌；但同日夜間美股出現<strong>跌深反彈</strong>——那斯達克收漲 264.43 點（+1.09%）、費城半導體指數反彈逾 4%、台積電 ADR 大漲 6.3%，道瓊則因傳產與金融股拖累微跌 237.33 點（-0.46%）。</p>
+    <p style="margin-bottom:0">市場正在重新定價兩件事：<strong>一、期中選舉後民主黨掌控國會，資料中心擴建的監管門檻升高；二、AI 資本支出的「單位效率提升」是否意味著硬體需求增速見頂。</strong>這兩個問題都不會在一週內有答案，因此波動會延續，但賣壓高度集中在大型科技與記憶體族群，等權重標普 500 僅跌約 2%，說明市場廣度並未全面崩壞。</p>
+  </div>
+
+  <h2>今日三大觀點</h2>
+
+  <div class="card bear">
+    <span class="tag bear">利空</span>
+    <h4>資料中心政策風險浮現，AI 基建鏈評價遭重估</h4>
+    <p>民主黨在期中選舉橫掃參眾兩院，並在德州、喬治亞等資料中心重鎮勝出，當地居民長期反對產業快速擴張。彭博報導，對資料中心持懷疑態度的候選人當選後，「新雲」（neocloud）業者股價暴跌，正在申請上市的 Aggreko 與軟銀支持的 SB Energy 均受波及。更關鍵的是需求端：<strong>微軟對 Nebius、IREN、Nscale 等第三方資料中心專案態度轉冷，已砍掉 Nscale 的 30 億英鎊英國合約、放棄德州擴建訂單</strong>，財務長胡德三度在財報會議提及第三方產能交付延誤。這使得「AI 需求無上限」的線性推論首次遭到市場質疑。</p>
+  </div>
+
+  <div class="card bear">
+    <span class="tag bear">利空</span>
+    <h4>輝達 Vera Rubin 架構壓縮 HBM 需求想像空間</h4>
+    <p>輝達發布 AI 記憶體全端協同設計方案，<strong>Vera Rubin NVL72 的單位成本推論吞吐量較 GB300 最多高出 30 倍，但每顆 GPU 的 HBM 容量僅增加約 3%</strong>。市場直接解讀為未來 HBM 需求增速放緩，這是美光單日重挫 14.48%、威騰與希捷跌逾 11%、Sandisk 盤中跌 16% 的核心原因。記憶體族群的高估值建立在「容量競賽」上，一旦敘事轉向「效率競賽」，本益比壓縮會非常劇烈。</p>
+  </div>
+
+  <div class="card bull">
+    <span class="tag bull">利多</span>
+    <h4>賣壓集中大型科技股，市場廣度未全面惡化</h4>
+    <p>等權重標普 500 僅跌約 2%，遠小於市值加權標普 500 的 3.7% 盤中跌幅，代表這波修正主要是大型科技股的獲利了結與去槓桿，而非全面性風險趨避。羅素 2000 僅跌 2.5%、金融股跌幅 5~6% 屬跟跌性質。週五夜間的反彈也印證：<strong>台積電 ADR 漲 6.3%、美光反彈 5%、輝達漲近 3%，買盤在跌深位置確實進場承接。</strong></p>
+  </div>
+
+  <div class="card neutral">
+    <span class="tag neutral">中性</span>
+    <h4>避險資金流向分歧，黃金這次沒有發揮作用</h4>
+    <p>美國 10 年期公債殖利率從 4.9168% 的當日高點跳水至 4.85% 附近，資金確實湧入公債；但現貨黃金反而下跌至每盎司 4,112.2 美元、白銀跌 1% 至 51.67 美元，比特幣跌 5% 至 76,245 美元。這意味著本次賣壓的性質是<strong>「科技股估值修正」而非「系統性風險事件」</strong>——資金是從股票輪動到債券，而不是逃離所有風險資產。</p>
+  </div>
+
+  <div class="quote">
+    <strong>操作心法：</strong>跌深反彈的第一根紅K不代表趨勢反轉。在 VIX 突破 25、單日漲幅近 60% 的環境下，任何反彈都應該用「減碼」而非「加碼」的角度來看待，除非 10 年期公債殖利率穩定回落至 4.75% 以下、且費半能收復月線。
+  </div>
+</section>
+
+<!-- ========== 2. 全球市況 ========== -->
+<section class="tab">
+  <h2>全球主要市場指標</h2>
+  <table>
+    <thead><tr><th>市場／指數</th><th class="num">收盤</th><th class="num">漲跌</th><th class="num">幅度</th></tr></thead>
+    <tbody>
+      <tr><td>台股加權指數（11/6）</td><td class="num">39,701.64</td><td class="num down">-1,873.08</td><td class="num down">-4.51%</td></tr>
+      <tr><td>台指期夜盤（11/6）</td><td class="num">38,936</td><td class="num down">-2,946</td><td class="num down">-7.03%</td></tr>
+      <tr><td>道瓊工業指數</td><td class="num">51,285.73</td><td class="num down">-237.33</td><td class="num down">-0.46%</td></tr>
+      <tr><td>標普 500 指數</td><td class="num">7,376.86</td><td class="num up">+23.13</td><td class="num up">+0.31%</td></tr>
+      <tr><td>那斯達克綜合指數</td><td class="num">—</td><td class="num up">+264.43</td><td class="num up">+1.09%</td></tr>
+      <tr><td>費城半導體指數</td><td class="num">—</td><td class="num up">—</td><td class="num up">+4% 以上</td></tr>
+      <tr><td>VIX 恐慌指數</td><td class="num">&gt;25</td><td class="num up">—</td><td class="num up">近 +60%</td></tr>
+      <tr><td>美國 10 年期公債殖利率</td><td class="num">約 4.85%</td><td class="num down">回落</td><td class="num down">高點 4.9168%</td></tr>
+      <tr><td>WTI 原油</td><td class="num">90.79 美元</td><td class="num up">+3%</td><td class="num up">上漲</td></tr>
+      <tr><td>現貨黃金</td><td class="num">4,112.2 美元</td><td class="num down">-8.5</td><td class="num down">下跌</td></tr>
+      <tr><td>現貨白銀</td><td class="num">51.67 美元</td><td class="num down">—</td><td class="num down">-1%</td></tr>
+      <tr><td>比特幣</td><td class="num">76,245 美元</td><td class="num down">—</td><td class="num down">-5%</td></tr>
+      <tr><td>美元指數</td><td class="num">約 99.5</td><td class="num up">小幅走升</td><td class="num up">—</td></tr>
+      <tr><td>STOXX 600（歐股）</td><td class="num">653.19</td><td class="num down">—</td><td class="num down">-0.64%</td></tr>
+      <tr><td>德國 DAX</td><td class="num">26,255.95</td><td class="num down">—</td><td class="num down">-0.69%</td></tr>
+    </tbody>
+  </table>
+  <p class="src">註：台股為 11/6 收盤；美股為 11/6 週五收盤；其餘為同期間報價，資料來源為公開財經媒體，部分指數絕對點數未完整揭露者以「—」表示。</p>
+
+  <h2>美股：科技股崩跌後的反彈</h2>
+  <div class="grid2">
+    <div class="stat"><div class="k">那斯達克</div><div class="v">+264.43 點</div><div class="s">+1.09%，科技股領軍反彈</div></div>
+    <div class="stat"><div class="k">費城半導體</div><div class="v">+4% 以上</div><div class="s">晶片股跌深回神</div></div>
+    <div class="stat"><div class="k">台積電 ADR</div><div class="v">+6.3%</div><div class="s">本波反彈領頭羊</div></div>
+    <div class="stat"><div class="k">道瓊</div><div class="v">-0.46%</div><div class="s">傳產與金融股拖累</div></div>
+  </div>
+
+  <h3>崩跌的那一夜：三大因素疊加</h3>
+  <ul class="clean">
+    <li><strong>政治面：</strong>期中選舉結果讓資料中心 IPO 門檻提高，對資料中心持懷疑態度的候選人當選，新雲業者股價暴跌。</li>
+    <li><strong>需求面：</strong>微軟收緊對 Nebius、IREN、Nscale 的監督並退出有風險專案，砍 30 億英鎊英國合約、放棄德州擴建。</li>
+    <li><strong>技術面：</strong>輝達 Vera Rubin NVL72 單位成本推論吞吐量較 GB300 最多高 30 倍，但 HBM 容量僅增 3%，市場擔憂記憶體需求增速放緩。</li>
+  </ul>
+
+  <h3>盤中重災區（11/5 美股時段）</h3>
+  <ul class="clean">
+    <li>AMD 跌 15.25%、美光跌 14.48%、高通跌 12.59%、台積電 ADR 跌 8.91%</li>
+    <li>博通跌 8.12%、英特爾跌 7.86%、艾司摩爾跌 7.80%、輝達跌 7.73%</li>
+    <li>儲存族群最慘：Sandisk 盤中跌 16%、威騰與希捷跌逾 11%</li>
+    <li>特斯拉跌 10%、Meta 跌 5.7%、Bloom Energy 暴跌 20.2%（即使 Google 宣布投資 170 億美元採用其燃料電池仍難止血）</li>
+    <li>金融股：高盛跌 5.9%、摩根士丹利跌 5.6%；羅素 2000 跌 2.5%</li>
+  </ul>
+
+  <div class="warn">
+    <strong>關鍵訊號：</strong>那斯達克綜合指數已從 2026 年 10 月 6 日的歷史收盤高點回落超過 10%，<strong>正式進入技術性修正</strong>。這是本輪 AI 多頭以來最明確的趨勢轉折訊號。
+  </div>
+
+  <h2>歐洲與其他市場</h2>
+  <ul class="clean">
+    <li>歐股普遍收跌：STOXX 600 跌 0.64% 至 653.19 點，科技類股重挫 3.8%。</li>
+    <li>德國 DAX 跌 0.69% 至 26,255.95 點。</li>
+    <li>歐洲晶片股跌 4.35%，為 2025 年 4 月以來最大單日跌幅。</li>
+    <li>原油逆勢上漲：WTI 盤中漲 3% 至 90.79 美元，伊朗地緣風險（美以擬定打擊清單、俄羅斯建議公民避赴伊朗）抵銷需求疑慮。</li>
+  </ul>
+</section>
+
+<!-- ========== 3. 台股焦點 ========== -->
+<section class="tab">
+  <h2>台股盤勢總覽</h2>
+  <div class="grid2">
+    <div class="stat"><div class="k">加權指數收盤</div><div class="v">39,701.64</div><div class="s">11/6（週五）</div></div>
+    <div class="stat"><div class="k">單日跌幅</div><div class="v">-4.51%</div><div class="s">下跌 1,873.08 點</div></div>
+    <div class="stat"><div class="k">日內區間</div><div class="v">37,837 ~ 40,436</div><div class="s">振幅劇烈，開低走高收斂</div></div>
+    <div class="stat"><div class="k">走勢特徵</div><div class="v">連七跌</div><div class="s">11/5 收 41,574.72（-4.00%）</div></div>
+  </div>
+
+  <div class="lead">
+    <p style="margin-bottom:0">台股本週連續第七個交易日收黑，11/5 收 41,574.72 點（跌 1,374.19 點、-4.00%）後，11/6 再度重挫 1,873.08 點。不過盤面結構值得注意：指數開盤直接跳空至 38,915.76 點，日內最低觸及 37,837.05 點後買盤進場，終場收在 39,701.64 點，<strong>收盤明顯高於開盤，留下超過 1,800 點的下影線</strong>——這是恐慌性賣壓集中宣洩後、承接力道浮現的典型型態。台指期夜盤同步下跌 2,946 點（-7.03%）至 38,936 點，反映 11/5 美股崩跌的遞延衝擊。</p>
+  </div>
+
+  <h2>產業族群分析</h2>
+
+  <div class="card bear">
+    <span class="tag bear">承壓</span>
+    <h4>半導體與 AI 伺服器供應鏈</h4>
+    <p>輝達 Vera Rubin 架構壓縮 HBM 容量成長幅度，直接衝擊記憶體族群的長線需求敘事。台積電 ADR 單日一度跌 8.91%，雖然週五夜間反彈 6.3%，但評價面已進入重新校準階段。市場將重新檢視 AI 伺服器概念股的接單能見度與毛利率能否支撐現有本益比。台積電 2026 年第二季毛利率 67.72%、營業利益率 60.34%，基本面上仍屬強健，但技術面「打底未見點火趨勢」。</p>
+  </div>
+
+  <div class="card bear">
+    <span class="tag bear">承壓</span>
+    <h4>記憶體與儲存族群</h4>
+    <p>美光單日跌 14.48%、Sandisk 盤中跌 16%、威騰與希捷跌逾 11%，是本波最重災區。高通第四季智慧型手機晶片營收衰退 26%，記憶體漲價壓抑手機需求，加深市場對行動晶片與記憶體循環的疑慮。群聯（8299）等記憶體模組廠雖有 2026 年第二季 EPS 118.63、毛利率 65.35% 的亮眼基本面，但短線難免受族群評價下修波及。</p>
+  </div>
+
+  <div class="card neutral">
+    <span class="tag neutral">觀察</span>
+    <h4>IC 設計：法說會成關鍵風向球</h4>
+    <p>世芯-KY（3661）近三個月月營收年增率高達 +181.78%（7月）、+273.61%（8月）、+495.99%（9月），2026 年第二季毛利率 34.84%，是本波 AI 接單能見度最高的指標股。聯詠（3034）2026 年第三季 EPS 9.99、毛利率 40.89%，財務結構穩健但「缺乏買力」。兩家公司法說會釋出的展望，將決定 IC 設計族群能否成為台股下一波反彈的先鋒。</p>
+  </div>
+
+  <h2>籌碼與資金面</h2>
+  <ul class="clean">
+    <li>依證交所資料，外資近一週於台股呈現大幅賣超，賣壓已延續數個交易日，籌碼面仍偏弱。</li>
+    <li>台指期夜盤一度跌 2,946 點（-7.03%），22 點過後急跌、午夜前跌勢最猛，之後反彈再走低，顯示程式交易與停損單被大量觸發。</li>
+    <li>加權指數連續七個交易日收黑，技術面已跌破所有主要均線，短線進入超賣區間。</li>
+    <li>需留意處置股交易限制對個股流動性的持續影響，包括冠西電（2466）、東台（4526）、聯茂（6213）等。</li>
+  </ul>
+
+  <div class="warn">
+    <strong>本週關鍵事件回顧：</strong>11/6 有多檔重量級法說會登場——世芯-KY（3661）14:30、威剛（3260）14:30、勤誠（8210）14:00、聯詠（3034）15:00、群聯（8299）17:00。同時 00400A 主動國泰動能高息除息 0.12 元、2414 精技除權。這些法說會釋出的展望，將是下週一台股開盤的重要參考。
+  </div>
+</section>
+
+<!-- ========== 4. 資金流向 ========== -->
+<section class="tab">
+  <h2>避險資產與資金動向</h2>
+  <table>
+    <thead><tr><th>資產類別</th><th class="num">價位</th><th class="num">變動</th><th>市場解讀</th></tr></thead>
+    <tbody>
+      <tr><td>美國 10 年期公債殖利率</td><td class="num">約 4.85%</td><td class="num down">自 4.9168% 回落</td><td>資金明確湧入公債避險</td></tr>
+      <tr><td>現貨黃金</td><td class="num">4,112.2 美元</td><td class="num down">-8.5 美元</td><td>避險功能失效，跟隨風險資產下跌</td></tr>
+      <tr><td>現貨白銀</td><td class="num">51.67 美元</td><td class="num down">-1%</td><td>工業需求疑慮拖累</td></tr>
+      <tr><td>比特幣</td><td class="num">76,245 美元</td><td class="num down">-5%</td><td>高β資產遭去槓桿</td></tr>
+      <tr><td>WTI 原油</td><td class="num">90.79 美元</td><td class="num up">+3%</td><td>地緣風險溢價重新定價</td></tr>
+      <tr><td>美元指數</td><td class="num">約 99.5</td><td class="num up">小幅走升</td><td>避險買盤與利差支撐</td></tr>
+      <tr><td>30 年期房貸利率</td><td class="num">7.18%</td><td class="num down">連三週下滑</td><td>前值 7.24%，房市壓力略緩</td></tr>
+    </tbody>
+  </table>
+
+  <h3>資金流向的三個觀察點</h3>
+  <ul class="clean">
+    <li><strong>股轉債明確、但未全面避險：</strong>10 年期殖利率自 4.9168% 高點快速回落至 4.85% 附近，顯示資金從股票輪動到公債，但黃金同步下跌、比特幣僅跌 5%，說明這不是「系統性風險」等級的逃亡。</li>
+    <li><strong>黃金失去避險光環：</strong>現貨黃金 5 分鐘內下跌 8.5 美元至 4,112.2 美元，白銀跌 1%。過去幾季黃金與股市同步上漲的「流動性行情」特徵，在本次修正中反轉為同步下跌，需留意實質利率預期回升的壓力。</li>
+    <li><strong>油價逆勢突圍：</strong>WTI 盤中漲 3% 至 90.79 美元。卡達主導的美伊談判雖有進展（伊朗正審議核問題方案），但美國與以色列軍方已擬好打擊清單、俄羅斯建議公民避免前往伊朗，地緣風險溢價仍高，能源股相對抗跌。</li>
+  </ul>
+
+  <h2>企業與政策消息</h2>
+  <ul class="clean">
+    <li><strong>微軟緊縮資料中心布局：</strong>對 Nebius、IREN、Nscale 態度轉冷，砍 Nscale 30 億英鎊英國合約、放棄德州擴建訂單；財務長胡德三度提及第三方產能交付延誤。發言人稱此為管理大型基礎建設的正常做法。</li>
+    <li><strong>Google 逆勢擴張：</strong>宣布投資 170 億美元在懷俄明州興建首座自有資料中心，採用 Bloom Energy 的 702 兆瓦燃料電池。但 Bloom Energy 當日仍暴跌 20.2%，反映市場目前只看政策風險、忽略利多。</li>
+    <li><strong>高通手機晶片承壓：</strong>第四季智慧型手機晶片營收衰退 26%，記憶體漲價壓抑手機需求，加深市場對行動晶片的疑慮。</li>
+    <li><strong>聯準會動向：</strong>克里夫蘭分行總裁哈瑪克表示，把 FOMC 一年的利率會議從八次減為六次，是溫和的轉變。此話被解讀為制度性調整而非政策轉向。</li>
+  </ul>
+
+  <div class="quote">
+    <strong>下週資金觀察重點：</strong>10 年期公債殖利率能否穩定回落至 4.75% 以下、VIX 能否回落至 20 以下、以及美元指數是否突破 100 關卡。三者若同時改善，台股才有機會擺脫連七跌的頹勢。
+  </div>
+</section>
+
+<!-- ========== 5. 事件日曆 ========== -->
+<section class="tab">
+  <h2>下週關鍵事件</h2>
+  <div class="cal">
+    <div class="row"><div class="d">11/09<br>週一</div><div class="e"><strong>台股開盤考驗：</strong>歷經連七跌與台指期夜盤重挫後，觀察開盤量能與是否出現報復性反彈。留意週五法說會（世芯-KY、聯詠、群聯、威剛、勤誠）釋出的展望對個股走勢的影響。</div></div>
+    <div class="row"><div class="d">11/10<br>週二</div><div class="e"><strong>台股 10 月營收全數公布截止：</strong>AI 供應鏈（伺服器、散熱、電源、記憶體模組）的月營收年增率將是驗證需求是否降溫的第一手證據。</div></div>
+    <div class="row"><div class="d">11/11<br>週三</div><div class="e"><strong>美國退伍軍人節：</strong>美股正常交易，美國債市休市一日，成交量預期偏低，波動可能被放大。</div></div>
+    <div class="row"><div class="d">11/12<br>週四</div><div class="e"><strong>MSCI 半年度指數調整公布（預定）：</strong>留意台股個股的權重升降與被動資金流向，尾盤可能出現爆量換手。</div></div>
+    <div class="row"><div class="d">11/13<br>週五</div><div class="e"><strong>美國 10 月 CPI 公布（日期待官方確認）：</strong>這是本波「AI 資本支出疑慮」之外，市場最關注的總經變數。若核心 CPI 高於預期，將壓縮降息空間並加重科技股評價壓力。</div></div>
+    <div class="row"><div class="d">持續<br>關注</div><div class="e"><strong>美伊核談判進展：</strong>卡達主導的談判若有實質突破，油價可能快速回落；反之若美國與以色列付諸軍事行動，油價將挑戰 100 美元，通膨預期再度升溫。</div></div>
+    <div class="row"><div class="d">持續<br>關注</div><div class="e"><strong>資料中心政策細則：</strong>民主黨掌控國會後，資料中心審批、電力供應與地方回饋機制的立法進度，將直接影響 AI 基建鏈的中長期評價。</div></div>
+    <div class="row"><div class="d">持續<br>關注</div><div class="e"><strong>AI 記憶體需求驗證：</strong>輝達 Vera Rubin 平台的實際出貨節奏與 HBM 搭載量，將決定美光、SK 海力士與台系記憶體模組廠的估值能否修復。</div></div>
+  </div>
+
+  <div class="warn">
+    <strong>提醒：</strong>部分事件日期為市場預估值，實際公布時間請以官方公告為準。11/11 美國債市休市可能造成流動性不足與價格跳動放大，持倉者宜提前調整槓桿。
+  </div>
+
+  <h2>投資策略與操作清單</h2>
+
+  <div class="card neutral">
+    <span class="tag neutral">策略</span>
+    <h4>核心原則：反彈減碼、不追高、保留現金</h4>
+    <p>本波修正的性質是「估值重估」而非「景氣衰退」，因此不建議全面清倉，但也沒有理由在 VIX 突破 25 的環境下加碼。建議維持較高現金比重，將持股集中在現金流穩定、本益比已回到五年平均以下的標的。</p>
+  </div>
+
+  <h3>操作清單</h3>
+  <ul class="clean">
+    <li><strong>① 減碼高估值 AI 硬體股：</strong>記憶體、儲存、AI 伺服器組裝等本益比偏高的族群，利用反彈分批降低部位，優先減碼沒有實質獲利支撐的概念股。</li>
+    <li><strong>② 保留核心持股：</strong>台積電等具備定價權與高毛利率的龍頭，若回落至年線附近可視為長線布局區間，但分批而非一次買滿。</li>
+    <li><strong>③ 留意防禦性族群輪動：</strong>金融股雖跟跌 5~6%，但受惠殖利率曲線與財富管理業務，評價相對合理；電信、公用事業等低β族群可作為資金避風港。</li>
+    <li><strong>④ 觀察等權重指數：</strong>若等權重標普 500 相對市值加權指數持續轉強，代表賣壓僅限大型科技股，市場廣度健康，屆時可考慮恢復部分部位。</li>
+    <li><strong>⑤ 設定停損紀律：</strong>連七跌後的反彈容易吸引搶短買盤，但若 VIX 未回落至 20 以下、10 年期殖利率未跌破 4.75%，任何反彈都應視為減碼機會而非進場訊號。</li>
+    <li><strong>⑥ 關注 11/10 營收公布：</strong>AI 供應鏈 10 月營收若普遍優於預期，可作為族群止穩的第一個確認訊號；若年增率明顯放緩，需進一步下修評價。</li>
+  </ul>
+
+  <div class="quote">
+    <strong>風險提醒：</strong>本報告為公開資訊整理與市場觀察，不構成任何投資建議。投資人應自行評估風險承受能力，並自負投資決策責任。
+  </div>
+</section>
+
+<a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+</main>
+
+<footer>
+  <div>📊 財經晨報 Pro ｜ 2026 年 11 月 7 日（星期六）</div>
+  <div>資料來源：公開財經媒體、證交所、公開資訊觀測站、市場公開報價</div>
+  <div>本報告僅供參考，不構成投資建議。投資有風險，決策請自行判斷。</div>
+</footer>
+</div>
+
+<script>
+function showTab(i, btn){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('nav button').forEach(function(b){b.classList.remove('active')});
+  document.querySelectorAll('.tab')[i].classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
