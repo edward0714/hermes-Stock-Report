@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財經晨報 Pro — 2026-11-12</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
+        background: linear-gradient(135deg, #f0f4f8 0%, #e4e2f5 100%);
+        color: #1a1a1a; line-height: 1.65; min-height: 100vh; padding: 20px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .back-link { display:inline-block; margin-bottom:18px; color:#667eea; text-decoration:none; font-weight:600; font-size:.95em; }
+    .back-link:hover { text-decoration: underline; }
+    .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color:#fff; padding:58px 40px; border-radius:16px; margin-bottom:28px;
+        box-shadow: 0 20px 60px rgba(102,126,234,.3); text-align:center;
+        position:relative; overflow:hidden;
+    }
+    .header::before {
+        content:''; position:absolute; top:0; right:0; width:400px; height:400px;
+        background: rgba(255,255,255,.1); border-radius:50%; transform: translate(100px,-100px);
+    }
+    .header-content { position:relative; z-index:1; }
+    .header h1 { font-size:2.9em; margin-bottom:10px; letter-spacing:2px; }
+    .header-subtitle { font-size:1.15em; opacity:.95; margin-bottom:18px; }
+    .header-date {
+        display:inline-block; background: rgba(255,255,255,.2); padding:8px 18px;
+        border-radius:20px; font-size:.95em; font-weight:600;
+    }
+    .nav-tabs {
+        display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:30px;
+    }
+    .nav-tabs a {
+        padding:11px 20px; background:#fff; color:#5a4b9c; border-radius:10px; text-decoration:none;
+        font-weight:600; font-size:.93em; box-shadow:0 4px 14px rgba(102,126,234,.15);
+        border:1px solid rgba(102,126,234,.18); transition:all .2s;
+    }
+    .nav-tabs a:hover { background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; transform:translateY(-2px); }
+    .section {
+        background:#fff; border-radius:16px; padding:32px 34px; margin-bottom:26px;
+        box-shadow:0 8px 30px rgba(102,126,234,.12);
+    }
+    .section h2 {
+        font-size:1.5em; color:#4c3d8f; margin-bottom:20px; padding-bottom:12px;
+        border-bottom:3px solid #e8e4f7; display:flex; align-items:center; gap:10px;
+    }
+    .section h3 { font-size:1.12em; color:#5a4b9c; margin:22px 0 12px; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px; margin-bottom:8px; }
+    .card { border-radius:12px; padding:20px; border-left:5px solid; background:#fafaff; }
+    .card.bull { border-color:#16a34a; background:linear-gradient(135deg,#f0fdf4,#ffffff); }
+    .card.bear { border-color:#dc2626; background:linear-gradient(135deg,#fef2f2,#ffffff); }
+    .card.neutral { border-color:#f59e0b; background:linear-gradient(135deg,#fffbeb,#ffffff); }
+    .card .tag {
+        display:inline-block; font-size:.78em; font-weight:700; padding:3px 10px; border-radius:12px;
+        color:#fff; margin-bottom:10px;
+    }
+    .card.bull .tag { background:#16a34a; }
+    .card.bear .tag { background:#dc2626; }
+    .card.neutral .tag { background:#f59e0b; }
+    .card h4 { font-size:1.05em; margin-bottom:8px; color:#222; }
+    .card p { font-size:.92em; color:#555; }
+    table { width:100%; border-collapse:collapse; margin:14px 0; font-size:.92em; }
+    th {
+        background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; padding:12px 14px;
+        text-align:left; font-weight:600; white-space:nowrap;
+    }
+    td { padding:11px 14px; border-bottom:1px solid #eee; }
+    tbody tr:hover { background:#f7f5ff; }
+    .up { color:#dc2626; font-weight:700; }
+    .down { color:#16a34a; font-weight:700; }
+    .flat { color:#6b7280; font-weight:600; }
+    .strategy {
+        background:linear-gradient(135deg,#f7f5ff,#efeaff); border-radius:12px; padding:22px;
+        border:1px solid #ddd5f7; margin-top:14px;
+    }
+    .checklist { list-style:none; }
+    .checklist li {
+        padding:10px 0 10px 30px; position:relative; border-bottom:1px dashed #e8e4f7; font-size:.94em;
+    }
+    .checklist li:last-child { border-bottom:none; }
+    .checklist li::before { content:'✔'; position:absolute; left:6px; color:#764ba2; font-weight:700; }
+    .empty-note { background:#fff7e6; border-left:4px solid #f59e0b; padding:14px 18px; border-radius:8px; font-size:.9em; color:#8a5a00; margin:10px 0; }
+    .event-list { list-style:none; }
+    .event-list li {
+        padding:14px 0; border-bottom:1px solid #f0eefb; display:flex; gap:14px; align-items:flex-start; font-size:.94em;
+    }
+    .event-list li:last-child { border-bottom:none; }
+    .event-date {
+        min-width:86px; font-weight:700; color:#667eea; font-size:.88em;
+    }
+    .footer { text-align:center; padding:28px 10px; color:#8b8b9e; font-size:.86em; }
+    .disclaimer { background:#f4f4f8; border-radius:10px; padding:16px; font-size:.82em; color:#777; margin-top:12px; }
+    @media (max-width:640px) {
+        .header h1 { font-size:2em; } .section { padding:22px 18px; }
+        .nav-tabs a { padding:9px 14px; font-size:.86em; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+<a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+<div class="header">
+    <div class="header-content">
+        <h1>財經晨報 Pro</h1>
+        <div class="header-subtitle">📊 掌握市場脈動・洞悉投資先機</div>
+        <div class="header-date">2026 年 11 月 12 日（星期四）</div>
+    </div>
+</div>
+
+<div class="nav-tabs">
+    <a href="#view">📈 市場觀點</a>
+    <a href="#global">🌍 全球市況</a>
+    <a href="#tw">🏭 台股焦點</a>
+    <a href="#flow">💰 資金流向</a>
+    <a href="#calendar">📅 事件日曆</a>
+</div>
+
+<!-- ===== 市場觀點 ===== -->
+<div class="section" id="view">
+    <h2>📈 今日市場觀點</h2>
+    <p style="color:#555;font-size:.95em;margin-bottom:16px;">
+        台股 11 月 11 日延續報復性反彈氣勢，加權指數開盤即跳空上漲約 424 點，盤中一路走高、終場收在全日最高點的 44,257.15 點，單日大漲 1,545.23 點、漲幅 3.62%，順利收復 10 日線，完成「連三日千點反彈」的強勢格局。成交金額雖較前一日兆元天量縮至 8,762 億元，但三大法人同步終結連九賣、合計買超 240.7 億元，籌碼面明顯轉佳，技術面下一步將挑戰月線約 45,144 點。今晨美股三大指數在記憶體與半導體族群全面噴出帶動下同步收漲，為台股今日開盤再添柴火。
+    </p>
+
+    <div class="cards">
+        <div class="card bull">
+            <span class="tag">利多</span>
+            <h4>台股三日千點反彈，指數收復 44,000 點</h4>
+            <p>加權指數 11 月 11 日收 44,257.15 點，單日上漲 1,545.23 點（+3.62%），盤中開高走高並收在全日最高點，連續三個交易日合計反彈逾千點，成功站上 44,000 點整數關卡並收復 10 日線，多頭氣勢完整回籠。</p>
+        </div>
+        <div class="card bull">
+            <span class="tag">利多</span>
+            <h4>三大法人終結連九賣，籌碼面轉佳</h4>
+            <p>11 月 11 日三大法人合計買超 240.7 億元，正式終結先前的連續九日賣超；在國安基金第 10 度進場護盤、公股行庫與投信同步作多下，法人籌碼由賣轉買，是本波反彈能否升級為波段行情的關鍵訊號。</p>
+        </div>
+        <div class="card bull">
+            <span class="tag">利多</span>
+            <h4>台積電 10 月營收 5,868.9 億元創單月新高</h4>
+            <p>台積電 10 月合併營收達 5,868.9 億元，月增 14.7%、年增 59.71%，改寫單月歷史新高；股價 11 月 11 日再漲 110 元、收 2,395 元（+4.81%），自 11 月 9 日起三個交易日合計大漲 260 元，基本面與股價同步創佳績。</p>
+        </div>
+        <div class="card bull">
+            <span class="tag">利多</span>
+            <h4>美股三大指數續揚，記憶體族群全面噴出</h4>
+            <p>美股 11 月 11 日（週三）收盤，道瓊上漲 0.48%、標普 500 上漲 1.3%、那斯達克上漲 1.6%，晶片股全面走強：閃迪大漲 13%、美光勁揚 11.8%、SK 海力士漲 9.7%、英特爾漲逾 7%、輝達漲 2.8%，蘋果上漲 2% 並創下新高。</p>
+        </div>
+        <div class="card bear">
+            <span class="tag">利空</span>
+            <h4>美國 10 月 CPI 高於預期，升息雜音再起</h4>
+            <p>美國 10 月 CPI 月增 0.4%（預期 0.3%）、核心 CPI 月增 0.3%（預期 0.2%），雙雙高於市場預期；聯準會理事華勒表示，若核心月增率達到 0.3%，12 月應考慮升息 2 碼，貨幣政策不確定性升高。</p>
+        </div>
+        <div class="card bear">
+            <span class="tag">利空</span>
+            <h4>記憶體「見頂論」論戰升溫，2028 反轉報告出爐</h4>
+            <p>美系外資出具報告指出 DRAM 將於 2028 年反轉下跌 20%，與市場「長約結構支撐、需求成長快於產能擴張」的多方觀點形成激辯。記憶體報價可能接近高檔，相關個股波動度明顯放大。</p>
+        </div>
+        <div class="card neutral">
+            <span class="tag">中性</span>
+            <h4>量能較前日縮減，反彈續航力待驗證</h4>
+            <p>11 月 11 日成交金額由前一日逾兆元的歷史天量縮至 8,762 億元，屬「量縮價漲」型態。指數已連三日急拉，短線須留意電子權值股開高後的獲利了結賣壓，以及量能能否再度放大確認換手成功。</p>
+        </div>
+        <div class="card neutral">
+            <span class="tag">中性</span>
+            <h4>PCB 族群一枝獨秀，族群輪動集中化</h4>
+            <p>PCB 為 11 月 11 日最強族群，泰鼎-KY、定穎投控等逾十檔攻上漲停，金像電重返千元大關。反觀 CPO 光通訊漲停潮未能延續、被動元件續弱、BBU 族群表現平淡，盤面資金明顯集中於少數強勢族群。</p>
+        </div>
+    </div>
+</div>
+
+<!-- ===== 全球市況 ===== -->
+<div class="section" id="global">
+    <h2>🌍 全球市況速覽</h2>
+
+    <h3>美股三大指數（11 月 11 日收盤）</h3>
+    <table>
+        <thead>
+            <tr><th>指數</th><th>約當收盤</th><th>漲跌幅</th><th>市場解讀</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>道瓊工業指數</td><td>約 52,482</td><td class="up">+0.48%</td><td>擺脫前一交易日下跌 0.30% 的頹勢，傳產與金融權值穩定支撐</td></tr>
+            <tr><td>標普 500 指數</td><td>約 7,618</td><td class="up">+1.3%</td><td>晶片股領軍，為三大指數中漲幅居次</td></tr>
+            <tr><td>那斯達克指數</td><td>約 25,466</td><td class="up">+1.6%</td><td>漲幅最大，科技與半導體族群全面走強</td></tr>
+            <tr><td>費城半導體指數</td><td class="flat">同步走強</td><td class="up">半導體領漲</td><td>記憶體、晶片股全面噴出，為本日美股最強主軸</td></tr>
+        </tbody>
+    </table>
+    <div class="empty-note">
+        📌 上表漲跌幅為 11 月 11 日（週三）美股收盤官方公布數據；「約當收盤」點位係以前一交易日（11 月 10 日）收盤值配合公布之漲跌幅換算所得，僅供參考，實際收盤點位請以交易所公布為準。
+    </div>
+
+    <h3>美股重點個股</h3>
+    <table>
+        <thead>
+            <tr><th>標的</th><th>表現</th><th>關鍵觀察</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>閃迪（SanDisk）</td><td class="up">+13%</td><td>記憶體報價走強，為本日美股漲幅最猛個股</td></tr>
+            <tr><td>美光科技（Micron）</td><td class="up">+11.8%</td><td>DRAM／NAND 需求強勁，記憶體族群全面點火</td></tr>
+            <tr><td>SK 海力士</td><td class="up">+9.7%</td><td>HBM 龍頭同步大漲，AI 記憶體需求為主軸</td></tr>
+            <tr><td>英特爾（Intel）</td><td class="up">+逾 7%</td><td>晶圓代工與先進封裝題材激勵</td></tr>
+            <tr><td>輝達（NVIDIA）</td><td class="up">+2.8%</td><td>扭轉前一交易日逆勢下跌的頹勢，AI 龍頭回穩</td></tr>
+            <tr><td>蘋果（Apple）</td><td class="up">+2%</td><td>股價創下新高，大型科技股人氣續旺</td></tr>
+            <tr><td>納斯達克中國金龍指數</td><td class="down">-0.8%</td><td>中概股表現相對疲弱，愛奇藝逆勢上漲 9%</td></tr>
+        </tbody>
+    </table>
+
+    <h3>台股、亞股、商品與債市</h3>
+    <table>
+        <thead>
+            <tr><th>項目</th><th>走勢</th><th>關鍵觀察</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>台股加權指數</td><td class="up">44,257.15（+1,545.23／+3.62%）</td><td>收盤為全日最高點，成交金額 8,762 億元，收復 10 日線</td></tr>
+            <tr><td>櫃買指數（OTC）</td><td class="up">中小型股續強</td><td>前一日強彈 3.42% 後續航，PCB、被動元件題材各自表現</td></tr>
+            <tr><td>台積電（2330）</td><td class="up">2,395 元（+4.81%）</td><td>三日合計上漲 260 元，10 月營收創單月新高</td></tr>
+            <tr><td>國際油價</td><td class="down">相對弱勢整理</td><td>先前一度突破每桶 100 美元後快速回落，通膨預期降溫為本波股市反彈關鍵推手</td></tr>
+            <tr><td>黃金</td><td class="flat">高檔震盪</td><td>避險需求與通膨數據拉鋸，價格維持在 4,100～4,500 美元／盎司相對高位區間</td></tr>
+            <tr><td>美債殖利率</td><td class="flat">高檔整理</td><td>CPI 高於預期壓抑降息預期，10 年期殖利率處相對高位，壓抑高本益比成長股評價</td></tr>
+            <tr><td>加密貨幣</td><td class="flat">隨股市回穩</td><td>比特幣先前一度下探 7.6 萬美元，近期隨風險偏好回升而回穩</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ===== 台股焦點 ===== -->
+<div class="section" id="tw">
+    <h2>🏭 台股焦點與產業分析</h2>
+
+    <h3>指數與盤面結構</h3>
+    <p style="font-size:.95em;color:#444;">
+        台股在「藍色海嘯」式 AI 估值急殺後，於 11 月 5 日盤中重挫、11 月 9 日於年線附近震盪築底，隨後在國安基金第 10 度進場護盤、金管會限空令、公股行庫與投信同步進場，以及台積電 10 月營收創單月新高、公司調高股利等多重利多帶動下啟動反彈。11 月 10 日大漲 1,050.22 點，11 月 11 日再以跳空 424 點開出、終場大漲 1,545.23 點（+3.62%）收在 44,257.15 點的全日最高點，連續三個交易日完成千點級反彈，收復 10 日線，成交金額 8,762 億元。
+    </p>
+
+    <table>
+        <thead>
+            <tr><th>日期</th><th>加權指數表現</th><th>關鍵事件</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>2026-11-05</td><td class="down">41,574.72（-1,374.19）</td><td>「藍色海嘯」AI 大逃殺、費半崩跌逾 12%、台積電 ADR 重挫逾 10%</td></tr>
+            <tr><td>2026-11-06</td><td class="down">弱勢整理</td><td>油價突破 100 美元壓抑股市；國安基金宣布進場護盤、金管會限空令</td></tr>
+            <tr><td>2026-11-09</td><td class="flat">41,661.70</td><td>指數於年線附近震盪築底，台積電收 2,135 元，市場等待美股回穩訊號</td></tr>
+            <tr><td>2026-11-10</td><td class="up">42,711.92（+1,050.22／+2.52%）</td><td>美股費半狂飆 6.86%，權值股全面點火，量能放大至兆元天量</td></tr>
+            <tr><td>2026-11-11</td><td class="up">44,257.15（+1,545.23／+3.62%）</td><td>跳空 424 點開出、收全日最高，三大法人買超 240.7 億元終結連九賣</td></tr>
+        </tbody>
+    </table>
+
+    <h3>權值股與強勢族群</h3>
+    <table>
+        <thead>
+            <tr><th>個股／族群</th><th>表現</th><th>觀察重點</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>台積電（2330）</td><td class="up">2,395 元（+4.81%）</td><td>10 月營收 5,868.9 億元、月增 14.7%、年增 59.71% 創單月新高；並且調高股利，為本波反彈最核心的領頭羊</td></tr>
+            <tr><td>PCB 族群</td><td class="up">逾十檔漲停</td><td>泰鼎-KY、定穎投控等亮燈，金像電重返 1,000 元；點火源為 PCB 財報報喜，為 11 月 11 日最強族群</td></tr>
+            <tr><td>欣興（3037）／景碩（3189）</td><td class="flat">欣興 864 元（+4.35%）／景碩 741 元</td><td>ABF 載板族群中，景碩為唯一收跌個股，族群內部走勢分歧</td></tr>
+            <tr><td>禾伸堂（3026）</td><td class="up">漲停 561 元</td><td>法說會宣布高階 MLCC 擴產、明年產能增加 40%，為被動元件族群唯一亮點；國巨、華新科續弱</td></tr>
+            <tr><td>聯亞（3081）</td><td class="up">2,215 元（+4.73%）</td><td>CPO 光通訊漲停潮未能延續，僅個股表現，族群動能降溫</td></tr>
+            <tr><td>奇鋐（3017）／世芯-KY（3661）</td><td class="up">3,040 元／3,650 元收最高</td><td>AI 散熱與 ASIC 設計維持強勢，伺服器供應鏈分歧中仍有亮點</td></tr>
+            <tr><td>緯穎（6669）</td><td class="flat">1,680 元收平盤</td><td>大盤大漲逾 1,500 點之際收平盤，AI 伺服器代工評價面壓力浮現</td></tr>
+            <tr><td>記憶體族群</td><td class="flat">南亞科 394 元／華邦電 136.5 元／旺宏 176.5 元</td><td>營收續強但股價分歧，「見頂論」與「長約結構論」多空激辯中</td></tr>
+        </tbody>
+    </table>
+
+    <h3>產業族群觀察</h3>
+    <table>
+        <thead>
+            <tr><th>產業族群</th><th>近期表現</th><th>觀察重點</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>半導體／晶圓代工</td><td class="up">領漲主流</td><td>台積電營收創新高並調高股利，美股記憶體與晶片股同步噴出；先進製程與先進封裝產能利用率為核心驗證指標</td></tr>
+            <tr><td>PCB／載板</td><td class="up">最強族群</td><td>財報報喜帶動逾十檔漲停，金像電重返千元；短線漲幅已大，須留意隔日沖賣壓</td></tr>
+            <tr><td>記憶體</td><td class="flat">波動劇烈</td><td>美系外資提 2028 年 DRAM 反轉報告，多方以長約與供需結構回擊；相關個股宜嚴控部位</td></tr>
+            <tr><td>AI 伺服器／散熱</td><td class="flat">走勢分歧</td><td>奇鋐、世芯-KY 收最高，緯穎平盤、BBU 族群偏弱，資金集中度提高</td></tr>
+            <tr><td>被動元件</td><td class="down">族群未回溫</td><td>僅禾伸堂因擴產題材漲停，國巨、華新科續弱，整體族群動能仍待觀察</td></tr>
+            <tr><td>金融、傳產</td><td class="up">權值撐盤</td><td>資金回流高股息與低評價族群，為指數下檔重要支撐</td></tr>
+        </tbody>
+    </table>
+
+    <div class="empty-note">
+        ⚠️ 台股指數已連續三個交易日急拉逾千點，短線技術指標明顯偏熱。今晨美股雖續強，仍須留意開高後的獲利了結賣壓，以及 8,762 億元量能能否再度放大以確認換手成功；月線約 45,144 點為下一個關鍵壓力。
+    </div>
+</div>
+
+<!-- ===== 資金流向 ===== -->
+<div class="section" id="flow">
+    <h2>💰 資金流向與籌碼觀察</h2>
+
+    <table>
+        <thead>
+            <tr><th>項目</th><th>現況</th><th>解讀</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>三大法人</td><td class="up">11/11 合計買超 240.7 億元</td><td>終結連續九日賣超，法人籌碼正式由賣轉買，為本波反彈升級為波段行情的最關鍵訊號</td></tr>
+            <tr><td>外資動向</td><td class="flat">11/10 賣超 341.16 億元（連九賣）</td><td>外資能否跟進轉為買超，將決定指數上攻月線的力道</td></tr>
+            <tr><td>投信</td><td class="up">11/10 買超 368.29 億元</td><td>創次高紀錄，鎖定「投本比」高的個股，內資成為穩定盤勢主力</td></tr>
+            <tr><td>成交量</td><td class="flat">11/11 約 8,762 億元</td><td>由前一日兆元天量縮減，屬量縮價漲型態，須留意後續量能是否重新放大</td></tr>
+            <tr><td>國安基金</td><td class="up">第 10 度進場護盤</td><td>搭配金管會限空令與公股行庫買盤，提供明確下檔支撐與信心面加持</td></tr>
+            <tr><td>ETF 與期貨籌碼</td><td class="up">空單回補壓力浮現</td><td>市場討論指出投信與 ETF 正軋外資期貨空單，助長指數急漲力道</td></tr>
+            <tr><td>債市資金</td><td class="flat">殖利率高檔</td><td>CPI 高於預期壓抑降息預期，美債吸引力仍在，部分資金停泊債市</td></tr>
+            <tr><td>能源與商品</td><td class="down">油價弱勢</td><td>能源相關資金流出、通膨交易降溫，有利風險性資產評價修復</td></tr>
+        </tbody>
+    </table>
+
+    <div class="strategy">
+        <h3>📋 投資策略與操作清單</h3>
+        <ul class="checklist">
+            <li><strong>已進場者續抱並分批調節：</strong>指數三日急拉逾千點，技術面偏熱；建議對漲幅已大的 PCB、記憶體族群分批調節，鎖定 20～30% 獲利區間。</li>
+            <li><strong>未進場者等待回測再接：</strong>避免在跳空急拉的當日一次性追高，可等指數回測 10 日線或月線支撐時分批佈局核心持股。</li>
+            <li><strong>核心配置鎖定半導體龍頭：</strong>台積電 10 月營收創單月新高且調高股利，AI 先進製程長線趨勢未變，回檔區間即是長線資金佈局帶。</li>
+            <li><strong>衛星部位聚焦 AI 伺服器與散熱龍頭：</strong>緊盯機架級出貨與訂單能見度，避開族群中評價已高但營收未跟上者。</li>
+            <li><strong>嚴控記憶體族群部位：</strong>外資已提出 2028 年 DRAM 反轉報告，多空論戰升溫，「價可能到頂、量未到頂」情境下宜降低單一個股比重。</li>
+            <li><strong>追蹤法人籌碼是否連續轉買：</strong>11/11 三大法人已轉為買超，若外資連續 2～3 日跟進買超，反彈可望升級為波段行情；若再度轉賣則須提高警覺。</li>
+            <li><strong>留意貨幣政策變數：</strong>美國 10 月 CPI 高於預期，聯準會理事華勒提及 12 月升息 2 碼的可能性，須追蹤後續官員談話與數據。</li>
+            <li><strong>觀察指標：</strong>台積電 ADR 與費半走勢、外資買賣超、成交量能、10 年期美債殖利率、國際油價。</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== 事件日曆 ===== -->
+<div class="section" id="calendar">
+    <h2>📅 本週事件日曆</h2>
+    <ul class="event-list">
+        <li><span class="event-date">11/12（四）</span><div><strong>台股挑戰月線</strong>：指數連三日千點反彈並收復 10 日線後，技術面下一步挑戰月線約 45,144 點；留意電子權值股開高後的獲利了結賣壓，以及量能是否重新放大。</div></li>
+        <li><span class="event-date">11/12（四）</span><div><strong>美國經濟數據</strong>：留意初次申請失業救濟金人數等就業相關指標，數據強弱將影響市場對聯準會後續政策路徑的預期。</div></li>
+        <li><span class="event-date">本週</span><div><strong>美國通膨與零售數據</strong>：10 月 CPI 已公布並高於預期，後續生產者物價（PPI）與零售銷售數據將接棒影響降息預期。</div></li>
+        <li><span class="event-date">本週</span><div><strong>Fed 官員談話</strong>：聯準會理事華勒提到若核心月增達 0.3% 應考慮 12 月升息 2 碼，多位官員演說密集，鷹派言論恐壓抑高本益比成長股評價。</div></li>
+        <li><span class="event-date">本週</span><div><strong>美股科技巨頭財報</strong>：標普 500 約三分之一成分股公布季報，市場高度關注 AI 資本支出預測，為 AI 主線最大變數。</div></li>
+        <li><span class="event-date">持續關注</span><div><strong>中東局勢與油價</strong>：美伊衝突反覆，油價自每桶 100 美元上方回落後波動仍大，為通膨預期與股市評價的最大不確定因素。</div></li>
+        <li><span class="event-date">11 月下旬</span><div><strong>美股三巫日</strong>：衍生性商品結算日臨近，市場波動度可能放大。</div></li>
+        <li><span class="event-date">年底</span><div><strong>台股年底作帳行情</strong>：台積電營收創新高、10 月出口表現亮眼提供基本面支撐，集團作帳與投信績效行情值得追蹤。</div></li>
+    </ul>
+
+    <div class="disclaimer">
+        ⚠️ 本報告由自動化系統彙整公開市場資訊產出，數據以最近可取得之公開資料為準，部分指數與報價可能與即時行情存在時間差。內容僅供參考，不構成任何投資建議。投資人應自行評估風險，並自負投資盈虧。
+    </div>
+</div>
+
+<div class="footer">
+    財經晨報 Pro ｜ 2026 年 11 月 12 日 ｜ 由 Hermes Agent 自動產出<br>
+    <a href="../../index.html" style="color:#667eea;text-decoration:none;">← 回到歷史報告列表</a>
+</div>
+
+</div>
+</body>
+</html>
