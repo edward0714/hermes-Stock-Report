@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日財經晨報 — 2026年11月13日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:#f4f5fb; color:#2d3142; line-height:1.75;
+  }
+  .hero {
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    color:#fff; padding:44px 24px 36px; text-align:center;
+    box-shadow:0 6px 24px rgba(102,126,234,.28);
+  }
+  .hero h1 { font-size:1.9rem; letter-spacing:1px; margin-bottom:10px; }
+  .hero .date { font-size:1rem; opacity:.92; }
+  .hero .sub { font-size:.9rem; opacity:.8; margin-top:6px; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 16px 60px; }
+  .back-link {
+    display:inline-block; margin:20px 0 0; color:#667eea;
+    text-decoration:none; font-size:.9rem; font-weight:600;
+  }
+  .back-link:hover { text-decoration:underline; }
+  .tabs {
+    display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 0;
+    background:#fff; padding:10px; border-radius:14px;
+    box-shadow:0 2px 12px rgba(45,49,66,.07);
+  }
+  .tab {
+    flex:1 1 auto; min-width:120px; text-align:center; padding:11px 8px;
+    border-radius:10px; cursor:pointer; font-size:.92rem; font-weight:600;
+    color:#5a5f7a; background:#f4f5fb; transition:.2s; border:none;
+  }
+  .tab:hover { background:#e8eaf8; }
+  .tab.active {
+    background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+    box-shadow:0 4px 12px rgba(102,126,234,.35);
+  }
+  .panel { display:none; margin-top:22px; }
+  .panel.active { display:block; animation:fade .3s ease; }
+  @keyframes fade { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:none;} }
+  .card {
+    background:#fff; border-radius:16px; padding:24px 26px; margin-bottom:18px;
+    box-shadow:0 2px 14px rgba(45,49,66,.07);
+  }
+  .card h2 {
+    font-size:1.15rem; color:#4a3f8f; margin-bottom:14px;
+    padding-left:12px; border-left:4px solid #764ba2;
+  }
+  .card h3 { font-size:1rem; color:#5a4fa0; margin:18px 0 8px; }
+  .card p { margin-bottom:10px; font-size:.95rem; color:#3d4257; }
+  .card ul { margin:8px 0 8px 20px; }
+  .card li { margin-bottom:7px; font-size:.94rem; }
+  .view-card {
+    border-radius:14px; padding:18px 20px; margin-bottom:14px;
+    border-left:5px solid #ccc; background:#fafbff;
+  }
+  .view-card.bull { border-left-color:#2e9e6b; background:#f2fbf6; }
+  .view-card.bear { border-left-color:#d9534f; background:#fdf4f4; }
+  .view-card.neutral { border-left-color:#e0a800; background:#fffdf3; }
+  .view-card .tag {
+    display:inline-block; font-size:.75rem; font-weight:700; padding:3px 10px;
+    border-radius:20px; margin-bottom:8px; color:#fff;
+  }
+  .bull .tag { background:#2e9e6b; }
+  .bear .tag { background:#d9534f; }
+  .neutral .tag { background:#e0a800; }
+  .view-card h4 { font-size:1rem; margin-bottom:6px; color:#2d3142; }
+  .view-card p { font-size:.92rem; margin:0; color:#4a4f66; }
+  table { width:100%; border-collapse:collapse; margin:12px 0; font-size:.9rem; }
+  th {
+    background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+    padding:11px 10px; text-align:left; font-weight:600;
+  }
+  th:first-child { border-radius:8px 0 0 0; }
+  th:last-child { border-radius:0 8px 0 0; }
+  td { padding:10px; border-bottom:1px solid #eceef7; }
+  tr:hover td { background:#f8f9ff; }
+  .up { color:#d9534f; font-weight:700; }
+  .down { color:#2e9e6b; font-weight:700; }
+  .flat { color:#8a8fa3; font-weight:700; }
+  .kpi-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:12px; margin:14px 0;
+  }
+  .kpi {
+    background:linear-gradient(135deg,#f7f8ff,#eef0fd); border-radius:12px;
+    padding:14px; text-align:center; border:1px solid #e3e6f8;
+  }
+  .kpi .label { font-size:.78rem; color:#6b7090; margin-bottom:5px; }
+  .kpi .value { font-size:1.15rem; font-weight:700; color:#3a3f5c; }
+  .kpi .chg { font-size:.82rem; margin-top:3px; }
+  .note {
+    background:#f0f2ff; border-radius:10px; padding:12px 16px;
+    font-size:.86rem; color:#5a5f7a; margin-top:12px;
+  }
+  .cal-item {
+    display:flex; gap:14px; padding:13px 0; border-bottom:1px dashed #e3e6f8;
+  }
+  .cal-item:last-child { border-bottom:none; }
+  .cal-date {
+    flex:0 0 78px; font-weight:700; color:#764ba2; font-size:.88rem;
+  }
+  .cal-body { font-size:.92rem; }
+  .cal-body strong { color:#2d3142; }
+  .footer {
+    text-align:center; font-size:.82rem; color:#8a8fa3; padding:26px 16px 10px;
+  }
+  @media (max-width:600px){
+    .hero h1 { font-size:1.4rem; }
+    .card { padding:18px 16px; }
+    table { font-size:.82rem; }
+    th,td { padding:8px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📊 每日財經晨報 Pro</h1>
+  <div class="date">2026 年 11 月 13 日（星期五）</div>
+  <div class="sub">台股 11/12 收盤 × 美股 11/12 盤勢 × 資金流向全解析</div>
+</div>
+
+<div class="wrap">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="p1">📈 市場觀點</button>
+    <button class="tab" data-tab="p2">🌍 全球市況</button>
+    <button class="tab" data-tab="p3">🏭 台股焦點</button>
+    <button class="tab" data-tab="p4">💰 資金流向</button>
+    <button class="tab" data-tab="p5">📅 事件日曆</button>
+  </div>
+
+  <!-- ============ 市場觀點 ============ -->
+  <div class="panel active" id="p1">
+    <div class="card">
+      <h2>今日核心觀點</h2>
+      <p>台股 11/12 在連三日急彈 4,555 點後遭遇重擊，加權指數終場收 43,091.87 點，下跌 1,165.28 點、跌幅 2.63%，單日回吐前一日大半漲幅，成交金額放大至約 1.05 兆元，呈現「價跌量增」的高檔換手格局。盤面主因並非基本面轉弱，而是輝達（NVDA）執行長人事風波引發的 AI 供應鏈信心衝擊。</p>
+      <p>值得注意的是，台股與隔夜美股明顯背離——費半指數前一晚大漲 5.66%、台積電 ADR 上漲 4.25%，但台股開高後仍不敵賣壓。這代表市場擔憂的焦點已從「AI 需求」轉向「AI 龍頭治理風險」，屬於評價面與情緒面的修正，而非訂單面的鬆動。</p>
+
+      <div class="view-card bear">
+        <span class="tag">利空</span>
+        <h4>輝達執行長人事風波延燒，AI 鏈評價遭壓縮</h4>
+        <p>輝達執行長黃仁勳私人關係爭議持續發酵，市場關注其領導職位是否生變；公司端已由財務長 Colette Kress 出任臨時執行長。美系券商貝雅（Baird）同步將輝達評等降至「中立」，目標價由 500 美元大幅下修至 200 美元。輝達 11/12 股價重挫 4.63% 至 165.69 美元，創 52 週新低，直接壓抑台股 AI 供應鏈信心。</p>
+      </div>
+
+      <div class="view-card bull">
+        <span class="tag">利多</span>
+        <h4>內資強力承接，投信單日買超 123.85 億元</h4>
+        <p>三大法人合計買超 51.60 億元，其中投信逆勢大幅買超 123.85 億元，顯示內資在指數急跌時積極進場布局。外資僅微幅賣超 6.85 億元，賣壓已較前幾日明顯收斂，籌碼面並未出現全面潰散。</p>
+      </div>
+
+      <div class="view-card bull">
+        <span class="tag">利多</span>
+        <h4>玻纖布缺貨題材與 MSCI 納入，資金尋找避風港</h4>
+        <p>高階玻纖布供需吃緊，台玻（1802）盤中第四度攻上漲停價 84.3 元、創逾 36 年新高，終場收 81.7 元、上漲 6.52%；南亞（1303）公告投資 115.3 億元興建玻纖布五廠，印證 AI 伺服器帶動的實質需求。MSCI 半年度調整納入景碩（3189）、南電（8046）、台燿（6274），11 月 30 日收盤生效，被動資金題材明確。</p>
+      </div>
+
+      <div class="view-card neutral">
+        <span class="tag">中性</span>
+        <h4>技術面處於急彈後回測，10 日線為多空分水嶺</h4>
+        <p>指數自 11/6 的 39,701.64 點連三彈 4,555.51 點後，於月線約 44,881.9 點下方遇壓收長黑。收盤 43,091.87 點僅高於 10 日線約 42,939 點 153 點，守住可視為急彈後回測；若跌破並收在 43,000 點以下，須留意再測 41,500～42,000 點區間。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>投資策略與操作清單</h2>
+      <h3>策略主軸：降低槓桿、聚焦基本面、等待止穩訊號</h3>
+      <ul>
+        <li><strong>不宜搶反彈加碼槓桿</strong>：連三日急漲後收出長黑，屬短線獲利了結與籌碼換手，追價風險高。</li>
+        <li><strong>持股聚焦訂單支撐者</strong>：以受輝達事件影響較低、或具缺貨與指數納入題材的個股為優先。</li>
+        <li><strong>連續漲停題材股不追價</strong>：台玻短線漲幅已大、籌碼波動升高，宜待整理後再評估。</li>
+        <li><strong>跌破 10 日線先降部位</strong>：42,939 點為短線關鍵，失守則降低持股比重。</li>
+        <li><strong>觀察三大訊號</strong>：指數能否守 43,000 點、外資現貨賣壓是否收斂、台積電 2,340 元低點能否守穩。</li>
+      </ul>
+      <div class="note">操作提醒：本報告為市場資訊整理，不構成投資建議。指數處於事件衝擊後的高波動區，部位控管優先於選股。</div>
+    </div>
+  </div>
+
+  <!-- ============ 全球市況 ============ -->
+  <div class="panel" id="p2">
+    <div class="card">
+      <h2>美股四大指數</h2>
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="label">S&amp;P 500</div>
+          <div class="value">7,592.40</div>
+          <div class="chg down">▼ 26.98（-0.35%）</div>
+        </div>
+        <div class="kpi">
+          <div class="label">納斯達克</div>
+          <div class="value">25,496.99</div>
+          <div class="chg up">▲ 30.80（+0.12%）</div>
+        </div>
+        <div class="kpi">
+          <div class="label">道瓊工業</div>
+          <div class="value">52,486.49</div>
+          <div class="chg up">▲ 254.60（+0.49%）</div>
+        </div>
+        <div class="kpi">
+          <div class="label">費城半導體</div>
+          <div class="value">10,564.11</div>
+          <div class="chg up">▲ 565.78（+5.66%）</div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>指數</th><th>收盤</th><th>漲跌</th><th>漲跌幅</th><th>備註</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>S&amp;P 500</td><td>7,592.40</td><td class="down">-26.98</td><td class="down">-0.35%</td><td>開 7,550.84、高 7,652.76</td></tr>
+          <tr><td>納斯達克綜合</td><td>25,496.99</td><td class="up">+30.80</td><td class="up">+0.12%</td><td>科技權值分歧</td></tr>
+          <tr><td>道瓊工業</td><td>52,486.49</td><td class="up">+254.60</td><td class="up">+0.49%</td><td>傳產與金融撐盤</td></tr>
+          <tr><td>費城半導體</td><td>10,564.11</td><td class="up">+565.78</td><td class="up">+5.66%</td><td>前一日強彈</td></tr>
+          <tr><td>台積電 ADR</td><td>413.35 美元</td><td class="up">+16.87</td><td class="up">+4.25%</td><td>與現股價差擴大</td></tr>
+          <tr><td>輝達（NVDA）</td><td>165.69 美元</td><td class="down">-8.04</td><td class="down">-4.63%</td><td>創 52 週新低</td></tr>
+        </tbody>
+      </table>
+      <p>美股呈現「指數分歧、個股極端」格局：道瓊與費半走揚，但 S&amp;P 500 小跌，輝達單獨重挫並創 52 週新低（52 週區間 148.80～243.37 美元），成為壓抑科技權值的主因。市場正重新評價 AI 龍頭的治理風險溢價。</p>
+    </div>
+
+    <div class="card">
+      <h2>歐股與亞股</h2>
+      <table>
+        <thead>
+          <tr><th>市場</th><th>指數</th><th>漲跌幅</th><th>觀察</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>法國 CAC 40</td><td>8,332.87</td><td class="up">+0.66%</td><td>跟隨美股科技反彈</td></tr>
+          <tr><td>英國 FTSE 100</td><td>10,835.47</td><td class="up">+0.78%</td><td>能源與金融支撐</td></tr>
+          <tr><td>台灣加權指數</td><td>43,091.87</td><td class="down">-2.63%</td><td>亞股中最弱</td></tr>
+          <tr><td>台灣櫃買指數</td><td>335.70</td><td class="down">-2.44%</td><td>中小型股同步承壓</td></tr>
+        </tbody>
+      </table>
+      <p>亞洲方面，日、韓股市 11/12 同步走弱，顯示區域科技股風險偏好仍偏保守。台股跌幅在區域中相對偏重，主因電子權值權重高、且直接連動輝達供應鏈評價。</p>
+    </div>
+
+    <div class="card">
+      <h2>商品與匯率觀察</h2>
+      <ul>
+        <li><strong>原油</strong>：市場傳出美國與伊朗接近達成 80 億美元協議，油價一度重挫約 4.6%，通膨預期降溫。</li>
+        <li><strong>新台幣</strong>：台股急漲期間新台幣升勢乏力，收在 32.86 元附近，顯示外資匯入力道有限。</li>
+        <li><strong>美債殖利率</strong>：市場聚焦後續通膨數據，殖利率維持區間震盪，未提供股市明確方向。</li>
+        <li><strong>比特幣</strong>：在通膨數據公布前走弱，風險資產偏好同步降溫。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ 台股焦點 ============ -->
+  <div class="panel" id="p3">
+    <div class="card">
+      <h2>加權指數收盤數據</h2>
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="label">加權指數</div>
+          <div class="value">43,091.87</div>
+          <div class="chg down">▼ 1,165.28（-2.63%）</div>
+        </div>
+        <div class="kpi">
+          <div class="label">成交金額</div>
+          <div class="value">1.05 兆元</div>
+          <div class="chg flat">價跌量增</div>
+        </div>
+        <div class="kpi">
+          <div class="label">盤中振幅</div>
+          <div class="value">3.57%</div>
+          <div class="chg flat">高低差 1,581.74 點</div>
+        </div>
+        <div class="kpi">
+          <div class="label">漲跌家數</div>
+          <div class="value">277 / 730</div>
+          <div class="chg down">下跌家數明顯居多</div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>數據</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>加權指數收盤</td><td>43,091.87 點</td></tr>
+          <tr><td>漲跌點數</td><td class="down">-1,165.28 點（-2.63%）</td></tr>
+          <tr><td>開盤</td><td>44,180.46 點</td></tr>
+          <tr><td>盤中最高</td><td>44,525.24 點</td></tr>
+          <tr><td>盤中最低</td><td>42,943.50 點</td></tr>
+          <tr><td>昨收</td><td>44,257.15 點</td></tr>
+          <tr><td>成交金額</td><td>約 1.05 兆元（10,132.93 億元）</td></tr>
+          <tr><td>櫃買指數</td><td>335.70 點（-2.44%）</td></tr>
+        </tbody>
+      </table>
+      <p>指數以 44,180.46 點開低，早盤一度翻紅至 44,525.24 點，惟午盤賣壓湧現，跌破 44,000 點後持續走低，最低下探 42,943.50 點、一度失守 43,000 點整數關卡，終場收在相對低檔，日 K 收長黑。</p>
+    </div>
+
+    <div class="card">
+      <h2>權值股表現</h2>
+      <table>
+        <thead>
+          <tr><th>個股</th><th>收盤價</th><th>漲跌</th><th>備註</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>台積電（2330）</td><td>2,340 元</td><td class="down">-55 元（-2.30%）</td><td>跌幅小於電子類指數，相對抗跌</td></tr>
+          <tr><td>聯發科（2454）</td><td>3,850 元</td><td class="down">-140 元</td><td>IC 設計承壓</td></tr>
+          <tr><td>台達電（2308）</td><td>1,240 元</td><td class="down">-55 元</td><td>電源族群回檔</td></tr>
+          <tr><td>鴻海（2317）</td><td>240 元</td><td class="down">-2 元</td><td>相對有撐</td></tr>
+          <tr><td>台玻（1802）</td><td>81.7 元</td><td class="up">+6.52%</td><td>盤中漲停 84.3 元、逾 36 年新高</td></tr>
+        </tbody>
+      </table>
+      <p>電子類指數重挫 3.07%，為拖累大盤主要力量。台積電以 2,385 元開出後走低，終場跌 55 元收 2,340 元，跌幅小於電子類指數，表現相對抗跌；惟前一晚 ADR 大漲 4.25%，現股回落後與 ADR 折算價差進一步拉大。</p>
+    </div>
+
+    <div class="card">
+      <h2>類股強弱分析</h2>
+      <table>
+        <thead>
+          <tr><th>類股</th><th>漲跌幅</th><th>評析</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>水泥窯製</td><td class="up">+1.55%</td><td>內需避險資金進駐</td></tr>
+          <tr><td>食品</td><td class="up">+1.00%</td><td>防禦型族群抗跌</td></tr>
+          <tr><td>紡織</td><td class="up">+0.80%</td><td>低基期輪動</td></tr>
+          <tr><td>營建</td><td class="up">+0.60%</td><td>政策題材支撐</td></tr>
+          <tr><td>金融</td><td class="down">-0.05%</td><td>幾乎持平，發揮穩盤作用</td></tr>
+          <tr><td>電子</td><td class="down">-3.07%</td><td>AI 供應鏈賣壓重心</td></tr>
+          <tr><td>塑化</td><td class="down">-3.42%</td><td>跌幅超過電子，油價下跌拖累</td></tr>
+        </tbody>
+      </table>
+      <h3>強勢族群</h3>
+      <ul>
+        <li><strong>低軌衛星</strong>：敬鵬（2355）、百一（6152）、大眾控（3701）、攸泰科技（6928）四檔收盤鎖漲停，受衛星通訊需求與 SpaceX 相關題材帶動。其中攸泰科技 10 月衛星通訊應用營收月增 426%、年增 346%，具基本面支撐。</li>
+        <li><strong>玻纖布</strong>：台玻（1802）受惠 AI 伺服器帶動高階玻纖布需求、供需偏緊與報價支撐，大盤重挫下仍維持強勢。</li>
+      </ul>
+      <h3>弱勢族群</h3>
+      <ul>
+        <li><strong>散熱</strong>：雙鴻（3324）、健策（3653）跌停，奇鋐（3017）同步回檔，反映前一日急漲後的短線獲利了結。</li>
+        <li><strong>PCB／CCL</strong>：台光電（2383）、台燿（6274）、聯茂（6213）同步承壓，主因前波 AI 高階材料題材漲幅已大、評價偏高，大盤急跌時成為資金優先調節對象。</li>
+      </ul>
+      <div class="note">整體仍偏向高檔籌碼修正，尚非基本面明顯轉弱。電子權值與多數中小型股承受賣壓，少數傳產及材料股走強，尚不足以扭轉整體弱勢格局。</div>
+    </div>
+
+    <div class="card">
+      <h2>技術面研判</h2>
+      <ul>
+        <li><strong>上檔壓力</strong>：依序為 44,257.15 點（前一日收盤）、44,525.24 點（今日高點）、月線約 44,881.9 點。</li>
+        <li><strong>下檔支撐</strong>：10 日線約 42,939 點、43,000 點整數關、今日低點 42,943.50 點。</li>
+        <li><strong>關鍵訊號</strong>：成交金額逾 1 兆元但指數下跌逾千點，顯示高檔換手與賣壓同步增加，短線先以區間震盪看待。</li>
+        <li><strong>延伸風險</strong>：若跌破 10 日線並收在 43,000 點以下，須留意再測 41,500～42,000 點區間。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ 資金流向 ============ -->
+  <div class="panel" id="p4">
+    <div class="card">
+      <h2>三大法人買賣超</h2>
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="label">三大法人合計</div>
+          <div class="value">買超 51.60 億</div>
+          <div class="chg up">內資主導</div>
+        </div>
+        <div class="kpi">
+          <div class="label">外資及陸資</div>
+          <div class="value">賣超 6.85 億</div>
+          <div class="chg down">連 11 日賣超</div>
+        </div>
+        <div class="kpi">
+          <div class="label">投信</div>
+          <div class="value">買超 123.85 億</div>
+          <div class="chg up">逆勢大幅承接</div>
+        </div>
+        <div class="kpi">
+          <div class="label">自營商</div>
+          <div class="value">賣超 65.41 億</div>
+          <div class="chg down">避險調節</div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>法人</th><th>買賣超（億元）</th><th>動向解讀</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>外資及陸資</td><td class="down">-6.85</td><td>賣壓明顯收斂，但已連續 11 個交易日賣超</td></tr>
+          <tr><td>投信</td><td class="up">+123.85</td><td>逆勢大幅買超，扮演主要承接力量</td></tr>
+          <tr><td>自營商</td><td class="down">-65.41</td><td>避險部位調節</td></tr>
+          <tr><td><strong>合計</strong></td><td class="up"><strong>+51.60</strong></td><td>內資買盤勝出，籌碼未全面潰散</td></tr>
+        </tbody>
+      </table>
+      <p>籌碼面呈現「外資縮手、投信接手」的結構。外資截至 11/12 已連續 11 個交易日賣超，顯示調節壓力尚未完全解除，但單日賣超僅 6.85 億元，力道已較前幾日大幅減弱。內資買盤雖持續承接，惟電子權值股賣壓仍主導大盤走勢，短線尚待外資賣壓收斂與電子股止穩，才能確認反彈是否有延續空間。</p>
+    </div>
+
+    <div class="card">
+      <h2>資金輪動路徑</h2>
+      <ul>
+        <li><strong>流出</strong>：AI 硬體供應鏈（散熱、PCB／CCL、IC 設計）為主要提款區，高價指標股成為資金調節重心。</li>
+        <li><strong>流入</strong>：低軌衛星、玻纖布等具缺貨與實質出貨題材的族群，以及水泥、食品、紡織、營建等內需防禦類股。</li>
+        <li><strong>潛在流入</strong>：MSCI 半年度調整納入的景碩（3189）、南電（8046）、台燿（6274），11 月 30 日收盤生效前有被動資金布局需求。</li>
+        <li><strong>潛在流出</strong>：遭剔除的中租-KY（5871）、嘉澤（3533）、元太（8069）、萬海（2615），須留意被動資金調整賣壓。</li>
+      </ul>
+      <div class="note">MSCI 相關個股多已提前反映利多，操作宜分批、不追高；遭剔除個股則可能提前承受調節壓力。</div>
+    </div>
+
+    <div class="card">
+      <h2>台指期與夜盤觀察</h2>
+      <ul>
+        <li>台指期收 43,178 點，下跌 958 點，與現貨維持小幅正價差。</li>
+        <li>夜盤關鍵在輝達能否消化跌勢，以及董事會對執行長去留的後續動向。</li>
+        <li>若輝達跌勢擴大並拖累半導體族群，夜盤恐先測試 43,000 點，失守則留意現貨低點 42,943 點附近支撐。</li>
+        <li>反之，若美股科技權值股止穩、台積電 ADR 維持強勢，夜盤有機會出現技術性反彈，觀察能否重新站回 43,500 點。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ 事件日曆 ============ -->
+  <div class="panel" id="p5">
+    <div class="card">
+      <h2>本週與下週關鍵事件</h2>
+      <div class="cal-item">
+        <div class="cal-date">11/13（五）</div>
+        <div class="cal-body"><strong>台股開盤觀察三大訊號</strong>：指數能否守住 10 日線 42,939 點與 43,000 點整數關；外資現貨賣壓是否延續、台指期淨空單能否收斂；台積電 2,340 元低點能否守穩，若失守再看 2,300 元附近承接力道。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">11/13（五）</div>
+        <div class="cal-body"><strong>美國通膨數據</strong>：市場高度關注，將牽動聯準會後續政策路徑與美債殖利率走向，為本週最大總經變數。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">持續關注</div>
+        <div class="cal-body"><strong>輝達執行長人事案</strong>：董事會對黃仁勳去留的後續決議，以及臨時執行長 Colette Kress 的經營方向說明，為 AI 供應鏈評價修復的關鍵。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">11/30（一）</div>
+        <div class="cal-body"><strong>MSCI 半年度調整生效</strong>：納入景碩（3189）、南電（8046）、台燿（6274）；剔除中租-KY（5871）、嘉澤（3533）、元太（8069）、萬海（2615）。於 11 月 30 日收盤生效，相關個股可能提前反映被動資金調整預期。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">12 月上旬</div>
+        <div class="cal-body"><strong>11 月營收公布</strong>：AI 伺服器、玻纖布、低軌衛星等族群之營收動能，將是驗證題材真偽的關鍵時點。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>今日操作檢核表</h2>
+      <ul>
+        <li>☑ 檢視持股中 AI 硬體供應鏈比重，必要時降至可承受水位</li>
+        <li>☑ 確認 10 日線 42,939 點是否守住，作為部位調整依據</li>
+        <li>☑ 追蹤外資現貨買賣超與台指期淨空單變化</li>
+        <li>☑ 玻纖布、低軌衛星等強勢族群不追高，待整理後再評估</li>
+        <li>☑ MSCI 納入個股採分批布局，避免單日重壓</li>
+        <li>☑ 避免使用槓桿搶反彈，保留現金彈性</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    每日財經晨報 Pro ｜ 2026 年 11 月 13 日<br>
+    資料來源：臺灣證券交易所、櫃檯買賣中心、公開市場資訊<br>
+    本報告僅供參考，不構成任何投資建議
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
