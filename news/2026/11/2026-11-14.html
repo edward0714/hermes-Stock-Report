@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>財經晨報 Pro — 2026-11-14</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;background:#f4f5fb;color:#2d3142;line-height:1.7}
+  .hero{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:44px 20px 34px;text-align:center}
+  .hero h1{font-size:2rem;letter-spacing:1px;margin-bottom:8px}
+  .hero .sub{font-size:.95rem;opacity:.9}
+  .hero .date-badge{display:inline-block;margin-top:14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:6px 18px;border-radius:20px;font-size:.9rem}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px 60px}
+  .back-link{display:inline-block;margin:18px 0 0;color:#667eea;text-decoration:none;font-size:.9rem;font-weight:600}
+  .back-link:hover{text-decoration:underline}
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;justify-content:center}
+  .tab{background:#fff;border:1px solid #e3e5f0;color:#5b6178;padding:10px 18px;border-radius:24px;cursor:pointer;font-size:.92rem;font-weight:600;transition:.2s}
+  .tab:hover{border-color:#667eea;color:#667eea}
+  .tab.active{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-color:transparent;box-shadow:0 6px 16px rgba(102,126,234,.32)}
+  .panel{display:none;margin-top:26px}
+  .panel.active{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .card{background:#fff;border-radius:16px;padding:24px;margin-bottom:18px;box-shadow:0 4px 18px rgba(80,90,150,.07)}
+  .card h2{font-size:1.18rem;color:#4a3f8f;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #eef0fa}
+  .card h3{font-size:1.02rem;color:#5a52a3;margin:16px 0 8px}
+  .card p{font-size:.95rem;color:#414659;margin-bottom:10px}
+  .card ul{margin:8px 0 10px 20px}
+  .card li{font-size:.94rem;color:#414659;margin-bottom:6px}
+  .opinion{display:flex;gap:14px;align-items:flex-start;border-radius:12px;padding:16px 18px;margin-bottom:14px;border-left:5px solid}
+  .opinion.bull{background:#eefaf3;border-color:#2fb37a}
+  .opinion.bear{background:#fdeef0;border-color:#e0525f}
+  .opinion.neutral{background:#fff8e9;border-color:#e0a02f}
+  .tag{flex-shrink:0;font-size:.78rem;font-weight:700;color:#fff;padding:4px 10px;border-radius:12px;margin-top:2px}
+  .bull .tag{background:#2fb37a}
+  .bear .tag{background:#e0525f}
+  .neutral .tag{background:#e0a02f}
+  .opinion .txt{font-size:.93rem;color:#3a4055}
+  .opinion .txt strong{display:block;margin-bottom:4px;font-size:.98rem;color:#262a3b}
+  table{width:100%;border-collapse:collapse;font-size:.92rem}
+  th{background:#f0f2fd;color:#4a3f8f;text-align:left;padding:11px 12px;font-weight:700}
+  td{padding:11px 12px;border-bottom:1px solid #f0f1f7;color:#414659}
+  tr:hover td{background:#fafbff}
+  .up{color:#d93a4a;font-weight:700}
+  .down{color:#1a9c6c;font-weight:700}
+  .num{font-variant-numeric:tabular-nums}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .mini{background:#f8f9fe;border:1px solid #e8eaf6;border-radius:12px;padding:16px}
+  .mini .lbl{font-size:.8rem;color:#7a8098;margin-bottom:6px}
+  .mini .val{font-size:1.32rem;font-weight:700;color:#3a3f5c;font-variant-numeric:tabular-nums}
+  .mini .chg{font-size:.86rem;font-weight:600;margin-top:4px}
+  .event{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed #e6e8f2}
+  .event:last-child{border-bottom:none}
+  .event .d{flex-shrink:0;width:86px;font-weight:700;color:#667eea;font-size:.9rem}
+  .event .e{font-size:.93rem;color:#414659}
+  .note{font-size:.82rem;color:#8890a8;margin-top:10px}
+  @media (max-width:720px){.grid2{grid-template-columns:1fr}.hero h1{font-size:1.5rem}.card{padding:18px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📊 財經晨報 Pro</h1>
+  <div class="sub">全球市場・台股焦點・資金流向 一次掌握</div>
+  <div class="date-badge">2026 年 11 月 14 日（星期六）</div>
+</div>
+
+<div class="wrap">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="p1">📈 市場觀點</div>
+    <div class="tab" data-tab="p2">🌍 全球市況</div>
+    <div class="tab" data-tab="p3">🏭 台股焦點</div>
+    <div class="tab" data-tab="p4">💰 資金流向</div>
+    <div class="tab" data-tab="p5">📅 事件日曆</div>
+  </div>
+
+  <!-- 市場觀點 -->
+  <div class="panel active" id="p1">
+    <div class="card">
+      <h2>今日觀點總覽</h2>
+      <p>本週市場的主軸只有一句話：<strong>AI 領袖人事震盪 ＋ 利率重回高檔</strong>。輝達執行長黃仁勳請辭的消息在 11 月 12 日美東盤中引爆，13 日輝達再跌 2.01%，寫下連續第六週下跌、14 年來最長連跌紀錄；費城半導體指數單日重挫 3.43%，成為壓垮科技股的主因。與此同時，10 年期美債殖利率重返 5% 上方、美元指數站上近 19 個月新高，資金成本上升對高評價成長股形成第二重壓力。</p>
+      <p>但台股走出了自己的路。加權指數 11 月 13 日開高走高，盤中一度大漲近 1,400 點、最高觸及 44,489 點，終場上漲 583.25 點、漲幅 1.35%，收在 43,675.12 點，在連續震盪後完成一次具份量的反彈。支撐來自 AI 題材與鴻海獲利表現，顯示本地資金對 AI 供應鏈的基本面仍具信心。</p>
+
+      <div class="opinion bear">
+        <span class="tag">利空</span>
+        <div class="txt"><strong>輝達執行長辭任，AI 供應鏈評價面臨重估</strong>黃仁勳請辭後市場對輝達接班布局產生疑慮，外媒報導輝達已接觸安謀（Arm）執行長哈斯，人事未定前不確定性將持續壓抑 AI 族群本益比。輝達股價收 162.85 美元、連六週走弱，短線難言落底。</div>
+      </div>
+
+      <div class="opinion bear">
+        <span class="tag">利空</span>
+        <div class="txt"><strong>美債殖利率與美元雙雙走高，資金環境轉緊</strong>10 年期美債殖利率收 5.068%（+8 個基點）、2 年期大漲 11 個基點至 4.835%，美元指數升至 103.18 的近 19 個月高位。聯準會多位官員釋出鷹派訊號，市場對 12 月升息預期升溫，無息資產與高評價股同步承壓，現貨黃金單日重挫 2.76% 跌破 3,900 美元，即為最直接反應。</div>
+      </div>
+
+      <div class="opinion bull">
+        <span class="tag">利多</span>
+        <div class="txt"><strong>台股逆勢強彈，AI 基本面提供實質支撐</strong>在美股偏弱背景下，台股 11 月 13 日仍上漲 1.35%，盤中氣勢一度大漲近 1,400 點。AI 伺服器與先進封裝需求未因人事件而改變，加上鴻海獲利表現支撐，顯示本土資金傾向「買基本面、不看消息面」。</div>
+      </div>
+
+      <div class="opinion neutral">
+        <span class="tag">中性</span>
+        <div class="txt"><strong>中東風險溢價推升油價，成本與題材兩面刃</strong>伊朗稱兩艘油輪觸雷、葉門胡塞武裝宣稱襲擊沙烏地東西向輸油管道泵站，WTI 原油單日上漲 3% 收 87.82 美元、布蘭特上漲 3.26% 收 94.51 美元。對塑化、航運、能源類股是短多，但對通膨預期與航空、貨運成本則是壓力，須留意油價是否站穩 90 美元之上。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>本週操作基調</h2>
+      <ul>
+        <li><strong>降低單一事件曝險：</strong>AI 領袖人事未明朗前，避免重壓單一個股，改以先進封裝、電源與散熱等「非決策層」供應鏈分散布局。</li>
+        <li><strong>尊重利率事實：</strong>美債殖利率 5% 上方且美元創高，外資回流新興市場的誘因下降，指數上檔空間須以量能配合為前提。</li>
+        <li><strong>留意黃金與貴金屬族群波動：</strong>金價跌破 3,900 美元創逾一年低，白銀同步下跌 3.14%，相關個股短線不宜承接。</li>
+      </ul>
+      <p class="note">本報告為市場資訊整理與觀點分享，不構成任何投資建議。投資有風險，決策請自行評估。</p>
+    </div>
+  </div>
+
+  <!-- 全球市況 -->
+  <div class="panel" id="p2">
+    <div class="card">
+      <h2>美股收盤（11 月 13 日）</h2>
+      <div class="grid2">
+        <div class="mini"><div class="lbl">道瓊工業指數</div><div class="val">52,322.80</div><div class="chg up">+0.10%</div></div>
+        <div class="mini"><div class="lbl">標普 500 指數</div><div class="val">7,599.30</div><div class="chg down">−0.40%</div></div>
+        <div class="mini"><div class="lbl">納斯達克指數</div><div class="val">23,630.00</div><div class="chg down">−0.91%（跌 229 點）</div></div>
+        <div class="mini"><div class="lbl">費城半導體指數</div><div class="val">10,146.32</div><div class="chg down">−3.43%（跌 360.35 點）</div></div>
+      </div>
+      <h3>個股與 ADR 焦點</h3>
+      <table>
+        <tr><th>標的</th><th>收盤價</th><th>漲跌</th><th>備註</th></tr>
+        <tr><td>輝達（NVDA）</td><td class="num">162.85 美元</td><td class="down">−2.01%</td><td>連續第六週下跌，14 年來最長連跌</td></tr>
+        <tr><td>台積電 ADR（TSM）</td><td class="num">—</td><td class="down">−1.69%</td><td>受費半重挫拖累</td></tr>
+      </table>
+      <p>盤面結構呈現「道瓊撐住、科技失血」的分歧格局：資金自高評價科技股流向傳產與防禦型標的。市場同時評估黃仁勳辭任帶來的治理變數，以及中東衝突前景對能源價格的推升效應。</p>
+    </div>
+
+    <div class="card">
+      <h2>歐亞股市</h2>
+      <table>
+        <tr><th>指數</th><th>收盤</th><th>漲跌</th></tr>
+        <tr><td>德國 DAX</td><td class="num">—</td><td class="up">+0.41%</td></tr>
+        <tr><td>英國富時 100</td><td class="num">—</td><td class="up">+0.25%</td></tr>
+        <tr><td>歐洲斯托克 50</td><td class="num">—</td><td class="up">+0.09%</td></tr>
+        <tr><td>香港恒生指數</td><td class="num">24,008.55</td><td class="down">−1.26%</td></tr>
+        <tr><td>恒生科技指數</td><td class="num">3,931.93</td><td class="down">−2.36%</td></tr>
+        <tr><td>上海綜合指數</td><td class="num">—</td><td class="down">−0.67%</td></tr>
+        <tr><td>深圳成指</td><td class="num">—</td><td class="down">−1.68%</td></tr>
+        <tr><td>創業板指</td><td class="num">—</td><td class="down">−2.44%</td></tr>
+        <tr><td>科創 50</td><td class="num">—</td><td class="up">+0.73%</td></tr>
+      </table>
+      <p>歐股在利率走高環境下仍多數收漲，屬相對抗跌；港股與陸股則受科技權值與貴金屬板塊拖累走弱，恒指大市成交額約 2,026 億港元。陸股半導體板块逆勢走高，與美股費半重挫形成對比。</p>
+    </div>
+
+    <div class="card">
+      <h2>債市・匯市・商品</h2>
+      <table>
+        <tr><th>項目</th><th>最新</th><th>變動</th><th>觀察重點</th></tr>
+        <tr><td>美元指數</td><td class="num">103.18</td><td class="up">+0.26%</td><td>近 19 個月高位</td></tr>
+        <tr><td>10 年期美債殖利率</td><td class="num">5.068%</td><td class="up">+8 bp</td><td>重返 5% 上方</td></tr>
+        <tr><td>2 年期美債殖利率</td><td class="num">4.835%</td><td class="up">+11 bp</td><td>對政策利率最敏感</td></tr>
+        <tr><td>現貨黃金</td><td class="num">3,877.66 美元/盎司</td><td class="down">−2.76%</td><td>跌破 3,900，逾一年新低，連三跌</td></tr>
+        <tr><td>現貨白銀</td><td class="num">50.07 美元/盎司</td><td class="down">−3.14%</td><td>同步走弱</td></tr>
+        <tr><td>WTI 原油</td><td class="num">87.82 美元/桶</td><td class="up">+3.00%</td><td>地緣風險溢價推升</td></tr>
+        <tr><td>布蘭特原油</td><td class="num">94.51 美元/桶</td><td class="up">+3.26%</td><td>盤中曾突破 96 美元</td></tr>
+      </table>
+      <p>黃金下跌的主因明確：美元走強、殖利率攀升，加上市場預期利率將維持高檔，持有無息資產的機會成本明顯上升。原油則由供給面突發事件驅動——伊朗稱兩艘油輪觸雷、胡塞武裝宣稱襲擊沙烏地輸油管道泵站，屬典型的地緣風險溢價，留意消息面消退後的回落風險。</p>
+    </div>
+  </div>
+
+  <!-- 台股焦點 -->
+  <div class="panel" id="p3">
+    <div class="card">
+      <h2>加權指數（11 月 13 日）</h2>
+      <div class="grid2">
+        <div class="mini"><div class="lbl">收盤點位</div><div class="val">43,675.12</div><div class="chg up">+583.25 點（+1.35%）</div></div>
+        <div class="mini"><div class="lbl">盤中最高</div><div class="val">44,489</div><div class="chg up">盤中一度大漲近 1,400 點</div></div>
+      </div>
+      <p>台股在連續震盪後迎來反彈，開高走高、氣勢強勁，但尾盤漲幅收斂，留下約 800 點的上影線，顯示高檔仍有賣壓。以 11 月 12 日收盤 43,091.87 點計算，本波反彈已收復先前部分跌幅。</p>
+      <p>值得留意的是，本波攻勢並非全面性，而是由 AI 題材與鴻海獲利表現主導，屬於「選股不選市」的結構性行情。11 月 11 日台股曾爆出約 1.03 兆元的兆元天量、投信單日買超 368 億元創次高，顯示本土資金動能充沛，但也意味短線籌碼趨於凌亂。</p>
+    </div>
+
+    <div class="card">
+      <h2>產業分析</h2>
+      <h3>半導體與 AI 伺服器</h3>
+      <p>這是本週唯一需要「分層看待」的族群。輝達執行長辭任直接衝擊決策層信心，台積電 ADR 下跌 1.69%、費半重挫 3.43%，短線評價面壓力明確；但 AI 伺服器、先進封裝、電源與散熱的訂單能見度並未改變。操作上宜避開與「輝達人事」高度連動的題材股，轉向受惠 AI 資本支出實質出貨的供應鏈。</p>
+      <h3>電子權值與組裝</h3>
+      <p>鴻海獲利表現成為本波台股反彈的重要支撐，組裝與伺服器代工族群的評價相對美股科技股穩定，反映市場對「獲利落地」的偏好高於「本夢比」。</p>
+      <h3>塑化・航運・能源</h3>
+      <p>油價單日大漲 3% 以上，對塑化原料報價與航運燃油成本形成雙向影響：上游塑化具備報價支撐題材，航空與貨櫃則面臨成本上升壓力。若布蘭特站穩 95 美元之上，相關族群的題材性會進一步發酵。</p>
+      <h3>黃金與貴金屬概念股</h3>
+      <p>金價跌破 3,900 美元、創逾一年新低，白銀同步下跌 3.14%，黃金概念股短線承受評價與題材雙重打擊，不宜在此時進場承接。</p>
+      <h3>金融股</h3>
+      <p>美債殖利率重返 5%，對壽險為主的金控在資產評價上屬中性偏多（新錢收益率提升），但債券部位未實現損失的疑慮仍在，屬區間操作標的。</p>
+    </div>
+
+    <div class="card">
+      <h2>投資策略與操作清單</h2>
+      <ul>
+        <li><strong>指數策略：</strong>43,000 點為本波多方防守線，44,489 點為短期壓力。未帶量突破前，採區間來回、分批布局，不追高。</li>
+        <li><strong>選股主軸：</strong>AI 資本支出實際受惠者（先進封裝、散熱、電源）優先於題材股；避開與輝達決策層直接連動的標的。</li>
+        <li><strong>停損紀律：</strong>科技股若跌破月線且量能萎縮，先行減碼，等輝達人事案明朗再談加碼。</li>
+        <li><strong>留意匯率：</strong>美元指數創近 19 個月新高，新台幣偏弱有利出口但不利外資匯入，外資動向須每日追蹤。</li>
+        <li><strong>降波動配置：</strong>可在投資組合中保留部分現金或短天期債券，因應 12 月利率決策前的震盪。</li>
+      </ul>
+      <p class="note">以上為策略情境推演，非個股推薦，投資決策請自行評估風險。</p>
+    </div>
+  </div>
+
+  <!-- 資金流向 -->
+  <div class="panel" id="p4">
+    <div class="card">
+      <h2>資金動能觀察</h2>
+      <table>
+        <tr><th>觀察項目</th><th>最新狀態</th><th>解讀</th></tr>
+        <tr><td>台股成交動能</td><td>11/11 曾爆約 1.03 兆元天量</td><td>本土資金充沛但籌碼偏亂，量能須持續才能支撐指數</td></tr>
+        <tr><td>投信動向</td><td>11/11 單日買超 368 億元（次高）</td><td>投信持續作多，鎖定營收創高股</td></tr>
+        <tr><td>外資態度</td><td>受美元創高與殖利率上行影響，匯入誘因下降</td><td>外資偏向觀望，權值股上檔空間受抑</td></tr>
+        <tr><td>美股資金</td><td>道瓊收紅、那指與費半下跌</td><td>由科技股轉向傳產與防禦型類股</td></tr>
+        <tr><td>避險資產</td><td>黃金 −2.76%、白銀 −3.14%</td><td>避險需求讓位於「利率更高更久」的定價邏輯</td></tr>
+        <tr><td>能源資金</td><td>WTI +3.00%、布蘭特 +3.26%</td><td>地緣事件驅動的短線資金流入</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>資金流向結論</h2>
+      <p>當前資金邏輯可歸納為三句話：<strong>利率決定評價、事件決定波動、基本面決定選股</strong>。</p>
+      <ul>
+        <li>美債殖利率 5% 上方 ＋ 美元 103 附近，代表全球資金成本偏緊，新興市場被動式資金流入的力道會減弱，台股要靠內資與基本面撐盤。</li>
+        <li>11 月 11 日的兆元天量與投信 368 億元買超，是本地資金實力的證據；但天量往往伴隨短線籌碼鬆動，需要至少 3 至 5 個交易日的量縮整理來消化。</li>
+        <li>黃金創逾一年新低是最明確的訊號——市場正在為「12 月不降反升」的利率情境定價，這個預期一旦在 12 月會議前鬆動，金價與成長股才會有像樣的反彈。</li>
+      </ul>
+      <p class="note">本段為資金面推論，數據來源為公開市場報導，實際法人買賣超請以交易所公告為準。</p>
+    </div>
+  </div>
+
+  <!-- 事件日曆 -->
+  <div class="panel" id="p5">
+    <div class="card">
+      <h2>未來一週關鍵事件</h2>
+      <div class="event"><div class="d">11/16（一）</div><div class="e">中國 10 月工業生產、零售銷售與固定資產投資數據公布；市場關注內需修復力道對陸股的支撐。</div></div>
+      <div class="event"><div class="d">11/17（二）</div><div class="e">美國 10 月零售銷售數據；在殖利率 5% 的環境下，消費數據若偏強將強化 12 月升息預期。</div></div>
+      <div class="event"><div class="d">11/18（三）</div><div class="e">美國 10 月 CPI 公布——本週最重要事件。核心 CPI 若黏著，10 年期殖利率可能續往 5.2% 推進，科技股評價壓力加大。</div></div>
+      <div class="event"><div class="d">11/19（四）</div><div class="e">聯準會公布前次會議紀要；留意官員對「利率更高更久」的措辭強度。美股財報：沃爾瑪公布季度業績，為消費風向球。</div></div>
+      <div class="event"><div class="d">11/20（五）</div><div class="e">台股 10 月營收全數公布完畢，營收創高股為投信加碼主軸；同時留意 MSCI 半年度調整生效前的資金挪移。</div></div>
+      <div class="event"><div class="d">11/21（六）</div><div class="e">輝達人事案後續發展、中東局勢（荷姆茲海峽航運安全）為週末最大變數，留意油價開盤跳空風險。</div></div>
+    </div>
+
+    <div class="card">
+      <h2>本週須盯的三件事</h2>
+      <ul>
+        <li><strong>11/18 美國 CPI：</strong>直接決定 12 月利率路徑，也是金價能否止跌的關鍵。若核心 CPI 低於預期，黃金與科技股同步反彈的機率大幅提高。</li>
+        <li><strong>輝達接班布局：</strong>是否確認由安謀執行長哈斯接任，將決定 AI 族群的折價是否收斂。人事底定前，費半弱勢格局難改。</li>
+        <li><strong>台股量能：</strong>反彈要能延續，成交量須維持在兆元附近且不出現爆量長黑；若量縮至 6,000 億元以下，指數將回到區間整理。</li>
+      </ul>
+      <p class="note">事件日期依公開資訊整理，實際公布時間以各機構公告為準。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+      t.classList.add('active');
+      document.getElementById(t.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
