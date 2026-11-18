@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 每日財經晨報 — 2026年11月18日</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+    background: #f5f4fb; color: #2d2a45; line-height: 1.7;
+  }
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; padding: 38px 20px 30px; text-align: center;
+    box-shadow: 0 6px 24px rgba(102,126,234,.28);
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 1.85rem; letter-spacing: .5px; }
+  .hero .date { font-size: 1rem; opacity: .92; }
+  .hero .tagline { margin-top: 12px; font-size: .92rem; opacity: .85; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px 60px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: -22px 0 26px; }
+  .tab-btn {
+    border: none; cursor: pointer; padding: 11px 18px; border-radius: 22px;
+    background: #fff; color: #5a4c9c; font-size: .95rem; font-weight: 700;
+    box-shadow: 0 3px 10px rgba(90,76,156,.16); transition: .18s;
+  }
+  .tab-btn:hover { transform: translateY(-2px); }
+  .tab-btn.active { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; }
+  .panel { display: none; animation: fade .25s ease; }
+  .panel.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: none;} }
+  .card {
+    background: #fff; border-radius: 16px; padding: 22px 24px; margin-bottom: 20px;
+    box-shadow: 0 4px 18px rgba(102,126,234,.10); border-left: 5px solid #764ba2;
+  }
+  .card h2 { margin: 0 0 14px; font-size: 1.18rem; color: #4b3f86; }
+  .card h3 { margin: 18px 0 8px; font-size: 1.02rem; color: #5a4c9c; }
+  .card p { margin: 8px 0; }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { margin: 6px 0; }
+  .bull { border-left-color: #22a06b; }
+  .bear { border-left-color: #e0483e; }
+  .neutral { border-left-color: #f0a020; }
+  .badge { display: inline-block; font-size: .78rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-right: 8px; vertical-align: middle; }
+  .badge.bull { background: #e3f7ee; color: #14724a; }
+  .badge.bear { background: #fdeaea; color: #ad2b23; }
+  .badge.neutral { background: #fef4e0; color: #9a6a06; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: .93rem; }
+  th, td { padding: 9px 10px; border-bottom: 1px solid #ecebf5; text-align: left; }
+  th { background: #f2f0fb; color: #4b3f86; font-weight: 700; white-space: nowrap; }
+  tr:hover td { background: #faf9ff; }
+  .up { color: #d93a30; font-weight: 700; }
+  .down { color: #17915f; font-weight: 700; }
+  .flat { color: #777; }
+  .note { font-size: .82rem; color: #8a86a3; margin-top: 8px; }
+  .back-link {
+    display: inline-block; margin: 26px auto 0; padding: 10px 20px; border-radius: 20px;
+    background: #fff; color: #5a4c9c; text-decoration: none; font-weight: 700;
+    box-shadow: 0 3px 10px rgba(90,76,156,.16);
+  }
+  .back-link:hover { background: #f2f0fb; }
+  .center { text-align: center; }
+  .hl { background: linear-gradient(transparent 62%, #ffe9a8 62%); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📊 每日財經晨報 Pro</h1>
+  <div class="date">2026 年 11 月 18 日（星期三）｜台指期結算日</div>
+  <div class="tagline">輝達財報報喜 × 台股兩日重挫 3,583 點｜守穩四萬點後的關鍵一戰</div>
+</div>
+
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab(0,this)">📈 市場觀點</button>
+    <button class="tab-btn" onclick="showTab(1,this)">🌍 全球市況</button>
+    <button class="tab-btn" onclick="showTab(2,this)">🏭 台股焦點</button>
+    <button class="tab-btn" onclick="showTab(3,this)">💰 資金流向</button>
+    <button class="tab-btn" onclick="showTab(4,this)">📅 事件日曆</button>
+  </div>
+
+  <!-- 1. 市場觀點 -->
+  <div class="panel active">
+    <div class="card">
+      <h2>🎯 今日核心觀點</h2>
+      <p>台股連續兩個交易日遭逢核彈級賣壓，加權指數自 11 月 13 日收盤 43,675.12 點一路下殺至 11 月 17 日收盤 40,092.11 點，<span class="hl">兩個交易日合計重挫 3,583 點、跌幅達 8.2%</span>，週二盤中更一度摜殺至 39,786.45 點、跌破四萬點整數關卡，終場驚險守住 40,092.11 點。</p>
+      <p>市場賣壓的核心來源有三：<strong>輝達（NVIDIA）換帥風暴、AI 估值泡沫論、以及聯準會 12 月降息機率下滑</strong>。然而台灣時間 11 月 18 日清晨，輝達交出黃仁勳下台後的首份財報，<span class="hl">營收翻倍、展望上修，盤後股價強彈 2%～4%</span>，為今日台股提供了關鍵的情緒修復契機。</p>
+    </div>
+
+    <div class="card bull">
+      <h2>✅ 利多觀點</h2>
+      <p><span class="badge bull">利多</span><strong>輝達財報遠優於預期</strong></p>
+      <ul>
+        <li>黃仁勳辭任執行長後的首份財報出爐，營收較去年同期翻倍成長，第四季財測同步上修，盤後股價強彈 2%～4%。</li>
+        <li>代理執行長克雷斯（Kress）表示：「我們現在希望專注於拓展業務」，宣示營運回歸基本面。</li>
+        <li>AI 資本支出主軸未變，台灣供應鏈（台積電、鴻海、廣達、散熱與電源族群）仍是最大受惠者。</li>
+      </ul>
+      <p><span class="badge bull">利多</span><strong>政策與資金面仍有支撐</strong></p>
+      <ul>
+        <li>美國商務部預計一週內公布「AI 國家隊」名單，輝達等 20 多家企業入列，業界分析台廠將是最佳夥伴。</li>
+        <li>國安基金已進場護盤，週二盤中急拉近 500 點即是政策性買盤的具體展現。</li>
+        <li>聯準會理事華勒（Waller）公開表態支持 12 月再度降息，理由是對勞動市場與招聘急遽放緩感到擔憂。</li>
+      </ul>
+    </div>
+
+    <div class="card bear">
+      <h2>⚠️ 利空觀點</h2>
+      <p><span class="badge bear">利空</span><strong>技術面全面轉弱</strong></p>
+      <ul>
+        <li>加權指數連續失守 5 日線與季線，KD、RSI 同步向下，MACD 綠柱體明顯放大，賣壓尚未完全釋放。</li>
+        <li>週二單日高低震盪達 1,747.39 點，投機性資金退潮明顯；股王信驊一度跌停、跌破萬元，高價股遭血洗。</li>
+        <li>外資台指期淨空單部位仍高達 9 萬口以上，籌碼面壓力揮之不去。</li>
+      </ul>
+      <p><span class="badge bear">利空</span><strong>評價面與總體風險未除</strong></p>
+      <ul>
+        <li>美國 10 月 PPI 年增率仍達 6.5%，生產端通膨壓力偏高，壓抑市場對寬鬆的期待。</li>
+        <li>知名投資人 Michael Burry 提出 AI 資料中心折舊低估的質疑，加上 Anthropic 掛牌在即，市場正重新檢視 AI 融資與成長前景。</li>
+        <li>美國商務部收緊中國企業透過第三國遠端使用先進 AI 晶片的管道，半導體出口管制風險升溫。</li>
+      </ul>
+    </div>
+
+    <div class="card neutral">
+      <h2>➖ 中性觀察</h2>
+      <ul>
+        <li><strong>台指期結算日</strong>：今日為 11 月台指期結算日，外資轉倉後的態度是判斷短線方向的關鍵。</li>
+        <li><strong>匯率與商品</strong>：美元指數站上逾一年半高位，新台幣續貶，油價與金價同步走弱；黃金近月報 3,851.9 美元、小漲 0.32%。</li>
+        <li><strong>記憶體循環</strong>：TrendForce 指出 2026 年宏觀經濟疲軟，但記憶體進入強勁上升循環，整機成本上揚恐壓抑終端消費，記憶體族群短線表現分歧。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2. 全球市況 -->
+  <div class="panel">
+    <div class="card">
+      <h2>🌍 主要市場指標表</h2>
+      <table>
+        <tr><th>市場 / 指數</th><th>收盤</th><th>漲跌</th><th>幅度</th></tr>
+        <tr><td>道瓊工業指數</td><td>—</td><td class="down">下跌</td><td class="down">-1.64%</td></tr>
+        <tr><td>S&amp;P 500 指數</td><td>—</td><td class="down">下跌</td><td class="down">-1.02%</td></tr>
+        <tr><td>那斯達克指數</td><td>—</td><td class="down">下跌</td><td class="down">-0.74%</td></tr>
+        <tr><td>費城半導體指數</td><td>—</td><td class="up">小漲</td><td class="up">止跌回穩</td></tr>
+        <tr><td>那斯達克中國金龍指數</td><td>—</td><td class="down">下跌</td><td class="down">-1.89%</td></tr>
+        <tr><td>黃金近月（GC=F）</td><td>3,851.9 美元</td><td class="up">+12.30</td><td class="up">+0.32%</td></tr>
+        <tr><td>美元指數</td><td>逾一年半高位</td><td class="up">走強</td><td class="up">—</td></tr>
+        <tr><td>國際油價</td><td>—</td><td class="down">走低</td><td class="down">—</td></tr>
+      </table>
+      <p class="note">※ 美股為 11 月 17 日（週二）收盤數據；費半指數止跌小漲。資料來源：公開財經資訊。</p>
+    </div>
+
+    <div class="card">
+      <h2>🇺🇸 美股：三大指數收黑，個股劇烈分化</h2>
+      <ul>
+        <li><strong>雲端與醫療拖累大盤</strong>：Salesforce（CRM）重挫 9.4%，聯合健康（UNH）下跌 5.4%，超微電腦（SMCI）下跌 3.5%。</li>
+        <li><strong>輝達財報前觀望</strong>：輝達（NVDA）正規盤收跌 0.44%，但財報公布後盤後強彈 2%～4%。</li>
+        <li><strong>中概股全面走弱</strong>：京東大跌 7.66%、阿里巴巴下跌 4.38%、百度下跌 3.77%，反映中國 AI 算力管制與消費疲軟的雙重壓力。</li>
+        <li><strong>逆勢亮點</strong>：SpaceX（SPCX）上漲 3.16%。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🏆 輝達財報：黃仁勳下台後首份成績單報喜</h2>
+      <ul>
+        <li><strong>營收翻倍、展望上修</strong>：黃仁勳 11 月 12 日辭去執行長後，由財務長克雷斯代理執行長，交出首份財報即報喜，營收年增翻倍，第四季財測優於市場預期。</li>
+        <li><strong>股價反應正面</strong>：財報公布後盤後股價強彈，一度上漲約 4%。</li>
+        <li><strong>人事變數仍在</strong>：黃仁勳已發表聲明，若董事會同意將重回輝達擔任執行長；但傳出輝達董事會對其回任仍有阻力，川普與馬斯克力挺也未能改變。黃仁勳預計 12 月 1 日赴國會說明，外傳美國證管會也將對輝達展開調查。</li>
+        <li><strong>台廠受惠想像</strong>：輝達有意在台灣大量導入氫燃料電池，將從台灣總部首發，台達電、中興電、康舒、高力等可望受惠。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🌐 總體與商品市場</h2>
+      <ul>
+        <li><strong>通膨與利率</strong>：美國 10 月 PPI 年增率達 6.5%，生產端壓力仍高；Fed 理事華勒支持 12 月再降息，但市場對 12 月降息仍持保留態度，聯準會將於 11 月 18 日公布 10 月貨幣政策會議紀錄。</li>
+        <li><strong>油價走弱</strong>：荷姆茲海峽原油運輸逐步恢復，加上國際能源總署（IEA）預期第四季全球供應將再度超過需求，油價承壓；惟油輪遇襲事件顯示中東出口風險尚未完全解除。</li>
+        <li><strong>匯市</strong>：美元指數見逾一年半高位，亞幣普遍承壓，新台幣續貶。</li>
+        <li><strong>黃金</strong>：金價近月合約報 3,851.9 美元，單日上漲 12.30 美元（+0.32%），在美元強勢下仍守穩高檔。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3. 台股焦點 -->
+  <div class="panel">
+    <div class="card">
+      <h2>🏭 台股大盤與權值股表現（11 月 17 日）</h2>
+      <table>
+        <tr><th>項目</th><th>數值</th><th>變動</th></tr>
+        <tr><td>加權指數收盤</td><td>40,092.11 點</td><td class="down">-947.97 點（-2.31%）</td></tr>
+        <tr><td>盤中最高 / 最低</td><td>41,533.84 / 39,786.45 點</td><td class="down">震盪 1,747.39 點</td></tr>
+        <tr><td>成交金額</td><td>9,618 億元</td><td class="flat">量能維持高檔</td></tr>
+        <tr><td>電子類股</td><td>—</td><td class="down">下跌 6.72%（前一日）</td></tr>
+        <tr><td>櫃買市場</td><td>—</td><td class="down">中小型股追價意願薄弱</td></tr>
+      </table>
+      <p class="note">※ 加權指數自 11 月 13 日收盤 43,675.12 點連續兩個交易日下殺，累計重挫 3,583 點。</p>
+    </div>
+
+    <div class="card">
+      <h2>📌 權值股與焦點個股</h2>
+      <table>
+        <tr><th>個股</th><th>收盤價</th><th>漲跌</th><th>幅度</th></tr>
+        <tr><td>台積電（2330）</td><td>2,170 元</td><td class="down">-45 元</td><td class="down">-2.03%</td></tr>
+        <tr><td>鴻海（2317）</td><td>219 元</td><td class="up">+0.5 元</td><td class="up">+0.22%</td></tr>
+        <tr><td>聯發科（2454）</td><td>3,840 元</td><td class="up">+45 元</td><td class="up">+1.18%</td></tr>
+        <tr><td>台達電（2308）</td><td>1,055 元</td><td class="down">-65 元</td><td class="down">-5.80%</td></tr>
+        <tr><td>廣達（2382）</td><td>262.5 元</td><td class="down">-2 元</td><td class="down">-0.76%</td></tr>
+        <tr><td>長榮（2603）</td><td>256.5 元</td><td class="down">-0.5 元</td><td class="down">-0.19%</td></tr>
+        <tr><td>富邦金（2881）</td><td>150.5 元</td><td class="down">-1.5 元</td><td class="down">-0.98%</td></tr>
+      </table>
+      <p class="note">※ 台積電尾盤最後一單 6,801 張小幅拉抬，仍收低 45 元。資料來源：公開財經資訊。</p>
+    </div>
+
+    <div class="card">
+      <h2>🔍 產業分析與族群掃描</h2>
+      <h3>半導體：評價修正中，長線仍看先進製程</h3>
+      <ul>
+        <li>台積電連續兩日重挫（11 月 16 日 -5.74%、11 月 17 日 -2.03%），與輝達 ADR 及費半指數高度連動。</li>
+        <li>美國收緊中國企業透過第三國取得先進 AI 晶片的管道，短線壓抑半導體評價，但先進製程與先進封裝需求不變。</li>
+        <li>記憶體族群受惠上升循環，力積電、旺宏、華邦電等籌碼輪動劇烈，短線波動加大。</li>
+      </ul>
+
+      <h3>AI 伺服器與電力能源：政策題材加持</h3>
+      <ul>
+        <li>川普政府「AI 國家隊」名單即將公布，台廠被視為最佳合作夥伴，台積電、鴻海、廣達為核心受惠者。</li>
+        <li>輝達有意在台導入氫燃料電池並從台灣總部首發，電力能源概念股（台達電、中興電、康舒、高力）成為新一波題材焦點。</li>
+        <li>電源與散熱仍是 AI 伺服器升級的關鍵環節，回檔後評價具吸引力。</li>
+      </ul>
+
+      <h3>PCB 與 IP 族群：高階規格升級</h3>
+      <ul>
+        <li>AI 伺服器熱潮改寫 PCB 產業版圖，高速傳輸規格 M9 即將登場、載板尺寸與層數持續升級，台光電在 M9 技術上具領先地位。</li>
+        <li>IP 族群受惠 Google 新一代 AI 大模型 Gemini 3.0 有望登場，力旺法說對第四季及明年營運釋出樂觀訊號，M31 同步轉強。</li>
+      </ul>
+
+      <h3>高價股與中小型股：風險升溫</h3>
+      <ul>
+        <li>股王信驊一度跌停、跌破萬元關卡，創意、健策、精測、印能科技等 168 檔跌停，高價股成為提款機。</li>
+        <li>櫃買市場儘管力旺、信驊強勢，但中小型股追價意願薄弱，震盪明顯加劇。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. 資金流向 -->
+  <div class="panel">
+    <div class="card">
+      <h2>💰 三大法人買賣超（11 月 17 日）</h2>
+      <table>
+        <tr><th>法人</th><th>買賣超</th><th>備註</th></tr>
+        <tr><td>外資及陸資</td><td class="down">賣超 380.93 億元</td><td>由買轉賣，較前一日賣超 701.89 億元明顯縮手</td></tr>
+        <tr><td>投信</td><td class="down">賣超 9.35 億元</td><td>結束連續 24 買</td></tr>
+        <tr><td>自營商</td><td class="down">賣超約 156.95 億元</td><td>同步站賣方</td></tr>
+        <tr><td><strong>合計</strong></td><td class="down"><strong>賣超 547.23 億元</strong></td><td>三大法人連續第二日同步賣超</td></tr>
+      </table>
+      <p class="note">※ 前一日（11 月 16 日）三大法人合計賣超 1,143.94 億元，其中外資賣超 701.89 億元、投信賣超 183.02 億元、自營商賣超 259.03 億元。</p>
+    </div>
+
+    <div class="card">
+      <h2>📊 籌碼與信用交易觀察</h2>
+      <ul>
+        <li><strong>期貨部位</strong>：外資台指期淨空單部位仍逾 9 萬口，空方氣勢強勁；週二空單雖有回補，但整體避險需求未退。</li>
+        <li><strong>融資餘額</strong>：11 月 16 日融資大減 121.01 億元，餘額降至 5,244.98 億元，槓桿資金快速退場。</li>
+        <li><strong>借券賣出</strong>：11 月 16 日借券賣出金額達 158.81 億元，法人避險與套利需求同步升溫。</li>
+        <li><strong>類股成交比重</strong>：電子 83.17%、傳產 12.82%、金融 4.00%，資金高度集中於電子族群，波動放大。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🔄 外資與投信買賣超標的（11 月 16 日）</h2>
+      <table>
+        <tr><th>類別</th><th>買超前五大</th><th>賣超前五大</th></tr>
+        <tr><td>外資</td><td>寶成、台新新光金、聯電、長榮航、華航</td><td>中鋼、鴻海、群創、南亞、友達</td></tr>
+        <tr><td>投信</td><td>大成鋼、統一、富邦金、長榮、國泰金</td><td>台新新光金、聯電、凱基金、元大金、台玻</td></tr>
+      </table>
+      <p class="note">※ 資金明顯由電子權值股與面板、鋼鐵、塑化等循環股流出，轉進金融、航空與部分傳產避險，呈現典型防禦性輪動。</p>
+    </div>
+  </div>
+
+  <!-- 5. 事件日曆 -->
+  <div class="panel">
+    <div class="card">
+      <h2>📅 本週與近期重要事件</h2>
+      <table>
+        <tr><th>日期</th><th>事件</th><th>觀察重點</th></tr>
+        <tr><td>11 月 18 日（三）</td><td>台指期 11 月合約結算</td><td>外資轉倉後態度，攸關短線方向</td></tr>
+        <tr><td>11 月 18 日（三）</td><td>輝達財報公布（台灣時間清晨）</td><td>營收翻倍、展望上修，盤後漲 2%～4%</td></tr>
+        <tr><td>11 月 18 日（三）</td><td>美國聯準會 10 月貨幣政策會議紀錄</td><td>研判後續利率路徑與 12 月降息機率</td></tr>
+        <tr><td>本週內</td><td>川普政府「AI 國家隊」名單</td><td>輝達等 20 多家企業入列，台廠合作機會</td></tr>
+        <tr><td>本週內</td><td>Google Gemini 3.0 有望登場</td><td>IP、ASIC 族群題材發酵</td></tr>
+        <tr><td>本週內</td><td>鴻海科技日</td><td>市場關注與 OpenAI 合作等題材</td></tr>
+        <tr><td>本週內</td><td>Anthropic 掛牌上市</td><td>AI 融資與成長前景重新檢視</td></tr>
+        <tr><td>12 月 1 日（二）</td><td>黃仁勳赴美國國會說明</td><td>輝達治理與 AI 晶片出口管制走向</td></tr>
+        <tr><td>12 月（待定）</td><td>聯準會 FOMC 利率決議</td><td>華勒支持降息，市場仍持保留態度</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>🎯 投資策略與操作清單</h2>
+      <p><strong>策略主軸：輝達財報報喜提供短線反彈契機，但技術面與籌碼面尚未轉強，宜「分批低接、切忌追高」。</strong></p>
+      <h3>操作清單</h3>
+      <ul>
+        <li>✅ <strong>逢低分批佈局科技龍頭</strong>：以台積電、鴻海、廣達等 AI 核心權值股為首選，採分批、不重壓方式建立部位。</li>
+        <li>✅ <strong>聚焦業績題材族群</strong>：AI 概念股、半導體先進製程相關、材料升級或替代概念股、PCB 族群、電力能源相關、成衣製鞋及生技等。</li>
+        <li>✅ <strong>搭配防禦型與高股息股</strong>：金融、電信、高股息 ETF 作為波動下的緩衝配置，達成多元分散。</li>
+        <li>✅ <strong>留意電力與氫燃料電池新題材</strong>：台達電、中興電、康舒、高力等，惟台達電短線重挫，需等量能回穩再評估。</li>
+        <li>⚠️ <strong>避免追高</strong>：高價股與中小型股籌碼鬆動，宜等待止跌訊號（量縮不破底、外資空單回補）再行進場。</li>
+        <li>⚠️ <strong>嚴設停損</strong>：指數仍在季線下方，若跌破 11 月 17 日盤中低點 39,786 點，宜降低持股比重。</li>
+      </ul>
+      <h3>關鍵觀察指標</h3>
+      <ul>
+        <li>費半指數、那斯達克與台積電 ADR 走勢</li>
+        <li>外資台指期淨空單部位的變化（目前逾 9 萬口）</li>
+        <li>新台幣匯率能否止貶回穩</li>
+        <li>加權指數能否有效站回季線與 5 日線</li>
+      </ul>
+      <p class="note">※ 本報告僅供參考，不構成投資建議。投資有風險，務請審慎評估自身風險承受能力。</p>
+    </div>
+  </div>
+
+  <div class="center">
+    <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+  </div>
+</div>
+
+<script>
+function showTab(i, btn) {
+  document.querySelectorAll('.panel').forEach(function(p, idx) {
+    p.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
