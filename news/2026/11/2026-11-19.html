@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 每日財經晨報 — 2026年11月19日</title>
+<style>
+:root{
+  --p1:#667eea; --p2:#764ba2;
+  --bull:#16a34a; --bullbg:#eafaf0;
+  --bear:#dc2626; --bearbg:#fdeeee;
+  --neut:#d97706; --neutbg:#fef7e6;
+  --ink:#1f2430; --muted:#6b7280; --line:#e5e7f0;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0 0 60px;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Helvetica Neue",Arial,sans-serif;
+  background:#f4f5fb; color:var(--ink); line-height:1.75;
+}
+header{
+  background:linear-gradient(135deg,var(--p1) 0%,var(--p2) 100%);
+  color:#fff; padding:38px 24px 42px; text-align:center;
+  box-shadow:0 6px 22px rgba(102,126,234,.35);
+}
+header h1{margin:0 0 8px; font-size:1.7em; letter-spacing:1px;}
+header .date{font-size:1.05em; opacity:.92;}
+header .tag{display:inline-block; margin-top:14px; padding:4px 16px; border-radius:999px;
+  background:rgba(255,255,255,.18); font-size:.85em; border:1px solid rgba(255,255,255,.35);}
+.wrap{max-width:1000px; margin:0 auto; padding:0 16px;}
+nav.tabs{
+  display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+  margin:-24px auto 0; padding:0; position:relative; z-index:5;
+}
+nav.tabs button{
+  border:none; cursor:pointer; font-family:inherit; font-size:.95em;
+  padding:12px 20px; border-radius:12px 12px 0 0; font-weight:700;
+  background:rgba(255,255,255,.78); color:#5a5f7a;
+  box-shadow:0 -2px 8px rgba(80,90,160,.08); transition:.2s;
+}
+nav.tabs button:hover{background:#fff;}
+nav.tabs button.active{
+  background:#fff; color:var(--p2);
+  box-shadow:0 -4px 14px rgba(102,126,234,.22);
+}
+.panel{display:none; background:#fff; border-radius:0 0 16px 16px;
+  padding:28px 26px; box-shadow:0 8px 26px rgba(80,90,160,.10);}
+.panel.active{display:block;}
+h2{font-size:1.25em; margin:0 0 18px; padding-left:12px;
+  border-left:5px solid var(--p1); color:#3b3f57;}
+h3{font-size:1.05em; margin:26px 0 12px; color:#4a4f6b;}
+p{margin:0 0 12px;}
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-bottom:8px;}
+.card{border-radius:12px; padding:16px 18px; border-left:5px solid var(--neut); background:var(--neutbg);}
+.card.bull{border-color:var(--bull); background:var(--bullbg);}
+.card.bear{border-color:var(--bear); background:var(--bearbg);}
+.card .lbl{font-weight:800; font-size:.95em; margin-bottom:6px; display:block;}
+.card.bull .lbl{color:var(--bull);}
+.card.bear .lbl{color:var(--bear);}
+.card.neut .lbl{color:var(--neut);}
+.card p{margin:0; font-size:.94em; color:#3c4256;}
+table{width:100%; border-collapse:collapse; margin:14px 0 6px; font-size:.93em;}
+th,td{padding:10px 12px; text-align:left; border-bottom:1px solid var(--line);}
+th{background:linear-gradient(135deg,#f0f2fc,#eae6f7); color:#4a4f6b; font-weight:700;}
+tr:hover td{background:#fafbff;}
+.num{font-variant-numeric:tabular-nums; font-weight:700;}
+.up{color:var(--bull);} .down{color:var(--bear);}
+.pill{display:inline-block; padding:2px 10px; border-radius:999px; font-size:.82em; font-weight:700;}
+.pill.u{background:var(--bullbg); color:var(--bull);}
+.pill.d{background:var(--bearbg); color:var(--bear);}
+ul.clean{list-style:none; padding:0; margin:10px 0;}
+ul.clean li{padding:9px 0 9px 26px; position:relative; border-bottom:1px dashed var(--line); font-size:.95em;}
+ul.clean li::before{content:"▸"; position:absolute; left:8px; color:var(--p1); font-weight:800;}
+.strategy{background:linear-gradient(135deg,#f7f5ff,#eef1fd); border-radius:14px; padding:18px 20px; border:1px solid #e0e2f5;}
+.cal li{display:flex; gap:14px; align-items:flex-start; padding:11px 0; border-bottom:1px dashed var(--line);}
+.cal .d{flex:0 0 88px; font-weight:800; color:var(--p2); font-size:.9em;}
+.back-wrap{text-align:center; margin:30px 0 0;}
+a.back-link{display:inline-block; padding:10px 24px; border-radius:999px; text-decoration:none;
+  background:linear-gradient(135deg,var(--p1),var(--p2)); color:#fff; font-weight:700; font-size:.92em;
+  box-shadow:0 4px 14px rgba(102,126,234,.32);}
+footer{text-align:center; color:var(--muted); font-size:.82em; margin-top:26px; padding:0 20px;}
+@media(max-width:640px){
+  header h1{font-size:1.3em;} nav.tabs button{padding:10px 13px; font-size:.85em;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>📊 每日財經晨報 Pro</h1>
+  <div class="date">2026年11月19日（星期四）· 台北時間</div>
+  <div class="tag">AI 助理自動生成 · 市場資訊僅供參考</div>
+</header>
+
+<div class="wrap">
+<nav class="tabs">
+  <button class="active" onclick="go(0,this)">📈 市場觀點</button>
+  <button onclick="go(1,this)">🌍 全球市況</button>
+  <button onclick="go(2,this)">🏭 台股焦點</button>
+  <button onclick="go(3,this)">💰 資金流向</button>
+  <button onclick="go(4,this)">📅 事件日曆</button>
+</nav>
+
+<!-- 1 市場觀點 -->
+<section class="panel active">
+  <h2>今日盤勢總覽</h2>
+  <p>美股週三（11/18）四大指數漲跌分歧，道瓊重挫 848 點、費半逆勢翻紅。台股前一交易日（11/18）收在 <strong>40,194.91 點</strong>，盤中震盪激烈、成交量爆出兆元天量。市場同時面對「AI 估值修正」、「聯準會 12 月可能再升息」與「中東局勢升溫」三重壓力，短線風險偏防守。</p>
+
+  <div class="cards">
+    <div class="card bull">
+      <span class="lbl">🟢 利多觀點</span>
+      <p>輝達財報優於預期，費半指數逆勢收漲 0.34%；台股本益比降至約 13 倍，低於長期平均，法人認為已接近超跌區，逢低買盤開始浮現。臺指期夜盤報 40,935 點，較現貨收盤明顯溢價，有利今日開盤氣氛。</p>
+    </div>
+    <div class="card bear">
+      <span class="lbl">🔴 利空觀點</span>
+      <p>聯準會 10 月會議紀錄顯示「幾乎所有官員預期 12 月再升息一碼」，10 年期美債殖利率高掛 5.072%，壓抑高估值族群。中東衝突擴大（伊朗攻擊科威特、巴林），油價與避險情緒波動加大。</p>
+    </div>
+    <div class="card neut">
+      <span class="lbl">🟡 中性觀察</span>
+      <p>外資 11 月以來大舉賣超，三日合計賣超約 1,848 億元，籌碼面仍待沉澱。美國對先進晶片出口新增五國管制，對台系供應鏈長線影響仍待評估。</p>
+    </div>
+  </div>
+
+  <h3>關鍵市場指標</h3>
+  <table>
+    <tr><th>指標</th><th>收盤位階</th><th>漲跌</th><th>方向</th></tr>
+    <tr><td>台股加權指數（11/18）</td><td class="num">40,194.91</td><td class="num down">震盪收黑</td><td><span class="pill d">偏弱</span></td></tr>
+    <tr><td>臺指期夜盤</td><td class="num">40,935.00</td><td class="num up">溢價</td><td><span class="pill u">偏多</span></td></tr>
+    <tr><td>道瓊工業指數</td><td class="num">50,759.42</td><td class="num down">−848.75（−1.64%）</td><td><span class="pill d">弱</span></td></tr>
+    <tr><td>那斯達克指數</td><td class="num">24,328.38</td><td class="num down">−181.38（−0.74%）</td><td><span class="pill d">弱</span></td></tr>
+    <tr><td>S&amp;P 500 指數</td><td class="num">7,340.53</td><td class="num down">−76.06（−1.03%）</td><td><span class="pill d">弱</span></td></tr>
+    <tr><td>費城半導體指數</td><td class="num">9,642.88</td><td class="num up">+32.23（+0.34%）</td><td><span class="pill u">抗跌</span></td></tr>
+    <tr><td>美國 10 年期公債殖利率</td><td class="num">5.072%</td><td class="num up">高檔</td><td><span class="pill d">壓抑估值</span></td></tr>
+    <tr><td>美元指數</td><td class="num">103.83</td><td class="num up">走強</td><td><span class="pill d">資金緊縮</span></td></tr>
+  </table>
+</section>
+
+<!-- 2 全球市況 -->
+<section class="panel">
+  <h2>🌍 全球市場動態</h2>
+
+  <h3>美股：道瓊重挫、費半翻紅</h3>
+  <ul class="clean">
+    <li>道瓊工業指數下跌 <strong>848.75 點（−1.64%）</strong>，收 50,759.42 點，權值股賣壓沉重。</li>
+    <li>標普 500 下跌 76.06 點（−1.03%），收 7,340.53 點；那斯達克下跌 181.38 點（−0.74%），收 24,328.38 點。</li>
+    <li>費城半導體指數逢低買盤流入，逆勢收漲 32.23 點（+0.34%），收 <strong>9,642.88 點</strong>，終止連日重挫。</li>
+    <li>台積電 ADR 下跌 3.68%；輝達（NVIDIA）收跌 0.44% 至每股 155.46 美元，連 4 個交易日累計跌幅約 11%。</li>
+    <li>美銀調查顯示，基金經理人對科技股的偏好明顯降溫，市場資金轉向防禦型標的。</li>
+  </ul>
+
+  <h3>總體經濟與政策</h3>
+  <ul class="clean">
+    <li>聯準會 10 月會議紀錄出爐，<strong>幾乎所有官員預期 12 月將再升息一碼（0.25 個百分點）</strong>，聯邦基金利率目前為 3.9%。</li>
+    <li>美國 10 年期公債殖利率報 5.072%，2 年期殖利率同步跳升，市場對 12 月 9 日會議升息機率評估相當高。</li>
+    <li>美元指數走強至 103.83，新台幣兌美元小幅貶值，一度摜破 33 元後央行出手拉回。</li>
+  </ul>
+
+  <h3>地緣政治與原物料</h3>
+  <ul class="clean">
+    <li>中東衝突擴大：伊朗加大對海灣國家攻擊力道，科威特通報遭大量無人機來襲、巴林表示過去六天遭攻擊四次；事件起因於美國打擊霍爾木茲海峽 Qeshm 島伊朗設施。</li>
+    <li>APEC 領袖峰會於深圳舉行（11/18–11/19），美國總統川普已抵達中國，川普、習近平與普亭預定會面，為本週外交重頭戲。</li>
+    <li>WTI 原油與黃金期貨同步走低，市場避險需求短線降溫；但地緣風險仍使油價波動放大。</li>
+    <li>美國新規限制先進晶片出口至馬來西亞、新加坡、泰國等五國，須事先取得美方許可，供應鏈布局再添變數。</li>
+    <li>AI 新創 Anthropic 預定於週三敲定 IPO 價格，向投資人表示定價可能落在區間上緣或更高。</li>
+  </ul>
+</section>
+
+<!-- 3 台股焦點 -->
+<section class="panel">
+  <h2>🏭 台股產業焦點</h2>
+
+  <h3>大盤回顧</h3>
+  <ul class="clean">
+    <li>台股 11/18 以 40,720.09 點跳空開高（受惠輝達財報優於預期），盤中震盪幅度達 1,677 點，成交量爆出兆元天量，終場收 40,194.91 點。</li>
+    <li>外資 11 月以來連續大賣，三日合計賣超約 <strong>1,848 億元</strong>，集中市場籌碼仍在換手。</li>
+    <li>台股整體本益比降至約 13 倍，低於長期平均，專家認為已進入超跌區，長線價值浮現。</li>
+  </ul>
+
+  <h3>先進製程供應鏈 — 11/18 漲幅前三</h3>
+  <table>
+    <tr><th>個股</th><th>代號</th><th>產業定位</th><th>基本面亮點</th></tr>
+    <tr><td>旺矽</td><td>6223</td><td>半導體探針卡（佔營收逾 6 成）</td><td>10 月營收年增 <span class="up">+92.72%</span>，Q3 毛利率 61.68%</td></tr>
+    <tr><td>世芯-KY</td><td>3661</td><td>ASIC 設計（佔營收逾 9 成）</td><td>10 月營收年增 <span class="up">+515.80%</span>，Q3 EPS 38.37 元</td></tr>
+    <tr><td>弘塑</td><td>3131</td><td>酸槽設備（國內市佔 100%）</td><td>Q3 EPS 13.38 元，毛利率 36.59%</td></tr>
+  </table>
+  <p style="font-size:.9em;color:var(--muted);">註：三檔個股營收成長力道差異明顯，世芯-KY 增速最快，旺矽在毛利率與營業利益率表現突出，顯示先進製程供應鏈獲利結構仍有分化。</p>
+
+  <h3>權值股觀察</h3>
+  <ul class="clean">
+    <li>台積電（2330）連日走弱，股價跌破月線、市值一度失守 60 兆元，為大盤主要拖累來源。</li>
+    <li>公司在美國、日本、德國及中國皆有設廠布局，長線先進製程需求仍為支撐關鍵。</li>
+    <li>記憶體族群多空分歧，市場關注美光（Micron）後續展望與 DRAM 報價循環位置。</li>
+  </ul>
+</section>
+
+<!-- 4 資金流向 -->
+<section class="panel">
+  <h2>💰 資金流向與投資策略</h2>
+
+  <h3>籌碼與資金動向</h3>
+  <table>
+    <tr><th>項目</th><th>最新動向</th><th>解讀</th></tr>
+    <tr><td>外資（集中市場）</td><td class="num down">11 月以來大幅賣超</td><td>三日合計賣超約 1,848 億元，籌碼待沉澱</td></tr>
+    <tr><td>投信</td><td class="num down">賣超</td><td>內資同步調節，買盤力道偏弱</td></tr>
+    <tr><td>成交量</td><td class="num up">兆元天量</td><td>換手激烈，短線波動放大</td></tr>
+    <tr><td>美債殖利率</td><td class="num up">5.072%</td><td>資金成本偏高，壓抑高本益比股</td></tr>
+    <tr><td>美元指數</td><td class="num up">103.83</td><td>美元走強，新興市場資金外流壓力</td></tr>
+  </table>
+
+  <h3>投資策略</h3>
+  <div class="strategy">
+    <p><strong>定調：防守為先、逢低分批、嚴控部位。</strong>在利率預期偏緊與地緣風險升溫的環境下，高本益比與高估值族群波動可能持續放大，建議降低槓桿、拉高現金比重，等待量能與法人買賣超轉正再行加碼。</p>
+    <ul class="clean" style="margin-top:8px;">
+      <li><strong>核心持股</strong>：以具備長期現金流與高殖利率的權值股為底倉，逢急跌分批布局。</li>
+      <li><strong>成長主軸</strong>：關注先進製程供應鏈（探針卡、ASIC、設備）中營收年增率強勁者，但須留意短線評價偏高。</li>
+      <li><strong>防禦配置</strong>：電信、公用事業與高股息 ETF 可提升組合抗震性。</li>
+      <li><strong>風險控管</strong>：嚴設停損，避免在量能失控的震盪盤中追高殺低。</li>
+    </ul>
+  </div>
+
+  <h3>今日操作清單</h3>
+  <ul class="clean">
+    <li>觀察臺指期夜盤與現貨收盤的落差（夜盤 40,935 點），作為今日開盤強弱判讀。</li>
+    <li>留意美股期貨走勢與美債殖利率是否維持 5% 以上高檔。</li>
+    <li>追蹤 APEC 峰會「川習普會」與伊朗衝突最新消息對油價、避險資產的影響。</li>
+    <li>等待外資賣超收斂訊號，再評估是否提高持股比重。</li>
+  </ul>
+</section>
+
+<!-- 5 事件日曆 -->
+<section class="panel">
+  <h2>📅 近期事件日曆</h2>
+  <ul class="clean cal">
+    <li><span class="d">11/19（四）</span><span>APEC 領袖峰會（深圳）進行中，川普、習近平、普亭預定會面，全球矚目。</span></li>
+    <li><span class="d">11/19（四）</span><span>除權息：01007T 兆豐國泰R2 除息（配息 0.2153 元）、6924 榮惠-KY創 除權。</span></li>
+    <li><span class="d">11/19（四）</span><span>法人說明會：南亞（1303）、遠傳（4904）於 10:50；偉詮電（2436）、鈺創（5351）等多家於 14:00。</span></li>
+    <li><span class="d">11/19（四）</span><span>AI 新創 Anthropic 預定敲定 IPO 價格，市場關注 AI 資本市場風向。</span></li>
+    <li><span class="d">11/20（五）</span><span>除息：0051 元大中型100、0055 元大MSCI金融。</span></li>
+    <li><span class="d">11/23（一）</span><span>法人說明會：聯電（2303）於 09:00，成熟製程展望受矚目。</span></li>
+    <li><span class="d">12/09（三）</span><span>聯準會利率決策會議，市場評估升息一碼機率高。</span></li>
+  </ul>
+  <p style="font-size:.9em;color:var(--muted);margin-top:14px;">※ 行事曆資訊依公開資訊觀測站與證交所公告整理，實際時程以官方公告為準。</p>
+</section>
+
+<div class="back-wrap">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+</div>
+</div>
+
+<footer>
+  本報告由 AI 助理自動生成，資料來源為公開市場資訊，僅供參考，不構成任何投資建議。<br>
+  投資人應自行評估風險，投資有風險，入市須謹慎。© 2026 每日財經晨報
+</footer>
+
+<script>
+function go(i,btn){
+  document.querySelectorAll('.panel').forEach((p,n)=>p.classList.toggle('active',n===i));
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
