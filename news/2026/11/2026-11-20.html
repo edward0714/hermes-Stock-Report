@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 每日財經晨報 — 2026年11月20日</title>
+<style>
+:root{
+  --p1:#667eea; --p2:#764ba2;
+  --bull:#16a34a; --bullbg:#eafaf0;
+  --bear:#dc2626; --bearbg:#fdeeee;
+  --neut:#d97706; --neutbg:#fef7e6;
+  --ink:#1f2430; --muted:#6b7280; --line:#e5e7f0;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0 0 60px;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Helvetica Neue",Arial,sans-serif;
+  background:#f4f5fb; color:var(--ink); line-height:1.75;
+}
+header{
+  background:linear-gradient(135deg,var(--p1) 0%,var(--p2) 100%);
+  color:#fff; padding:38px 24px 42px; text-align:center;
+  box-shadow:0 6px 22px rgba(102,126,234,.35);
+}
+header h1{margin:0 0 8px; font-size:1.7em; letter-spacing:1px;}
+header .date{font-size:1.05em; opacity:.92;}
+header .tag{display:inline-block; margin-top:14px; padding:4px 16px; border-radius:999px;
+  background:rgba(255,255,255,.18); font-size:.85em; border:1px solid rgba(255,255,255,.35);}
+.wrap{max-width:1000px; margin:0 auto; padding:0 16px;}
+nav.tabs{
+  display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+  margin:-24px auto 0; padding:0; position:relative; z-index:5;
+}
+nav.tabs button{
+  border:none; cursor:pointer; font-family:inherit; font-size:.95em;
+  padding:12px 20px; border-radius:12px 12px 0 0; font-weight:700;
+  background:rgba(255,255,255,.78); color:#5a5f7a;
+  box-shadow:0 -2px 8px rgba(80,90,160,.08); transition:.2s;
+}
+nav.tabs button:hover{background:#fff;}
+nav.tabs button.active{
+  background:#fff; color:var(--p2);
+  box-shadow:0 -4px 14px rgba(102,126,234,.22);
+}
+.panel{display:none; background:#fff; border-radius:0 0 16px 16px;
+  padding:28px 26px; box-shadow:0 8px 26px rgba(80,90,160,.10);}
+.panel.active{display:block;}
+h2{font-size:1.25em; margin:0 0 18px; padding-left:12px;
+  border-left:5px solid var(--p1); color:#3b3f57;}
+h3{font-size:1.05em; margin:26px 0 12px; color:#4a4f6b;}
+p{margin:0 0 12px;}
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-bottom:8px;}
+.card{border-radius:12px; padding:16px 18px; border-left:5px solid var(--neut); background:var(--neutbg);}
+.card.bull{border-color:var(--bull); background:var(--bullbg);}
+.card.bear{border-color:var(--bear); background:var(--bearbg);}
+.card .lbl{font-weight:800; font-size:.95em; margin-bottom:6px; display:block;}
+.card.bull .lbl{color:var(--bull);}
+.card.bear .lbl{color:var(--bear);}
+.card.neut .lbl{color:var(--neut);}
+.card p{margin:0; font-size:.94em; color:#3c4256;}
+table{width:100%; border-collapse:collapse; margin:14px 0 6px; font-size:.93em;}
+th,td{padding:10px 12px; text-align:left; border-bottom:1px solid var(--line);}
+th{background:linear-gradient(135deg,#f0f2fc,#eae6f7); color:#4a4f6b; font-weight:700;}
+tr:hover td{background:#fafbff;}
+.num{font-variant-numeric:tabular-nums; font-weight:700;}
+.up{color:var(--bull);} .down{color:var(--bear);}
+.pill{display:inline-block; padding:2px 10px; border-radius:999px; font-size:.82em; font-weight:700;}
+.pill.u{background:var(--bullbg); color:var(--bull);}
+.pill.d{background:var(--bearbg); color:var(--bear);}
+ul.clean{list-style:none; padding:0; margin:10px 0;}
+ul.clean li{padding:9px 0 9px 26px; position:relative; border-bottom:1px dashed var(--line); font-size:.95em;}
+ul.clean li::before{content:"▸"; position:absolute; left:8px; color:var(--p1); font-weight:800;}
+.strategy{background:linear-gradient(135deg,#f7f5ff,#eef1fd); border-radius:14px; padding:18px 20px; border:1px solid #e0e2f5;}
+.cal li{display:flex; gap:14px; align-items:flex-start; padding:11px 0; border-bottom:1px dashed var(--line);}
+.cal .d{flex:0 0 88px; font-weight:800; color:var(--p2); font-size:.9em;}
+.back-wrap{text-align:center; margin:30px 0 0;}
+a.back-link{display:inline-block; padding:10px 24px; border-radius:999px; text-decoration:none;
+  background:linear-gradient(135deg,var(--p1),var(--p2)); color:#fff; font-weight:700; font-size:.92em;
+  box-shadow:0 4px 14px rgba(102,126,234,.32);}
+footer{text-align:center; color:var(--muted); font-size:.82em; margin-top:26px; padding:0 20px;}
+@media(max-width:640px){
+  header h1{font-size:1.3em;} nav.tabs button{padding:10px 13px; font-size:.85em;}
+  .panel{padding:20px 16px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>📊 每日財經晨報 Pro</h1>
+  <div class="date">2026年11月20日（星期五）· 台北時間</div>
+  <div class="tag">AI 助理自動生成 · 市場資訊僅供參考</div>
+</header>
+
+<div class="wrap">
+<nav class="tabs">
+  <button class="active" onclick="go(0,this)">📈 市場觀點</button>
+  <button onclick="go(1,this)">🌍 全球市況</button>
+  <button onclick="go(2,this)">🏭 台股焦點</button>
+  <button onclick="go(3,this)">💰 資金流向</button>
+  <button onclick="go(4,this)">📅 事件日曆</button>
+</nav>
+
+<!-- 1 市場觀點 -->
+<section class="panel active">
+  <h2>今日盤勢總覽</h2>
+  <p>台股昨（11/19）遭遇沉重賣壓，加權指數單日重挫 <strong>1,768 點</strong>、一舉摜破 39,000 點整數關卡，權王台積電收低 75 元，市場信心明顯動搖。同一晚美股在「史上最大 IPO」Anthropic 掛牌題材下仍無法止住 AI 概念股賣壓，道瓊工業指數重挫約 1,100 點、三大指數同步下跌逾 2%，費半指數下滑 2.4%、台積電 ADR 跌 2.9%。今日台股開盤將面臨「內外夾擊」的高難度考驗。</p>
+
+  <div class="cards">
+    <div class="card bull">
+      <span class="lbl">🟢 利多觀點</span>
+      <p>輝達（NVIDIA）財報與下一季財測中值雙雙優於市場預期，AI 基礎建設需求並未反轉；Anthropic 於那斯達克掛牌（代號 ANT），成為史上最大規模 IPO，為 AI 資本市場注入長線活水。台股評價面已明顯收縮，長線買盤逢急跌布局的空間正在擴大。</p>
+    </div>
+    <div class="card bear">
+      <span class="lbl">🔴 利空觀點</span>
+      <p>連史上最大 IPO 都拉不動 AI 股，顯示市場對「高估值＋高資本支出」的容忍度下滑；聯準會會議紀錄顯示多數官員預期 12 月再升息一碼，10 年期美債殖利率高掛 5% 之上，美元指數走強至 103 附近，資金成本偏高持續壓抑成長股評價。</p>
+    </div>
+    <div class="card neut">
+      <span class="lbl">🟡 中性觀察</span>
+      <p>台股單日蒸發 1,768 點後，高檔融資餘額（約 5,080 億元）與停損賣壓是否出清，是判斷「第二隻腳」是否成形的關鍵。外資 11 月以來連續大賣，籌碼仍需時間沉澱；美元兌新台幣在 33 元關卡附近的走勢，將直接牽動外資調節力道。</p>
+    </div>
+  </div>
+
+  <h3>關鍵市場指標</h3>
+  <table>
+    <tr><th>指標</th><th>最新位階</th><th>漲跌</th><th>方向</th></tr>
+    <tr><td>台股加權指數（11/19）</td><td class="num">摜破 39,000 點</td><td class="num down">−1,768 點</td><td><span class="pill d">重挫</span></td></tr>
+    <tr><td>台積電（2330）</td><td class="num">收低 75 元</td><td class="num down">前一日收 2,175 元</td><td><span class="pill d">弱</span></td></tr>
+    <tr><td>道瓊工業指數（美股 11/19）</td><td class="num">重挫約 1,100 點</td><td class="num down">跌逾 2%</td><td><span class="pill d">弱</span></td></tr>
+    <tr><td>標普 500 指數</td><td class="num">三大指數齊跌</td><td class="num down">跌逾 2%</td><td><span class="pill d">弱</span></td></tr>
+    <tr><td>那斯達克指數</td><td class="num">三大指數齊跌</td><td class="num down">跌逾 2%</td><td><span class="pill d">弱</span></td></tr>
+    <tr><td>費城半導體指數</td><td class="num">半導體領跌</td><td class="num down">−2.4%</td><td><span class="pill d">弱</span></td></tr>
+    <tr><td>台積電 ADR（TSM）</td><td class="num">同步走弱</td><td class="num down">−2.9%</td><td><span class="pill d">弱</span></td></tr>
+    <tr><td>美國 10 年期公債殖利率</td><td class="num">5% 以上高檔</td><td class="num up">居高不下</td><td><span class="pill d">壓抑估值</span></td></tr>
+    <tr><td>美元指數</td><td class="num">約 103</td><td class="num up">走強</td><td><span class="pill d">資金緊縮</span></td></tr>
+  </table>
+  <p style="font-size:.9em;color:var(--muted);">註：美股 11/19 收盤數據依公開媒體報導整理，部分位階為約略值，實際數字以交易所公告為準。</p>
+</section>
+
+<!-- 2 全球市況 -->
+<section class="panel">
+  <h2>🌍 全球市場動態</h2>
+
+  <h3>美股：史上最大 IPO 也救不了 AI 股</h3>
+  <ul class="clean">
+    <li>美股週四（11/19）全面走弱，<strong>道瓊工業指數重挫約 1,100 點，三大指數同步下跌逾 2%</strong>，AI 與半導體族群為主要拖累來源。</li>
+    <li><strong>費城半導體指數下跌 2.4%</strong>，台積電 ADR 同步下挫 2.9%，顯示賣壓集中於 AI 供應鏈核心。</li>
+    <li>承接前一日（11/18）走勢：道瓊收 50,198.17 點（−561.25 點、−1.11%）、標普 500 收 7,323.63 點（−0.23%）、那斯達克收 24,429.88 點（+0.42%）、費半收 9,652.80 點（+0.10%）；台積電 ADR 當日曾逆勢上漲 0.81% 至 362.62 美元。</li>
+    <li>AI 新創 <strong>Anthropic 於那斯達克掛牌（代號 ANT）</strong>，為史上規模最大 IPO，惟掛牌題材未能帶動整體 AI 族群止跌。</li>
+    <li>紐約原油期貨收每桶 <strong>83.21 美元</strong>（微跌 5 美分、−0.06%），油價雖平盤但地緣風險仍使波動放大。</li>
+  </ul>
+
+  <h3>總體經濟與政策</h3>
+  <ul class="clean">
+    <li>聯準會 10 月會議紀錄顯示，<strong>多數官員預期 12 月將再升息一碼</strong>，市場對 12/9 會議的緊縮預期仍高。</li>
+    <li>美國 10 年期公債殖利率維持 5% 以上高檔，2 年期殖利率同步偏高，壓抑高本益比成長股評價。</li>
+    <li>美元指數走強至 103 附近，新台幣兌美元在 33 元關卡附近震盪，外資匯出壓力尚未緩解。</li>
+  </ul>
+
+  <h3>地緣政治與產業政策</h3>
+  <ul class="clean">
+    <li>中東局勢仍緊繃，伊朗對海灣國家的攻擊行動使市場避險情緒時而升溫，油價與黃金波動加大。</li>
+    <li>APEC 領袖峰會於深圳舉行（11/18–11/19），美、中、俄三方會面為本週外交重頭戲，會後訊息可能牽動供應鏈預期。</li>
+    <li>美國對先進晶片出口新增管制國家，相關業者須事先取得美方許可，台系供應鏈長線布局增添變數。</li>
+  </ul>
+</section>
+
+<!-- 3 台股焦點 -->
+<section class="panel">
+  <h2>🏭 台股產業焦點</h2>
+
+  <h3>大盤回顧</h3>
+  <ul class="clean">
+    <li>台股 11/19 遭遇恐慌性賣壓，加權指數終場重挫 <strong>1,768 點</strong>，直接摜破 39,000 點整數關卡，寫下近期最劇烈的單日跌幅之一。</li>
+    <li>權王 <strong>台積電（2330）收低 75 元</strong>（前一交易日收 2,175 元），為指數最大拖累來源，市值同步明顯縮水。</li>
+    <li>外資 11 月以來連續大幅賣超，集中市場籌碼持續換手；高檔融資餘額約 5,080 億元，成為短線潛在的停損賣壓來源。</li>
+  </ul>
+
+  <h3>產業族群觀察</h3>
+  <table>
+    <tr><th>族群</th><th>近期表現</th><th>觀察重點</th></tr>
+    <tr><td>先進製程／晶圓代工</td><td class="num down">領跌</td><td>台積電 ADR 與費半同步走弱，評價修正幅度為盤勢關鍵</td></tr>
+    <tr><td>AI 伺服器／散熱</td><td class="num down">賣壓沉重</td><td>輝達財測雖優於預期，惟市場對資本支出續航力仍有疑慮</td></tr>
+    <tr><td>記憶體</td><td class="num down">多空分歧</td><td>DRAM 報價循環位置與美光後續展望為觀察重點</td></tr>
+    <tr><td>ASIC／探針卡／設備</td><td class="num down">高評價回檔</td><td>營收年增率仍強勁，但短線評價偏高、波動放大</td></tr>
+    <tr><td>電信／公用事業／高股息</td><td class="num up">相對抗跌</td><td>防禦型資金偏好升溫，可作為組合抗震配置</td></tr>
+  </table>
+
+  <h3>權值股與籌碼</h3>
+  <ul class="clean">
+    <li>台積電在美國、日本、德國及中國皆有產能布局，先進製程需求長線仍為支撐核心，惟短線受 AI 情緒面主導。</li>
+    <li>金融與電信類股因殖利率保護，跌幅相對收斂，成為盤面資金暫時的避風港。</li>
+    <li>融資餘額是否有效去化、外資賣超是否收斂，為判斷指數能否止穩的兩大訊號。</li>
+  </ul>
+</section>
+
+<!-- 4 資金流向 -->
+<section class="panel">
+  <h2>💰 資金流向與投資策略</h2>
+
+  <h3>籌碼與資金動向</h3>
+  <table>
+    <tr><th>項目</th><th>最新動向</th><th>解讀</th></tr>
+    <tr><td>外資（集中市場）</td><td class="num down">11 月以來連續賣超</td><td>匯出壓力與評價修正同步，籌碼待沉澱</td></tr>
+    <tr><td>融資餘額</td><td class="num up">約 5,080 億元高檔</td><td>須留意補跌性停損賣壓</td></tr>
+    <tr><td>成交量</td><td class="num up">兆元級大量</td><td>換手激烈，短線波動放大</td></tr>
+    <tr><td>美債殖利率</td><td class="num up">5% 以上</td><td>資金成本偏高，壓抑高本益比股</td></tr>
+    <tr><td>美元指數</td><td class="num up">約 103</td><td>美元走強，新興市場資金外流壓力</td></tr>
+    <tr><td>新台幣匯率</td><td class="num down">33 元關卡附近</td><td>貶值加速恐加重外資調節</td></tr>
+  </table>
+
+  <h3>投資策略</h3>
+  <div class="strategy">
+    <p><strong>定調：現金為王、嚴控部位、等訊號不打猜測盤。</strong>在美股三大指數單日齊跌逾 2%、AI 族群評價持續修正的環境下，短線不宜貿然承接急殺，建議先降低槓桿、拉高現金比重，待外資賣超收斂與量能沉澱後再分批布局。</p>
+    <ul class="clean" style="margin-top:8px;">
+      <li><strong>核心持股</strong>：以具長期現金流與高殖利率的權值股為底倉，急跌時分批、不重壓單一價位。</li>
+      <li><strong>成長主軸</strong>：先進製程供應鏈長線趨勢未變，但須等評價面進一步落底，避免在情緒最恐慌時追價或殺低。</li>
+      <li><strong>防禦配置</strong>：電信、公用事業與高股息 ETF 可提升組合抗震性，作為波動期間的緩衝。</li>
+      <li><strong>風險控管</strong>：嚴設停損、保留加碼銀彈；留意美元兌新台幣是否帶量貶破前高。</li>
+    </ul>
+  </div>
+
+  <h3>今日操作清單</h3>
+  <ul class="clean">
+    <li>觀察台指期夜盤與現貨收盤的逆價差幅度，作為今日開盤強弱的第一手判讀。</li>
+    <li>追蹤美股期貨與 10 年期美債殖利率是否持續站穩 5% 以上。</li>
+    <li>留意早盤若反彈遇壓，10:00 過後是否出現放量跌破前低的補跌走勢。</li>
+    <li>等待外資賣超明顯收斂、融資餘額有效去化後，再評估提高持股比重。</li>
+  </ul>
+</section>
+
+<!-- 5 事件日曆 -->
+<section class="panel">
+  <h2>📅 近期事件日曆</h2>
+  <ul class="clean cal">
+    <li><span class="d">11/20（五）</span><span>除息：0051 元大中型100、0055 元大MSCI金融，留意當日指數蒸發點數。</span></li>
+    <li><span class="d">11/20（五）</span><span>Anthropic 掛牌後續表現，為 AI 資本市場風向球，持續追蹤相關供應鏈連動。</span></li>
+    <li><span class="d">11/23（一）</span><span>法人說明會：聯電（2303）於 09:00，成熟製程展望受矚目。</span></li>
+    <li><span class="d">11/24（二）</span><span>美國消費者信心與房市數據公布，牽動利率預期。</span></li>
+    <li><span class="d">11/27（五）</span><span>美國感恩節後「黑色星期五」消費旺季啟動，零售銷售為觀察重點。</span></li>
+    <li><span class="d">12/09（三）</span><span>聯準會利率決策會議，市場評估再升息一碼機率高。</span></li>
+    <li><span class="d">12/19（六）</span><span>台股 12 月期貨結算日（第三個週五），留意結算前後波動。</span></li>
+  </ul>
+  <p style="font-size:.9em;color:var(--muted);margin-top:14px;">※ 行事曆資訊依公開資訊觀測站與證交所公告整理，實際時程以官方公告為準。</p>
+</section>
+
+<div class="back-wrap">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+</div>
+</div>
+
+<footer>
+  本報告由 AI 助理自動生成，資料來源為公開市場資訊，僅供參考，不構成任何投資建議。<br>
+  投資人應自行評估風險，投資有風險，入市須謹慎。© 2026 每日財經晨報
+</footer>
+
+<script>
+function go(i,btn){
+  document.querySelectorAll('.panel').forEach((p,n)=>p.classList.toggle('active',n===i));
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
