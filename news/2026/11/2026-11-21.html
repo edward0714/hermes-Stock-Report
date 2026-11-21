@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 財經晨報 Pro — 2026年11月21日</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", sans-serif;
+    background: #f4f4fb; color: #2d2d3a; line-height: 1.75; padding-bottom: 60px;
+  }
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; padding: 46px 24px 40px; text-align: center;
+    box-shadow: 0 6px 24px rgba(102,126,234,.32);
+  }
+  .hero h1 { font-size: 2.1em; letter-spacing: 1px; margin-bottom: 10px; }
+  .hero .sub { font-size: 1.02em; opacity: .93; }
+  .hero .badge {
+    display: inline-block; margin-top: 16px; padding: 6px 18px; border-radius: 30px;
+    background: rgba(255,255,255,.22); font-size: .9em; letter-spacing: .5px;
+  }
+  .wrap { max-width: 1060px; margin: -26px auto 0; padding: 0 18px; }
+  .back-link {
+    display: inline-block; margin: 0 0 16px; color: #5a4a9e; text-decoration: none;
+    font-size: .92em; background: #fff; padding: 7px 16px; border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(102,126,234,.18);
+  }
+  .back-link:hover { background: #eef0ff; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .tab-btn {
+    flex: 1 1 auto; min-width: 140px; cursor: pointer; border: none;
+    padding: 13px 10px; border-radius: 12px 12px 0 0; font-size: .97em;
+    font-family: inherit; font-weight: 600; color: #5a4a9e; background: #e6e8fb;
+    transition: all .2s; letter-spacing: .3px;
+  }
+  .tab-btn:hover { background: #dcdffa; }
+  .tab-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; box-shadow: 0 4px 14px rgba(102,126,234,.4);
+  }
+  .panel {
+    display: none; background: #fff; border-radius: 0 14px 14px 14px;
+    padding: 30px 28px; box-shadow: 0 4px 22px rgba(102,126,234,.13);
+    animation: fade .28s ease;
+  }
+  .panel.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  h2 {
+    font-size: 1.32em; color: #4a3d85; margin: 26px 0 14px;
+    padding-left: 12px; border-left: 5px solid #764ba2;
+  }
+  h2:first-child { margin-top: 0; }
+  h3 { font-size: 1.06em; color: #5a4a9e; margin: 18px 0 8px; }
+  p { margin-bottom: 10px; font-size: .97em; }
+  .lead {
+    background: linear-gradient(135deg, #f0f2ff 0%, #f7f0fb 100%);
+    border-left: 5px solid #667eea; border-radius: 0 10px 10px 0;
+    padding: 16px 20px; margin-bottom: 22px; font-size: 1em; color: #3d3268;
+  }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .card { border-radius: 12px; padding: 18px 20px; border-top: 5px solid #999; background: #fafaff; }
+  .card.good { border-top-color: #27ae60; background: #f2fbf5; }
+  .card.bad { border-top-color: #e74c3c; background: #fdf3f2; }
+  .card.neutral { border-top-color: #f39c12; background: #fdfaf0; }
+  .card .tag {
+    display: inline-block; font-size: .78em; font-weight: 700; padding: 3px 12px;
+    border-radius: 20px; margin-bottom: 10px; letter-spacing: .5px;
+  }
+  .card.good .tag { background: #27ae60; color: #fff; }
+  .card.bad .tag { background: #e74c3c; color: #fff; }
+  .card.neutral .tag { background: #f39c12; color: #fff; }
+  .card h4 { font-size: 1.02em; margin-bottom: 8px; color: #2d2d3a; }
+  .card p { font-size: .9em; color: #55556a; margin: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0 22px; font-size: .92em; }
+  thead th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; padding: 11px 10px; text-align: left; font-weight: 600;
+  }
+  thead th:not(:first-child) { text-align: right; }
+  tbody td { padding: 10px; border-bottom: 1px solid #eef0fa; }
+  tbody td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:nth-child(even) { background: #fafaff; }
+  tbody tr:hover { background: #f2f4ff; }
+  .up { color: #d63031; font-weight: 600; }
+  .down { color: #00914a; font-weight: 600; }
+  .flat { color: #7a7a90; }
+  ul.clean { list-style: none; margin: 8px 0 18px; }
+  ul.clean li {
+    position: relative; padding: 9px 0 9px 24px; font-size: .95em;
+    border-bottom: 1px dashed #eceefb;
+  }
+  ul.clean li::before { content: "▸"; position: absolute; left: 4px; color: #764ba2; font-weight: 700; }
+  .strategy {
+    background: linear-gradient(135deg, #f6f4ff 0%, #fdf6ff 100%);
+    border-radius: 12px; padding: 20px 22px; margin: 18px 0;
+    border: 1px solid #e3e5fb;
+  }
+  .strategy h3 { margin-top: 0; color: #4a3d85; }
+  .check-list { list-style: none; margin: 10px 0 0; }
+  .check-list li {
+    padding: 8px 0 8px 30px; position: relative; font-size: .94em;
+    border-bottom: 1px dashed #e8eaf8;
+  }
+  .check-list li::before {
+    content: "☑"; position: absolute; left: 2px; color: #667eea; font-size: 1.05em;
+  }
+  .cal { margin: 14px 0; }
+  .cal-item { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px solid #f0f1fb; }
+  .cal-date {
+    flex: 0 0 92px; font-weight: 700; color: #fff; font-size: .85em;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px; text-align: center; padding: 7px 4px; height: fit-content;
+  }
+  .cal-body { font-size: .93em; }
+  .cal-body strong { color: #4a3d85; }
+  .note {
+    background: #fffbf0; border-left: 4px solid #f39c12; border-radius: 0 8px 8px 0;
+    padding: 12px 16px; font-size: .88em; color: #6b5b33; margin: 18px 0;
+  }
+  .highlight {
+    background: #eef0ff; border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    font-size: .94em; color: #3d3268;
+  }
+  footer {
+    max-width: 1060px; margin: 26px auto 0; padding: 0 18px;
+    font-size: .82em; color: #8a8aa0; text-align: center; line-height: 1.9;
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5em; }
+    .panel { padding: 22px 16px; }
+    .tab-btn { min-width: 45%; font-size: .88em; padding: 11px 4px; }
+    table { font-size: .84em; }
+    .cal-date { flex: 0 0 74px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📊 財經晨報 Pro</h1>
+  <div class="sub">2026 年 11 月 21 日（週六）｜全球市場總覽與台股盤後解析</div>
+  <div class="badge">AI 估值修正 × 台股史上第三大收盤跌點</div>
+</div>
+
+<div class="wrap">
+  <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab(0, this)">📈 市場觀點</button>
+    <button class="tab-btn" onclick="showTab(1, this)">🌍 全球市況</button>
+    <button class="tab-btn" onclick="showTab(2, this)">🏭 台股焦點</button>
+    <button class="tab-btn" onclick="showTab(3, this)">💰 資金流向</button>
+    <button class="tab-btn" onclick="showTab(4, this)">📅 事件日曆</button>
+  </div>
+
+  <!-- ============ 1. 市場觀點 ============ -->
+  <div class="panel active">
+    <div class="lead">
+      <strong>今日一句話：</strong>輝達（NVDA）端出優於預期的財報與財測，卻只換來一場「開高殺低」——市場真正賣的不是基本面，而是估值與資金成本。台股加權指數單日崩跌 2,393.60 點（−6.23%），收 36,033.29 點，寫下史上第三大收盤跌點；本週兩個交易日合計失血 4,161.62 點，AI 供應鏈成為提款機。
+    </div>
+
+    <h2>三大觀點</h2>
+    <div class="cards">
+      <div class="card bad">
+        <span class="tag">利空</span>
+        <h4>財報炸裂也救不了全村</h4>
+        <p>輝達第三季財報與財測遠優於預期，黃仁勳強調 Blackwell 需求「爆表」並駁斥 AI 泡沫說，股價盤中一度大漲 5%，終場卻翻黑收 180.64 美元、下跌 3.15%，單日市值震盪幅度高達 3,920 億美元。市場聚焦應收帳款明顯攀升，加上《大賣空》原型貝瑞質疑晶片使用壽命、股票攤薄與 AI 產業「互相輸送利益」的交易結構，AI 估值疑慮未因財報消除。</p>
+      </div>
+      <div class="card bad">
+        <span class="tag">利空</span>
+        <h4>台股恐慌性殺盤，權值股跌停連發</h4>
+        <p>加權指數開低走低，盤中最低下探 35,738.68 點，終場收 36,033.29 點、跌幅 6.23%，驚險守住 36,000 點，成交金額放大至 9,323.21 億元。台積電（2330）下跌 100 元、收 2,000 元整數關卡，聯發科（2454）、台達電（2308）同步跌停，ABF 載板與銅箔基板族群（欣興、景碩、台光電）亦亮燈跌停，市場信心明顯潰堤。</p>
+      </div>
+      <div class="card neutral">
+        <span class="tag">中性觀察</span>
+        <h4>12 月降息機率跌破 40%</h4>
+        <p>延後公布的 9 月非農就業新增 11.9 萬人、高於預期，市場對 12 月降息的押注明顯降溫，聯邦基金期貨顯示降息機率已跌破 40%。10 年期美債殖利率收在 5.048%，美元指數 103.94、逼近 19 個月高位。資金成本維持高檔，對高本益比的 AI 族群形成持續評價壓力，這是本波修正最關鍵的宏觀變數。</p>
+      </div>
+    </div>
+
+    <h2>市場指標總表</h2>
+    <table>
+      <thead>
+        <tr><th>指標</th><th>收盤／報價</th><th>漲跌</th><th>幅度</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>道瓊工業指數</td><td>45,752.26</td><td class="down">−386.51</td><td class="down">−0.84%</td></tr>
+        <tr><td>那斯達克綜合指數</td><td>22,078.05</td><td class="down">−486.18</td><td class="down">−2.16%</td></tr>
+        <tr><td>S&amp;P 500 指數</td><td>6,538.76</td><td class="down">−103.40</td><td class="down">−1.56%</td></tr>
+        <tr><td>費城半導體指數（SOX）</td><td>6,352.07</td><td class="down">−317.96</td><td class="down">−4.77%</td></tr>
+        <tr><td>NYSE FANG+ 指數</td><td>15,765.22</td><td class="down">−349.87</td><td class="down">−2.17%</td></tr>
+        <tr><td>台灣加權指數</td><td>36,033.29</td><td class="down">−2,393.60</td><td class="down">−6.23%</td></tr>
+        <tr><td>台積電（2330）</td><td>2,000 元</td><td class="down">−100 元</td><td class="down">−4.76%</td></tr>
+        <tr><td>美元指數（DXY）</td><td>103.94</td><td class="up">+0.12%</td><td class="up">+0.12%</td></tr>
+        <tr><td>美國 10 年期公債殖利率</td><td>5.048%</td><td class="down">−2.2 bp</td><td class="down">回落</td></tr>
+        <tr><td>美國 2 年期公債殖利率</td><td>4.768%</td><td class="down">−4 bp</td><td class="down">回落</td></tr>
+        <tr><td>現貨黃金</td><td>3,514.08 美元／盎司</td><td class="down">約 −3%</td><td class="down">14 個月低點</td></tr>
+        <tr><td>WTI 原油</td><td>83.21 美元／桶</td><td class="down">−0.05</td><td class="flat">持平</td></tr>
+        <tr><td>布蘭特原油</td><td>91.98 美元／桶</td><td class="up">+0.03</td><td class="flat">持平</td></tr>
+        <tr><td>VIX 恐慌指數</td><td>明顯攀升</td><td class="up">走高</td><td class="up">避險升溫</td></tr>
+      </tbody>
+    </table>
+    <div class="note">※ 上表為截稿前之最新報價，各數據來源更新時點略有差異，實際成交請以交易所公告為準。</div>
+  </div>
+
+  <!-- ============ 2. 全球市況 ============ -->
+  <div class="panel">
+    <h2>美股：盤中狂歡、尾盤跳水</h2>
+    <p>美股四大指數全面下挫，但走勢極度戲劇化。道瓊指數盤中一度大漲逾 700 點，終場收跌 386.51 點；那斯達克指數盤中最高上漲 2.6%，尾盤翻落收跌 2.16%，與道瓊雙雙出現超過 1,000 點的單日高低差，是典型的「多殺多」反轉結構。</p>
+    <ul class="clean">
+      <li><strong>標普 11 大板塊幾乎全面走弱</strong>，僅民生消費族群逆勢上漲，資訊科技類股跌幅最重（−2.66%）。</li>
+      <li><strong>沃爾瑪（WMT）逆勢飆漲 6.46%</strong>，收 107.11 美元：第三季業績優於預期、關稅壓力低於原先評估、第二度上調全年財測，並宣布 12 月將上市地由紐約證交所轉往那斯達克。</li>
+      <li><strong>星巴克（SBUX）</strong>收低 1.27% 至 82.62 美元，員工工會罷工擴大至 65 個城市、95 家門市。</li>
+      <li><strong>Anthropic 超大規模 IPO</strong>被視為本週少數正向題材，但未能重振市場對 AI 的熱情，風險情緒仍受打擊。</li>
+    </ul>
+
+    <h2>半導體：費半重挫 4.77%，記憶體與設備股成重災區</h2>
+    <table>
+      <thead>
+        <tr><th>個股</th><th>收盤（美元）</th><th>幅度</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>美光（MU）</td><td>—</td><td class="down">−10.87%</td></tr>
+        <tr><td>超微（AMD）</td><td>—</td><td class="down">−7.84%</td></tr>
+        <tr><td>應用材料（AMAT）</td><td>—</td><td class="down">−6.15%</td></tr>
+        <tr><td>高通（QCOM）</td><td>—</td><td class="down">−3.93%</td></tr>
+        <tr><td>輝達（NVDA）</td><td>180.64</td><td class="down">−3.15%</td></tr>
+        <tr><td>博通（AVGO）</td><td>—</td><td class="down">−2.14%</td></tr>
+        <tr><td>台積電 ADR（TSM）</td><td>—</td><td class="down">−1.72%</td></tr>
+        <tr><td>日月光 ADR（ASX）</td><td>—</td><td class="down">−2.27%</td></tr>
+        <tr><td>聯電 ADR（UMC）</td><td>—</td><td class="down">−1.52%</td></tr>
+        <tr><td>中華電信 ADR（CHT）</td><td>—</td><td class="up">+0.84%</td></tr>
+      </tbody>
+    </table>
+    <p>輝達 11 月迄今已下跌逾 8%，正走向自 3 月以來最糟的單月表現。市場對 AI 資本支出能否轉化為可持續現金流的疑慮，已從「個股問題」擴散為「類股評價問題」。</p>
+
+    <h2>科技五大巨頭</h2>
+    <ul class="clean">
+      <li>Meta（META）下跌 0.19%，跌幅相對抗跌</li>
+      <li>蘋果（AAPL）下跌 0.86%</li>
+      <li>Alphabet（GOOGL）下跌 1.15%</li>
+      <li>微軟（MSFT）下跌 1.60%</li>
+      <li>亞馬遜（AMZN）下跌 2.49%</li>
+    </ul>
+
+    <h2>債市、匯市、商品</h2>
+    <ul class="clean">
+      <li><strong>美債：</strong>10 年期殖利率收 5.048%（跌約 2.2 個基點）、2 年期收 4.768%（跌約 4 個基點）。股市重挫帶動避險買盤，殖利率反而回落，顯示短線資金流向有時會抵銷升息／不降息預期對殖利率的推升作用。</li>
+      <li><strong>美元：</strong>美元指數收 103.94、上漲 0.12%，在高位震盪並徘徊於 104 關口下方，接近 19 個月高點。</li>
+      <li><strong>黃金：</strong>現貨金價下跌約 3%，報 3,514.08 美元／盎司，盤中最低 3,502.49 美元，創 2025 年 9 月以來新低；本週累計重挫約 9.4%，為截至 3 月 20 日當週以來最大單週跌幅。油價與科技股同步回落、美元強勢，使黃金的避險功能暫時失靈。</li>
+      <li><strong>原油：</strong>WTI 收 83.21 美元／桶（−0.05）、布蘭特收 91.98 美元／桶（+0.03），荷姆茲海峽商船運輸停滯的地緣風險，被美國原油庫存增加抵銷，油價呈現高檔持平。</li>
+    </ul>
+
+    <div class="highlight">
+      <strong>華爾街觀點匯總：</strong>Argent Capital 投資組合經理 Jed Ellerbroek 認為，過去兩週市場一直處於偏防禦性的交易氛圍，本次反轉可能只是此趨勢的延續；KKM Financial 的 Jeff Kilburg 指出，輝達帶來的熱潮正被 12 月降息機率下滑澆熄；Globalt Investments 資深基金經理 Thomas Martin 則提醒，市場需要時間消化成長股與價值股、風險性資產與避險資產之間的配置比重。
+    </div>
+  </div>
+
+  <!-- ============ 3. 台股焦點 ============ -->
+  <div class="panel">
+    <h2>盤面速覽：史上第三大收盤跌點</h2>
+    <table>
+      <thead>
+        <tr><th>項目</th><th>數值</th><th>說明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>加權指數收盤</td><td>36,033.29</td><td>下跌 2,393.60 點（−6.23%）</td></tr>
+        <tr><td>盤中最低</td><td>35,738.68</td><td>接連失守 37,000、36,000 點</td></tr>
+        <tr><td>成交金額</td><td>9,323.21 億元</td><td>恐慌性賣壓、量能明顯放大</td></tr>
+        <tr><td>本週兩日累計跌幅</td><td>4,161.62 點</td><td>11/19 −1,768.02 點、11/20 −2,393.60 點</td></tr>
+        <tr><td>三大法人</td><td>賣超 522.46 億元</td><td>外資 −94.13 億、投信 −87.49 億、自營商約 −340.84 億</td></tr>
+      </tbody>
+    </table>
+
+    <h2>台股產業分析</h2>
+    <h3>① 半導體：權值龍頭成為提款機</h3>
+    <p>台積電終場下跌 100 元、收 2,000 元整數關卡，外資單日賣超 11,862 張，以收盤價估算提款金額高達 237.24 億元。不過基本面並未轉壞——摩根士丹利（大摩）於亞太高峰會重申對台積電 3,088 元目標價、2027 年 EPS 預估 148.64 元，顯示法人對中長期獲利結構仍具信心，本波賣壓主要來自評價與資金面，而非訂單面。</p>
+
+    <h3>② IC 設計與電源：高本益比族群首當其衝</h3>
+    <p>聯發科（2454）、台達電（2308）雙雙跌停，反映市場對高本益比成長股的容忍度快速下降。當 10 年期美債殖利率站穩 5% 以上，折現率上升對長天期成長股的评价壓縮最為直接。</p>
+
+    <h3>③ ABF 載板與銅箔基板：AI 供應鏈殺盤核心</h3>
+    <p>欣興（3037）、景碩（3189）、台光電（2383）同步跌停，南亞（1303）亦曾自 350 元高點一路殺至 228 元、爆量跌停，外資連 6 日賣超 6.6 萬張。此族群為本波 AI 資本支出題材漲幅最大的區塊，籌碼鬆動後的修正幅度也最深。</p>
+
+    <h3>④ 金融與傳產：相對抗跌但難撐大盤</h3>
+    <p>外資賣超前十大中，ETF 囊括 5 檔、金融股 2 檔（兆豐金 −12,112 張）、電子股 2 檔、傳產股 1 檔，顯示外資調節以「市值型與主動式 ETF」為主軸，而非單一產業看空。外資買超前三大則為聯電、群創與 00712，資金並未全面撤離，而是進行結構性換股。</p>
+
+    <div class="highlight">
+      <strong>技術面觀察：</strong>加權指數已跌破年線，並在 35,738 點附近留下本波低點。短線須觀察三個訊號：(1) 是否出現帶長下影線的量增止跌 K 棒；(2) 台積電 2,000 元整數關卡能否守住並回補缺口；(3) 外資賣超金額是否收斂至百億元以內。若三者同時出現，才有機會形成短底。
+    </div>
+  </div>
+
+  <!-- ============ 4. 資金流向 ============ -->
+  <div class="panel">
+    <h2>三大法人動向</h2>
+    <table>
+      <thead>
+        <tr><th>法人</th><th>今日買賣超</th><th>連續天數／累計</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>外資及陸資</td><td class="down">−94.13 億元</td><td>連 5 賣，累計 2,185.72 億元</td></tr>
+        <tr><td>投信</td><td class="down">−87.49 億元</td><td>由買轉賣，今年累計買超 1 兆 2,022.41 億元</td></tr>
+        <tr><td>自營商</td><td class="down">約 −340.84 億元</td><td>避險與自營部位同步降槓桿</td></tr>
+        <tr><td>合計</td><td class="down">−522.46 億元</td><td>連續 5 個交易日站在賣方</td></tr>
+      </tbody>
+    </table>
+    <p>值得注意的是，外資今年以來累計提款台股已達 3 兆 2,090.92 億元，但賣超結構高度集中於市值型 ETF（0050 單日賣超 110,454 張居冠）與主動式 ETF（00403A −34,858 張、00991A −29,987 張），而非全面性砍出個股。這種「先降 beta、再談選股」的操作，通常出現在機構對市場方向不確定時的防禦性調節。</p>
+
+    <h2>外資買賣超重點</h2>
+    <h3>賣超前五大</h3>
+    <ul class="clean">
+      <li>元大台灣50（0050）：−110,454 張</li>
+      <li>主動統一升級50（00403A）：−34,858 張</li>
+      <li>主動復華未來50（00991A）：−29,987 張</li>
+      <li>主動統一台股增長（00981A）：−12,658 張</li>
+      <li>兆豐金（2886）：−12,112 張、台積電（2330）：−11,862 張</li>
+    </ul>
+    <h3>買超前三大</h3>
+    <ul class="clean">
+      <li>聯電（2303）：逆勢獲外資承接</li>
+      <li>群創（3481）：面板族群低基期吸引買盤</li>
+      <li>00712（復華富時不動產）：資金轉向防禦型 REITs</li>
+    </ul>
+
+    <h2>全球資金流向</h2>
+    <ul class="clean">
+      <li><strong>美元現金為王：</strong>美元指數站上 103.94、逼近 19 個月高位，股市重挫下資金回流美元資產，而非新興市場。</li>
+      <li><strong>美債避險買盤回流：</strong>10 年期殖利率回落至 5.048%，顯示部分資金以長天期公債作為避風港。</li>
+      <li><strong>黃金遭到贖回：</strong>金價單週重挫 9.4%、跌至 14 個月低點，傳統避險功能失靈，反映實質利率高檔對無息資產的壓制。</li>
+      <li><strong>AI 主題ETF 遭調節：</strong>主動式 ETF 成為本波外資提款主要管道，顯示被動與主動資金同步降低 AI 曝險。</li>
+    </ul>
+
+    <div class="strategy">
+      <h3>投資策略與操作清單</h3>
+      <p><strong>策略主軸：先控風險、後談機會。</strong>在 12 月降息機率跌破 40%、10 年期殖利率站穩 5% 的環境下，市場正在重新為成長股定價，這個過程通常需要 2～4 週完成。現階段不宜猜底，應以「部位紀律」取代「方向判斷」。</p>
+      <ul class="check-list">
+        <li><strong>持股水位：</strong>建議將總持股降至 5～6 成，保留 3～4 成現金，等待量縮止跌訊號出現再分批回補。</li>
+        <li><strong>核心持倉：</strong>台積電等權值龍頭若跌至 1,900 元附近且外資賣超收斂，可視為長線分批布局區；基本面（大摩目標價 3,088 元）未變。</li>
+        <li><strong>減碼優先：</strong>漲幅已大、籌碼鬆動的高本益比 AI 供應鏈（ABF 載板、銅箔基板、散熱），反彈遇月線不過即減碼。</li>
+        <li><strong>防禦配置：</strong>可提高金融股、民生消費與電信類股比重；外資買超名單中的低基期面板族群亦具相對抗跌條件。</li>
+        <li><strong>嚴設停損：</strong>以 11/20 低點 35,738 點為觀察線，若帶量跌破且三日內未站回，應再降一級部位。</li>
+        <li><strong>不加碼、不攤平：</strong>下跌趨勢中的攤平是最大的資金殺手，等止跌訊號明確再談加碼。</li>
+        <li><strong>留意匯率：</strong>美元走強下，外資匯出壓力仍在，新台幣若貶破整數關卡，台股資金面將更為吃緊。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ 5. 事件日曆 ============ -->
+  <div class="panel">
+    <h2>下週關鍵事件日曆</h2>
+    <div class="cal">
+      <div class="cal-item">
+        <div class="cal-date">11/23（一）</div>
+        <div class="cal-body"><strong>台股開盤首日</strong>：觀察是否留下長下影線、成交量是否萎縮至 7,000 億元以下，為本波是否止跌的第一個訊號。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">11/24（二）</div>
+        <div class="cal-body"><strong>美國 11 月消費者信心指數</strong>：若顯著下滑，將強化 12 月降息預期，有利科技股評價修復。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">11/25（三）</div>
+        <div class="cal-body"><strong>美國第三季 GDP 修正值、FOMC 會議紀要</strong>：紀要內容將直接影響市場對 12 月利率路徑的定價。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">11/26（四）</div>
+        <div class="cal-body"><strong>美國感恩節休市</strong>：美股全日休市，台股交投可能同步轉淡、量能進一步收縮。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">11/27（五）</div>
+        <div class="cal-body"><strong>美股黑色星期五半日交易</strong>：流動性偏薄，容易放大波動，隔週一台股須留意補跌或補漲風險。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">12/01（二）</div>
+        <div class="cal-body"><strong>台灣 11 月製造業 PMI、主要出口數據</strong>：驗證 AI 伺服器與半導體出口動能是否仍延續。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">12/08～12/09</div>
+        <div class="cal-body"><strong>FOMC 利率決策會議</strong>：目前市場定價 12 月降息機率不到 40%，決策結果與會後聲明將是本季最關鍵的轉折點。</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">12/10 前</div>
+        <div class="cal-body"><strong>上市櫃 11 月營收公布</strong>：AI 供應鏈月營收若維持年增，可望為股價提供基本面下檔支撐。</div>
+      </div>
+    </div>
+    <div class="note">※ 上述日程為依現行公開資訊整理，實際公告時間請以官方與交易所公布為準。</div>
+
+    <h2>下週觀察三大重點</h2>
+    <ul class="clean">
+      <li><strong>量能是否萎縮：</strong>恐慌性殺盤常見「量大見底」，若成交金額由 9,000 億以上快速降至 6,000～7,000 億，代表賣壓宣洩告一段落。</li>
+      <li><strong>外資賣超是否收斂：</strong>連續 5 日賣超 2,185 億元後，若單日賣超縮至 50 億元以內甚至轉買，將是資金面轉向的第一個徵兆。</li>
+      <li><strong>AI 敘事能否重建：</strong>12 月降息預期與輝達後續訂單能見度，是評價修復的兩個前提；在此之前，反彈宜視為減碼機會而非加碼時機。</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>📊 財經晨報 Pro｜2026 年 11 月 21 日</p>
+  <p>本報告所有數據均整理自公開新聞與市場資訊，僅供投資參考，不構成任何投資建議。<br>投資有風險，入市請審慎評估自身風險承受能力。</p>
+</footer>
+
+<script>
+  function showTab(idx, btn) {
+    var panels = document.querySelectorAll('.panel');
+    var btns = document.querySelectorAll('.tab-btn');
+    for (var i = 0; i < panels.length; i++) { panels[i].classList.remove('active'); }
+    for (var j = 0; j < btns.length; j++) { btns[j].classList.remove('active'); }
+    panels[idx].classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
