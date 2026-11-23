@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 每日財經晨報 — 2026年11月23日</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+        font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+        background:#f4f5fb; color:#2d3142; line-height:1.75;
+    }
+    .header {
+        background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+        color:#fff; padding:44px 20px 36px; text-align:center;
+        box-shadow:0 6px 24px rgba(102,126,234,.35);
+    }
+    .header h1 { font-size:1.95rem; letter-spacing:1px; margin-bottom:10px; }
+    .header .date { font-size:1.05rem; opacity:.95; }
+    .header .sub { font-size:.92rem; opacity:.85; margin-top:8px; }
+    .wrap { max-width:1080px; margin:0 auto; padding:0 16px 60px; }
+    .nav {
+        display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+        margin:-24px 0 26px; position:relative; z-index:5;
+    }
+    .nav button {
+        border:none; cursor:pointer; font-family:inherit;
+        background:#fff; color:#5a4b8a; font-size:.95rem; font-weight:600;
+        padding:12px 20px; border-radius:30px;
+        box-shadow:0 4px 14px rgba(102,126,234,.18);
+        transition:.25s;
+    }
+    .nav button:hover { transform:translateY(-2px); }
+    .nav button.active {
+        background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+        box-shadow:0 6px 18px rgba(118,75,162,.4);
+    }
+    .tab { display:none; animation:fade .35s ease; }
+    .tab.active { display:block; }
+    @keyframes fade { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:none;} }
+    .card {
+        background:#fff; border-radius:16px; padding:26px 26px 22px;
+        box-shadow:0 3px 16px rgba(45,49,66,.07); margin-bottom:22px;
+    }
+    h2 {
+        font-size:1.28rem; color:#4b3f72; margin-bottom:16px;
+        padding-left:12px; border-left:5px solid #764ba2;
+    }
+    h3 { font-size:1.05rem; color:#5a4b8a; margin:18px 0 10px; }
+    p { margin-bottom:12px; font-size:.97rem; }
+    .lead {
+        background:linear-gradient(135deg,rgba(102,126,234,.10),rgba(118,75,162,.10));
+        border-left:5px solid #667eea; border-radius:12px;
+        padding:16px 20px; font-size:1rem; font-weight:600; color:#3d3560;
+        margin-bottom:20px;
+    }
+    .views { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+    .view { border-radius:12px; padding:16px 18px; border:1px solid; }
+    .view.bull { background:#eefaf2; border-color:#8fd9ae; }
+    .view.bear { background:#fdeef0; border-color:#f0a9b4; }
+    .view.neutral { background:#f3f1fb; border-color:#c3b8e8; }
+    .view .tag {
+        display:inline-block; font-size:.76rem; font-weight:700; color:#fff;
+        padding:3px 12px; border-radius:20px; margin-bottom:8px;
+    }
+    .view.bull .tag { background:#2e9e63; }
+    .view.bear .tag { background:#c9435b; }
+    .view.neutral .tag { background:#6b5bb5; }
+    .view h4 { font-size:.98rem; margin-bottom:6px; color:#2d3142; }
+    .view p { font-size:.9rem; margin:0; color:#4a4f60; }
+    table { width:100%; border-collapse:collapse; font-size:.92rem; margin:12px 0 6px; }
+    th {
+        background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+        padding:11px 12px; text-align:left; font-weight:600; font-size:.88rem;
+    }
+    td { padding:10px 12px; border-bottom:1px solid #eceaf6; }
+    tr:nth-child(even) td { background:#faf9fe; }
+    .up { color:#d13b4d; font-weight:700; }
+    .down { color:#1f8a52; font-weight:700; }
+    .flat { color:#6b7280; font-weight:600; }
+    .num { font-variant-numeric:tabular-nums; }
+    ul.list { padding-left:20px; }
+    ul.list li { margin-bottom:9px; font-size:.95rem; }
+    .strategy { background:#fff; border-radius:16px; padding:26px; box-shadow:0 3px 16px rgba(45,49,66,.07); margin-bottom:22px; }
+    .checklist { list-style:none; }
+    .checklist li {
+        padding:11px 14px 11px 40px; position:relative; margin-bottom:9px;
+        background:#f8f7fe; border-radius:10px; font-size:.94rem;
+    }
+    .checklist li:before {
+        content:"✓"; position:absolute; left:14px; top:11px;
+        color:#764ba2; font-weight:800;
+    }
+    .note { font-size:.82rem; color:#7b7f92; margin-top:16px; }
+    .back-link {
+        display:inline-block; margin:10px 0 0; padding:11px 22px;
+        background:linear-gradient(135deg,#667eea,#764ba2); color:#fff;
+        border-radius:26px; text-decoration:none; font-size:.92rem; font-weight:600;
+        box-shadow:0 4px 14px rgba(118,75,162,.3);
+    }
+    .back-link:hover { opacity:.9; }
+    .footer { text-align:center; padding:30px 16px 10px; }
+    .badge-row { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 4px; }
+    .badge {
+        background:#f3f1fb; color:#5a4b8a; font-size:.82rem; font-weight:600;
+        padding:6px 14px; border-radius:20px;
+    }
+    @media (max-width:600px){
+        .header h1 { font-size:1.4rem; }
+        .nav button { padding:10px 14px; font-size:.86rem; }
+        .card { padding:20px 16px; }
+        table { font-size:.84rem; }
+        th, td { padding:8px 7px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📊 每日財經晨報 Pro</h1>
+    <div class="date">2026 年 11 月 23 日（星期一）</div>
+    <div class="sub">上週五美股「黑色星期五」全面崩跌，台股週一開盤承壓｜資料截至 11/22 收盤</div>
+</div>
+
+<div class="wrap">
+
+    <div class="nav">
+        <button class="active" onclick="showTab('market',this)">📈 市場觀點</button>
+        <button onclick="showTab('global',this)">🌍 全球市況</button>
+        <button onclick="showTab('tw',this)">🏭 台股焦點</button>
+        <button onclick="showTab('flow',this)">💰 資金流向</button>
+        <button onclick="showTab('calendar',this)">📅 事件日曆</button>
+    </div>
+
+    <!-- 市場觀點 -->
+    <div class="tab active" id="market">
+        <div class="card">
+            <h2>今日一句話結論</h2>
+            <div class="lead">
+                上週五美股四大指數同步重挫、費城半導體單日暴跌 10.73%，台指期夜盤已下殺 2,774 點至 35,875 點；週一台股開盤將直接面對補跌與停損雙重壓力，現階段首務是「控制持股、保留現金」，而非搶反彈。
+            </div>
+
+            <h3>三大觀點</h3>
+            <div class="views">
+                <div class="view bear">
+                    <span class="tag">利空</span>
+                    <h4>AI 交易「利多出盡」全面引爆</h4>
+                    <p>Anthropic 以 83 美元掛牌、募資 813 億美元創全球 IPO 紀錄，卻被市場解讀為 AI 產業集體套現時刻；輝達單日重挫 14%、單週跌 23%、11 月以來累計跌幅近 40%，並傳出 SEC 調查會計問題，AI 主線的估值敘事正在鬆動。</p>
+                </div>
+                <div class="view bear">
+                    <span class="tag">利空</span>
+                    <h4>技術面與趨勢資金形成負回饋</h4>
+                    <p>標普 500 已跌破 200 日均線，趨勢型資金（CTA）自動轉為賣方；標普、道瓊雙雙收在修正區間，那斯達克 100 盤中一度觸及熊市門檻，程式賣壓與被動停損使跌勢自我強化。</p>
+                </div>
+                <div class="view neutral">
+                    <span class="tag">中性</span>
+                    <h4>基本面未崩，但流動性與政策風險升高</h4>
+                    <p>多數市場人士認為美國經濟基本面仍屬穩健，這一波是對過高預期的「一般性修正」；然而 10 年期美債殖利率一度站上 5%、市場預期 12 月與明年 1 月都可能升息，加上川普政府考慮重啟對伊朗空襲，風險胃納短期難以回復。</p>
+                </div>
+            </div>
+
+            <h3>今日關鍵數字</h3>
+            <div class="badge-row">
+                <span class="badge">台股 11/20 收 36,033.29（-6.23%）</span>
+                <span class="badge">台股週線 -17.5%</span>
+                <span class="badge">台指期夜盤 35,875（-7.18%）</span>
+                <span class="badge">費半 8,408.56（-10.73%）</span>
+                <span class="badge">那斯達克 22,617.73（-5.28%）</span>
+                <span class="badge">標普週線 -8.6%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 全球市況 -->
+    <div class="tab" id="global">
+        <div class="card">
+            <h2>市場指標總覽（11/20 收盤）</h2>
+            <table>
+                <thead>
+                    <tr><th>指標</th><th>收盤</th><th>漲跌幅</th><th>重點</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>道瓊工業指數</td><td class="num">48,147.33</td><td class="down">-1.93%（-949.73 點）</td><td>跌入修正區間，失守 5 萬點</td></tr>
+                    <tr><td>標普 500 指數</td><td class="num">6,910.39</td><td class="down">-3.70%（-265.44 點）</td><td>跌破 200 日均線，週線 -8.6%</td></tr>
+                    <tr><td>那斯達克指數</td><td class="num">22,617.73</td><td class="down">-5.28%（-1,261.47 點）</td><td>今年漲幅全數歸零，週線約 -10%</td></tr>
+                    <tr><td>費城半導體指數</td><td class="num">8,408.56</td><td class="down">-10.73%（-1,011.10 點）</td><td>半導體族群單日崩跌逾一成</td></tr>
+                    <tr><td>美國 10 年期公債殖利率</td><td class="num">4.92%</td><td class="flat">自 5.05% 回落</td><td>避險資金湧入債市</td></tr>
+                    <tr><td>美元指數</td><td class="num">103.91</td><td class="up">近 19 個月高點</td><td>強勢美元壓抑新興市場</td></tr>
+                    <tr><td>西德州原油（WTI）</td><td class="num">83 美元以上</td><td class="up">高檔震盪</td><td>伊朗衝突與荷姆茲海峽通行成本推升</td></tr>
+                    <tr><td>VIX 恐慌指數</td><td class="num">逼近 29</td><td class="up">明顯跳升</td><td>避險情緒急速升溫</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>美股崩跌五大原因</h2>
+            <ul class="list">
+                <li><strong>Anthropic 上市被視為 AI「獲利了結」時刻：</strong>不顧 AI 類股氣氛轉弱仍上調募資規模，成為史上最大 IPO；首日一度衝上 115 美元後反轉，11/20 再跌 8.5% 收 88.91 美元，僅略高於承銷價約 7%。</li>
+                <li><strong>輝達利空連環爆：</strong>11/20 暴跌 14% 收 125.53 美元，SEC 調查會計問題；單週 -23%、11 月累計近 -40%，連跌 7 週創 18 年最慘，距高點崩逾 47%。</li>
+                <li><strong>技術面跌破 200 日均線：</strong>趨勢交易者自動轉為賣方，CTA 順勢放空使跌勢延續。</li>
+                <li><strong>通膨降不下來、Fed 恐加快升息：</strong>理事華勒主張 12 月可能一次升息 2 碼，市場已預期 12 月與 1 月都將升息。</li>
+                <li><strong>AI 獲利成長放緩、資料中心題材降溫：</strong>Anthropic 第 3 季營收年增 47%，遠低於第 2 季的 144%；CoreWeave 距高點重挫 71%。</li>
+            </ul>
+            <h3>晶片股與台股 ADR 災情</h3>
+            <table>
+                <thead><tr><th>標的</th><th>單日表現</th><th>備註</th></tr></thead>
+                <tbody>
+                    <tr><td>美光</td><td class="down">重挫近 14%</td><td>記憶體族群同步崩跌</td></tr>
+                    <tr><td>超微（AMD）</td><td class="down">跌逾 13%</td><td>出口管制疑慮未解</td></tr>
+                    <tr><td>博通</td><td class="down">跌逾 12%</td><td>AI 網通需求遭重新評價</td></tr>
+                    <tr><td>台積電 ADR</td><td class="down">-9.48%</td><td>換算現股仍存溢價</td></tr>
+                    <tr><td>日月光 ADR</td><td class="down">-13.84%</td><td>封測族群賣壓沉重</td></tr>
+                    <tr><td>聯電 ADR</td><td class="down">-10.15%</td><td>成熟製程承壓</td></tr>
+                    <tr><td>iShares MSCI 台灣 ETF（EWT）</td><td class="down">單日近 -11%、週線約 -23%</td><td>外資撤出台股的直接證據</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 台股焦點 -->
+    <div class="tab" id="tw">
+        <div class="card">
+            <h2>台股上週五（11/20）盤勢</h2>
+            <table>
+                <thead><tr><th>項目</th><th>數值</th><th>說明</th></tr></thead>
+                <tbody>
+                    <tr><td>加權指數</td><td class="num">36,033.29</td><td class="down">-2,393.6 點（-6.23%）</td></tr>
+                    <tr><td>盤中最低</td><td class="num">約 35,000 點</td><td>盤中一度重挫逾 2,688 點</td></tr>
+                    <tr><td>週線表現</td><td class="down">-7,641.83 點（-17.5%）</td><td>單週跌幅創近年之最</td></tr>
+                    <tr><td>台指期夜盤</td><td class="num">35,875</td><td class="down">-2,774 點（-7.18%）</td></tr>
+                    <tr><td>台積電（2330）</td><td class="num">2,000 元上方</td><td>單週重跌約 15%，逼近 2,000 元整數關卡</td></tr>
+                    <tr><td>元大台灣 50（0050）</td><td class="num">84.45 元</td><td class="down">-6.37%，創今年最大單日跌幅</td></tr>
+                </tbody>
+            </table>
+            <p class="note">上週台股先後跌破 4 萬點整數關卡與年線（約 39,368 點），短線均線全數下彎，櫃買指數單日重挫 7.22%，中小型股賣壓遠大於權值股。</p>
+        </div>
+
+        <div class="card">
+            <h2>產業強弱分析</h2>
+            <table>
+                <thead><tr><th>族群</th><th>強弱</th><th>觀察重點</th></tr></thead>
+                <tbody>
+                    <tr><td>金融保險</td><td class="up">相對抗跌</td><td>外資在大盤急跌時逆勢買超兆豐金、永豐金、台新新光金，配息穩定且與 AI 評價修正連動度低，為防禦型資金首選。</td></tr>
+                    <tr><td>電信與高股息</td><td class="up">防禦性承接</td><td>資金避險需求推升，殖利率題材在利率高檔時仍具吸引力。</td></tr>
+                    <tr><td>AI 伺服器與輝達供應鏈</td><td class="down">補跌壓力最大</td><td>輝達單週崩 23%、SEC 調查會計問題，台系供應鏈評價面臨同步下修。</td></tr>
+                    <tr><td>半導體封測與 IC 設計</td><td class="down">弱勢</td><td>日月光投控、聯發科上週五以大跌幅作收，費半單日 -10.73% 將帶來新一輪補跌。</td></tr>
+                    <tr><td>高融資中小型電子</td><td class="down">去槓桿未結束</td><td>櫃買重挫 7.22%、融資餘額單日大減，跌停家數是否收斂是止穩關鍵。</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>今日盤勢研判</h2>
+            <p><strong>情境一（偏空，機率較高）：</strong>承接美股與夜盤跌幅，指數跳空開低後持續探底，若跌破 35,000 點且跌停家數未收斂，恐進一步測試 34,000 點附近。</p>
+            <p><strong>情境二（震盪打底）：</strong>開低後在 35,000～35,500 點間量縮整理，金融與外資逆勢買超股撐盤，尾盤留下下影線，為本週是否止穩的第一個觀察訊號。</p>
+            <p><strong>情境三（跌深反彈）：</strong>需同時滿足「美股電子盤止穩、台積電守住 2,000 元、跌停家數明顯少於上週五」三條件，否則反彈仍屬逃命波。</p>
+            <p class="note">金管會限空措施已於 11/20 上路（前一日跌幅逾 3.5% 個股不得低於前收融券或借券賣出、盤中借券賣出上限降至 1%），有助抑制短線放空，但無法對抗趨勢型賣壓。</p>
+        </div>
+    </div>
+
+    <!-- 資金流向 -->
+    <div class="tab" id="flow">
+        <div class="card">
+            <h2>籌碼與資金動向</h2>
+            <table>
+                <thead><tr><th>項目</th><th>金額／口數</th><th>解讀</th></tr></thead>
+                <tbody>
+                    <tr><td>三大法人合計</td><td class="down">賣超 432.25 億元</td><td>連續多日提款，外資為主要賣方</td></tr>
+                    <tr><td>外資現貨</td><td class="down">賣超 243.12 億元</td><td>連續 4 日調節，賣超前 10 名有 7 檔為主動式與市值型 ETF</td></tr>
+                    <tr><td>自營商（週）</td><td class="down">賣超 340.83 億元</td><td>上週整週大幅降低部位</td></tr>
+                    <tr><td>台積電外資</td><td class="down">連續 6 日賣超</td><td>單日賣超 8,634 張</td></tr>
+                    <tr><td>融資餘額</td><td class="down">單日減少約 236.6 億元</td><td>去槓桿進行中，尚未看到落底訊號</td></tr>
+                    <tr><td>外資台指期淨空單</td><td class="num">約 99,219 口</td><td>避險部位仍高，壓抑指數表現</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>資金流向三大觀察</h2>
+            <ul class="list">
+                <li><strong>ETF 成為提款機：</strong>外資賣超前 10 名有 7 檔為主動式與市值型 ETF，顯示這波賣壓不只是個股調節，而是整體被動資金的系統性撤出，EWT 單週跌約 23% 即為明證。</li>
+                <li><strong>避險資金流向債市與美元：</strong>10 年期美債殖利率自 5.05% 回落至 4.92%，美元指數觸及 103.91 的 19 個月高點，新台幣一度貶破 33 元，外資匯出壓力尚未緩解。</li>
+                <li><strong>金融股成資金避風港：</strong>兆豐金、永豐金、台新新光金獲外資逆勢買超，面板友達亦獲買超 18,829 張，屬大盤急跌下的防守型配置。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 事件日曆 -->
+    <div class="tab" id="calendar">
+        <div class="card">
+            <h2>本週事件與觀察重點</h2>
+            <table>
+                <thead><tr><th>日期</th><th>事件</th><th>影響</th></tr></thead>
+                <tbody>
+                    <tr><td>11/23（一）</td><td>台股開盤補跌壓力測試</td><td>觀察 35,000 點與跌停家數</td></tr>
+                    <tr><td>11/24（二）</td><td>美國 11 月消費者信心指數</td><td>驗證財富效應是否開始反噬消費</td></tr>
+                    <tr><td>11/25（三）</td><td>美國耐久財訂單、Fed 官員談話</td><td>12 月升息 2 碼的風向球</td></tr>
+                    <tr><td>11/26（四）</td><td>美國感恩節休市</td><td>美股休市，台股走自己的路</td></tr>
+                    <tr><td>11/27（五）</td><td>美股黑色星期五半日交易</td><td>成交量偏低，波動容易被放大</td></tr>
+                    <tr><td>持續關注</td><td>輝達 SEC 會計調查進展、Anthropic 蜜月期表現、川普政府是否重啟對伊朗空襲</td><td>三大不確定性是本波反彈的最大變數</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>投資策略與操作清單</h2>
+            <div class="strategy">
+                <p><strong>策略基調：</strong>空頭排列下的反彈皆視為減碼機會。指數已跌破年線且趨勢資金轉空，現金比重宜拉高至五成以上，等待「融資去化趨緩、法人賣壓減輕、跌停家數收斂」三訊號同時出現再談布局。</p>
+                <ul class="checklist">
+                    <li>不追空、不攤平：開盤跳空後的前 30 分鐘不動作，避免情緒交易。</li>
+                    <li>核心持股降至可承受水位，優先減碼高本益比 AI 族群與高融資中小型股。</li>
+                    <li>防禦配置以金融金控、電信、高股息為主，聚焦外資逆勢買超標的。</li>
+                    <li>若台積電守住 2,000 元且指數站回 35,500 點，可小部位試單，嚴設 3% 停損。</li>
+                    <li>若跌破 35,000 點且賣壓擴大，持股水位再降一級，不接刀。</li>
+                    <li>留意新台幣匯率與外資期貨淨空單變化，作為資金回頭的先行指標。</li>
+                </ul>
+                <p class="note">本報告僅供參考，不構成投資建議。投資有風險，請審慎評估自身風險承受度。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+    </div>
+
+</div>
+
+<script>
+function showTab(id, btn) {
+    document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+    document.querySelectorAll('.nav button').forEach(function(b){ b.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+}
+</script>
+</body>
+</html>
