@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 每日財經晨報 — 2026年11月26日</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        font-family: 'Helvetica Neue', 'Microsoft JhengHei', Arial, sans-serif;
+        margin: 0; padding: 0; line-height: 1.7;
+        background: #f4f5fb; color: #2c2c3e;
+    }
+    .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff; padding: 38px 24px 30px; text-align: center;
+    }
+    .hero h1 { margin: 0 0 8px; font-size: 1.9em; letter-spacing: 1px; }
+    .hero .date { font-size: 1.05em; opacity: .93; }
+    .hero .sub { font-size: .9em; opacity: .8; margin-top: 6px; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px 60px; }
+    .tabs {
+        display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+        margin: -22px auto 26px; max-width: 980px; padding: 0 16px;
+    }
+    .tab {
+        background: #fff; border: none; cursor: pointer;
+        padding: 11px 18px; border-radius: 30px; font-size: .95em;
+        color: #5a4b8a; font-weight: bold; box-shadow: 0 3px 10px rgba(102,126,234,.22);
+        transition: .2s;
+    }
+    .tab:hover { transform: translateY(-2px); }
+    .tab.active { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; }
+    .panel { display: none; animation: fade .3s ease; }
+    .panel.active { display: block; }
+    @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .card {
+        background: #fff; border-radius: 14px; padding: 22px 24px;
+        box-shadow: 0 4px 18px rgba(102,126,234,.12); margin-bottom: 20px;
+    }
+    .card h2 { margin: 0 0 14px; font-size: 1.25em; color: #4a3f7a; border-left: 5px solid #764ba2; padding-left: 12px; }
+    .card h3 { font-size: 1.05em; color: #5a4b8a; margin: 18px 0 8px; }
+    .view-card {
+        border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; border-left: 6px solid #ccc;
+    }
+    .view-card.bull { background: #eef9f1; border-color: #2eab6b; }
+    .view-card.bear { background: #fdeeee; border-color: #e05a5a; }
+    .view-card.neutral { background: #eef2fb; border-color: #667eea; }
+    .view-card .tag { font-weight: bold; font-size: .9em; display: inline-block; margin-bottom: 6px; }
+    .view-card.bull .tag { color: #2eab6b; }
+    .view-card.bear .tag { color: #e05a5a; }
+    .view-card.neutral .tag { color: #667eea; }
+    .view-card p { margin: 4px 0 0; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .95em; }
+    th { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; padding: 11px 10px; text-align: left; font-weight: bold; }
+    td { padding: 10px; border-bottom: 1px solid #ececf5; }
+    tr:nth-child(even) td { background: #fafbff; }
+    .up { color: #d64545; font-weight: bold; }
+    .down { color: #2eab6b; font-weight: bold; }
+    .flat { color: #888; font-weight: bold; }
+    .pill { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: .82em; font-weight: bold; }
+    .pill.red { background: #fdeeee; color: #d64545; }
+    .pill.green { background: #eef9f1; color: #2eab6b; }
+    .pill.blue { background: #eef2fb; color: #667eea; }
+    ul.clean { list-style: none; padding: 0; margin: 10px 0; }
+    ul.clean li { padding: 8px 0 8px 26px; position: relative; border-bottom: 1px dashed #ececf5; }
+    ul.clean li:before { content: "▸"; position: absolute; left: 4px; color: #764ba2; font-weight: bold; }
+    .cal-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #ececf5; }
+    .cal-date { flex: 0 0 96px; font-weight: bold; color: #764ba2; }
+    .note { background: #f6f4ff; border-radius: 10px; padding: 14px 16px; font-size: .92em; color: #5a4b8a; margin-top: 14px; }
+    .back-link { display: inline-block; margin-top: 10px; color: #667eea; text-decoration: none; font-weight: bold; }
+    .back-link:hover { text-decoration: underline; }
+    .footer { text-align: center; color: #9a97b5; font-size: .85em; padding: 24px 16px 40px; }
+</style>
+</head>
+<body>
+<div class="hero">
+    <h1>📊 每日財經晨報 Pro</h1>
+    <div class="date">2026 年 11 月 26 日（週四）</div>
+    <div class="sub">台股 11/25 崩跌 1,927 點　美國感恩節前夕震盪收斂</div>
+</div>
+
+<div class="tabs">
+    <button class="tab active" onclick="showTab(event,'t1')">📈 市場觀點</button>
+    <button class="tab" onclick="showTab(event,'t2')">🌍 全球市況</button>
+    <button class="tab" onclick="showTab(event,'t3')">🏭 台股焦點</button>
+    <button class="tab" onclick="showTab(event,'t4')">💰 資金流向</button>
+    <button class="tab" onclick="showTab(event,'t5')">📅 事件日曆</button>
+</div>
+
+<div class="wrap">
+
+<!-- ================= 市場觀點 ================= -->
+<div class="panel active" id="t1">
+    <div class="card">
+        <h2>今日核心觀點</h2>
+
+        <div class="view-card bear">
+            <span class="tag">🔻 利空｜台股單日重挫 4.80%，史上第六大跌點</span>
+            <p>加權指數 11 月 25 日終場收 <strong>38,195.43 點</strong>，下跌 <strong>1,926.92 點（−4.80%）</strong>，成交金額放大至 1 兆 1,881.99 億元。盤中一度狂瀉 3,440.45 點、下探 36,681.90 點，寫下史上第二大盤中跌點，尾盤在權值股承接下才收斂跌幅，上市仍有 1,033 檔收黑。</p>
+        </div>
+
+        <div class="view-card bear">
+            <span class="tag">🔻 利空｜川普 301 關稅陰影籠罩</span>
+            <p>台灣被納入美國製造業「產能過剩」301 調查名單，市場擔憂新一輪關稅（最高 20%）即將公布。政策細節尚未出爐，稅率、產品清單與生效日都待確認，屬高度不確定性事件。</p>
+        </div>
+
+        <div class="view-card bull">
+            <span class="tag">🔼 利多｜美股尾盤逢低買盤進場，道瓊逆勢翻紅</span>
+            <p>美股 11/25 劇烈震盪，道瓊盤中一度暴跌逾 1,100 點、那斯達克 100 指數一度跌入熊市，但逢低買盤進場後收斂。道瓊終場上漲 164.25 點（+0.33%）收 50,182.95 點，創 11 月 18 日以來收盤新高，顯示資金並未全面撤離。</p>
+        </div>
+
+        <div class="view-card neutral">
+            <span class="tag">⚖️ 中性｜AI 伺服器需求並未鬆動</span>
+            <p>戴爾揭露季末有 1,323 億美元的 AI 伺服器待交訂單，並表示基礎設施需求仍超過零組件供應，甚至需審查客戶是否取得土地與電力。AI 資本支出的實質需求仍在，但台灣供應鏈受惠時點取決於供貨份額與交期。</p>
+        </div>
+
+        <div class="view-card neutral">
+            <span class="tag">⚖️ 中性｜短線技術面極度超賣，波動風險仍高</span>
+            <p>加權指數自盤中最低點拉回約 1,514 點，顯示 4 萬點以下的低接意願不弱。惟關稅結果未定，加上感恩節假期交投清淡，量能萎縮下行情容易放大震盪，操作宜控制部位。</p>
+        </div>
+
+        <div class="note">
+            <strong>一句話定調：</strong>這是一場由「政策風險（301 關稅）＋AI 估值修正」雙重觸發的殺盤，而非基本面崩壞；短線破底後的低接買盤是觀察重點，但政策未明前仍不宜重押。
+        </div>
+    </div>
+</div>
+
+<!-- ================= 全球市況 ================= -->
+<div class="panel" id="t2">
+    <div class="card">
+        <h2>美股四大指數（11 月 25 日收盤）</h2>
+        <table>
+            <tr><th>指數／標的</th><th>收盤</th><th>漲跌</th><th>漲跌幅</th></tr>
+            <tr><td>道瓊工業指數</td><td>50,182.95</td><td class="up">+164.25</td><td class="up">+0.33%</td></tr>
+            <tr><td>那斯達克綜合指數</td><td>23,585.80</td><td class="down">−147.73</td><td class="down">−0.62%</td></tr>
+            <tr><td>標普 500 指數</td><td>—</td><td class="down">下跌</td><td class="down">−0.25%</td></tr>
+            <tr><td>費城半導體指數</td><td>—</td><td class="down">下跌</td><td class="down">−0.65%</td></tr>
+            <tr><td>輝達（NVDA）</td><td>149.30</td><td class="down">−3.9%</td><td class="down">−3.9%</td></tr>
+            <tr><td>台積電 ADR（TSM）</td><td>—</td><td class="down">下跌</td><td class="down">約 −2%</td></tr>
+        </table>
+        <p style="font-size:.92em;color:#666;">盤中一度重挫：道瓊跌逾 1,100 點、那斯達克 100 指數曾觸及熊市邊緣，輝達盤中跌幅一度超過 9%，最終跌幅明顯收斂。</p>
+    </div>
+
+    <div class="card">
+        <h2>前一日（11 月 24 日）美股收盤參考</h2>
+        <table>
+            <tr><th>指數</th><th>收盤</th><th>漲跌幅</th></tr>
+            <tr><td>道瓊工業指數</td><td>50,018.70</td><td class="up">+0.85%</td></tr>
+            <tr><td>那斯達克綜合指數</td><td>—</td><td class="down">−1.48%</td></tr>
+            <tr><td>費城半導體指數</td><td>—</td><td class="down">−7.88%</td></tr>
+            <tr><td>輝達（NVDA）</td><td>—</td><td class="down">−5.86%</td></tr>
+            <tr><td>台積電 ADR（TSM）</td><td>—</td><td class="down">−3.96%</td></tr>
+        </table>
+        <p style="font-size:.92em;color:#666;">11/24 費半單日崩跌 7.88%，屬「教科書級」族群式崩跌，直接引爆隔日台股開盤跳空壓力。</p>
+    </div>
+
+    <div class="card">
+        <h2>商品與匯率</h2>
+        <table>
+            <tr><th>項目</th><th>價位</th><th>變動</th><th>幅度</th></tr>
+            <tr><td>黃金近月（GC=F）</td><td>3,554.7 美元</td><td class="up">+96.70</td><td class="up">+2.65%</td></tr>
+            <tr><td>新台幣兌美元</td><td>摜破 33 元</td><td class="down">重貶 1.87 角</td><td class="down">貶值</td></tr>
+            <tr><td>國際油價</td><td>—</td><td class="down">下跌</td><td class="down">供應過剩疑慮</td></tr>
+        </table>
+        <p style="font-size:.92em;color:#666;">黃金因避險與通膨升溫預期強勢上漲逾 2.6%；油價受中東原油供應增加、利比亞最大油田輸油管線恢復運作影響，市場對供應過剩的疑慮升高。</p>
+    </div>
+</div>
+
+<!-- ================= 台股焦點 ================= -->
+<div class="panel" id="t3">
+    <div class="card">
+        <h2>加權指數與盤面結構（11 月 25 日）</h2>
+        <table>
+            <tr><th>項目</th><th>數據</th></tr>
+            <tr><td>加權指數收盤</td><td>38,195.43 點</td></tr>
+            <tr><td>漲跌點數</td><td class="down">−1,926.92 點（史上第六大跌點）</td></tr>
+            <tr><td>漲跌幅</td><td class="down">−4.80%</td></tr>
+            <tr><td>盤中最低</td><td>36,681.90 點（史上第二大盤中跌點）</td></tr>
+            <tr><td>盤中最大跌點</td><td>−3,440.45 點</td></tr>
+            <tr><td>成交金額</td><td>1 兆 1,881.99 億元（放量）</td></tr>
+            <tr><td>下跌家數（上市）</td><td>1,033 檔</td></tr>
+            <tr><td>櫃買產業類股</td><td class="down">21 個類股指數全數下跌</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>權值股與焦點個股</h2>
+        <table>
+            <tr><th>個股</th><th>收盤</th><th>漲跌</th><th>備註</th></tr>
+            <tr><td>台積電（2330）</td><td>2,150 元</td><td class="down">−80 元</td><td>盤中最低 2,020 元，一度大跌 210 元，創史上第二大盤中跌點</td></tr>
+            <tr><td>台達電（2308）</td><td>1,055 元</td><td class="down">−30 元</td><td>盤中跌破千元、最低 989 元後收回千元之上</td></tr>
+            <tr><td>聯電（2303）</td><td>87.40 元</td><td class="down">跌停</td><td>成交約 19.7 萬張，量能居前</td></tr>
+            <tr><td>聯發科（2454）</td><td>—</td><td class="down">跌停</td><td>IC 設計族群同步重挫</td></tr>
+            <tr><td>南亞科（2408）</td><td>—</td><td class="down">跌停</td><td>記憶體族群賣壓沉重</td></tr>
+            <tr><td>華邦電（2344）</td><td>—</td><td class="down">跌停</td><td>記憶體族群同步跌停</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>產業族群強弱</h2>
+        <h3>上市（證交所產業指數）</h3>
+        <ul class="clean">
+            <li>半導體類股指數 <span class="down">−4.71%</span>，為大盤主要拖累來源</li>
+            <li>記憶體、IC 設計族群全面跌停，賣壓最為集中</li>
+            <li>成交量前五名多由 ETF 占據，顯示資金轉向指數型、防禦型標的</li>
+        </ul>
+        <h3>櫃買（OTC）</h3>
+        <ul class="clean">
+            <li>電子通路 <span class="down">−7.68%</span>（跌勢最重）</li>
+            <li>電腦及週邊設備 <span class="down">−7.23%</span></li>
+            <li>半導體 <span class="down">−7.11%</span></li>
+        </ul>
+        <div class="note">
+            <strong>結構解讀：</strong>跌幅集中在電子與半導體，且中小型股（櫃買）跌得比權值股更重，屬於典型「風險趨避」式殺盤。前一日（11/24）曾有 335 檔上市股票漲停，慶祝行情僅維持一天即遭全面回吐。
+        </div>
+    </div>
+</div>
+
+<!-- ================= 資金流向 ================= -->
+<div class="panel" id="t4">
+    <div class="card">
+        <h2>資金與籌碼觀察</h2>
+        <table>
+            <tr><th>指標</th><th>方向</th><th>說明</th></tr>
+            <tr><td>大盤成交金額</td><td class="up">放大至 1.19 兆元</td><td>殺盤伴隨爆量，恐慌性賣壓與低接買盤同時出籠</td></tr>
+            <tr><td>新台幣匯率</td><td class="down">重貶 1.87 角、破 33 元</td><td>股匯雙殺，外資匯出壓力明顯</td></tr>
+            <tr><td>ETF 成交量</td><td class="up">占成交量前五名</td><td>資金由個股轉向指數型商品避險</td></tr>
+            <tr><td>官股／國家隊</td><td class="up">尾盤進場拉抬權值股</td><td>指數自低點拉回約 1,514 點，政策護盤跡象浮現</td></tr>
+            <tr><td>黃金</td><td class="up">+2.65%</td><td>避險資金明顯流向貴金屬</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>資金三方向解讀</h2>
+        <ul class="clean">
+            <li><strong>撤出高評價 AI 與半導體：</strong>費半 −7.88% 引爆的族群性賣壓，直接由外資與散戶同步砍出，記憶體、IC 設計為重災區。</li>
+            <li><strong>轉進避險與指數型：</strong>黃金大漲 2.65%、ETF 占據成交量前五，屬於典型的「先降風險、再談選股」。</li>
+            <li><strong>低接買盤已現雛形：</strong>尾盤權值股承接、指數自低點大幅收斂，戴爾 AI 伺服器 1,323 億美元待交訂單也提供基本面支撐論述。</li>
+        </ul>
+        <div class="note">
+            <strong>觀察重點：</strong>若後續幾個交易日成交金額能維持量縮不再破底，且新台幣止貶，代表恐慌情緒已宣洩完畢；反之若關稅細節出爐不利，可能出現第二波賣壓。
+        </div>
+    </div>
+</div>
+
+<!-- ================= 事件日曆 ================= -->
+<div class="panel" id="t5">
+    <div class="card">
+        <h2>本週與近期關鍵事件</h2>
+        <div class="cal-item">
+            <div class="cal-date">11/26（四）</div>
+            <div><strong>美國感恩節休市</strong><br>美股全日休市，交投清淡，市場焦點轉向假期後的量能表態。</div>
+        </div>
+        <div class="cal-item">
+            <div class="cal-date">11/27（五）</div>
+            <div><strong>美股半日交易</strong><br>提前收盤，流動性偏低，行情容易放大波動。</div>
+        </div>
+        <div class="cal-item">
+            <div class="cal-date">本週內</div>
+            <div><strong>美國核心 PCE 通膨數據</strong><br>聯準會高度關注的通膨指標，結果將左右 12 月降息路徑預期；本次市場已出現「通膨未降溫」的擔憂。</div>
+        </div>
+        <div class="cal-item">
+            <div class="cal-date">待公布</div>
+            <div><strong>美國 301 調查結果（台灣）</strong><br>台灣列於製造業產能過剩調查名單，後續須留意正式稅率、產品清單與生效日。此為目前台股最大不確定性來源。</div>
+        </div>
+        <div class="cal-item">
+            <div class="cal-date">持續追蹤</div>
+            <div><strong>AI 伺服器供應鏈訂單能見度</strong><br>戴爾 1,323 億美元待交訂單、基礎設施需求超過零組件供應，觀察台系供應鏈供貨份額與交期變化。</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>投資策略與操作清單</h2>
+        <h3>策略主軸：降低部位、等待政策明朗</h3>
+        <ul class="clean">
+            <li><strong>不追空、不急接：</strong>單日 −4.80% 已屬超賣，但 301 關稅結果未定，破底後容易出現反覆測試。</li>
+            <li><strong>分批佈局、控制單筆比重：</strong>若指數再次回測 36,700 點附近且量縮止穩，可採 1/3、1/3、1/3 分批方式佈局權值龍頭。</li>
+            <li><strong>優先聚焦基本面明確者：</strong>先進製程供應鏈、高速運算伺服器概念股為法人點名的長線主軸，回檔即為觀察名單。</li>
+            <li><strong>避開族群性弱勢股：</strong>記憶體、IC 設計短線籌碼鬆動，跌停打開後仍需時間整理，暫不摸底。</li>
+            <li><strong>保留現金與避險部位：</strong>黃金強勢、ETF 量能放大，可維持部分防禦性配置以對沖政策風險。</li>
+        </ul>
+        <h3>操作清單</h3>
+        <table>
+            <tr><th>優先順序</th><th>動作</th><th>觀察條件</th></tr>
+            <tr><td><span class="pill green">高</span></td><td>檢視持股比重，降低高波動電子／半導體曝險</td><td>指數未站回 4 萬點前維持防禦</td></tr>
+            <tr><td><span class="pill blue">中</span></td><td>建立權值龍頭觀察名單，等待量縮止穩訊號</td><td>回測 36,700 點附近且成交量明顯萎縮</td></tr>
+            <tr><td><span class="pill blue">中</span></td><td>追蹤新台幣匯率與外資買賣超</td><td>新台幣止貶回穩為資金回流前兆</td></tr>
+            <tr><td><span class="pill red">低</span></td><td>暫不介入記憶體、IC 設計等跌停族群</td><td>待籌碼沉澱、量能回歸正常</td></tr>
+        </table>
+        <div class="note">
+            <strong>風險提醒：</strong>本報告為市場資訊整理與觀點分享，不構成投資建議。市場受政策與國際情勢影響劇烈，投資人應自行評估風險承受度並審慎決策。
+        </div>
+    </div>
+
+    <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+</div>
+
+</div>
+
+<div class="footer">
+    📊 每日財經晨報 Pro ｜ 2026 年 11 月 26 日 ｜ 資料來源：公開市場資訊整理<br>
+    本報告僅供參考，不構成任何投資建議。
+</div>
+
+<script>
+function showTab(evt, id) {
+    var panels = document.getElementsByClassName('panel');
+    for (var i = 0; i < panels.length; i++) panels[i].classList.remove('active');
+    var tabs = document.getElementsByClassName('tab');
+    for (var j = 0; j < tabs.length; j++) tabs[j].classList.remove('active');
+    document.getElementById(id).classList.add('active');
+    evt.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>
