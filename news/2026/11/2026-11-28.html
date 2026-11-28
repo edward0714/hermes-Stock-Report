@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>財經晨報 Pro — 2026-11-28（台股週線飆 9.09%、費半強彈 4.69%）</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e8f5 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ===== 頭部 ===== */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 400px; height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .header-content { position: relative; z-index: 1; }
+        .header h1 { font-size: 3em; margin-bottom: 10px; font-weight: 700; letter-spacing: 2px; }
+        .header-subtitle { font-size: 1.2em; opacity: 0.95; margin-bottom: 20px; }
+        .header-date {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            padding: 10px 20px;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { background: #667eea; color: white; }
+
+        /* ===== 導航 ===== */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        /* ===== 主要內容區塊 ===== */
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px; height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        /* ===== 觀點卡片 ===== */
+        .viewpoint-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .viewpoint-card {
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid;
+            transition: all 0.3s;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+        }
+
+        .viewpoint-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); }
+        .viewpoint-card.bullish { border-left-color: #28a745; background: linear-gradient(to right, rgba(40, 167, 69, 0.05) 0%, white 100%); }
+        .viewpoint-card.bearish { border-left-color: #dc3545; background: linear-gradient(to right, rgba(220, 53, 69, 0.05) 0%, white 100%); }
+        .viewpoint-card.neutral { border-left-color: #ffc107; background: linear-gradient(to right, rgba(255, 193, 7, 0.05) 0%, white 100%); }
+
+        .viewpoint-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .viewpoint-badge { display: inline-block; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.85em; color: white; }
+        .viewpoint-badge.bullish { background: #28a745; }
+        .viewpoint-badge.bearish { background: #dc3545; }
+        .viewpoint-badge.neutral { background: #ffc107; color: #333; }
+        .viewpoint-title { font-size: 1.2em; font-weight: 600; color: #333; margin-bottom: 15px; }
+
+        .viewpoint-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .viewpoint-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .viewpoint-item-label { font-weight: 600; color: #667eea; font-size: 0.9em; letter-spacing: 1px; margin-bottom: 5px; }
+        .viewpoint-item-content { color: #555; line-height: 1.8; }
+
+        .highlight-tag {
+            display: inline-block;
+            background: #f0f7ff;
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+            margin-right: 5px;
+            margin-top: 5px;
+            font-size: 0.85em;
+        }
+
+        /* ===== 市場指標表 ===== */
+        .market-indicators { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .market-indicators thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .market-indicators th { padding: 16px; text-align: left; font-weight: 600; border: none; }
+        .market-indicators tr { border-bottom: 1px solid #e0e0e0; }
+        .market-indicators tbody tr:hover { background: #f9f9f9; }
+        .market-indicators td { padding: 16px; vertical-align: middle; }
+        .market-indicators .category { font-weight: 600; color: #667eea; background: #f5f7fa; }
+        .market-indicators .indicator-name { font-weight: 500; color: #333; }
+        .market-indicators .number { font-weight: 600; color: #667eea; font-family: 'Courier New', monospace; font-size: 1.1em; }
+        .market-indicators .up { color: #28a745; font-weight: 700; }
+        .market-indicators .down { color: #dc3545; font-weight: 700; }
+        .market-indicators .neutral { color: #999; font-weight: 700; }
+
+        /* ===== 產業焦點表 ===== */
+        .industry-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .industry-table thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .industry-table th { padding: 18px; text-align: center; font-weight: 600; border: none; }
+        .industry-table th:first-child { text-align: left; }
+        .industry-table tr { border-bottom: 1px solid #e0e0e0; }
+        .industry-table tbody tr:hover { background: #f9f9f9; }
+        .industry-table td { padding: 16px; text-align: center; }
+        .industry-table td:first-child { text-align: left; font-weight: 600; color: #333; }
+
+        .direction-badge { display: inline-block; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9em; color: white; }
+        .direction-up { background: #28a745; }
+        .direction-down { background: #dc3545; }
+        .direction-neutral { background: #ffc107; color: #333; }
+
+        .stock-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .stock-tag {
+            display: inline-block;
+            background: #f0f7ff;
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.85em;
+            border: 1px solid #667eea;
+        }
+
+        /* ===== 投資策略卡 ===== */
+        .strategy-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        .strategy-card h3 { font-size: 1.5em; margin-bottom: 20px; }
+        .rating { font-size: 2em; font-weight: 700; margin: 20px 0; }
+        .action-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .action-item { background: rgba(255, 255, 255, 0.15); padding: 15px; border-radius: 8px; border-left: 4px solid; transition: all 0.3s; }
+        .action-item:hover { background: rgba(255, 255, 255, 0.25); transform: translateX(5px); }
+        .action-item.add { border-left-color: #28a745; }
+        .action-item.hold { border-left-color: #ffc107; }
+        .action-item.reduce { border-left-color: #dc3545; }
+        .action-item.avoid { border-left-color: #999; }
+        .action-icon { font-size: 1.5em; margin-bottom: 10px; }
+        .action-label { font-weight: 600; margin-bottom: 5px; }
+        .action-stocks { font-size: 0.9em; opacity: 0.9; }
+
+        /* ===== 事件日曆 ===== */
+        .event-timeline { margin-top: 20px; position: relative; padding-left: 30px; }
+        .event-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        .event-item { margin-bottom: 30px; position: relative; padding-left: 30px; }
+        .event-item::before {
+            content: '';
+            position: absolute;
+            left: -16.5px; top: 5px;
+            width: 12px; height: 12px;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+        }
+        .event-date { font-weight: 700; color: #667eea; font-size: 1.1em; margin-bottom: 5px; }
+        .event-title { font-weight: 600; color: #333; margin-bottom: 8px; }
+        .event-importance { display: inline-block; font-size: 0.85em; color: #ffc107; font-weight: 600; }
+        .event-description { color: #666; font-size: 0.95em; margin-top: 8px; line-height: 1.6; }
+
+        /* ===== 頁腳 ===== */
+        .footer {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .judgement-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f9fbff;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 40px 20px; }
+            .header h1 { font-size: 2em; }
+            .section { padding: 20px; }
+            .viewpoint-grid { grid-template-columns: 1fr; }
+            .action-list { grid-template-columns: 1fr; }
+            .market-indicators th, .market-indicators td { padding: 12px 8px; font-size: 0.9em; }
+            .industry-table th, .industry-table td { padding: 12px 8px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back-link" href="../../index.html">← 回到歷史報告列表</a>
+
+        <div class="header">
+            <div class="header-content">
+                <h1>財經晨報 Pro</h1>
+                <p class="header-subtitle">美股 AI 股絕地反攻、費半單日暴漲 4.69%；台股週線狂飆 9.09% 重返三萬九</p>
+                <span class="header-date">2026 年 11 月 28 日（星期六）・台灣時間</span>
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <a class="nav-tab active" href="#">📈 市場觀點</a>
+            <a class="nav-tab" href="#">🌍 全球市況</a>
+            <a class="nav-tab" href="#">🏭 台股焦點</a>
+            <a class="nav-tab" href="#">💰 資金流向</a>
+            <a class="nav-tab" href="#">📅 事件日曆</a>
+        </div>
+
+        <!-- ===== 分頁一：市場觀點 ===== -->
+        <div class="section">
+            <h2>📈 今日市場觀點</h2>
+            <p style="color:#666; margin-bottom:10px;">本週市場可濃縮為一句話：<strong>AI 族群在連日修正後發動暴力反彈，台股單週狂漲 9.09%，但外資空單同步創下歷史新高——多空雙方都在加碼，下週才是真正的攤牌時刻。</strong></p>
+
+            <div class="viewpoint-grid">
+                <div class="viewpoint-card bullish">
+                    <div class="viewpoint-header">
+                        <span class="viewpoint-badge bullish">利多</span>
+                        <div class="viewpoint-title">AI 股吹響反攻號角，費半單日暴漲 4.69%</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">盤勢事實</div>
+                        <div class="viewpoint-item-content">美股 11/27 感恩節後提前收盤全面收紅：道瓊上漲 1.18%、標普 500 上漲 1.60%、那斯達克上漲 2.31%，費城半導體指數單日強彈 4.69%，道瓊更寫下逾四年最佳單週表現。台積電 ADR 同步大漲 3.21%。</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">解讀</div>
+                        <div class="viewpoint-item-content">連續多日的 AI 泡沫疑慮與美債殖利率壓力，在感恩節假期後被一輪「錯殺回補」買盤全面翻轉。半導體指數單日近 5% 的漲幅，代表資金並非撤離 AI 主題，而是等待更好的價位重新進場。</div>
+                    </div>
+                </div>
+
+                <div class="viewpoint-card bullish">
+                    <div class="viewpoint-header">
+                        <span class="viewpoint-badge bullish">利多</span>
+                        <div class="viewpoint-title">台股週線大漲 9.09%，站回 39,308 點</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">盤勢事實</div>
+                        <div class="viewpoint-item-content">加權指數 11/27 終場上漲 156.27 點（+0.40%），收在 39,308.08 點，成交金額 6,661 億元。盤中一度跌破 39,000 點至 38,890.53 點，尾盤在台積電最後一盤逾萬張買盤拉抬下翻紅，台積電收 2,180 元、上漲 35 元（+1.63%），單獨貢獻指數約 278 點。</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">解讀</div>
+                        <div class="viewpoint-item-content">本週台股經歷「崩跌—暴力反彈」的極端洗盤，週線漲幅 9.09%，顯示政策護盤與內資買盤具備承接力。權王尾盤的萬張買單不只是價格支撐，更是宣示性訊號。</div>
+                    </div>
+                </div>
+
+                <div class="viewpoint-card bearish">
+                    <div class="viewpoint-header">
+                        <span class="viewpoint-badge bearish">利空</span>
+                        <div class="viewpoint-title">外資連 10 日賣超、空單 10.7 萬口創歷史新高</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">籌碼事實</div>
+                        <div class="viewpoint-item-content">外資 11/27 再賣超 296 億元，已連續 10 個交易日站在賣方，本週合計自台股提款 2,916 億元；台指期未平倉空單同步增加至 10.7 萬口，刷新歷史新高紀錄。三大法人合計賣超 213 億元。</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">解讀</div>
+                        <div class="viewpoint-item-content">指數漲、外資賣、空單增，是典型的「價漲量縮＋籌碼惡化」背離結構。空單創高意味著外資押注反彈只是逃命波，一旦下週美股回檔或關稅利空落地，回吐壓力會相當劇烈。這是目前盤面最大的風險來源。</div>
+                    </div>
+                </div>
+
+                <div class="viewpoint-card bearish">
+                    <div class="viewpoint-header">
+                        <span class="viewpoint-badge bearish">利空</span>
+                        <div class="viewpoint-title">油價逼近百美元，通膨與升息壓力回頭</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">商品事實</div>
+                        <div class="viewpoint-item-content">中東油輪據報觸雷、供應中斷風險升高，布蘭特原油上漲 1.17% 至每桶 91.69 美元，WTI 上漲 0.9% 至 84.92 美元，國際油價持續朝 100 美元關卡逼近。日本升息壓力同步增加。</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">解讀</div>
+                        <div class="viewpoint-item-content">油價是這波多頭最容易被忽略的變數。能源價格上行會直接推升通膨預期、壓縮央行降息空間，這正是先前美債殖利率飆升、股市承壓的根本原因。若布蘭特突破 95 美元，AI 股的反彈很可能再被打斷。</div>
+                    </div>
+                </div>
+
+                <div class="viewpoint-card neutral">
+                    <div class="viewpoint-header">
+                        <span class="viewpoint-badge neutral">中性</span>
+                        <div class="viewpoint-title">市場廣度不足，台積電一枝獨秀</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">結構事實</div>
+                        <div class="viewpoint-item-content">加權指數收紅，但上市下跌家數仍多於上漲家數；櫃買指數逆勢下跌 1.40%，收 285.7 點。若扣除台積電貢獻的 278 點，指數實際約下跌 121 點。</div>
+                    </div>
+                    <div class="viewpoint-item">
+                        <div class="viewpoint-item-label">解讀</div>
+                        <div class="viewpoint-item-content">這是「指數好看、個股難做」的盤。資金高度集中於權值與 AI 供應鏈，中小型股反而成為提款機。操作上應避免追逐櫃買熱門題材，聚焦有實質獲利支撐的權值與上游材料股。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="judgement-box">
+                <strong>操作結論：</strong>指數重返三萬九、費半強彈確實改善了市場氣氛，但外資空單創高與油價逼近百美元兩項變數尚未解除。建議維持<strong>「審慎偏多、控制持股比重」</strong>，以權值龍頭為核心、不追高小型題材股，並嚴守停損紀律。
+            </div>
+        </div>
+
+        <!-- ===== 分頁二：全球市況 ===== -->
+        <div class="section">
+            <h2>🌍 全球市場總覽</h2>
+            <table class="market-indicators">
+                <thead>
+                    <tr><th>類別</th><th>指標</th><th>收盤</th><th>漲跌</th><th>備註</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="category" rowspan="4">美股</td><td class="indicator-name">道瓊工業指數</td><td class="number">—</td><td class="up">+1.18%</td><td>創逾四年最佳單週表現</td></tr>
+                    <tr><td class="indicator-name">標普 500 指數</td><td class="number">—</td><td class="up">+1.60%</td><td>四大指數全面收紅</td></tr>
+                    <tr><td class="indicator-name">那斯達克指數</td><td class="number">—</td><td class="up">+2.31%</td><td>科技股領軍反攻</td></tr>
+                    <tr><td class="indicator-name">費城半導體指數</td><td class="number">—</td><td class="up">+4.69%</td><td>單日最強、AI 股全面回神</td></tr>
+                    <tr><td class="category">半導體</td><td class="indicator-name">台積電 ADR</td><td class="number">—</td><td class="up">+3.21%</td><td>激勵台股週一開盤氣氛</td></tr>
+                    <tr><td class="category" rowspan="2">亞股</td><td class="indicator-name">恒生指數</td><td class="number">—</td><td class="up">+1.19%</td><td>恒生科技指數 +1.16%</td></tr>
+                    <tr><td class="indicator-name">台股加權指數</td><td class="number">39,308.08</td><td class="up">+0.40%</td><td>週線大漲 9.09%</td></tr>
+                    <tr><td class="category" rowspan="3">歐股</td><td class="indicator-name">德國 DAX 指數</td><td class="number">—</td><td class="up">+2.08%</td><td>歐股主要指數全線上行</td></tr>
+                    <tr><td class="indicator-name">英國富時 100 指數</td><td class="number">—</td><td class="up">+1.75%</td><td>能源股推升</td></tr>
+                    <tr><td class="indicator-name">歐洲 STOXX 50</td><td class="number">—</td><td class="up">+2.04%</td><td>風險偏好回升</td></tr>
+                    <tr><td class="category" rowspan="4">商品</td><td class="indicator-name">布蘭特原油</td><td class="number">91.69 美元</td><td class="up">+1.17%</td><td>中東供應中斷風險升溫</td></tr>
+                    <tr><td class="indicator-name">WTI 原油</td><td class="number">84.92 美元</td><td class="up">+0.90%</td><td>盤中一度重回 86 美元</td></tr>
+                    <tr><td class="indicator-name">現貨黃金</td><td class="number">3,567.39 美元</td><td class="down">-0.26%</td><td>避險需求降溫、反彈無力</td></tr>
+                    <tr><td class="indicator-name">現貨白銀</td><td class="number">41.52 美元</td><td class="up">+0.28%</td><td>小幅收高</td></tr>
+                    <tr><td class="category" rowspan="3">匯率與債市</td><td class="indicator-name">美元指數</td><td class="number">103</td><td class="neutral">微幅波動</td><td>強勢格局未變</td></tr>
+                    <tr><td class="indicator-name">歐元兌美元</td><td class="number">1.0940</td><td class="down">走低</td><td>受美元強勢壓制</td></tr>
+                    <tr><td class="indicator-name">美國公債殖利率</td><td class="number">—</td><td class="down">殖利率攀升</td><td>感恩節後恢復交易、避險需求降溫</td></tr>
+                </tbody>
+            </table>
+
+            <div class="judgement-box">
+                <strong>全球觀察：</strong>美股在感恩節後提前收盤，成交量偏薄使漲幅容易被放大，解讀時須保留一分彈性；但費半單日 4.69%、道瓊逾四年最佳單週的組合，仍反映資金對 AI 主線的信仰未滅。真正需要追蹤的是油價與美債殖利率這組「通膨雙箭頭」是否再度同步上行。
+            </div>
+        </div>
+
+        <!-- ===== 分頁三：台股焦點 ===== -->
+        <div class="section">
+            <h2>🏭 台股焦點與產業分析</h2>
+
+            <table class="market-indicators">
+                <thead>
+                    <tr><th>項目</th><th>數值</th><th>變動</th><th>說明</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="indicator-name">加權指數收盤</td><td class="number">39,308.08</td><td class="up">+156.27（+0.40%）</td><td>尾盤台積電拉抬翻紅</td></tr>
+                    <tr><td class="indicator-name">盤中區間</td><td class="number">38,890.53 – 39,495.41</td><td class="neutral">開 39,168.57</td><td>開高震盪、一度失守三萬九</td></tr>
+                    <tr><td class="indicator-name">成交金額</td><td class="number">6,661 億元</td><td class="down">量能收縮</td><td>觀望氣氛濃厚</td></tr>
+                    <tr><td class="indicator-name">週線表現</td><td class="number">+9.09%</td><td class="up">強勁反彈</td><td>上週崩跌後全面收復</td></tr>
+                    <tr><td class="indicator-name">櫃買指數</td><td class="number">285.7</td><td class="down">-1.40%</td><td>中小型股續弱、與大盤背離</td></tr>
+                    <tr><td class="indicator-name">台積電（2330）</td><td class="number">2,180 元</td><td class="up">+35 元（+1.63%）</td><td>尾盤逾萬張買盤、貢獻指數約 278 點</td></tr>
+                </tbody>
+            </table>
+
+            <table class="industry-table" style="margin-top:35px;">
+                <thead>
+                    <tr><th>產業族群</th><th>方向</th><th>觀察重點</th><th>焦點個股</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>晶圓代工與先進封裝</td>
+                        <td><span class="direction-badge direction-up">偏多</span></td>
+                        <td>台積電 ADR 大漲 3.21%、尾盤萬張買單護盤，AI 需求能見度仍高，為本波反彈核心</td>
+                        <td><div class="stock-tags"><span class="stock-tag">台積電</span><span class="stock-tag">日月光</span></div></td>
+                    </tr>
+                    <tr>
+                        <td>半導體耗材與設備</td>
+                        <td><span class="direction-badge direction-up">偏多</span></td>
+                        <td>投本比鎖定中砂，先進製程擴產帶動耗材需求，跟隨權值股同步轉強</td>
+                        <td><div class="stock-tags"><span class="stock-tag">中砂</span><span class="stock-tag">家登</span></div></td>
+                    </tr>
+                    <tr>
+                        <td>PCB 與伺服器板</td>
+                        <td><span class="direction-badge direction-up">偏多</span></td>
+                        <td>金像電列投本比焦點，AI 伺服器高階板需求延續，但須留意漲多後的震盪風險</td>
+                        <td><div class="stock-tags"><span class="stock-tag">金像電</span><span class="stock-tag">台光電</span></div></td>
+                    </tr>
+                    <tr>
+                        <td>電信與內需防禦</td>
+                        <td><span class="direction-badge direction-neutral">中性偏多</span></td>
+                        <td>中華電列入投本比名單，資金在震盪盤中尋求高股息避風港</td>
+                        <td><div class="stock-tags"><span class="stock-tag">中華電</span><span class="stock-tag">台灣大</span></div></td>
+                    </tr>
+                    <tr>
+                        <td>能源與塑化</td>
+                        <td><span class="direction-badge direction-up">偏多</span></td>
+                        <td>油價逼近百美元、上游原料報價走揚，短線具備題材，但下游客層成本壓力升溫</td>
+                        <td><div class="stock-tags"><span class="stock-tag">台塑化</span><span class="stock-tag">中鋼</span></div></td>
+                    </tr>
+                    <tr>
+                        <td>櫃買中小型股</td>
+                        <td><span class="direction-badge direction-down">偏空</span></td>
+                        <td>櫃買指數 -1.40% 逆勢下跌，量能萎縮、資金遭權值股磁吸，短線不宜追高</td>
+                        <td><div class="stock-tags"><span class="stock-tag">留意流動性風險</span></div></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="judgement-box">
+                <strong>台股結論：</strong>11/27 的紅盤是「品質不佳的上漲」——指數靠台積電一支撐起，扣除權王后實質下跌約 121 點，且上市下跌家數多於上漲家數。下週台股將同時面對「外資空單創高」與「美股 AI 股強彈」兩股相反力量，預期波動仍大，選股重於選市。
+            </div>
+        </div>
+
+        <!-- ===== 分頁四：資金流向 ===== -->
+        <div class="section">
+            <h2>💰 資金流向與籌碼分析</h2>
+
+            <table class="market-indicators">
+                <thead>
+                    <tr><th>資金項目</th><th>金額／數據</th><th>方向</th><th>市場意義</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="indicator-name">外資賣超（11/27）</td><td class="number">296 億元</td><td class="down">連 10 日賣超</td><td>賣壓雖較前幾日收斂，但方向未變</td></tr>
+                    <tr><td class="indicator-name">三大法人合計</td><td class="number">賣超 213 億元</td><td class="down">同步站在賣方</td><td>內資投信、自營商支撐力道有限</td></tr>
+                    <tr><td class="indicator-name">本週外資提款</td><td class="number">2,916 億元</td><td class="down">單週大量流出</td><td>指數大漲但外資反向調節，典型背離</td></tr>
+                    <tr><td class="indicator-name">台指期未平倉空單</td><td class="number">10.7 萬口</td><td class="down">創歷史新高</td><td>外資押注反彈為逃命波，避險需求極高</td></tr>
+                    <tr><td class="indicator-name">成交金額</td><td class="number">6,661 億元</td><td class="down">量能收縮</td><td>價漲量縮，追價意願不足</td></tr>
+                    <tr><td class="indicator-name">新台幣匯率</td><td class="number">升回 33 元以內</td><td class="up">小幅走升</td><td>外資賣超下仍升值，出口商拋匯為主力</td></tr>
+                    <tr><td class="indicator-name">國家隊護盤</td><td class="number">連續 10 日</td><td class="neutral">持續進行</td><td>提供下檔支撐，但難以獨力推升指數</td></tr>
+                </tbody>
+            </table>
+
+            <div class="judgement-box">
+                <strong>籌碼解讀：</strong>本週最值得警惕的訊號是「指數漲 9.09%、外資賣 2,916 億、空單創新高」三者同時發生。歷史上這種組合通常意味著反彈由內資與護盤資金主導，外資則在現貨調節、期貨加空進行雙邊避險。若下週現貨賣壓延續且空單未回補，指數上行空間將被明顯壓縮；反之若美股續強迫使外資回補空單，則有機會出現軋空行情。兩種情境都需要預設應對方案。
+            </div>
+        </div>
+
+        <!-- ===== 分頁五：事件日曆 ===== -->
+        <div class="section">
+            <h2>📅 事件日曆與下週觀察重點</h2>
+
+            <div class="strategy-card">
+                <h3>🎯 本週投資策略評等</h3>
+                <div class="rating">審慎偏多 ★★★☆☆</div>
+                <p style="opacity:0.95;">指數重返三萬九、AI 主線回神，方向偏多；但外資空單創高、油價逼近百美元，須以防禦性配置控制下檔風險。</p>
+                <div class="action-list">
+                    <div class="action-item add">
+                        <div class="action-icon">✅</div>
+                        <div class="action-label">逢回布局</div>
+                        <div class="action-stocks">台積電、半導體耗材（中砂）等具實質獲利支撐的權值與上游供應鏈</div>
+                    </div>
+                    <div class="action-item hold">
+                        <div class="action-icon">⏸️</div>
+                        <div class="action-label">續抱觀望</div>
+                        <div class="action-stocks">高股息電信與內需防禦股（中華電），作為震盪盤的資金避風港</div>
+                    </div>
+                    <div class="action-item reduce">
+                        <div class="action-icon">⚠️</div>
+                        <div class="action-label">減碼因應</div>
+                        <div class="action-stocks">漲多且量能萎縮的櫃買中小型股，避免流動性風險</div>
+                    </div>
+                    <div class="action-item avoid">
+                        <div class="action-icon">🚫</div>
+                        <div class="action-label">避免追高</div>
+                        <div class="action-stocks">純題材、無營收支撐個股；並嚴禁在高檔放大槓桿</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-timeline">
+                <div class="event-item">
+                    <div class="event-date">11/28（六）</div>
+                    <div class="event-title">台灣九合一大選投票日</div>
+                    <div class="event-importance">★★★ 高度關注</div>
+                    <div class="event-description">選舉結果將影響後續政策方向與內資信心，週一台股開盤的反應是短期最重要的風向球。</div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">11/29（日）</div>
+                    <div class="event-title">OPEC+ 部長級會議</div>
+                    <div class="event-importance">★★★★ 關鍵事件</div>
+                    <div class="event-description">市場預期可能延續現行減產目標至 2027 年第一季。若決議延長，油價獲得下檔支撐；若意外增產，將緩解通膨壓力但衝擊能源股。</div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">11/30（一）</div>
+                    <div class="event-title">中國 11 月官方製造業 PMI</div>
+                    <div class="event-importance">★★★ 中度關注</div>
+                    <div class="event-description">攸關原物料與傳產需求展望，也是觀察亞股風險偏好的先行指標。</div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">12/1（二）</div>
+                    <div class="event-title">美國 11 月 ISM 製造業指數、「網購星期一」消費數據</div>
+                    <div class="event-importance">★★★★ 關鍵事件</div>
+                    <div class="event-description">感恩節假期後的消費力道是判斷美國經濟韌性的第一手證據，也是 AI 伺服器與消費電子供應鏈的重要參考。</div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">12/4（五）</div>
+                    <div class="event-title">美國 11 月非農就業報告</div>
+                    <div class="event-importance">★★★★★ 最高關注</div>
+                    <div class="event-description">就業數據直接左右聯準會降息路徑與美債殖利率走向，是本波 AI 股反彈能否延續的關鍵變數。</div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">持續追蹤</div>
+                    <div class="event-title">美國對等關稅名單與台灣稅率公布</div>
+                    <div class="event-importance">★★★★★ 最高關注</div>
+                    <div class="event-description">美方已公布含日韓在內 14 國最新關稅，台灣稅率尚未明朗。此為台股最大的政策不確定性，須隨時留意官方公告。</div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">12/10 前</div>
+                    <div class="event-title">上市櫃 11 月營收公布</div>
+                    <div class="event-importance">★★★ 中度關注</div>
+                    <div class="event-description">為年末作帳行情與明年展望定調，AI 供應鏈的營收動能將是驗證股價的試金石。</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>財經晨報 Pro</strong>｜2026 年 11 月 28 日（星期六）</p>
+            <p style="margin-top:10px;">本報告基於公開新聞與市場資訊整理，僅供投資參考，不構成任何買賣建議。投資有風險，請自行審慎評估並自負盈虧。</p>
+            <p style="margin-top:10px;"><a href="../../index.html" style="color:#667eea;">← 回到歷史報告列表</a></p>
+        </div>
+    </div>    <script>
+        // 導航標籤點擊效果 - 切換內容區塊
+        document.querySelectorAll('.nav-tab').forEach((tab, index) => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                this.classList.add('active');
+
+                const sections = document.querySelectorAll('.section');
+                if (sections[index]) {
+                    sections[index].style.display = 'block';
+                }
+            });
+        });
+
+        // 初始化：只顯示第一個 section
+        const initialSections = document.querySelectorAll('.section');
+        initialSections.forEach((section, i) => {
+            section.style.display = (i === 0) ? 'block' : 'none';
+        });
+    </script>
+</body>
